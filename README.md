@@ -27,23 +27,21 @@ This course is designed for students who have a degree in something other than C
 # Logistical Information
 
 ## Course Contacts
-Instructor for this course is [**Anjali Silva**](https://anjalisilva.github.io/) (she/her).
+-   Instructor for this course is [**Anjali Silva**](https://anjalisilva.github.io/) (she/her).
 For emails to the instructor, use a.silva@utoronto.ca. Must use the subject line DSI-IntroR. E.g., DSI-IntroR: Inquiry about Lecture I.
 
-Teaching Assistant for this is **Tia Harrison** (she/her). 
+-   Teaching Assistant for this is **Tia Harrison** (she/her). 
 For emails to the teaching assistant, use tia.harrison@mail.utoronto.ca.
 
 ## Delivery Instructions
-The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Students must have internet connection and a computer with a microphone and required sofware implemented in order to participate. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. Keeping your video on is optional, however, if you choose to leave it on, be mindful of what your peers can see. 
-
-Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. Folder Structure is as follows:
+The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Students must have internet connection and a computer with a microphone and required sofware implemented in order to participate. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. Keeping your video on is optional, however, if you choose to leave it on, be mindful of what your peers can see. Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. Folder Structure is as follows:
    * Slides: This folder contains all slides.
 
-## Required Materials
-
-* Students must have internet connection and a computer with a microphone in order to participate in online activities. 
-* R (http://www.r-project.org/)
-* RStudio (http://www.rstudio.com/)
+## Materials
+* Learners must have internet connection and a computer with a microphone in order to participate in online activities. 
+* Learners must have R (http://www.r-project.org/)
+* Learners must have RStudio (http://www.rstudio.com/)
+* Screen space can be a limitation during online learning since you'll want to see the instructor's screen and have your RStudio open so that you can type along. If you have access to a second monitor or a larger tablet to attend the course while keeping your laptop screen available for coding - this would be great! If not - don't worry, we'll manage!
 * Key texts
     * Alexander, 2022, *Telling Stories with Data*, CRC Press. https://www.tellingstorieswithdata.com/ 
     * Alexander (eds), 2021, *DoSS Toolkit*, https://rohanalexander.github.io/doss_toolkit_book/. 
@@ -56,7 +54,8 @@ Course communications will take place via email. All course material will be ava
     * *Using PostgreSQL, AWS, and Shiny*, Apress.
 
 ## Tentative Schedule
-*Calendar may be modified as needed, and learners will be informed.
+*Calendar may be modified as needed, and learners will be informed. Course will be taught using R version 4.2.0 and RStudio Desktop version 2022.02.2.
+
 * Monday 27 June, 6pm-8pm EST
       * Introduction, Hello World! And Work practices 
 * Thursday 30 June, 6pm-8pm EST
@@ -82,10 +81,8 @@ Students with diverse learning styles and needs are welcome in this course. In p
 There are many helpful resources available through Student Life (http://studentlife.utoronto.ca). An important part of the education is learning how and when to ask for help. Take the time to inform yourself of available resources.
 
 # Acknowledgements
-
-Slides covered in the lectures were originally developed by Amy Farrow, University of Toronto. 
+-   Slides covered in the lectures were originally developed by Amy Farrow, University of Toronto. 
 
 
 # Maintainer
-
 -   Anjali Silva (<a.silva@utoronto.ca>).
