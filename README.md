@@ -88,5 +88,5 @@ There are many helpful resources available through Student Life (http://studentl
 
 ## Contributions
 
-`IntroductionToR` welcomes issues, enhancement requests, and other contributions. To submit an issue, use the [GitHub
+-   `IntroductionToR` welcomes issues, enhancement requests, and other contributions. To submit an issue, use the [GitHub
 issues](https://github.com/anjalisilva/IntroductionToR).
