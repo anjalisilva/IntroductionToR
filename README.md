@@ -83,7 +83,7 @@ There are many helpful resources available through Student Life (http://studentl
 # Acknowledgements
 -   Slides covered in the lectures were originally developed by Amy Farrow under the supervision of Rohan Alexander, University of Toronto. 
 
-# Maintainer
+## Maintainer
 -   Anjali Silva (<a.silva@utoronto.ca>), University of Toronto.
 
 ## Contributions
