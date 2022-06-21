@@ -1,61 +1,78 @@
-# DSI Workshop for Introduction To R
-
-## Introduction
+# Introduction To R
 
 Welcome! The vast amount of data produced by evolving information technology requires tools and skills. Among the many tools, R is a free, open-source language and an environment that could be used for data sciences. This course aims to cover topics in R and data science, with applications illustrated via RStudio. This course is part of the University of Toronto's Data Sciences Institute professional programming.
 
-## Contents:
+## Contents
 1. [Description](https://github.com/anjalisilva/IntroductionToR#description)
 2. [Learning Outcomes](https://github.com/anjalisilva/IntroductionToR#learning-outcomes)
-3. [Design](https://github.com/anjalisilva/IntroductionToR#design)
-4. [Expectations](https://github.com/rachaellam/dsi-workshop#expectations)
-5. [Policies](https://github.com/rachaellam/dsi-workshop#policies)
-6. [Schedule](https://github.com/rachaellam/dsi-workshop#schedule)
-7. [Folder Structure](https://github.com/rachaellam/dsi-workshop#folder-structure)
+3. [Course Contact Information](https://github.com/anjalisilva/IntroductionToR#course-contact-information)
+4. [Delivery Instructions](https://github.com/anjalisilva/IntroductionToR#delivery-instructions)
+5. [Required Materials](https://github.com/anjalisilva/IntroductionToR#required-materials)
+6. [Schedule](https://github.com/anjalisilva/IntroductionToR#schedule)
+7. [Course Policies](https://github.com/anjalisilva/IntroductionToR#course-policies)
+8. [Folder Structure](https://github.com/rachaellam/dsi-workshop#folder-structure)
 
-Course Overview
+# Course Overview
 
-## Description:
+## Description
 This course is designed for students who have a degree in something other than Computer Science/Statistics who are looking to enhance their data science skills for their career. The first part of this course teaches R with a focus on manipulating and visualizing data. Students will get set up with a functional RStudio workflow, use different file types, transform data tables, import and manipulate data, use functions and loops, create data visualizations, make a Shiny app, and learn how to solve problems with their programming. Both base R and tidyverse methods are taught. To work reproducibly, students will create R Projects. 
 
-## Learning Outcomes:
+## Learning Outcomes
 1.	Setting up and using R and RStudio.
 2.	Manipulating and visualizing data.
 3.	Fixing errors.
 4.	Understanding consent in data-based studies.
 5.	Making presentations and managing projects.
 
-Logistical Information
+# Logistical Information
 
-## Course Contact Information:
-Instructor for this course is Anjali Silva (she/her).
+## Course Contact Information
+Instructor for this course is [**Anjali Silva**](https://anjalisilva.github.io/) (she/her).
 For emails to the instructor, use a.silva@utoronto.ca. Must use the subject line DSI-IntroR. E.g., DSI-IntroR: Inquiry about Lecture I.
 
-Teaching Assistant for this is Tia Harrison (she/her). 
+Teaching Assistant for this is **Tia Harrison** (she/her). 
 For emails to the teaching assistant, use tia.harrison@mail.utoronto.ca.
 
-## Delivery Instructions:
-The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Students must have internet connection and a computer with a microphone in order to participate in online activities. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. All communication outside of class time will take place via email. All course material will be available via [GitHub](https://github.com/anjalisilva/IntroductionToR).
+## Delivery Instructions
+The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Students must have internet connection and a computer with a microphone and required sofware implemented in order to participate. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. Keeping your video on is optional, however, if you choose to leave it on, be mindful of what your peers can see. 
 
-## Required Materials: 
+Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository.
+
+## Required Materials
+
+* Students must have internet connection and a computer with a microphone in order to participate in online activities. 
+* R (http://www.r-project.org/)
+* RStudio (http://www.rstudio.com/)
+* Key texts
+    * Alexander, 2022, *Telling Stories with Data*, CRC Press. https://www.tellingstorieswithdata.com/ 
+    * Alexander (eds), 2021, *DoSS Toolkit*, https://rohanalexander.github.io/doss_toolkit_book/. 
+    * de Graaf, 2019, *Managing Your Data Science Projects: Learn Salesmanship, Presentation, and Maintenance of Completed Models*, Apress.
+    * Healy, 2018, *Data Visualization*: A Practical Introduction, Princeton University Press
+    * Timbers et al., 2021. *Data Science: A First Introduction*. https://ubc-dsci.github.io/introduction-to-datascience/ 
+    * Wickham and Grolemund, 2017, *R for Data Science*, O'Reilly. https://r4ds.had.co.nz/ 
+    * Wickham, 2021, *Mastering Shiny*, O'Reilly. https://mastering-shiny.org/ 
+    * Wiley, Matt, Wiley, Joshua F., 2020, *Advanced R 4 Data Programming and the Cloud*
+    * *Using PostgreSQL, AWS, and Shiny*, Apress.
 
 ## Schedule
-Monday 27 June, 6pm-8pm
-Thursday 30 June, 6pm-8pm
-Saturday 2 Jul, 9am-noon
-Monday 4 July, 6pm-8pm
-Thursday 7 July, 6pm-9pm
-Saturday 9 July, 9am-noon
+* Monday 27 June, 6pm-8pm EST
+* Thursday 30 June, 6pm-8pm EST
+* Saturday 2 Jul, 9am-noon EST
+* Monday 4 July, 6pm-8pm EST
+* Thursday 7 July, 6pm-9pm EST
+* Saturday 9 July, 9am-noon EST
 
 
 # Course Policies
 
-## Course Expectations:
-The course will include mainly live-coding classes. Students are expected to follow along with the coding. Being mindful of online fatigue. 
+## Course Expectations
+The course will include mainly live-coding classes. Students are expected to follow along with the coding. Be mindful of online fatigue. 
 
 ## Accessibility
 Students with diverse learning styles and needs are welcome in this course. In particular, if you have a disability/health consideration that may require accommodations, please feel free to approach me and/or Accessibility Services at 416-978 8060; studentlife.utoronto.ca/as.
 
+## Mental Health and Well-being 
+There are many helpful resources available through Student Life (http://studentlife.utoronto.ca). An important part of the education is learning how and when to ask for help. Take the time to inform yourself of available resources.
 
 
 ## Folder Structure
@@ -87,6 +104,10 @@ This folder contains homeowork for students to practice. It is separated by week
 
 It is just a suggestion but it will help students throughout the workshop, as content is cumulative and will only get more difficult. Unfortunately, there is not enough time to review previous content each class so while this homework is **not** graded, it is highly recommended.
 
+
+## Acknowledgements
+
+Slides covered in the lectures were originally developed by Amy Farrow, University of Toronto. 
 
 
 ## Maintainer
