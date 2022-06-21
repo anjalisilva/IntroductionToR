@@ -81,8 +81,12 @@ Students with diverse learning styles and needs are welcome in this course. In p
 There are many helpful resources available through Student Life (http://studentlife.utoronto.ca). An important part of the education is learning how and when to ask for help. Take the time to inform yourself of available resources.
 
 # Acknowledgements
--   Slides covered in the lectures were originally developed by Amy Farrow, University of Toronto. 
-
+-   Slides covered in the lectures were originally developed by Amy Farrow under the supervision of Rohan Alexander, University of Toronto. 
 
 # Maintainer
--   Anjali Silva (<a.silva@utoronto.ca>).
+-   Anjali Silva (<a.silva@utoronto.ca>), University of Toronto.
+
+## Contributions
+
+`IntroductionToR` welcomes issues, enhancement requests, and other contributions. To submit an issue, use the [GitHub
+issues](https://github.com/anjalisilva/IntroductionToR).
