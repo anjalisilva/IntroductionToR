@@ -54,13 +54,20 @@ Course communications will take place via email. All course material will be ava
     * Wiley, Matt, Wiley, Joshua F., 2020, *Advanced R 4 Data Programming and the Cloud*
     * *Using PostgreSQL, AWS, and Shiny*, Apress.
 
-## Schedule
+## Tentative Schedule
+*Calendar may be modified as needed, and learners will be informed.
 * Monday 27 June, 6pm-8pm EST
+      * Introduction, Hello World! And Work practices 
 * Thursday 30 June, 6pm-8pm EST
+      * Data in R 
 * Saturday 2 Jul, 9am-noon EST
+      * Manipulation
 * Monday 4 July, 6pm-8pm EST
+      * Wrangling 
 * Thursday 7 July, 6pm-9pm EST
+      * Programming
 * Saturday 9 July, 9am-noon EST
+      * Visualization and Shiny
 
 
 # Course Policies
