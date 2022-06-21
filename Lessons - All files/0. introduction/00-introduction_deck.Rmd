@@ -1,0 +1,805 @@
+---
+title: "Module 3: R"
+subtitle: "Introduction"
+institute: "Data Sciences Institute, University of Toronto"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#1c5253",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+    red = "#f34213",
+    purple = "#3e2f5b",
+    orange = "#ff8811",
+    green = "#136f63",
+    white = "#FFFFFF"
+  )
+)
+
+```
+
+```{r, include=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(lubridate)
+library(janitor)
+library(kableExtra)
+library(rgdal)
+```
+
+# Why R?
+
+R is open source and free
+
+R has a community
+
+With R, you can share your data analysis methods in a reproducible way
+
+Packages (more than 18 thousand on CRAN!) extend R's capabilities to provide easy ways to accomplish a wide variety of tasks
+
+R is one of the standard language recommendations for data science
+
+RStudio makes it easier to do more with R
+
+---
+
+class: inverse, center, middle
+
+# What can you do with R?
+
+---
+
+## Load data 
+
+```{r, include=FALSE, warning=FALSE, message=FALSE}
+apt_data <- read_csv("Apartment Building Evaluation.csv")
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+apt_data %>%
+  select(YEAR_BUILT, YEAR_EVALUATED, LONGITUDE, LATITUDE, SCORE)
+```
+
+---
+
+## Clean data
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+apt_data_clean <- apt_data %>%
+  clean_names()
+apt_data_clean %>%
+  select(year_built, year_evaluated, longitude, latitude, score)
+```
+
+---
+
+## Manipulate and combine data
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+assault_data <- read_csv("Assault.csv")
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+apt_data_clean <- apt_data_clean %>%
+  mutate(coords = paste0("(", round(latitude, digits = 2), ",", round(longitude, digits = 2), ")")) %>%
+  mutate(year = year_evaluated) %>%
+  filter(year != 2021)
+
+assault_data <- assault_data %>%
+  mutate(coords = paste0("(", round(Lat, digits = 2), ",", round(Long, digits = 2), ")"))
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+assault_summary <- assault_data %>%
+  mutate(year = str_sub(occurrencedate, 1, 4)) %>%
+  group_by(coords, year) %>%
+  summarise(count = n()) %>%
+  mutate(year = as.numeric(year))
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+joined_data <- left_join(apt_data_clean, assault_summary, by = c('coords', 'year')) %>%
+  mutate(count = replace_na(count, 0))
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+joined_data %>%
+  select(year_built, property_type, confirmed_units, score, year, count)
+```
+
+
+---
+
+## Summarize Data
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+apt_data_clean %>%
+  group_by(ward) %>%
+  summarise(`Count` = n(),
+            `Average Score` = mean(score),
+            `Median Year Built` = median(year_built, na.rm=TRUE),
+            `Median Number of Storeys` = median(confirmed_storeys),
+            `Median Number of Units` = median(confirmed_units)) %>%
+  slice(1:10) %>%
+  kable()
+```
+
+
+---
+
+## Visualize Data
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, include=FALSE}
+ward_summaries <- joined_data %>%
+  group_by(ward) %>%
+  summarise(med_score = median(score),
+            med_assault = median(count))
+
+left_join(joined_data, ward_summaries, by = 'ward') %>%
+  mutate(ward = as.factor(ward)) %>%
+  filter(year == 2019) %>%
+  ggplot() +
+  geom_boxplot(aes(x = ward, y = count, fill = med_score)) +
+  scale_fill_continuous(low = "red", high = "blue") +
+  labs(x = "Ward",
+       y = "Number of assaults reported in building",
+       fill = "Median\nbuilding\nevaluation\nscore",
+       title = "Apartment building evaluation scores and reported assaults in 2019") +
+  theme_minimal()
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, include=FALSE}
+type_summaries <- joined_data %>%
+  filter(year == 2019) %>%
+  group_by(property_type) %>%
+  summarise(med_score = median(score),
+            med_assault = median(count))
+
+left_join(joined_data %>% filter(year == 2019), type_summaries, by = 'property_type') %>%
+  ggplot() +
+  geom_violin(aes(x = property_type, y = count, fill = med_score)) +
+  scale_fill_continuous(low = "red", high = "blue") +
+  labs(x = "Type of housing",
+       y = "Number of assaults reported in building",
+       fill = "Median\nbuilding\nevaluation\nscore",
+       title = "Apartment building evaluation scores and reported assaults in 2019") +
+  theme_minimal()
+```
+
+
+```{r, fig.width=10, fig.height=7, warning=FALSE, message=FALSE, echo=FALSE}
+joined_data %>%
+  filter(year == 2019) %>%
+  ggplot(aes(x = score)) +
+  geom_histogram(bins = 20) +
+  facet_wrap(vars(property_type),
+             ncol = 1,
+             scales = 'free_y') +
+  labs(x = "Building evaluation score",
+       y = NULL) +
+  theme_minimal()
+```
+
+---
+
+## Write Reports
+
+```{r echo=FALSE, out.height=450, out.width= 2000}
+knitr::include_graphics("sample_paper.png")
+```
+
+---
+
+## Build Interactive Applications
+
+```{r echo=FALSE, out.height=450, out.width= 2000}
+knitr::include_graphics("sample_app.png")
+```
+
+---
+
+# And more:
+
+- Data collection
+- Statistical analysis
+- Data modeling
+- Presentations
+- Websites
+
+---
+
+class: inverse, center, middle
+
+# Content
+
+---
+
+# Learning Outcomes
+
+By the end of this module, you will be able to:
+
+- Set up and use R and RStudio.
+- Manipulate and visualize data.
+- Fix errors.
+- Understand consent in data-based studies.
+- Make presentations and manage projects.
+
+---
+
+# Prerequisite knowledge
+
+- The parts of a data table/spreadsheet
+- Basics of file folder structure
+- Summary statistics (mean, median, proportion, etc.)
+- Basic data visualization types (bar charts, histograms, scatter plots)
+- GitHub account
+
+---
+
+# Submodules
+
+- Hello World!
+- Errors
+- Reproducibility
+- Data in R
+- Manipulation
+- Wrangling
+- Programming
+- Visualization
+- Shiny
+- Ethics
+- Inequity
+- Professional Skills
+- Industry Case Study
+
+---
+
+# Key Texts
+
+### General reference:
+
+R for Data Science by Wickham and Grolemund (2017) https://r4ds.had.co.nz/index.html
+
+DoSS Toolkit (2021) https://rohanalexander.github.io/doss_toolkit_book/. 
+
+### For specific topics:
+
+Advanced R 4 Data Programming and the Cloud Using PostgreSQL, AWS, and Shiny by Wiley and Wiley (2020), Chapters 7 and 10
+
+Data Visualization: A Practical Introduction by Healy (2018), Chapter 3
+
+Managing Your Data Science Projects: Learn Salesmanship, Presentation, and Maintenance of Completed Models by de Graaf (2019), Chapters 2 and 6
+
+Mastering Shiny by Wickham (2021) https://mastering-shiny.org/index.html, Chapter 1
+
+---
+
+# Hello World!
+
+**.purple[(Beginner)]**
+
+How can we start using R?
+
+## Goals:
+
+- a fully-functional R and RStudio setup
+- understanding and using parts of the RStudio IDE
+- run basic commands in R
+- creating and using different R file types for different purposes
+
+---
+
+# Hello World!
+
+Getting set up
+
+- R
+- RStudio
+
+--
+
+R basics
+
+```{r, eval=FALSE}
+(27 / 52) * 100
+object_name <- value
+function(arguments)
+```
+
+--
+
+File types
+
+- scripts
+- RMarkdown
+
+---
+
+# Errors
+
+**.purple[(Beginner)]**
+
+How can we avoid getting stuck on errors while using R?
+
+## Goal:
+
+- Functional problem-solving abilities for learning and using R
+
+---
+
+# Errors
+
+
+Getting help
+
+--
+
+Using Stack Overflow
+
+--
+
+Making reproducible examples
+
+---
+
+# Reproducibility
+
+How does R help us work reproducibly?
+
+## Goal:
+
+- Use an RProject and GitHub to make your data analysis project reproducible
+- Understand coding conventions
+
+---
+
+# Data in R
+
+**.purple[(Beginner)]**
+
+What does data look like in R?
+
+## Goals:
+
+- Know what data.frames, tibbles, and tidyverse are
+- Understand key types of data, including strings, ordered factors, and dates and times
+- Understand how R handles missing values
+
+---
+
+# Data in R
+
+Tidyverse
+
+```{r, eval=FALSE}
+library(tidyverse)
+```
+
+--
+
+Tibbles
+
+```{r, eval=FALSE}
+tibble()
+```
+
+--
+
+Strings
+
+```{r, eval=FALSE}
+"This is a string"
+```
+
+--
+
+Factors
+
+```{r, eval=FALSE}
+factor(vector, levels)
+```
+
+---
+
+# Data in R
+
+Dates and times
+
+```{r, eval=FALSE}
+library(lubridate)
+```
+
+--
+
+Missing values
+
+```{r, eval=FALSE}
+NA
+```
+
+---
+
+# Manipulation
+
+**.purple[(Beginner)]**
+
+How can we manipulate data tables in R?
+
+## Goals:
+
+- View subsets of data tables
+- Pick specific variables
+- Create new variables
+- Group observations by traits
+- Summarise groups of observations
+- Order data tables
+
+---
+
+# Manipulation
+
+Filtering
+
+```{r, eval=FALSE}
+filter()
+```
+
+--
+
+Arranging
+
+```{r, eval=FALSE}
+arrange()
+```
+
+--
+
+Selecting
+
+```{r, eval=FALSE}
+select()
+```
+
+--
+
+Mutating
+
+```{r, eval=FALSE}
+mutate()
+```
+
+---
+
+# Manipulation
+
+The pipe
+
+```{r, eval=FALSE}
+%>%
+```
+
+--
+
+Grouping
+
+```{r, eval=FALSE}
+group_by()
+```
+
+--
+
+Summarizing
+
+```{r, eval=FALSE}
+summarise()
+```
+
+- Counting
+- Proportions
+
+---
+
+# Wrangling
+
+**.purple[(Intermediate)]**
+
+How can we work with real data sets in R?
+
+## Goals:
+
+- Load data tables into R
+- Connect related but separate data tables
+- Load data from an external database
+- Work efficiently with larger data sets
+
+---
+
+# Wrangling
+
+Importing data
+
+```{r, eval=FALSE}
+read_csv()
+```
+
+--
+
+Interacting with databases
+
+```{r, eval=FALSE}
+library(RPostgreSQL)
+```
+
+--
+
+Cleaning
+
+```{r}
+library(janitor)
+```
+
+--
+
+Pivot
+
+```{r, eval=FALSE}
+pivot_longer(), pivot_wider()
+```
+
+---
+
+# Wrangling
+
+Joining data
+
+```{r, eval=FALSE}
+left_join(), right_join(), full_join(), inner_join()
+```
+
+--
+
+data.table
+
+```{r, eval=FALSE}
+library(data.table)
+```
+
+---
+
+# Programming
+
+**.purple[(Intermediate)]**
+
+How can we use programming concepts like iterators to enhance our work in R?
+
+## Goals:
+
+- Write functions in R to perform custom operations
+- Perform operations iteratively
+- Perform operations given specific conditions
+- Understand and use vectors in functions and loops
+- Make data sets for simulation studies
+
+---
+
+# Programming
+
+Functions
+
+```{r, eval=FALSE}
+name <- function(x) {
+  
+}
+```
+
+--
+
+Vectors
+
+```{r, eval=FALSE}
+c(), list()
+```
+
+--
+
+Loops
+
+```{r, eval=FALSE}
+for (i in 1:10) {
+  
+}
+
+while (i < 10) {
+  
+}
+```
+
+---
+
+# Programming
+
+If/else logic
+
+```{r, eval=FALSE}
+if (x = 3) {
+  
+} else {
+  
+}
+```
+
+--
+
+Simulation
+
+```{r, eval=FALSE}
+set.seed(), runif(), rnorm(), sample()
+```
+
+---
+
+# Visualization
+
+**.purple[(Intermediate)]**
+
+What kinds of visualizations can we make in R?
+
+## Goals:
+
+- Make communicative and visually-pleasing bar graphs, histograms, and scatterplots 
+
+---
+
+# Visualization
+
+Essentials
+
+```{r, eval=FALSE}
+ggplot(aes())
+```
+
+--
+
+Bar charts and histograms
+
+```{r, eval=FALSE}
+geom_bar(), geom_histogram()
+```
+
+--
+
+Scatter plots
+
+```{r, eval=FALSE}
+geom_point(), geom_smooth()
+```
+
+---
+
+# Shiny
+
+**.purple[(Advanced)]**
+
+How can we make interactive applications using R?
+
+## Goal:
+
+- Make a basic functional Shiny application to display a data visualization
+
+---
+
+# Shiny
+
+```{r, eval=FALSE}
+library(shiny)
+ui <- fluidPage(
+  "Hello, world!"
+)
+server <- function(input, output, session) {
+}
+shinyApp(ui, server)
+```
+
+---
+
+# Ethics
+
+Why does consent matter in data-based studies?
+
+## Goal:
+
+- Understand the necessity and complexity of consent for data-based studies
+
+---
+
+# Ethics
+
+James H. Ware, 1989, ‘Investigating Therapies of Potentially Great Benefit: ECMO’, Statistical Science.
+
+Donald A. Berry, 1989, ‘Comment: Ethics and ECMO’, Statistical Science.
+
+---
+
+# Inequity
+
+How can we undertake is Equity, Diversity, and Inclusion training?
+
+## Goal: 
+
+- Understand Equity, Diversity, and Inclusion (EDI) training
+
+---
+
+# Professional skills
+
+## Goals:
+
+- Presenting data analysis results
+- Managing data projects
+- Data security
+
+---
+
+# Industry case study
+
+---
+
+class: inverse, center, middle
+
+# Delivery
+
+---
+
+### For technical sections:
+
+- Short lectures
+- Examples
+
+### For non-technical sections:
+
+- Readings
+- Discussions
+
+---
+
+class: inverse, center, middle
+
+# Assessment
+
+---
+
+### Formative
+
+#### For technical sections:
+
+- In-class independent exercises & solution discussion
+- Problem solving exercises (individual solution and small group discussion)
+
+#### For non-technical sections:
+
+- Group activities
+
+### Summative
+
+#### For technical sections:
+
+- Multi-stage project using data sets chosen from a provided selection
+
+#### For non-technical sections:
+
+- Written reflections
+
+
+
