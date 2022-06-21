@@ -5,7 +5,7 @@ Welcome! The vast amount of data produced by evolving information technology req
 ## Contents
 1. [Description](https://github.com/anjalisilva/IntroductionToR#description)
 2. [Learning Outcomes](https://github.com/anjalisilva/IntroductionToR#learning-outcomes)
-3. [Course Contact Information](https://github.com/anjalisilva/IntroductionToR#course-contact-information)
+3. [Course Contacts](https://github.com/anjalisilva/IntroductionToR#course-contacts)
 4. [Delivery Instructions](https://github.com/anjalisilva/IntroductionToR#delivery-instructions)
 5. [Required Materials](https://github.com/anjalisilva/IntroductionToR#required-materials)
 6. [Schedule](https://github.com/anjalisilva/IntroductionToR#schedule)
@@ -26,7 +26,7 @@ This course is designed for students who have a degree in something other than C
 
 # Logistical Information
 
-## Course Contact Information
+## Course Contacts
 Instructor for this course is [**Anjali Silva**](https://anjalisilva.github.io/) (she/her).
 For emails to the instructor, use a.silva@utoronto.ca. Must use the subject line DSI-IntroR. E.g., DSI-IntroR: Inquiry about Lecture I.
 
@@ -36,7 +36,8 @@ For emails to the teaching assistant, use tia.harrison@mail.utoronto.ca.
 ## Delivery Instructions
 The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Students must have internet connection and a computer with a microphone and required sofware implemented in order to participate. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. Keeping your video on is optional, however, if you choose to leave it on, be mindful of what your peers can see. 
 
-Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository.
+Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. Folder Structure is as follows:
+   * Slides: This folder contains all slides.
 
 ## Required Materials
 
@@ -69,11 +70,10 @@ Course communications will take place via email. All course material will be ava
 * Saturday 9 July, 9am-noon EST
       * Visualization and Shiny
 
-
 # Course Policies
 
 ## Course Expectations
-The course will include mainly live-coding classes. Students are expected to follow along with the coding. Be mindful of online fatigue. 
+The course will include mainly live-coding classes. Students are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. If you have a question, you may type it to chat as well.
 
 ## Accessibility
 Students with diverse learning styles and needs are welcome in this course. In particular, if you have a disability/health consideration that may require accommodations, please feel free to approach me and/or Accessibility Services at 416-978 8060; studentlife.utoronto.ca/as.
@@ -81,42 +81,11 @@ Students with diverse learning styles and needs are welcome in this course. In p
 ## Mental Health and Well-being 
 There are many helpful resources available through Student Life (http://studentlife.utoronto.ca). An important part of the education is learning how and when to ask for help. Take the time to inform yourself of available resources.
 
-
-## Folder Structure
-Below are the folders contained in this repo with a description of what they contain and information on how to use them.
-
-### 1. *slides-resources*:
-This folder contains all editable slides. To edit, download the entire folder, including the *pics* folder as this folder contains the pictures which are relationally referenced in the markdown files.
-
-To change a photo, edit the markdown where photos are referenced.
-
-Example: 
-
-Change `![w:1150 center](pics/github.png)` to `![bg](pics/github.png)`
-
-To add a photo, add photo to the *pics* folder and reference it within the markdown file.
-
-Example:
-
-Added photo labelled "git_commit.png" will be referenced in markdown file as `![w:1000 left](pics/git_commit.png)`
-
-### 2. *teaching-notes*:
-This folder contains the teaching notes for the Unix and Git/GitHub workshops. Teaching notes include additional information on each slide to reference, as well as optional material. These notes are designed to guide the instructor and give more detailed information to supplement the slides.
-
-### 3. *pdf-slides*:
-This folder contains the PDF versions of the slides for students to follow. Slides should be referenced before class to prepare or after class to review. During class will be live-coding, therefore, there is no need to follow them during class. They contain all information that was discussed in class and are a great resource in the future if students need to reassess their knowledge.
-
-### 4. *homework*:
-This folder contains homeowork for students to practice. It is separated by week, then by day. Please complete the Unix Shell homework in the first week, and the Git/GitHub homework in the second.
-
-It is just a suggestion but it will help students throughout the workshop, as content is cumulative and will only get more difficult. Unfortunately, there is not enough time to review previous content each class so while this homework is **not** graded, it is highly recommended.
-
-
-## Acknowledgements
+# Acknowledgements
 
 Slides covered in the lectures were originally developed by Amy Farrow, University of Toronto. 
 
 
-## Maintainer
+# Maintainer
 
 -   Anjali Silva (<a.silva@utoronto.ca>).
