@@ -71,7 +71,7 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
 * Thursday 7 July, 6pm-9pm EST
       * Programming
 * Saturday 9 July, 9am-noon EST
-      * Visualization and Shiny
+      * Visualization (optional Shiny)
 
 # Course Policies
 
