@@ -42,13 +42,13 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
    * .gitignore - Files to ignore specified by instructor
 
 ## Materials
-* Learners must have internet connection and a computer with a microphone in order to participate in online activities. 
-* Learners must have R (http://www.r-project.org/)
-* Learners must have RStudio (http://www.rstudio.com/)
+* **Learners must have internet connection and a computer with a microphone in order to participate in online activities.** 
+* **Learners must have R (http://www.r-project.org/).**
+* **Learners must have RStudio (http://www.rstudio.com/).**
 * Screen space can be a limitation during online learning since you'll want to see the instructor's screen and have your RStudio open so that you can type along. If you have access to a second monitor or a larger tablet to attend the course while keeping your laptop screen available for coding - this would be great! If not - don't worry, we'll manage!
 * Key texts: General reference
-    *  Alexander (eds), 2021, *DoSS Toolkit*, https://rohanalexander.github.io/doss_toolkit_book/  
     *  Wickham and Grolemund, 2017, *R for Data Science*, O'Reilly. https://r4ds.had.co.nz/ 
+    *  Alexander (eds), 2021, *DoSS Toolkit*, https://rohanalexander.github.io/doss_toolkit_book/  
 * Key texts: For specific topics
     * Alexander, 2022, *Telling Stories with Data*, CRC Press. https://www.tellingstorieswithdata.com/ 
     * de Graaf, 2019. *Managing Your Data Science Projects: Learn Salesmanship, Presentation, and Maintenance of Completed Models*, Apress.
