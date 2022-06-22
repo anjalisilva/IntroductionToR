@@ -34,10 +34,10 @@ For emails to the teaching assistant, use tia.harrison@mail.utoronto.ca.
 
 ## Delivery Instructions
 The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Students must have internet connection and a computer with a microphone and required sofware implemented in order to participate. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. Keeping your video on is optional, however, if you choose to leave it on, be mindful of what your peers can see. Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. Folder structure is as follows:
-   * Lessons - All files: This folder contains all slides.
-   * Lessons - Data only: This folder contains data only.
-   * Lessons - Lesson Plans only: This folder contains lessons only.
-   * Lessons - PDF only: This folder contains slide PDFs only.
+   * Lessons - All files: This folder contains all files.
+   * **Lessons - Data only**: This folder contains data only.
+   * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
+   * **Lessons - PDF only**: This folder contains slide PDFs only.
    * README - README file
    * .gitignore - Files to ignore specified by instructor
 
