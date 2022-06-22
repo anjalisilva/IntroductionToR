@@ -77,7 +77,7 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
 # Course Policies
 
 ## Course Expectations
--   The course will include mainly live-coding classes. Students are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. If you have a question, you may type it to chat as well.
+-   The course will include mainly live-coding classes. Students are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. You may type your questions to chat as well.
 
 ## Accessibility
 -   Students with diverse learning styles and needs are welcome in this course. In particular, if you have a disability/health consideration that may require accommodations, please feel free to approach me and/or Accessibility Services at 416-978 8060; studentlife.utoronto.ca/as.
