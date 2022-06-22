@@ -43,7 +43,7 @@ class: center, middle, inverse, title-slide
 * Visit: https://github.com/anjalisilva/IntroductionToR 
 
 * All course material will be available via IntroductionToR GitHub repository (https://github.com/anjalisilva/IntroductionToR). Folder structure is as follows:
-   * Lessons - All files: This folder contains all files.
+   * Lessons - All files*: These folders contain all files.
    * **Lessons - Data only**: This folder contains data only.
    * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
    * **Lessons - PDF only**: This folder contains slide PDFs only.
@@ -339,18 +339,65 @@ library(help = "stats")
 
 * R packages extend R's functionality.
 
+---
+## R Packages
+
+* Popular repositories for Packages:
+    * The Comprehensive R Archive Network (CRAN)
+      * Link: https://cran.r-project.org/web/packages/ 
+    
+    * Bioconductor
+      * Link: https://www.bioconductor.org/packages/release/bioc/ 
+    
+    * GitHub
+      * Link: https://github.com/search?q=r+packages&amp;type=registrypackages
+    
+    
+* Depending on the source of Package, downloading instructions may differ.
+
+---
+
+## R Packages
+
+* R packages extend R's functionality.
+
+* tidyverse is a package from CRAN. 
+
+* Link: https://cran.r-project.org/web/packages/tidyverse/index.html
+    * What is the current version?
+    * Who is the author?
+    * How to report an issue?
+    * How can a user access Reference Manual?
+
+* To download tidyverse:
 
 ```r
 install.packages("tidyverse")
 ```
 
-Every time you start a new RStudio session you will need to load the packages you want to use.
+* Every time you download a package or start a new RStudio session, you will need to load the packages you want to use.
 
 
 ```r
 library(tidyverse)
 ```
 
+---
+
+## tidyverse
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="TidyversePackages.png" alt="Figure: Tidyverse R Packages designed for data science. Figure from https://www.tidyverse.org/." width="600" height="250" /&gt;
+&lt;p class="caption"&gt;Figure: Tidyverse R Packages designed for data science. Figure from https://www.tidyverse.org/.&lt;/p&gt;
+&lt;/div&gt;
+
+* More details on ‘tidyverse’ package (only after downloading):
+
+
+```r
+ls("package:tidyverse") # list all functions in package
+?tidyverse # get information on package
+```
 
 ---
 
