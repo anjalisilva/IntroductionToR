@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Instructor: Anjali Silva, PhD" />
     <meta name="author" content="TA: Tia Harrison, MSc" />
-    <meta name="date" content="2022-06-22" />
+    <meta name="date" content="2022-07-02" />
     <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -29,7 +29,7 @@ class: center, middle, inverse, title-slide
 ### Data Sciences Institute, University of Toronto
 ]
 .date[
-### 2022-06-22
+### 2 July 2022
 ]
 
 ---
@@ -83,58 +83,58 @@ glimpse(ads_data)
 ```
 ## Rows: 1,460
 ## Columns: 52
-## $ StartDate             &lt;dttm&gt; 2019-06-14 09:43:20, 2019-06-14 09:43:…
-## $ EndDate               &lt;dttm&gt; 2019-06-14 09:44:30, 2019-06-14 09:44:…
-## $ Status                &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
-## $ Progress              &lt;dbl&gt; 100, 100, 100, 100, 100, 100, 100, 100,…
-## $ Duration__in_seconds_ &lt;dbl&gt; 70, 105, 88, 109, 109, 70, 99, 105, 124…
-## $ Finished              &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
-## $ RecordedDate          &lt;dttm&gt; 2019-06-14 09:44:31, 2019-06-14 09:44:…
-## $ ResponseId            &lt;chr&gt; "R_11dq3s9btLX57LD", "R_DRWZdBOugPUKqGt…
-## $ DistributionChannel   &lt;chr&gt; "anonymous", "anonymous", "anonymous", …
-## $ UserLanguage          &lt;chr&gt; "EN", "EN", "EN", "EN", "EN", "EN", "EN…
-## $ Consent               &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
-## $ Pol_7                 &lt;dbl+lbl&gt; 5, 3, 1, 2, 6, 4, 6, 4, 2, 5, 4, 1,…
-## $ W2_Knowledge          &lt;dbl+lbl&gt; 2, 2, 4, 1, 3, 2, 3, 3, 3, 3, 3, 1,…
-## $ Gender                &lt;dbl+lbl&gt; 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 2,…
-## $ Race                  &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 3, 2, 1, 1, 1, 1, 2,…
-## $ W1_Feeling_1          &lt;dbl&gt; 2, 1, 4, 3, 3, 3, 6, -6, 4, 1, 3, -1, 3…
-## $ W1_Actions_1_1        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ W1_Actions_1_2        &lt;dbl+lbl&gt;  1, NA, NA,  1, NA, NA, NA, NA,  1,…
-## $ W1_Actions_1_3        &lt;dbl+lbl&gt; NA, NA,  1, NA, NA,  1,  1, NA, NA,…
-## $ W1_Actions_1_4        &lt;dbl+lbl&gt;  1,  1, NA,  1, NA, NA,  1, NA, NA,…
-## $ W1_Actions_1_5        &lt;dbl+lbl&gt; NA, NA, NA, NA,  1, NA, NA, NA, NA,…
-## $ W1_Actions_1_6        &lt;dbl+lbl&gt; NA, NA, NA,  1, NA, NA,  1, NA, NA,…
-## $ W1_Actions_1_7        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA,  1, NA, NA,…
-## $ W1_Actions_1_8        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA,  1, NA,…
-## $ W1_Actions_2_1        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ W1_Actions_2_2        &lt;dbl+lbl&gt;  1,  1, NA, NA, NA, NA, NA, NA, NA,…
-## $ W1_Actions_2_3        &lt;dbl+lbl&gt; NA, NA, NA,  1,  1,  1, NA, NA, NA,…
-## $ W1_Actions_2_4        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ W1_Actions_2_5        &lt;dbl+lbl&gt; NA, NA,  1,  1, NA, NA,  1, NA,  1,…
-## $ W1_Actions_2_6        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA,  1, NA,  1,…
-## $ W1_Actions_2_7        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA,  1, NA,…
-## $ W2_Feeling_1          &lt;dbl&gt; 5, 5, -2, -2, 3, 3, 0, 4, -6, 2, 4, -10…
-## $ W2_Trust_1            &lt;dbl&gt; 3, 1, 4, 2, 3, -5, 5, 0, -6, -3, -2, -1…
-## $ W2_Quality_1          &lt;dbl&gt; -2, 4, 5, 3, 6, 2, -2, 8, 2, 3, 2, -10,…
-## $ W2_Impact             &lt;dbl+lbl&gt; 4, 3, 6, 5, 6, 6, 3, 5, 3, 5, 6, 1,…
-## $ W2_Petition           &lt;dbl+lbl&gt; 4, 5, 3, 5, 3, 3, 4, 2, 2, 2, 2, 7,…
-## $ W2_Meeting            &lt;dbl+lbl&gt;  4,  5,  5,  3,  1,  3,  5,  4,  2,…
-## $ Educ                  &lt;dbl+lbl&gt; 4, 5, 5, 5, 5, 3, 4, 3, 3, 3, 5, 6,…
-## $ Birthyear             &lt;dbl&gt; 1993, 1978, 1993, 1983, 1990, 1980, 199…
-## $ Home_Region           &lt;dbl+lbl&gt; 2, 3, 2, 2, 1, 2, 3, 2, 1, 2, 1, 2,…
-## $ Marital_Status        &lt;dbl+lbl&gt; 5, 5, 1, 5, 1, 4, 5, 1, 5, 1, 1, 5,…
-## $ Income                &lt;dbl+lbl&gt;  5,  5,  9,  2,  4,  4,  9,  3,  8,…
-## $ Employment_Status     &lt;dbl+lbl&gt; 1, 1, 1, 1, 3, 4, 1, 1, 2, 3, 3, 2,…
-## $ Q96                   &lt;dbl+lbl&gt; 3, 1, 1, 1, 2, 3, 1, 1, 1, 2, 1, 1,…
-## $ Industry              &lt;dbl+lbl&gt;  5,  5, 13, 14,  3, NA, 14, 15, 18,…
-## $ Work_Region           &lt;dbl+lbl&gt;  2,  3,  2,  2,  1, NA,  3,  2,  1,…
-## $ Attention_Sincere     &lt;dbl+lbl&gt; 1, 1, 4, 1, 2, 3, 1, 1, 1, 3, 2, 1,…
-## $ Attention_Honest      &lt;dbl+lbl&gt; 5, 5, 4, 5, 4, 2, 5, 5, 5, 5, 3, 5,…
-## $ mTurk                 &lt;chr&gt; "5964572", "1281132", "8401932", "64941…
-## $ Block_ID              &lt;chr&gt; "W Con Female", "W Lib Male", "W Lib Fe…
-## $ Wing_Order            &lt;chr&gt; "W1", "W1", "W2", "W2", "W1", "W2", "W1…
-## $ Vignette              &lt;chr&gt; "W2_Courts_Control", "W2_Courts_Bias", …
+## $ StartDate             &lt;dttm&gt; 2019-06-14 09:43:20, 2019-06-14 09:43:11, 2019-…
+## $ EndDate               &lt;dttm&gt; 2019-06-14 09:44:30, 2019-06-14 09:44:57, 2019-…
+## $ Status                &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ Progress              &lt;dbl&gt; 100, 100, 100, 100, 100, 100, 100, 100, 100, 100…
+## $ Duration__in_seconds_ &lt;dbl&gt; 70, 105, 88, 109, 109, 70, 99, 105, 124, 100, 96…
+## $ Finished              &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ RecordedDate          &lt;dttm&gt; 2019-06-14 09:44:31, 2019-06-14 09:44:58, 2019-…
+## $ ResponseId            &lt;chr&gt; "R_11dq3s9btLX57LD", "R_DRWZdBOugPUKqGt", "R_3QD…
+## $ DistributionChannel   &lt;chr&gt; "anonymous", "anonymous", "anonymous", "anonymou…
+## $ UserLanguage          &lt;chr&gt; "EN", "EN", "EN", "EN", "EN", "EN", "EN", "EN", …
+## $ Consent               &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ Pol_7                 &lt;dbl+lbl&gt; 5, 3, 1, 2, 6, 4, 6, 4, 2, 5, 4, 1, 5, 2, 2,…
+## $ W2_Knowledge          &lt;dbl+lbl&gt; 2, 2, 4, 1, 3, 2, 3, 3, 3, 3, 3, 1, 3, 3, 3,…
+## $ Gender                &lt;dbl+lbl&gt; 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 2,…
+## $ Race                  &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 3, 2, 1, 1, 1, 1, 2, 1, 1, 2,…
+## $ W1_Feeling_1          &lt;dbl&gt; 2, 1, 4, 3, 3, 3, 6, -6, 4, 1, 3, -1, 3, 5, 6, 0…
+## $ W1_Actions_1_1        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ W1_Actions_1_2        &lt;dbl+lbl&gt;  1, NA, NA,  1, NA, NA, NA, NA,  1, NA,  1, …
+## $ W1_Actions_1_3        &lt;dbl+lbl&gt; NA, NA,  1, NA, NA,  1,  1, NA, NA, NA, NA, …
+## $ W1_Actions_1_4        &lt;dbl+lbl&gt;  1,  1, NA,  1, NA, NA,  1, NA, NA,  1, NA, …
+## $ W1_Actions_1_5        &lt;dbl+lbl&gt; NA, NA, NA, NA,  1, NA, NA, NA, NA, NA, NA, …
+## $ W1_Actions_1_6        &lt;dbl+lbl&gt; NA, NA, NA,  1, NA, NA,  1, NA, NA, NA, NA, …
+## $ W1_Actions_1_7        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA,  1, NA, NA,  1, NA, …
+## $ W1_Actions_1_8        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA,  1, NA, NA, NA, …
+## $ W1_Actions_2_1        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ W1_Actions_2_2        &lt;dbl+lbl&gt;  1,  1, NA, NA, NA, NA, NA, NA, NA, NA,  1, …
+## $ W1_Actions_2_3        &lt;dbl+lbl&gt; NA, NA, NA,  1,  1,  1, NA, NA, NA,  1, NA, …
+## $ W1_Actions_2_4        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ W1_Actions_2_5        &lt;dbl+lbl&gt; NA, NA,  1,  1, NA, NA,  1, NA,  1, NA, NA, …
+## $ W1_Actions_2_6        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA,  1, NA,  1, NA, NA, …
+## $ W1_Actions_2_7        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA,  1, NA, NA, NA, …
+## $ W2_Feeling_1          &lt;dbl&gt; 5, 5, -2, -2, 3, 3, 0, 4, -6, 2, 4, -10, 3, 4, 7…
+## $ W2_Trust_1            &lt;dbl&gt; 3, 1, 4, 2, 3, -5, 5, 0, -6, -3, -2, -10, 6, 6, …
+## $ W2_Quality_1          &lt;dbl&gt; -2, 4, 5, 3, 6, 2, -2, 8, 2, 3, 2, -10, 1, 3, 4,…
+## $ W2_Impact             &lt;dbl+lbl&gt; 4, 3, 6, 5, 6, 6, 3, 5, 3, 5, 6, 1, 3, 5, 6,…
+## $ W2_Petition           &lt;dbl+lbl&gt; 4, 5, 3, 5, 3, 3, 4, 2, 2, 2, 2, 7, 3, 2, 1,…
+## $ W2_Meeting            &lt;dbl+lbl&gt;  4,  5,  5,  3,  1,  3,  5,  4,  2,  5,  2, …
+## $ Educ                  &lt;dbl+lbl&gt; 4, 5, 5, 5, 5, 3, 4, 3, 3, 3, 5, 6, 4, 3, 3,…
+## $ Birthyear             &lt;dbl&gt; 1993, 1978, 1993, 1983, 1990, 1980, 1996, 1986, …
+## $ Home_Region           &lt;dbl+lbl&gt; 2, 3, 2, 2, 1, 2, 3, 2, 1, 2, 1, 2, 2, 2, 2,…
+## $ Marital_Status        &lt;dbl+lbl&gt; 5, 5, 1, 5, 1, 4, 5, 1, 5, 1, 1, 5, 5, 1, 1,…
+## $ Income                &lt;dbl+lbl&gt;  5,  5,  9,  2,  4,  4,  9,  3,  8,  7,  8, …
+## $ Employment_Status     &lt;dbl+lbl&gt; 1, 1, 1, 1, 3, 4, 1, 1, 2, 3, 3, 2, 1, 1, 1,…
+## $ Q96                   &lt;dbl+lbl&gt; 3, 1, 1, 1, 2, 3, 1, 1, 1, 2, 1, 1, 1, 1, 1,…
+## $ Industry              &lt;dbl+lbl&gt;  5,  5, 13, 14,  3, NA, 14, 15, 18, 11,  4, …
+## $ Work_Region           &lt;dbl+lbl&gt;  2,  3,  2,  2,  1, NA,  3,  2,  1,  2,  1, …
+## $ Attention_Sincere     &lt;dbl+lbl&gt; 1, 1, 4, 1, 2, 3, 1, 1, 1, 3, 2, 1, 1, 1, 1,…
+## $ Attention_Honest      &lt;dbl+lbl&gt; 5, 5, 4, 5, 4, 2, 5, 5, 5, 5, 3, 5, 5, 5, 5,…
+## $ mTurk                 &lt;chr&gt; "5964572", "1281132", "8401932", "6494130", "542…
+## $ Block_ID              &lt;chr&gt; "W Con Female", "W Lib Male", "W Lib Female", "W…
+## $ Wing_Order            &lt;chr&gt; "W1", "W1", "W2", "W2", "W1", "W2", "W1", "W2", …
+## $ Vignette              &lt;chr&gt; "W2_Courts_Control", "W2_Courts_Bias", "W2_Court…
 ```
 
 ---
@@ -150,25 +150,25 @@ filter(ads_data, Duration__in_seconds_ &lt; 100)
 
 ```
 ## # A tibble: 41 × 52
-##    StartDate           EndDate                     Status Progress
-##    &lt;dttm&gt;              &lt;dttm&gt;                   &lt;dbl+lbl&gt;    &lt;dbl&gt;
-##  1 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Address]      100
-##  2 2019-06-14 09:43:29 2019-06-14 09:44:58 0 [IP Address]      100
-##  3 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Address]      100
-##  4 2019-06-14 09:43:32 2019-06-14 09:45:12 0 [IP Address]      100
-##  5 2019-06-14 09:43:48 2019-06-14 09:45:25 0 [IP Address]      100
-##  6 2019-06-14 09:44:24 2019-06-14 09:45:26 0 [IP Address]      100
-##  7 2019-06-14 09:43:50 2019-06-14 09:45:29 0 [IP Address]      100
-##  8 2019-06-14 09:44:15 2019-06-14 09:45:42 0 [IP Address]      100
-##  9 2019-06-14 09:44:30 2019-06-14 09:45:58 0 [IP Address]      100
-## 10 2019-06-14 09:44:36 2019-06-14 09:46:05 0 [IP Address]      100
-## # … with 31 more rows, and 48 more variables:
-## #   Duration__in_seconds_ &lt;dbl&gt;, Finished &lt;dbl+lbl&gt;,
+##    StartDate           EndDate                  Status Progress Duration__in_se…
+##    &lt;dttm&gt;              &lt;dttm&gt;                &lt;dbl+lbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Addr…      100               70
+##  2 2019-06-14 09:43:29 2019-06-14 09:44:58 0 [IP Addr…      100               88
+##  3 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Addr…      100               70
+##  4 2019-06-14 09:43:32 2019-06-14 09:45:12 0 [IP Addr…      100               99
+##  5 2019-06-14 09:43:48 2019-06-14 09:45:25 0 [IP Addr…      100               96
+##  6 2019-06-14 09:44:24 2019-06-14 09:45:26 0 [IP Addr…      100               61
+##  7 2019-06-14 09:43:50 2019-06-14 09:45:29 0 [IP Addr…      100               98
+##  8 2019-06-14 09:44:15 2019-06-14 09:45:42 0 [IP Addr…      100               86
+##  9 2019-06-14 09:44:30 2019-06-14 09:45:58 0 [IP Addr…      100               88
+## 10 2019-06-14 09:44:36 2019-06-14 09:46:05 0 [IP Addr…      100               88
+## # … with 31 more rows, and 47 more variables: Finished &lt;dbl+lbl&gt;,
 ## #   RecordedDate &lt;dttm&gt;, ResponseId &lt;chr&gt;, DistributionChannel &lt;chr&gt;,
 ## #   UserLanguage &lt;chr&gt;, Consent &lt;dbl+lbl&gt;, Pol_7 &lt;dbl+lbl&gt;,
 ## #   W2_Knowledge &lt;dbl+lbl&gt;, Gender &lt;dbl+lbl&gt;, Race &lt;dbl+lbl&gt;,
-## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;,
-## #   W1_Actions_1_2 &lt;dbl+lbl&gt;, W1_Actions_1_3 &lt;dbl+lbl&gt;, …
+## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;, W1_Actions_1_2 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_3 &lt;dbl+lbl&gt;, W1_Actions_1_4 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_5 &lt;dbl+lbl&gt;, W1_Actions_1_6 &lt;dbl+lbl&gt;, …
 ```
 
 ---
@@ -184,25 +184,25 @@ arrange(ads_data, Duration__in_seconds_)
 
 ```
 ## # A tibble: 1,460 × 52
-##    StartDate           EndDate                     Status Progress
-##    &lt;dttm&gt;              &lt;dttm&gt;                   &lt;dbl+lbl&gt;    &lt;dbl&gt;
-##  1 2019-06-14 09:58:11 2019-06-14 09:59:01 0 [IP Address]      100
-##  2 2019-06-14 09:44:24 2019-06-14 09:45:26 0 [IP Address]      100
-##  3 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Address]      100
-##  4 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Address]      100
-##  5 2019-06-14 09:52:10 2019-06-14 09:53:26 0 [IP Address]      100
-##  6 2019-06-14 09:45:57 2019-06-14 09:47:13 0 [IP Address]      100
-##  7 2019-06-14 09:50:37 2019-06-14 09:51:53 0 [IP Address]      100
-##  8 2019-06-14 09:45:49 2019-06-14 09:47:08 0 [IP Address]      100
-##  9 2019-06-14 10:10:25 2019-06-14 10:11:45 0 [IP Address]      100
-## 10 2019-06-14 09:53:33 2019-06-14 09:54:54 0 [IP Address]      100
-## # … with 1,450 more rows, and 48 more variables:
-## #   Duration__in_seconds_ &lt;dbl&gt;, Finished &lt;dbl+lbl&gt;,
+##    StartDate           EndDate                  Status Progress Duration__in_se…
+##    &lt;dttm&gt;              &lt;dttm&gt;                &lt;dbl+lbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2019-06-14 09:58:11 2019-06-14 09:59:01 0 [IP Addr…      100               50
+##  2 2019-06-14 09:44:24 2019-06-14 09:45:26 0 [IP Addr…      100               61
+##  3 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Addr…      100               70
+##  4 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Addr…      100               70
+##  5 2019-06-14 09:52:10 2019-06-14 09:53:26 0 [IP Addr…      100               75
+##  6 2019-06-14 09:45:57 2019-06-14 09:47:13 0 [IP Addr…      100               76
+##  7 2019-06-14 09:50:37 2019-06-14 09:51:53 0 [IP Addr…      100               76
+##  8 2019-06-14 09:45:49 2019-06-14 09:47:08 0 [IP Addr…      100               78
+##  9 2019-06-14 10:10:25 2019-06-14 10:11:45 0 [IP Addr…      100               79
+## 10 2019-06-14 09:53:33 2019-06-14 09:54:54 0 [IP Addr…      100               80
+## # … with 1,450 more rows, and 47 more variables: Finished &lt;dbl+lbl&gt;,
 ## #   RecordedDate &lt;dttm&gt;, ResponseId &lt;chr&gt;, DistributionChannel &lt;chr&gt;,
 ## #   UserLanguage &lt;chr&gt;, Consent &lt;dbl+lbl&gt;, Pol_7 &lt;dbl+lbl&gt;,
 ## #   W2_Knowledge &lt;dbl+lbl&gt;, Gender &lt;dbl+lbl&gt;, Race &lt;dbl+lbl&gt;,
-## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;,
-## #   W1_Actions_1_2 &lt;dbl+lbl&gt;, W1_Actions_1_3 &lt;dbl+lbl&gt;, …
+## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;, W1_Actions_1_2 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_3 &lt;dbl+lbl&gt;, W1_Actions_1_4 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_5 &lt;dbl+lbl&gt;, W1_Actions_1_6 &lt;dbl+lbl&gt;, …
 ```
 
 ---
@@ -245,25 +245,25 @@ select(ads_data, -Consent, -DistributionChannel)
 
 ```
 ## # A tibble: 1,460 × 50
-##    StartDate           EndDate                     Status Progress
-##    &lt;dttm&gt;              &lt;dttm&gt;                   &lt;dbl+lbl&gt;    &lt;dbl&gt;
-##  1 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Address]      100
-##  2 2019-06-14 09:43:11 2019-06-14 09:44:57 0 [IP Address]      100
-##  3 2019-06-14 09:43:29 2019-06-14 09:44:58 0 [IP Address]      100
-##  4 2019-06-14 09:43:10 2019-06-14 09:45:00 0 [IP Address]      100
-##  5 2019-06-14 09:43:11 2019-06-14 09:45:00 0 [IP Address]      100
-##  6 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Address]      100
-##  7 2019-06-14 09:43:32 2019-06-14 09:45:12 0 [IP Address]      100
-##  8 2019-06-14 09:43:27 2019-06-14 09:45:12 0 [IP Address]      100
-##  9 2019-06-14 09:43:08 2019-06-14 09:45:13 0 [IP Address]      100
-## 10 2019-06-14 09:43:36 2019-06-14 09:45:16 0 [IP Address]      100
-## # … with 1,450 more rows, and 46 more variables:
-## #   Duration__in_seconds_ &lt;dbl&gt;, Finished &lt;dbl+lbl&gt;,
-## #   RecordedDate &lt;dttm&gt;, ResponseId &lt;chr&gt;, UserLanguage &lt;chr&gt;,
-## #   Pol_7 &lt;dbl+lbl&gt;, W2_Knowledge &lt;dbl+lbl&gt;, Gender &lt;dbl+lbl&gt;,
-## #   Race &lt;dbl+lbl&gt;, W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;,
-## #   W1_Actions_1_2 &lt;dbl+lbl&gt;, W1_Actions_1_3 &lt;dbl+lbl&gt;,
-## #   W1_Actions_1_4 &lt;dbl+lbl&gt;, W1_Actions_1_5 &lt;dbl+lbl&gt;, …
+##    StartDate           EndDate                  Status Progress Duration__in_se…
+##    &lt;dttm&gt;              &lt;dttm&gt;                &lt;dbl+lbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Addr…      100               70
+##  2 2019-06-14 09:43:11 2019-06-14 09:44:57 0 [IP Addr…      100              105
+##  3 2019-06-14 09:43:29 2019-06-14 09:44:58 0 [IP Addr…      100               88
+##  4 2019-06-14 09:43:10 2019-06-14 09:45:00 0 [IP Addr…      100              109
+##  5 2019-06-14 09:43:11 2019-06-14 09:45:00 0 [IP Addr…      100              109
+##  6 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Addr…      100               70
+##  7 2019-06-14 09:43:32 2019-06-14 09:45:12 0 [IP Addr…      100               99
+##  8 2019-06-14 09:43:27 2019-06-14 09:45:12 0 [IP Addr…      100              105
+##  9 2019-06-14 09:43:08 2019-06-14 09:45:13 0 [IP Addr…      100              124
+## 10 2019-06-14 09:43:36 2019-06-14 09:45:16 0 [IP Addr…      100              100
+## # … with 1,450 more rows, and 45 more variables: Finished &lt;dbl+lbl&gt;,
+## #   RecordedDate &lt;dttm&gt;, ResponseId &lt;chr&gt;, UserLanguage &lt;chr&gt;, Pol_7 &lt;dbl+lbl&gt;,
+## #   W2_Knowledge &lt;dbl+lbl&gt;, Gender &lt;dbl+lbl&gt;, Race &lt;dbl+lbl&gt;,
+## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;, W1_Actions_1_2 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_3 &lt;dbl+lbl&gt;, W1_Actions_1_4 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_5 &lt;dbl+lbl&gt;, W1_Actions_1_6 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_7 &lt;dbl+lbl&gt;, W1_Actions_1_8 &lt;dbl+lbl&gt;, …
 ```
 
 
@@ -280,25 +280,25 @@ filter(ads_data, Duration__in_seconds_ &lt; 100)
 
 ```
 ## # A tibble: 41 × 52
-##    StartDate           EndDate                     Status Progress
-##    &lt;dttm&gt;              &lt;dttm&gt;                   &lt;dbl+lbl&gt;    &lt;dbl&gt;
-##  1 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Address]      100
-##  2 2019-06-14 09:43:29 2019-06-14 09:44:58 0 [IP Address]      100
-##  3 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Address]      100
-##  4 2019-06-14 09:43:32 2019-06-14 09:45:12 0 [IP Address]      100
-##  5 2019-06-14 09:43:48 2019-06-14 09:45:25 0 [IP Address]      100
-##  6 2019-06-14 09:44:24 2019-06-14 09:45:26 0 [IP Address]      100
-##  7 2019-06-14 09:43:50 2019-06-14 09:45:29 0 [IP Address]      100
-##  8 2019-06-14 09:44:15 2019-06-14 09:45:42 0 [IP Address]      100
-##  9 2019-06-14 09:44:30 2019-06-14 09:45:58 0 [IP Address]      100
-## 10 2019-06-14 09:44:36 2019-06-14 09:46:05 0 [IP Address]      100
-## # … with 31 more rows, and 48 more variables:
-## #   Duration__in_seconds_ &lt;dbl&gt;, Finished &lt;dbl+lbl&gt;,
+##    StartDate           EndDate                  Status Progress Duration__in_se…
+##    &lt;dttm&gt;              &lt;dttm&gt;                &lt;dbl+lbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Addr…      100               70
+##  2 2019-06-14 09:43:29 2019-06-14 09:44:58 0 [IP Addr…      100               88
+##  3 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Addr…      100               70
+##  4 2019-06-14 09:43:32 2019-06-14 09:45:12 0 [IP Addr…      100               99
+##  5 2019-06-14 09:43:48 2019-06-14 09:45:25 0 [IP Addr…      100               96
+##  6 2019-06-14 09:44:24 2019-06-14 09:45:26 0 [IP Addr…      100               61
+##  7 2019-06-14 09:43:50 2019-06-14 09:45:29 0 [IP Addr…      100               98
+##  8 2019-06-14 09:44:15 2019-06-14 09:45:42 0 [IP Addr…      100               86
+##  9 2019-06-14 09:44:30 2019-06-14 09:45:58 0 [IP Addr…      100               88
+## 10 2019-06-14 09:44:36 2019-06-14 09:46:05 0 [IP Addr…      100               88
+## # … with 31 more rows, and 47 more variables: Finished &lt;dbl+lbl&gt;,
 ## #   RecordedDate &lt;dttm&gt;, ResponseId &lt;chr&gt;, DistributionChannel &lt;chr&gt;,
 ## #   UserLanguage &lt;chr&gt;, Consent &lt;dbl+lbl&gt;, Pol_7 &lt;dbl+lbl&gt;,
 ## #   W2_Knowledge &lt;dbl+lbl&gt;, Gender &lt;dbl+lbl&gt;, Race &lt;dbl+lbl&gt;,
-## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;,
-## #   W1_Actions_1_2 &lt;dbl+lbl&gt;, W1_Actions_1_3 &lt;dbl+lbl&gt;, …
+## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;, W1_Actions_1_2 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_3 &lt;dbl+lbl&gt;, W1_Actions_1_4 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_5 &lt;dbl+lbl&gt;, W1_Actions_1_6 &lt;dbl+lbl&gt;, …
 ```
 
 But what if we want to perform multiple operations in one go? 
@@ -419,125 +419,109 @@ summary(ads_data)
 ```
 
 ```
-##    StartDate                         EndDate                      
-##  Min.   :2019-06-14 09:43:03.00   Min.   :2019-06-14 09:44:30.00  
-##  1st Qu.:2019-06-14 09:46:47.50   1st Qu.:2019-06-14 09:51:29.00  
-##  Median :2019-06-14 09:52:50.00   Median :2019-06-14 09:57:57.00  
-##  Mean   :2019-06-14 09:57:40.11   Mean   :2019-06-14 10:02:23.89  
-##  3rd Qu.:2019-06-14 10:06:28.25   3rd Qu.:2019-06-14 10:11:19.50  
-##  Max.   :2019-06-14 11:19:45.00   Max.   :2019-06-14 11:27:10.00  
-##                                                                   
-##      Status     Progress   Duration__in_seconds_    Finished
-##  Min.   :0   Min.   :100   Min.   :  50.0        Min.   :1  
-##  1st Qu.:0   1st Qu.:100   1st Qu.: 178.0        1st Qu.:1  
-##  Median :0   Median :100   Median : 237.0        Median :1  
-##  Mean   :0   Mean   :100   Mean   : 283.3        Mean   :1  
-##  3rd Qu.:0   3rd Qu.:100   3rd Qu.: 324.2        3rd Qu.:1  
-##  Max.   :0   Max.   :100   Max.   :1575.0        Max.   :1  
-##                                                             
-##   RecordedDate                     ResponseId       
-##  Min.   :2019-06-14 09:44:31.00   Length:1460       
-##  1st Qu.:2019-06-14 09:51:29.00   Class :character  
-##  Median :2019-06-14 09:57:58.00   Mode  :character  
-##  Mean   :2019-06-14 10:02:24.49                     
-##  3rd Qu.:2019-06-14 10:11:20.50                     
-##  Max.   :2019-06-14 11:27:11.00                     
-##                                                     
-##  DistributionChannel UserLanguage          Consent      Pol_7      
-##  Length:1460         Length:1460        Min.   :1   Min.   :1.000  
-##  Class :character    Class :character   1st Qu.:1   1st Qu.:2.000  
-##  Mode  :character    Mode  :character   Median :1   Median :3.000  
-##                                         Mean   :1   Mean   :3.549  
-##                                         3rd Qu.:1   3rd Qu.:5.000  
-##                                         Max.   :1   Max.   :7.000  
-##                                                                    
-##   W2_Knowledge       Gender           Race       W1_Feeling_1    
-##  Min.   :1.000   Min.   :1.000   Min.   :1.00   Min.   :-10.000  
-##  1st Qu.:2.000   1st Qu.:1.000   1st Qu.:1.00   1st Qu.:-10.000  
-##  Median :3.000   Median :1.000   Median :1.00   Median : -7.000  
-##  Mean   :2.638   Mean   :1.484   Mean   :1.52   Mean   : -5.303  
-##  3rd Qu.:3.000   3rd Qu.:2.000   3rd Qu.:2.00   3rd Qu.: -3.000  
-##  Max.   :4.000   Max.   :3.000   Max.   :6.00   Max.   : 10.000  
-##                                                                  
-##  W1_Actions_1_1 W1_Actions_1_2 W1_Actions_1_3 W1_Actions_1_4
-##  Min.   :1      Min.   :1      Min.   :1      Min.   :1     
-##  1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1     
-##  Median :1      Median :1      Median :1      Median :1     
-##  Mean   :1      Mean   :1      Mean   :1      Mean   :1     
-##  3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1     
-##  Max.   :1      Max.   :1      Max.   :1      Max.   :1     
-##  NA's   :711    NA's   :1282   NA's   :839    NA's   :1206  
-##  W1_Actions_1_5 W1_Actions_1_6 W1_Actions_1_7 W1_Actions_1_8
-##  Min.   :1      Min.   :1      Min.   :1      Min.   :1     
-##  1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1     
-##  Median :1      Median :1      Median :1      Median :1     
-##  Mean   :1      Mean   :1      Mean   :1      Mean   :1     
-##  3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1     
-##  Max.   :1      Max.   :1      Max.   :1      Max.   :1     
-##  NA's   :770    NA's   :1241   NA's   :1246   NA's   :1254  
-##  W1_Actions_2_1 W1_Actions_2_2 W1_Actions_2_3 W1_Actions_2_4
-##  Min.   :1      Min.   :1      Min.   :1      Min.   :1     
-##  1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1     
-##  Median :1      Median :1      Median :1      Median :1     
-##  Mean   :1      Mean   :1      Mean   :1      Mean   :1     
-##  3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1     
-##  Max.   :1      Max.   :1      Max.   :1      Max.   :1     
-##  NA's   :873    NA's   :1256   NA's   :1291   NA's   :1382  
-##  W1_Actions_2_5 W1_Actions_2_6 W1_Actions_2_7  W2_Feeling_1    
-##  Min.   :1      Min.   :1      Min.   :1      Min.   :-10.000  
-##  1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.: -5.000  
-##  Median :1      Median :1      Median :1      Median : -1.000  
-##  Mean   :1      Mean   :1      Mean   :1      Mean   : -1.123  
-##  3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:  3.000  
-##  Max.   :1      Max.   :1      Max.   :1      Max.   : 10.000  
-##  NA's   :1140   NA's   :1280   NA's   :897                     
-##    W2_Trust_1       W2_Quality_1        W2_Impact      W2_Petition   
-##  Min.   :-10.000   Min.   :-10.0000   Min.   :1.000   Min.   :1.000  
-##  1st Qu.: -6.000   1st Qu.: -4.2500   1st Qu.:3.000   1st Qu.:3.000  
-##  Median : -2.000   Median :  0.0000   Median :4.000   Median :4.000  
-##  Mean   : -1.434   Mean   : -0.6719   Mean   :4.047   Mean   :3.869  
-##  3rd Qu.:  3.000   3rd Qu.:  3.0000   3rd Qu.:5.000   3rd Qu.:5.000  
-##  Max.   : 10.000   Max.   : 10.0000   Max.   :7.000   Max.   :7.000  
-##                                                       NA's   :4      
-##    W2_Meeting         Educ         Birthyear     Home_Region   
-##  Min.   :1.000   Min.   :1.000   Min.   :1941   Min.   :1.000  
-##  1st Qu.:3.000   1st Qu.:3.000   1st Qu.:1974   1st Qu.:2.000  
-##  Median :4.000   Median :5.000   Median :1984   Median :2.000  
-##  Mean   :4.208   Mean   :4.293   Mean   :1981   Mean   :2.271  
-##  3rd Qu.:6.000   3rd Qu.:5.000   3rd Qu.:1990   3rd Qu.:3.000  
-##  Max.   :7.000   Max.   :8.000   Max.   :2001   Max.   :3.000  
-##  NA's   :3                                                     
-##  Marital_Status      Income      Employment_Status      Q96       
-##  Min.   :1.000   Min.   : 1.00   Min.   : 1.000    Min.   :1.000  
-##  1st Qu.:1.000   1st Qu.: 4.00   1st Qu.: 1.000    1st Qu.:1.000  
-##  Median :3.000   Median : 6.00   Median : 1.000    Median :2.000  
-##  Mean   :2.949   Mean   : 6.19   Mean   : 2.324    Mean   :1.836  
-##  3rd Qu.:5.000   3rd Qu.: 8.00   3rd Qu.: 3.000    3rd Qu.:3.000  
-##  Max.   :5.000   Max.   :12.00   Max.   :10.000    Max.   :3.000  
-##                                                                   
-##     Industry      Work_Region   Attention_Sincere Attention_Honest
-##  Min.   : 1.00   Min.   :1.00   Min.   :1.000     Min.   :1.000   
-##  1st Qu.: 7.00   1st Qu.:2.00   1st Qu.:1.000     1st Qu.:5.000   
-##  Median :11.00   Median :2.00   Median :1.000     Median :5.000   
-##  Mean   :10.78   Mean   :2.21   Mean   :1.464     Mean   :4.869   
-##  3rd Qu.:14.00   3rd Qu.:3.00   3rd Qu.:1.000     3rd Qu.:5.000   
-##  Max.   :18.00   Max.   :3.00   Max.   :5.000     Max.   :5.000   
-##  NA's   :227     NA's   :227                                      
-##     mTurk             Block_ID          Wing_Order       
-##  Length:1460        Length:1460        Length:1460       
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##                                                          
-##    Vignette         Birthyear_add_day                
-##  Length:1460        Min.   :1941-07-01 00:00:00.000  
-##  Class :character   1st Qu.:1974-07-01 00:00:00.000  
-##  Mode  :character   Median :1984-07-01 00:00:00.000  
-##                     Mean   :1981-04-21 14:04:16.438  
-##                     3rd Qu.:1990-07-01 00:00:00.000  
-##                     Max.   :2001-07-01 00:00:00.000  
+##    StartDate                         EndDate                           Status 
+##  Min.   :2019-06-14 09:43:03.00   Min.   :2019-06-14 09:44:30.00   Min.   :0  
+##  1st Qu.:2019-06-14 09:46:47.50   1st Qu.:2019-06-14 09:51:29.00   1st Qu.:0  
+##  Median :2019-06-14 09:52:50.00   Median :2019-06-14 09:57:57.00   Median :0  
+##  Mean   :2019-06-14 09:57:40.11   Mean   :2019-06-14 10:02:23.89   Mean   :0  
+##  3rd Qu.:2019-06-14 10:06:28.25   3rd Qu.:2019-06-14 10:11:19.50   3rd Qu.:0  
+##  Max.   :2019-06-14 11:19:45.00   Max.   :2019-06-14 11:27:10.00   Max.   :0  
+##                                                                               
+##     Progress   Duration__in_seconds_    Finished
+##  Min.   :100   Min.   :  50.0        Min.   :1  
+##  1st Qu.:100   1st Qu.: 178.0        1st Qu.:1  
+##  Median :100   Median : 237.0        Median :1  
+##  Mean   :100   Mean   : 283.3        Mean   :1  
+##  3rd Qu.:100   3rd Qu.: 324.2        3rd Qu.:1  
+##  Max.   :100   Max.   :1575.0        Max.   :1  
+##                                                 
+##   RecordedDate                     ResponseId        DistributionChannel
+##  Min.   :2019-06-14 09:44:31.00   Length:1460        Length:1460        
+##  1st Qu.:2019-06-14 09:51:29.00   Class :character   Class :character   
+##  Median :2019-06-14 09:57:58.00   Mode  :character   Mode  :character   
+##  Mean   :2019-06-14 10:02:24.49                                         
+##  3rd Qu.:2019-06-14 10:11:20.50                                         
+##  Max.   :2019-06-14 11:27:11.00                                         
+##                                                                         
+##  UserLanguage          Consent      Pol_7        W2_Knowledge       Gender     
+##  Length:1460        Min.   :1   Min.   :1.000   Min.   :1.000   Min.   :1.000  
+##  Class :character   1st Qu.:1   1st Qu.:2.000   1st Qu.:2.000   1st Qu.:1.000  
+##  Mode  :character   Median :1   Median :3.000   Median :3.000   Median :1.000  
+##                     Mean   :1   Mean   :3.549   Mean   :2.638   Mean   :1.484  
+##                     3rd Qu.:1   3rd Qu.:5.000   3rd Qu.:3.000   3rd Qu.:2.000  
+##                     Max.   :1   Max.   :7.000   Max.   :4.000   Max.   :3.000  
+##                                                                                
+##       Race       W1_Feeling_1     W1_Actions_1_1 W1_Actions_1_2 W1_Actions_1_3
+##  Min.   :1.00   Min.   :-10.000   Min.   :1      Min.   :1      Min.   :1     
+##  1st Qu.:1.00   1st Qu.:-10.000   1st Qu.:1      1st Qu.:1      1st Qu.:1     
+##  Median :1.00   Median : -7.000   Median :1      Median :1      Median :1     
+##  Mean   :1.52   Mean   : -5.303   Mean   :1      Mean   :1      Mean   :1     
+##  3rd Qu.:2.00   3rd Qu.: -3.000   3rd Qu.:1      3rd Qu.:1      3rd Qu.:1     
+##  Max.   :6.00   Max.   : 10.000   Max.   :1      Max.   :1      Max.   :1     
+##                                   NA's   :711    NA's   :1282   NA's   :839   
+##  W1_Actions_1_4 W1_Actions_1_5 W1_Actions_1_6 W1_Actions_1_7 W1_Actions_1_8
+##  Min.   :1      Min.   :1      Min.   :1      Min.   :1      Min.   :1     
+##  1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1     
+##  Median :1      Median :1      Median :1      Median :1      Median :1     
+##  Mean   :1      Mean   :1      Mean   :1      Mean   :1      Mean   :1     
+##  3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1     
+##  Max.   :1      Max.   :1      Max.   :1      Max.   :1      Max.   :1     
+##  NA's   :1206   NA's   :770    NA's   :1241   NA's   :1246   NA's   :1254  
+##  W1_Actions_2_1 W1_Actions_2_2 W1_Actions_2_3 W1_Actions_2_4 W1_Actions_2_5
+##  Min.   :1      Min.   :1      Min.   :1      Min.   :1      Min.   :1     
+##  1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1     
+##  Median :1      Median :1      Median :1      Median :1      Median :1     
+##  Mean   :1      Mean   :1      Mean   :1      Mean   :1      Mean   :1     
+##  3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1     
+##  Max.   :1      Max.   :1      Max.   :1      Max.   :1      Max.   :1     
+##  NA's   :873    NA's   :1256   NA's   :1291   NA's   :1382   NA's   :1140  
+##  W1_Actions_2_6 W1_Actions_2_7  W2_Feeling_1       W2_Trust_1     
+##  Min.   :1      Min.   :1      Min.   :-10.000   Min.   :-10.000  
+##  1st Qu.:1      1st Qu.:1      1st Qu.: -5.000   1st Qu.: -6.000  
+##  Median :1      Median :1      Median : -1.000   Median : -2.000  
+##  Mean   :1      Mean   :1      Mean   : -1.123   Mean   : -1.434  
+##  3rd Qu.:1      3rd Qu.:1      3rd Qu.:  3.000   3rd Qu.:  3.000  
+##  Max.   :1      Max.   :1      Max.   : 10.000   Max.   : 10.000  
+##  NA's   :1280   NA's   :897                                       
+##   W2_Quality_1        W2_Impact      W2_Petition      W2_Meeting   
+##  Min.   :-10.0000   Min.   :1.000   Min.   :1.000   Min.   :1.000  
+##  1st Qu.: -4.2500   1st Qu.:3.000   1st Qu.:3.000   1st Qu.:3.000  
+##  Median :  0.0000   Median :4.000   Median :4.000   Median :4.000  
+##  Mean   : -0.6719   Mean   :4.047   Mean   :3.869   Mean   :4.208  
+##  3rd Qu.:  3.0000   3rd Qu.:5.000   3rd Qu.:5.000   3rd Qu.:6.000  
+##  Max.   : 10.0000   Max.   :7.000   Max.   :7.000   Max.   :7.000  
+##                                     NA's   :4       NA's   :3      
+##       Educ         Birthyear     Home_Region    Marital_Status      Income     
+##  Min.   :1.000   Min.   :1941   Min.   :1.000   Min.   :1.000   Min.   : 1.00  
+##  1st Qu.:3.000   1st Qu.:1974   1st Qu.:2.000   1st Qu.:1.000   1st Qu.: 4.00  
+##  Median :5.000   Median :1984   Median :2.000   Median :3.000   Median : 6.00  
+##  Mean   :4.293   Mean   :1981   Mean   :2.271   Mean   :2.949   Mean   : 6.19  
+##  3rd Qu.:5.000   3rd Qu.:1990   3rd Qu.:3.000   3rd Qu.:5.000   3rd Qu.: 8.00  
+##  Max.   :8.000   Max.   :2001   Max.   :3.000   Max.   :5.000   Max.   :12.00  
+##                                                                                
+##  Employment_Status      Q96           Industry      Work_Region  
+##  Min.   : 1.000    Min.   :1.000   Min.   : 1.00   Min.   :1.00  
+##  1st Qu.: 1.000    1st Qu.:1.000   1st Qu.: 7.00   1st Qu.:2.00  
+##  Median : 1.000    Median :2.000   Median :11.00   Median :2.00  
+##  Mean   : 2.324    Mean   :1.836   Mean   :10.78   Mean   :2.21  
+##  3rd Qu.: 3.000    3rd Qu.:3.000   3rd Qu.:14.00   3rd Qu.:3.00  
+##  Max.   :10.000    Max.   :3.000   Max.   :18.00   Max.   :3.00  
+##                                    NA's   :227     NA's   :227   
+##  Attention_Sincere Attention_Honest    mTurk             Block_ID        
+##  Min.   :1.000     Min.   :1.000    Length:1460        Length:1460       
+##  1st Qu.:1.000     1st Qu.:5.000    Class :character   Class :character  
+##  Median :1.000     Median :5.000    Mode  :character   Mode  :character  
+##  Mean   :1.464     Mean   :4.869                                         
+##  3rd Qu.:1.000     3rd Qu.:5.000                                         
+##  Max.   :5.000     Max.   :5.000                                         
+##                                                                          
+##   Wing_Order          Vignette         Birthyear_add_day                
+##  Length:1460        Length:1460        Min.   :1941-07-01 00:00:00.000  
+##  Class :character   Class :character   1st Qu.:1974-07-01 00:00:00.000  
+##  Mode  :character   Mode  :character   Median :1984-07-01 00:00:00.000  
+##                                        Mean   :1981-04-21 14:04:16.438  
+##                                        3rd Qu.:1990-07-01 00:00:00.000  
+##                                        Max.   :2001-07-01 00:00:00.000  
 ## 
 ```
 
@@ -552,84 +536,111 @@ ads_data %&gt;%
 ```
 
 ```
-##    [1]   70  105   88  109  109   70   99  105  124  100   96  102   61
-##   [14]   98  120   86  119  120  143  115  131  164  140  126   88  127
-##   [27]  146   88  134  163  111  164  123  176  102  119  187  179  140
-##   [40]  144  183  139  123  162  152  184  160  181  163  168  101  190
-##   [53]  178  144  194  123  133  135  185  121  163  192  210  167  139
-##   [66]  204  117  170  170  199   95  126  208  178  207  146  118  170
-##   [79]  110  172  226   78  160  185  186  222  212  185  168  213   76
-##   [92]  213  165  173  218  207  214  203  206  213  228  186  240  248
-##  [105]  208  176  217  142  190  215  247  163  239  251  185  176  217
-##  [118]  193  171  159  239  252  178  168  101  213  227  122  217  225
-##  [131]  239  182  178  165  248  190  272  222  101  173  270  121  191
-##  [144]  275  210  227  283  188  194  275  236  169  151  295  262  257
-##  [157]  234  119  287  276  264  286  193  245  196  289  148  295  208
-##  [170]  285  209  318  210  113  193  262  322  168  298  278  216  228
-##  [183]  252  185  343  121  319  281  239  115  321  303  304  300  267
-##  [196]  190  228  194  271  187  283  232  164  241  213  288  188  323
-##  [209]  237  265  245  174  361  172  276  195  357  226  188  223  234
-##  [222]  291  197  283  339  100  319  216  224  169  182  257  227  347
-##  [235]  284  278  330  237  261  104  216  181  233  195  265  348  193
-##  [248]  181  189  246  309  348  192  251  161  366  216  198  133  214
-##  [261]  377  174  166  210  158  269   95  289  317  195  125  404  230
-##  [274]  176  189  417  281  137  126  321  148  178  298  409  381  168
-##  [287]  164  333  119  286  393  146  217  250  205  330  308  396  298
-##  [300]  328  223  273  339  284  289  197  360  129  318  270  335  272
-##  [313]  424  286  171  429  174  237  323  397  165  194  310  472  211
-##  [326]  207  188  371  248  284  195  308  322  137  461  452  260  247
-##  [339]  198  292  338  184  262  198  330  189  226  197  212  231  292
-##  [352]  205  257  199  333  106  195  360  166  460  306   93  298  427
-##  [365]  306  107  390  219  299  260  223  295  491  306  237  138  258
-##  [378]  363  228  210  288  230  141  317  276  376  358  202  198  216
-##  [391]  113  225   76  168  236  323  160  169  217  176  227  183  167
-##  [404]  391  225  191  207  166  223  392  261  361  233  288  252  280
-##  [417]  407  152  553  365  263  246  369  122  124  179  177  226  491
-##  [430]  465  148  215  461  143  195  165  263  273  263  225  309  122
-##  [443]   98  315  478  350  252  519  163  125  146  265  244  360  546
-##  [456]  297  122  177  187  226  186  487  303  283  201  212  162  234
-##  [469]  603  202  319  412  124  130  158  254  293  160  240  305  210
-##  [482]  265  241  493  169  193  287  114   75  190  231  431  411  603
-##  [495]  343  522  275  277  462  469  149  155  247  230  326  360  159
-##  [508]  184  246  227  409  383  210  394  170  218  143  325  244  200
-##  [521]  434  181  226  178  237  226  142  232  106  392  256  101  174
-##  [534]  107  215  373  331  177  461  256  202   99   91  490  247  233
-##  [547]  433  668  385  253  146  178  268  200  258  356  299  243  161
-##  [560]  131  287  340  424  273  272  325  273  238  220  522  459  468
-##  [573]  166  157  246   80  193  167  367  193  501  139  290  374  547
-##  [586]  294  108  221  273  112  430  633  270  208  485  198  346  224
-##  [599]  212  165  233  155  259  245  296  157  266  125  281  249  379
-##  [612]  177  193  164  312  165  243  202  298  166  232  234  205  231
-##  [625]  583  238  237  207  146  217  678  147  259  653  233  504  142
-##  [638]  284  763  216  228  188  289  121  128  241  266  171  273  315
-##  [651]  188  215  193  323  225  255  346  207  297  214  216  198  199
-##  [664]  342  101  349   81  720  140  132  412  410  219  250  174  395
-##  [677]  513  534  260  291  122  298  151  244  250  319  172  430  782
-##  [690]  470  286  325  202  633  268  215  609  241  218  318  219  130
-##  [703]  252  232  211  248  139  262  277  300  240  282  250  485  256
-##  [716]  724  304  261  212  220  431  227  278  207  218  270  176  473
-##  [729]  320  379  479  115  224  210  417  197  453  139  738  299  182
-##  [742]  152  410  141  384  139  905  332  544  406  316  217  203  164
-##  [755]  153  304  243  349  724  233  374  515  442  332  212  589  272
-##  [768]  526  337  169  113  522  134  582  316  256  402  384  207   50
-##  [781]  138  224  289  401  187  431  316  408  617  137  509  673  169
-##  [794]  275  462  286  632  224  181  217  361  409  431  190  699  169
-##  [807]  158  685  246  163  135  486  162  400  557  229  162  124  172
-##  [820]  281  463  273  194  533  967  222  179   83  287  179  262  233
-##  [833]  180  166  683  218  180  132  236  200  308  224  184  177  138
-##  [846]  264  252  409  314  199  190  171  177  241  630  264  270  585
-##  [859]  234  141  895  438  194  238  732  362  192  109  161  884  231
-##  [872]  264  398  567  130  235  604  132  245  170  468  399  119  866
-##  [885]  323 1075  223  181   93  422  149  101  307  512  315  343  124
-##  [898]  367  317  314  232  505  312  227   91  299  302  468  423  402
-##  [911]  868  474  163   96  921  199  245  307  403  432  212 1032  299
-##  [924]  592  307   95  188  155   97  197  502  161  413  248  168  125
-##  [937]  223  205  198  453  311  209  149  186  239  574  781  667  179
-##  [950]  244  391  422  135  293  115  423  992  209  228  158  157  139
-##  [963]  322  439  379  328 1090  198  157  203  110  338  155  199  234
-##  [976]  214  725  299  325  277  305  243  160  523  311 1200  218  270
-##  [989]  154  359  259  256  227  193  346  694  291  122  406  723
-##  [ reached getOption("max.print") -- omitted 460 entries ]
+##    [1]   70  105   88  109  109   70   99  105  124  100   96  102   61   98
+##   [15]  120   86  119  120  143  115  131  164  140  126   88  127  146   88
+##   [29]  134  163  111  164  123  176  102  119  187  179  140  144  183  139
+##   [43]  123  162  152  184  160  181  163  168  101  190  178  144  194  123
+##   [57]  133  135  185  121  163  192  210  167  139  204  117  170  170  199
+##   [71]   95  126  208  178  207  146  118  170  110  172  226   78  160  185
+##   [85]  186  222  212  185  168  213   76  213  165  173  218  207  214  203
+##   [99]  206  213  228  186  240  248  208  176  217  142  190  215  247  163
+##  [113]  239  251  185  176  217  193  171  159  239  252  178  168  101  213
+##  [127]  227  122  217  225  239  182  178  165  248  190  272  222  101  173
+##  [141]  270  121  191  275  210  227  283  188  194  275  236  169  151  295
+##  [155]  262  257  234  119  287  276  264  286  193  245  196  289  148  295
+##  [169]  208  285  209  318  210  113  193  262  322  168  298  278  216  228
+##  [183]  252  185  343  121  319  281  239  115  321  303  304  300  267  190
+##  [197]  228  194  271  187  283  232  164  241  213  288  188  323  237  265
+##  [211]  245  174  361  172  276  195  357  226  188  223  234  291  197  283
+##  [225]  339  100  319  216  224  169  182  257  227  347  284  278  330  237
+##  [239]  261  104  216  181  233  195  265  348  193  181  189  246  309  348
+##  [253]  192  251  161  366  216  198  133  214  377  174  166  210  158  269
+##  [267]   95  289  317  195  125  404  230  176  189  417  281  137  126  321
+##  [281]  148  178  298  409  381  168  164  333  119  286  393  146  217  250
+##  [295]  205  330  308  396  298  328  223  273  339  284  289  197  360  129
+##  [309]  318  270  335  272  424  286  171  429  174  237  323  397  165  194
+##  [323]  310  472  211  207  188  371  248  284  195  308  322  137  461  452
+##  [337]  260  247  198  292  338  184  262  198  330  189  226  197  212  231
+##  [351]  292  205  257  199  333  106  195  360  166  460  306   93  298  427
+##  [365]  306  107  390  219  299  260  223  295  491  306  237  138  258  363
+##  [379]  228  210  288  230  141  317  276  376  358  202  198  216  113  225
+##  [393]   76  168  236  323  160  169  217  176  227  183  167  391  225  191
+##  [407]  207  166  223  392  261  361  233  288  252  280  407  152  553  365
+##  [421]  263  246  369  122  124  179  177  226  491  465  148  215  461  143
+##  [435]  195  165  263  273  263  225  309  122   98  315  478  350  252  519
+##  [449]  163  125  146  265  244  360  546  297  122  177  187  226  186  487
+##  [463]  303  283  201  212  162  234  603  202  319  412  124  130  158  254
+##  [477]  293  160  240  305  210  265  241  493  169  193  287  114   75  190
+##  [491]  231  431  411  603  343  522  275  277  462  469  149  155  247  230
+##  [505]  326  360  159  184  246  227  409  383  210  394  170  218  143  325
+##  [519]  244  200  434  181  226  178  237  226  142  232  106  392  256  101
+##  [533]  174  107  215  373  331  177  461  256  202   99   91  490  247  233
+##  [547]  433  668  385  253  146  178  268  200  258  356  299  243  161  131
+##  [561]  287  340  424  273  272  325  273  238  220  522  459  468  166  157
+##  [575]  246   80  193  167  367  193  501  139  290  374  547  294  108  221
+##  [589]  273  112  430  633  270  208  485  198  346  224  212  165  233  155
+##  [603]  259  245  296  157  266  125  281  249  379  177  193  164  312  165
+##  [617]  243  202  298  166  232  234  205  231  583  238  237  207  146  217
+##  [631]  678  147  259  653  233  504  142  284  763  216  228  188  289  121
+##  [645]  128  241  266  171  273  315  188  215  193  323  225  255  346  207
+##  [659]  297  214  216  198  199  342  101  349   81  720  140  132  412  410
+##  [673]  219  250  174  395  513  534  260  291  122  298  151  244  250  319
+##  [687]  172  430  782  470  286  325  202  633  268  215  609  241  218  318
+##  [701]  219  130  252  232  211  248  139  262  277  300  240  282  250  485
+##  [715]  256  724  304  261  212  220  431  227  278  207  218  270  176  473
+##  [729]  320  379  479  115  224  210  417  197  453  139  738  299  182  152
+##  [743]  410  141  384  139  905  332  544  406  316  217  203  164  153  304
+##  [757]  243  349  724  233  374  515  442  332  212  589  272  526  337  169
+##  [771]  113  522  134  582  316  256  402  384  207   50  138  224  289  401
+##  [785]  187  431  316  408  617  137  509  673  169  275  462  286  632  224
+##  [799]  181  217  361  409  431  190  699  169  158  685  246  163  135  486
+##  [813]  162  400  557  229  162  124  172  281  463  273  194  533  967  222
+##  [827]  179   83  287  179  262  233  180  166  683  218  180  132  236  200
+##  [841]  308  224  184  177  138  264  252  409  314  199  190  171  177  241
+##  [855]  630  264  270  585  234  141  895  438  194  238  732  362  192  109
+##  [869]  161  884  231  264  398  567  130  235  604  132  245  170  468  399
+##  [883]  119  866  323 1075  223  181   93  422  149  101  307  512  315  343
+##  [897]  124  367  317  314  232  505  312  227   91  299  302  468  423  402
+##  [911]  868  474  163   96  921  199  245  307  403  432  212 1032  299  592
+##  [925]  307   95  188  155   97  197  502  161  413  248  168  125  223  205
+##  [939]  198  453  311  209  149  186  239  574  781  667  179  244  391  422
+##  [953]  135  293  115  423  992  209  228  158  157  139  322  439  379  328
+##  [967] 1090  198  157  203  110  338  155  199  234  214  725  299  325  277
+##  [981]  305  243  160  523  311 1200  218  270  154  359  259  256  227  193
+##  [995]  346  694  291  122  406  723  140  921  141  222  424  219  305  214
+## [1009]  249  369  465  150  233  168  305  191  348  115  240  150  251  372
+## [1023]  176  120  173  197  112  167  293  298  520  330  258  215  573  421
+## [1037]  153  243  179  885  301  255  271  362  148  205  304  249  813  335
+## [1051]  416   88  139  264 1204  282  304  237  610  318  227  316  142  231
+## [1065]  174   90  446   88  322  363  121  498  274  205  361  244  358  390
+## [1079]  193  319  175  147  315  248  155  198  197  183  103  239  208  228
+## [1093]  442  625   92  182  324  242  438  146  851  155  113  206  548  141
+## [1107]  198   79  145  214  233  186  152   83  232  218  537  219  142  318
+## [1121]  303  309  129  224  103  278  409  347  128  188  372  315  295  619
+## [1135]  282  214  180  200  230  366  728  196  581   93  442  159  168  185
+## [1149]  293  429  107  253  241  232  268  150  365  124  603  226  219  157
+## [1163]  308  163  246  256  427  394  314  157  241  170  534   93  286  508
+## [1177]  172  295  395  222  251  322  209  468  568  384  173  385  331  320
+## [1191]  165  124  241  270  529  342  145  454  240  135  180  197  490  223
+## [1205]  307  294  190  255  188  515  462  223  582  631  210  183   97 1065
+## [1219]  194  952  211  254  303  162  173  344  257  234  132  227  127  206
+## [1233]  686  762  301  165  512  158  321  640  541  395  214  269  145  204
+## [1247]  332  267  507  222  273  321  369  292  626  213  343 1486  336  265
+## [1261]  442  245  217  258  183  164  236  167  204  262  283  448  471  138
+## [1275]  141  184  814  309  212  683  470  506  142  962  186  247  492  177
+## [1289]  373  235  213  296  291 1009  262  420  208  237  240  134  263  426
+## [1303]   87  184  333  195  263  242 1575  390  236  211  226  144  169  319
+## [1317]  366  179  225  322  153  247  543  408  259   83  279  370  299  577
+## [1331]  786  388  244  143  773  230  249  163  274  165  311  332  260  249
+## [1345]  182  143  177  270  367  175  345  208  102  221  391  226  619  127
+## [1359]  413  184  426  171  407  750 1258  304  367  328  433  292  300  229
+## [1373]  197  236  216  116  533  279  491  253  227  240  845  266  254  299
+## [1387]  419  204  330  370  316  168  189  669  136  312  535  349  588  600
+## [1401]  260  484  222  401  640  160  160  405  173  250  587  853  201  873
+## [1415]  528  341  199  938  458  275  435  277  157 1346  239  845  238  462
+## [1429]  257  250  202  168  191  124  171  419   87  383 1007  209  319  449
+## [1443]  619  176  215  363  995  300  210  305  320  143  275  336  121  150
+## [1457]  124  285  211  445
 ## attr(,"label")
 ## [1] "Duration (in seconds)"
 ## attr(,"format.spss")
@@ -885,12 +896,11 @@ CES_data %&gt;%
 ```
 
 ```
-##  [1] 7766666   72000   50000   20000   10000    5667    2000     501
-##  [9]     321      99      89      87      69      54      54      50
-## [17]      44      40      34      33      29      27      23      22
-## [25]      22      20      20      20      15      15      13      13
-## [33]      12      12      12      11      11      11      11      11
-## [41]      11      11      11
+##  [1] 7766666   72000   50000   20000   10000    5667    2000     501     321
+## [10]      99      89      87      69      54      54      50      44      40
+## [19]      34      33      29      27      23      22      22      20      20
+## [28]      20      15      15      13      13      12      12      12      11
+## [37]      11      11      11      11      11      11      11
 ```
 
 ---
@@ -951,12 +961,11 @@ CES_data %&gt;%
 ```
 
 ```
-##  [1]   2000000   1500000   4500000   3000000   6848382   7696588
-##  [7]   6787145   1250000   1650000   1872717 678876545   1300000
-## [13]   1150000   1250000   9999999   1450000   1500000   6500100
-## [19]  30000000   8900000 300000000   7440000   6782800   2332100
-## [25]   1800000   2000000  10000000   1290000  72456000  34545345
-## [31]   1250000
+##  [1]   2000000   1500000   4500000   3000000   6848382   7696588   6787145
+##  [8]   1250000   1650000   1872717 678876545   1300000   1150000   1250000
+## [15]   9999999   1450000   1500000   6500100  30000000   8900000 300000000
+## [22]   7440000   6782800   2332100   1800000   2000000  10000000   1290000
+## [29]  72456000  34545345   1250000
 ```
 
 ---
@@ -980,25 +989,25 @@ CES_data %&gt;%
 
 ```
 ## # A tibble: 14,160 × 620
-##    cps19_StartDate     cps19_EndDate       cps19_ResponseId 
-##    &lt;dttm&gt;              &lt;dttm&gt;              &lt;chr&gt;            
-##  1 2019-09-13 10:01:19 2019-09-13 10:27:29 R_USWDAPcQEQiMmNb
-##  2 2019-09-13 10:05:37 2019-09-13 10:50:53 R_3IQaeDXy0tBzEry
-##  3 2019-09-13 10:05:52 2019-09-13 10:32:53 R_27WeMQ1asip2cMD
-##  4 2019-09-13 10:10:20 2019-09-13 10:29:45 R_3LiGZcCWJEcWV4P
-##  5 2019-09-13 10:14:47 2019-09-13 10:32:32 R_1Iu8R1UlYzVMycz
-##  6 2019-09-13 10:15:39 2019-09-13 10:30:59 R_2EcS26hqrcVYlab
-##  7 2019-09-13 10:15:48 2019-09-13 10:37:45 R_3yrt44wqQ1d4VRn
-##  8 2019-09-13 10:16:08 2019-09-13 10:40:14 R_10OBmXJyvn8feYQ
-##  9 2019-09-13 10:16:24 2019-09-13 10:41:24 R_2e5nvu0UchQctgq
-## 10 2019-09-13 10:17:06 2019-09-13 10:35:47 R_2OJdv16hkRGnjOn
-## # … with 14,150 more rows, and 617 more variables:
-## #   cps19_consent &lt;dbl&gt;, cps19_citizenship &lt;dbl&gt;, cps19_yob &lt;dbl&gt;,
-## #   cps19_yob_2001_age &lt;dbl&gt;, cps19_gender &lt;fct&gt;,
+##    cps19_StartDate     cps19_EndDate       cps19_ResponseId  cps19_consent
+##    &lt;dttm&gt;              &lt;dttm&gt;              &lt;chr&gt;                     &lt;dbl&gt;
+##  1 2019-09-13 10:01:19 2019-09-13 10:27:29 R_USWDAPcQEQiMmNb             1
+##  2 2019-09-13 10:05:37 2019-09-13 10:50:53 R_3IQaeDXy0tBzEry             1
+##  3 2019-09-13 10:05:52 2019-09-13 10:32:53 R_27WeMQ1asip2cMD             1
+##  4 2019-09-13 10:10:20 2019-09-13 10:29:45 R_3LiGZcCWJEcWV4P             1
+##  5 2019-09-13 10:14:47 2019-09-13 10:32:32 R_1Iu8R1UlYzVMycz             1
+##  6 2019-09-13 10:15:39 2019-09-13 10:30:59 R_2EcS26hqrcVYlab             1
+##  7 2019-09-13 10:15:48 2019-09-13 10:37:45 R_3yrt44wqQ1d4VRn             1
+##  8 2019-09-13 10:16:08 2019-09-13 10:40:14 R_10OBmXJyvn8feYQ             1
+##  9 2019-09-13 10:16:24 2019-09-13 10:41:24 R_2e5nvu0UchQctgq             1
+## 10 2019-09-13 10:17:06 2019-09-13 10:35:47 R_2OJdv16hkRGnjOn             1
+## # … with 14,150 more rows, and 616 more variables: cps19_citizenship &lt;dbl&gt;,
+## #   cps19_yob &lt;dbl&gt;, cps19_yob_2001_age &lt;dbl&gt;, cps19_gender &lt;fct&gt;,
 ## #   cps19_province &lt;fct&gt;, cps19_education &lt;dbl&gt;, cps19_demsat &lt;dbl&gt;,
 ## #   cps19_imp_iss &lt;chr&gt;, cps19_imp_iss_party &lt;dbl&gt;,
 ## #   cps19_imp_iss_party_7_TEXT &lt;chr&gt;, cps19_imp_loc_iss &lt;chr&gt;,
-## #   cps19_imp_loc_iss_p &lt;dbl&gt;, cps19_imp_loc_iss_p_7_TEXT &lt;chr&gt;, …
+## #   cps19_imp_loc_iss_p &lt;dbl&gt;, cps19_imp_loc_iss_p_7_TEXT &lt;chr&gt;,
+## #   cps19_interest_gen_1 &lt;dbl&gt;, cps19_interest_elxn_1 &lt;dbl&gt;, …
 ```
 
 ---
@@ -1331,15 +1340,15 @@ CES_data %&gt;%
 
 ```
 ## # A tibble: 7 × 6
-##   cps19_prov_id      `Not at all sa…` `Not very sati…` `Fairly satisf…`
-##   &lt;fct&gt;                         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-## 1 Liberal                       80000            80000            79999
-## 2 Progressive Conse…            85000            78000            82000
-## 3 NDP                           65000            65000            76888
-## 4 Green                         60000            60000            72750
-## 5 Another party                 40000            48500            73500
-## 6 None                          62000            74000            69000
-## 7 Don't know/prefer…            68500            59500            70000
+##   cps19_prov_id               `Not at all sa…` `Not very sati…` `Fairly satisf…`
+##   &lt;fct&gt;                                  &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1 Liberal                                80000            80000            79999
+## 2 Progressive Conservative               85000            78000            82000
+## 3 NDP                                    65000            65000            76888
+## 4 Green                                  60000            60000            72750
+## 5 Another party                          40000            48500            73500
+## 6 None                                   62000            74000            69000
+## 7 Don't know/prefer not to a…            68500            59500            70000
 ## # … with 2 more variables: `Very satisfied` &lt;dbl&gt;,
 ## #   `Don't know/prefer not to answer` &lt;dbl&gt;
 ```
