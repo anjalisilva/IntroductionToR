@@ -1,0 +1,368 @@
+---
+title: "Module 3: R"
+subtitle: "Hello, World"
+institute: "Data Sciences Institute, University of Toronto"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#1c5253",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+    red = "#f34213",
+    purple = "#3e2f5b",
+    orange = "#ff8811",
+    green = "#136f63",
+    white = "#FFFFFF"
+  )
+)
+
+```
+
+```{r, include=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(lubridate)
+library(janitor)
+library(kableExtra)
+library(rgdal)
+```
+
+# Overview
+
+Getting set-up (Alexander (eds), 2021, Chapters 2-4)
+
+- R
+- RStudio
+
+R basics (Wickham and Grolemund, 2017, Chapter 4)
+
+File types
+
+- scripts (Wickham and Grolemund, 2017 Chapter 6)
+- RMarkdown (Wickham and Grolemund, 2017 Chapter 27)
+
+Hello, World!
+
+---
+
+class: inverse, center, middle
+
+# Getting set-up
+
+---
+
+## R
+
+What is R?
+
+- A programming language focused on statistics
+- Open source and free
+
+---
+
+## Getting R
+
+1. Go to https://utstat.toronto.edu/cran
+2. Click *Download R for (your operating system)*.
+3. For Windows, select *install R for the first time*. For Mac and Linux, select the download that is appropriate for your OS.
+4. Download and install.
+
+---
+
+## RStudio
+
+What is RStudio?
+
+- The integrated development environment (IDE) that lets us run R code
+- Desktop and cloud versions available
+
+---
+
+## Getting RStudio
+
+1. Go to rstudio.com
+2. Under *Products*, look under *Open Source* and select *RStudio.
+3. Scroll down and select *RStudio Desktop* and *DOWNLOAD RSTUDIO DESKTOP*.
+4. Select the *DOWNLOAD* button under the *Free* version of RStudio Desktop.
+5. If the download that is "Recommended for your system" is correct, click the download button. If not, scroll down and find the version that is correct for your OS.
+6. Download and install.
+
+---
+
+## Welcome to RStudio
+
+```{r echo=FALSE, out.height=450, out.width= 2000}
+knitr::include_graphics("RStudio.png")
+```
+
+---
+
+Your saved R files, where you can write and edit code, are in the upper left. If you do not have a file open, this section will be collapsed.
+
+```{r echo=FALSE, out.height=450, out.width= 2000}
+knitr::include_graphics("RStudio - Scripts.png")
+```
+
+---
+
+The console, where you run code and view output, is on the lower left.
+
+```{r echo=FALSE, out.height=450, out.width= 2000}
+knitr::include_graphics("RStudio - Console.png")
+```
+
+---
+
+The environment, where you can see variables that you have saved, is on the upper right.
+
+```{r echo=FALSE, out.height=450, out.width= 2000}
+knitr::include_graphics("RStudio - Environment.png")
+```
+
+---
+
+The lower right section contains:
+
+- *Files*, where you see the folder structure of your working directory
+- *Plots*, where plots you create are displayed
+- *Packages*, an inventory of all R packages that are installed
+- *Help*, where you can search information about R functions and packages
+
+```{r echo=FALSE, out.height=450, out.width= 2000}
+knitr::include_graphics("RStudio - Files, Plots, Packages, Help, Viewer.png")
+```
+
+---
+
+class: inverse, center, middle
+
+# R basics
+
+---
+
+## Mathematical operators
+
+For now we will work in the console.
+
+To run code, hit enter.
+
+If it runs successfully, you will see a `>` on the line with the cursor.
+If it instead shows a `+`, the command was incomplete. You can finish the command and hit enter, or hit ESCAPE to start again.
+
+```{r}
+(27 + 0.4 - 2 * 7 / 11) ^ 3
+``` 
+
+---
+
+## Creating objects
+
+`<-` is the assignment operator.
+
+To assign the value 27 to the object named `num_participants`, you type:
+
+```{r}
+num_participants <- 27
+```
+
+Remember that names:
+
+- must start with a letter
+- can only contain letters, numbers, underscores, and periods
+
+Running the name of the object will display the object.
+
+```{r}
+num_participants
+```
+
+---
+
+## Functions
+
+Built-in functions perform many operations. They take the form:
+`function_name(argument1 = value1, argument2 = value2, ...)`
+
+```{r}
+sqrt(16)
+seq(1, 14)
+```
+
+---
+
+## Installing packages
+
+R packages extend R's functionality.
+Some packages come pre-installed.
+Others you will have to install. You only have to install a package once.
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+```
+
+Every time you start a new RStudio session you will need to load the packages you want to use.
+
+```{r, eval=FALSE}
+library(tidyverse)
+```
+
+
+---
+
+class: inverse, center, middle
+
+# Exercises
+
+---
+
+## Basic Operations
+
+1. Install and load the `faraway` library.
+2. Create an object named `my_sequence` that is a sequence from 1 to 7.
+3. Use an R function to take the square roots of all the numbers in the sequence. Save this new sequence as an object named `sqrt_sequence`.
+4. Multiply `sqrt_sequence` by 3.
+
+---
+
+class: inverse, center, middle
+
+# File types
+
+---
+
+## R Scripts
+
+```{r echo=FALSE, out.width= 2000}
+knitr::include_graphics("script.png")
+```
+
+---
+
+## R Scripts
+
+R Scripts are files where you can save and edit your code. 
+
+### Running code
+
+Run the entire script by pressing Run
+
+```{r echo=FALSE, out.width= 2000}
+knitr::include_graphics("Run.png")
+```
+
+Run the command where your cursor is located by pressing Cmd/Ctrl + Enter
+
+Run a section of commands by highlighting them and pressing Cmd/Ctrl + Enter
+
+---
+
+### Diagnostics
+
+When working in a script, RStudio will mark syntax errors. If you hover over the red x, you can see what the problem is.
+
+```{r echo=FALSE, out.width= 1000}
+knitr::include_graphics("syntax_error.png")
+```
+
+---
+
+## R Markdown
+
+```{r echo=FALSE, out.width= 2000}
+knitr::include_graphics("markdown.png")
+```
+
+---
+
+## R Markdown
+
+R Markdown files combine code chunks with the results of those chunks and text.
+They support output formats like PDFs, html, Word files, and slideshows.
+
+---
+
+### Components
+
+In the YAML header, the document information and settings are specified.
+
+```{r echo=FALSE, out.width= 2000}
+knitr::include_graphics("markdown_YAML.png")
+```
+
+---
+
+### Components
+
+Text goes in between the code chunks. This text can be formatted with basic markdown syntax.
+
+```{r echo=FALSE, out.width= 2000}
+knitr::include_graphics("markdown_text.png")
+```
+
+---
+
+### Components
+
+You can write in code chunks the same way you would write in a script.
+
+```{r echo=FALSE, out.width= 2000}
+knitr::include_graphics("markdown_code_chunks.png")
+```
+
+---
+
+### Running code
+
+Like with a script, you can use the Run button Cmd/Ctrl + Enter.
+
+Each chunk also has an arrow you can press to run the code in that chunk.
+
+The output will display below the code chunk rather than in the console or the Plots section.
+
+---
+
+### Knitting .Rmd files
+
+To present your work, you can knit your R Markdown file to a more common file type, including PDFs, Word documents, and html files.
+
+```{r echo=FALSE, out.width= 2000}
+knitr::include_graphics("knit.png")
+```
+
+---
+
+class: inverse, center, middle
+
+# Exercises
+
+---
+
+## R script
+
+1. Create a new R script.
+2. Save the script.
+3. Write code to calculate the average of ten numbers.
+4. Run the script.
+
+---
+
+## R Markdown
+
+1. Create a new R Markdown file.
+2. Save the file.
+3. Load the `tidyverse` and `faraway` libraries.
+4. Load the dataset "broccoli" by calling the function `data()`
+5. Print out the `broccoli` dataset in the R Markdown file.
+6. Knit the R Markdown file to PDF.

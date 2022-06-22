@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Module 3: R</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2022-06-22" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Module 3: R
+]
+.subtitle[
+## Introduction
+]
+.institute[
+### Data Sciences Institute, University of Toronto
+]
+.date[
+### 2022-06-22
+]
+
+---
+
+
+
+
+
+
+# Why R?
+
+R is open source and free
+
+R has a community
+
+With R, you can share your data analysis methods in a reproducible way
+
+Packages (more than 18 thousand on CRAN!) extend R's capabilities to provide easy ways to accomplish a wide variety of tasks
+
+R is one of the standard language recommendations for data science
+
+RStudio makes it easier to do more with R
+
+---
+
+class: inverse, center, middle
+
+# What can you do with R?
+
+---
+
+## Load data 
+
+
+
+
+```
+## # A tibble: 9,113 × 5
+##    YEAR_BUILT YEAR_EVALUATED LONGITUDE LATITUDE SCORE
+##         &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+##  1       1950           2021     -79.5     43.7    64
+##  2       1960           2021     -79.5     43.7    60
+##  3       1969           2021     -79.4     43.7    64
+##  4       1960           2021     -79.5     43.7    91
+##  5       1973           2021     -79.5     43.7    91
+##  6       1960           2021     -79.3     43.7    88
+##  7       1962           2021     -79.5     43.6    84
+##  8       1993           2021     -79.4     43.7    83
+##  9       1995           2021     -79.3     43.7    89
+## 10       1964           2021     -79.3     43.7    74
+## # … with 9,103 more rows
+```
+
+---
+
+## Clean data
+
+
+```
+## # A tibble: 9,113 × 5
+##    year_built year_evaluated longitude latitude score
+##         &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+##  1       1950           2021     -79.5     43.7    64
+##  2       1960           2021     -79.5     43.7    60
+##  3       1969           2021     -79.4     43.7    64
+##  4       1960           2021     -79.5     43.7    91
+##  5       1973           2021     -79.5     43.7    91
+##  6       1960           2021     -79.3     43.7    88
+##  7       1962           2021     -79.5     43.6    84
+##  8       1993           2021     -79.4     43.7    83
+##  9       1995           2021     -79.3     43.7    89
+## 10       1964           2021     -79.3     43.7    74
+## # … with 9,103 more rows
+```
+
+---
+
+## Manipulate and combine data
+
+
+
+
+
+
+
+
+
+
+```
+## # A tibble: 8,291 × 6
+##    year_built property_type confirmed_units score  year
+##         &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1       1960 PRIVATE                    12    73  2020
+##  2       1960 PRIVATE                    12    81  2020
+##  3       1962 PRIVATE                    10    73  2020
+##  4       1968 PRIVATE                   174    81  2020
+##  5       1965 PRIVATE                    27    73  2020
+##  6       1950 PRIVATE                    10    77  2020
+##  7       1974 TCHC                      350    82  2020
+##  8       1928 PRIVATE                    15    73  2020
+##  9       1938 PRIVATE                    32    74  2020
+## 10       1958 PRIVATE                    55    72  2020
+## # … with 8,281 more rows, and 1 more variable: count &lt;int&gt;
+```
+
+
+---
+
+## Summarize Data
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; ward &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Count &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Average Score &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Median Year Built &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Median Number of Storeys &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Median Number of Units &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 221 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 69.28507 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1967 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 97 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 336 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 71.46131 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1965 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 68 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 597 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 70.47906 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1957 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 483 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 68.05797 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1960 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 42 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 597 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 69.00000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1960 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 37 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 581 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 70.80379 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1960 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 39 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 277 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 68.07942 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1970 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 135 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 617 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 71.26580 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1958 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 210 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 68.00476 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1959 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 27 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 93 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 74.16129 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1987 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 103 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+
+## Visualize Data
+
+
+
+
+
+
+![](00-introduction_deck_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+---
+
+## Write Reports
+
+&lt;img src="sample_paper.png" width="2000" height="450" /&gt;
+
+---
+
+## Build Interactive Applications
+
+&lt;img src="sample_app.png" width="2000" height="450" /&gt;
+
+---
+
+# And more:
+
+- Data collection
+- Statistical analysis
+- Data modeling
+- Presentations
+- Websites
+
+---
+
+class: inverse, center, middle
+
+# Content
+
+---
+
+# Learning Outcomes
+
+By the end of this module, you will be able to:
+
+- Set up and use R and RStudio.
+- Manipulate and visualize data.
+- Fix errors.
+- Understand consent in data-based studies.
+- Make presentations and manage projects.
+
+---
+
+# Prerequisite knowledge
+
+- The parts of a data table/spreadsheet
+- Basics of file folder structure
+- Summary statistics (mean, median, proportion, etc.)
+- Basic data visualization types (bar charts, histograms, scatter plots)
+- GitHub account
+
+---
+
+# Submodules
+
+- Hello World!
+- Errors
+- Reproducibility
+- Data in R
+- Manipulation
+- Wrangling
+- Programming
+- Visualization
+- Shiny
+- Ethics
+- Inequity
+- Professional Skills
+- Industry Case Study
+
+---
+
+# Key Texts
+
+### General reference:
+
+R for Data Science by Wickham and Grolemund (2017) https://r4ds.had.co.nz/index.html
+
+DoSS Toolkit (2021) https://rohanalexander.github.io/doss_toolkit_book/. 
+
+### For specific topics:
+
+Advanced R 4 Data Programming and the Cloud Using PostgreSQL, AWS, and Shiny by Wiley and Wiley (2020), Chapters 7 and 10
+
+Data Visualization: A Practical Introduction by Healy (2018), Chapter 3
+
+Managing Your Data Science Projects: Learn Salesmanship, Presentation, and Maintenance of Completed Models by de Graaf (2019), Chapters 2 and 6
+
+Mastering Shiny by Wickham (2021) https://mastering-shiny.org/index.html, Chapter 1
+
+---
+
+# Hello World!
+
+**.purple[(Beginner)]**
+
+How can we start using R?
+
+## Goals:
+
+- a fully-functional R and RStudio setup
+- understanding and using parts of the RStudio IDE
+- run basic commands in R
+- creating and using different R file types for different purposes
+
+---
+
+# Hello World!
+
+Getting set up
+
+- R
+- RStudio
+
+--
+
+R basics
+
+
+```r
+(27 / 52) * 100
+object_name &lt;- value
+function(arguments)
+```
+
+--
+
+File types
+
+- scripts
+- RMarkdown
+
+---
+
+# Errors
+
+**.purple[(Beginner)]**
+
+How can we avoid getting stuck on errors while using R?
+
+## Goal:
+
+- Functional problem-solving abilities for learning and using R
+
+---
+
+# Errors
+
+
+Getting help
+
+--
+
+Using Stack Overflow
+
+--
+
+Making reproducible examples
+
+---
+
+# Reproducibility
+
+How does R help us work reproducibly?
+
+## Goal:
+
+- Use an RProject and GitHub to make your data analysis project reproducible
+- Understand coding conventions
+
+---
+
+# Data in R
+
+**.purple[(Beginner)]**
+
+What does data look like in R?
+
+## Goals:
+
+- Know what data.frames, tibbles, and tidyverse are
+- Understand key types of data, including strings, ordered factors, and dates and times
+- Understand how R handles missing values
+
+---
+
+# Data in R
+
+Tidyverse
+
+
+```r
+library(tidyverse)
+```
+
+--
+
+Tibbles
+
+
+```r
+tibble()
+```
+
+--
+
+Strings
+
+
+```r
+"This is a string"
+```
+
+--
+
+Factors
+
+
+```r
+factor(vector, levels)
+```
+
+---
+
+# Data in R
+
+Dates and times
+
+
+```r
+library(lubridate)
+```
+
+--
+
+Missing values
+
+
+```r
+NA
+```
+
+---
+
+# Manipulation
+
+**.purple[(Beginner)]**
+
+How can we manipulate data tables in R?
+
+## Goals:
+
+- View subsets of data tables
+- Pick specific variables
+- Create new variables
+- Group observations by traits
+- Summarise groups of observations
+- Order data tables
+
+---
+
+# Manipulation
+
+Filtering
+
+
+```r
+filter()
+```
+
+--
+
+Arranging
+
+
+```r
+arrange()
+```
+
+--
+
+Selecting
+
+
+```r
+select()
+```
+
+--
+
+Mutating
+
+
+```r
+mutate()
+```
+
+---
+
+# Manipulation
+
+The pipe
+
+
+```r
+%&gt;%
+```
+
+--
+
+Grouping
+
+
+```r
+group_by()
+```
+
+--
+
+Summarizing
+
+
+```r
+summarise()
+```
+
+- Counting
+- Proportions
+
+---
+
+# Wrangling
+
+**.purple[(Intermediate)]**
+
+How can we work with real data sets in R?
+
+## Goals:
+
+- Load data tables into R
+- Connect related but separate data tables
+- Load data from an external database
+- Work efficiently with larger data sets
+
+---
+
+# Wrangling
+
+Importing data
+
+
+```r
+read_csv()
+```
+
+--
+
+Interacting with databases
+
+
+```r
+library(RPostgreSQL)
+```
+
+--
+
+Cleaning
+
+
+```r
+library(janitor)
+```
+
+--
+
+Pivot
+
+
+```r
+pivot_longer(), pivot_wider()
+```
+
+---
+
+# Wrangling
+
+Joining data
+
+
+```r
+left_join(), right_join(), full_join(), inner_join()
+```
+
+--
+
+data.table
+
+
+```r
+library(data.table)
+```
+
+---
+
+# Programming
+
+**.purple[(Intermediate)]**
+
+How can we use programming concepts like iterators to enhance our work in R?
+
+## Goals:
+
+- Write functions in R to perform custom operations
+- Perform operations iteratively
+- Perform operations given specific conditions
+- Understand and use vectors in functions and loops
+- Make data sets for simulation studies
+
+---
+
+# Programming
+
+Functions
+
+
+```r
+name &lt;- function(x) {
+  
+}
+```
+
+--
+
+Vectors
+
+
+```r
+c(), list()
+```
+
+--
+
+Loops
+
+
+```r
+for (i in 1:10) {
+  
+}
+
+while (i &lt; 10) {
+  
+}
+```
+
+---
+
+# Programming
+
+If/else logic
+
+
+```r
+if (x = 3) {
+  
+} else {
+  
+}
+```
+
+--
+
+Simulation
+
+
+```r
+set.seed(), runif(), rnorm(), sample()
+```
+
+---
+
+# Visualization
+
+**.purple[(Intermediate)]**
+
+What kinds of visualizations can we make in R?
+
+## Goals:
+
+- Make communicative and visually-pleasing bar graphs, histograms, and scatterplots 
+
+---
+
+# Visualization
+
+Essentials
+
+
+```r
+ggplot(aes())
+```
+
+--
+
+Bar charts and histograms
+
+
+```r
+geom_bar(), geom_histogram()
+```
+
+--
+
+Scatter plots
+
+
+```r
+geom_point(), geom_smooth()
+```
+
+---
+
+# Shiny
+
+**.purple[(Advanced)]**
+
+How can we make interactive applications using R?
+
+## Goal:
+
+- Make a basic functional Shiny application to display a data visualization
+
+---
+
+# Shiny
+
+
+```r
+library(shiny)
+ui &lt;- fluidPage(
+  "Hello, world!"
+)
+server &lt;- function(input, output, session) {
+}
+shinyApp(ui, server)
+```
+
+---
+
+# Ethics
+
+Why does consent matter in data-based studies?
+
+## Goal:
+
+- Understand the necessity and complexity of consent for data-based studies
+
+---
+
+# Ethics
+
+James H. Ware, 1989, ‘Investigating Therapies of Potentially Great Benefit: ECMO’, Statistical Science.
+
+Donald A. Berry, 1989, ‘Comment: Ethics and ECMO’, Statistical Science.
+
+---
+
+# Inequity
+
+How can we undertake is Equity, Diversity, and Inclusion training?
+
+## Goal: 
+
+- Understand Equity, Diversity, and Inclusion (EDI) training
+
+---
+
+# Professional skills
+
+## Goals:
+
+- Presenting data analysis results
+- Managing data projects
+- Data security
+
+---
+
+# Industry case study
+
+---
+
+class: inverse, center, middle
+
+# Delivery
+
+---
+
+### For technical sections:
+
+- Short lectures
+- Examples
+
+### For non-technical sections:
+
+- Readings
+- Discussions
+
+---
+
+class: inverse, center, middle
+
+# Assessment
+
+---
+
+### Formative
+
+#### For technical sections:
+
+- In-class independent exercises &amp; solution discussion
+- Problem solving exercises (individual solution and small group discussion)
+
+#### For non-technical sections:
+
+- Group activities
+
+### Summative
+
+#### For technical sections:
+
+- Multi-stage project using data sets chosen from a provided selection
+
+#### For non-technical sections:
+
+- Written reflections
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
