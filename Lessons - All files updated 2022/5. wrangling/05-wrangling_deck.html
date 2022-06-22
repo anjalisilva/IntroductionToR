@@ -3,7 +3,9 @@
   <head>
     <title>Module 3: R</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2022-06-20" />
+    <meta name="author" content="Instructor: Anjali Silva, PhD" />
+    <meta name="author" content="TA: Tia Harrison, MSc" />
+    <meta name="date" content="2022-06-22" />
     <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -17,11 +19,17 @@ class: center, middle, inverse, title-slide
 .subtitle[
 ## Wrangling
 ]
+.author[
+### Instructor: Anjali Silva, PhD
+]
+.author[
+### TA: Tia Harrison, MSc
+]
 .institute[
 ### Data Sciences Institute, University of Toronto
 ]
 .date[
-### 2022-06-20
+### 2022-06-22
 ]
 
 ---
@@ -30,6 +38,26 @@ class: center, middle, inverse, title-slide
 
 
 
+
+# Course Documents
+* Visit: https://github.com/anjalisilva/IntroductionToR 
+
+* All course material will be available via IntroductionToR GitHub repository (https://github.com/anjalisilva/IntroductionToR). Folder structure is as follows:
+   * Lessons - All files: This folder contains all files.
+   * **Lessons - Data only**: This folder contains data only.
+   * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
+   * **Lessons - PDF only**: This folder contains slide PDFs only.
+   * README - README file
+   * .gitignore - Files to ignore specified by instructor
+
+## Course Contacts
+* Instructor: Anjali Silva
+  Email: a.silva@utoronto.ca (Must use the subject line DSI-IntroR.   E.g., DSI-IntroR: Inquiry about Lecture I.)
+
+* TA: Tia Harrison
+Email: tia.harrison@mail.utoronto.ca
+
+---
 
 # Overview
 
@@ -63,6 +91,7 @@ readxl::read_excel()
 ```
 
 ---
+# Packages and functions for reading in different file types
 
 SPSS files
 
@@ -150,6 +179,7 @@ Rules for tidy data:
 Pivoting will help you get to tidy data form.
 
 ---
+## Tidy data
 
 Let's say we have a dataset with the weights of two pet cats:
 
@@ -177,6 +207,7 @@ wide_data
 ```
 
 ---
+## Tidy data
 
 To make the data tidy, we will use a function called pivot_longer:
 
@@ -208,6 +239,7 @@ long_data
 ```
 
 ---
+## Tidy data
 
 You can also reverse:
 
@@ -286,6 +318,7 @@ employment
 ```
 
 ---
+# Example using toy data
 
 
 ```r
@@ -421,6 +454,7 @@ employment %&gt;%
 ```
 
 ---
+# Filtering joins
 
 Anti joins drop all observations in employment that have a match in housing:
 
@@ -452,6 +486,7 @@ data.tables are faster and more memory efficient than data.frames, making them b
 They are keyed, which makes it possible to use binary search. A key is an index, created from column(s) in the data.table. It may or may not be unique.
 
 ---
+# data.table
 
 
 ```r
@@ -478,7 +513,7 @@ dt_iris
 ```
 
 ---
-
+# data.table
 You can see how many tables are stored and what size they are:
 
 
@@ -495,7 +530,7 @@ tables()
 ```
 
 ---
-
+# data.table
 To get information about our data, we can use sapply and class:
 
 
@@ -509,7 +544,7 @@ sapply(dt_iris, class)
 ```
 
 ---
-
+# data.table
 To check if the data.table has a key:
 
 
@@ -555,21 +590,6 @@ Where:
 dt_iris[Petal.Width &gt; 0.5]
 ```
 
-```
-##      Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-##   1:          5.0         3.5          1.6         0.6     setosa
-##   2:          7.0         3.2          4.7         1.4 versicolor
-##   3:          6.4         3.2          4.5         1.5 versicolor
-##   4:          6.9         3.1          4.9         1.5 versicolor
-##   5:          5.5         2.3          4.0         1.3 versicolor
-##  ---                                                             
-##  97:          6.7         3.0          5.2         2.3  virginica
-##  98:          6.3         2.5          5.0         1.9  virginica
-##  99:          6.5         3.0          5.2         2.0  virginica
-## 100:          6.2         3.4          5.4         2.3  virginica
-## 101:          5.9         3.0          5.1         1.8  virginica
-```
-
 ---
 
 ## Selecting columns
@@ -581,57 +601,14 @@ Selecting a column to return as a vector:
 dt_iris[, Species]
 ```
 
-```
-##   [1] setosa     setosa     setosa     setosa     setosa     setosa    
-##   [7] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [13] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [19] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [25] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [31] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [37] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [43] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [49] setosa     setosa     versicolor versicolor versicolor versicolor
-##  [55] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [61] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [67] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [73] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [79] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [85] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [91] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [97] versicolor versicolor versicolor versicolor virginica  virginica 
-## [103] virginica  virginica  virginica  virginica  virginica  virginica 
-## [109] virginica  virginica  virginica  virginica  virginica  virginica 
-## [115] virginica  virginica  virginica  virginica  virginica  virginica 
-## [121] virginica  virginica  virginica  virginica  virginica  virginica 
-## [127] virginica  virginica  virginica  virginica  virginica  virginica 
-## [133] virginica  virginica  virginica  virginica  virginica  virginica 
-## [139] virginica  virginica  virginica  virginica  virginica  virginica 
-## [145] virginica  virginica  virginica  virginica  virginica  virginica 
-## Levels: setosa versicolor virginica
-```
-
 ---
+## Selecting columns
 
 Selecting a column to return as a data.table:
 
 
 ```r
 dt_iris[, list(Species)]
-```
-
-```
-##        Species
-##   1:    setosa
-##   2:    setosa
-##   3:    setosa
-##   4:    setosa
-##   5:    setosa
-##  ---          
-## 146: virginica
-## 147: virginica
-## 148: virginica
-## 149: virginica
-## 150: virginica
 ```
 
 ---
@@ -645,10 +622,6 @@ Counting the number of cases where Petal.Length plus Petal.Width is greater than
 dt_iris[, sum((Petal.Length + Petal.Width) &gt; 2)]
 ```
 
-```
-## [1] 105
-```
-
 ---
 
 ## Combining subsetting and computation
@@ -660,10 +633,6 @@ Counting the number of cases where Species is "setosa" and Petal.Length plus Pet
 dt_iris[Species == "setosa", sum((Petal.Length + Petal.Width) &gt; 2)]
 ```
 
-```
-## [1] 5
-```
-
 ---
 
 ## Counting observations in current group
@@ -671,10 +640,6 @@ dt_iris[Species == "setosa", sum((Petal.Length + Petal.Width) &gt; 2)]
 
 ```r
 dt_iris[Species == "setosa", .N]
-```
-
-```
-## [1] 50
 ```
 
 ---
@@ -688,13 +653,6 @@ Counting the number in each Species group:
 dt_iris[, .(.N), by = .(Species)]
 ```
 
-```
-##       Species  N
-## 1:     setosa 50
-## 2: versicolor 50
-## 3:  virginica 50
-```
-
 ---
 
 ## Sorting
@@ -702,12 +660,6 @@ dt_iris[, .(.N), by = .(Species)]
 
 ```r
 dt_iris[Petal.Width &gt; 1, .(mean(Petal.Length)), keyby = .(Species)]
-```
-
-```
-##       Species       V1
-## 1: versicolor 4.362791
-## 2:  virginica 5.552000
 ```
 
 ---
@@ -721,21 +673,6 @@ Ordering by Species and then by reverse Petal.Width:
 dt_iris[order(Species, -Petal.Width)]
 ```
 
-```
-##      Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
-##   1:          5.0         3.5          1.6         0.6    setosa
-##   2:          5.1         3.3          1.7         0.5    setosa
-##   3:          5.4         3.9          1.7         0.4    setosa
-##   4:          5.7         4.4          1.5         0.4    setosa
-##   5:          5.4         3.9          1.3         0.4    setosa
-##  ---                                                            
-## 146:          4.9         2.5          4.5         1.7 virginica
-## 147:          7.2         3.0          5.8         1.6 virginica
-## 148:          6.0         2.2          5.0         1.5 virginica
-## 149:          6.3         2.8          5.1         1.5 virginica
-## 150:          6.1         2.6          5.6         1.4 virginica
-```
-
 ---
 
 ## Grouping by expression rather than column
@@ -745,14 +682,6 @@ Grouping those that have Petal.Length greater/not than 4, and Petal.Width greate
 
 ```r
 dt_iris[, .N, .(Petal.Length &gt; 4, Petal.Width &gt; 1)]
-```
-
-```
-##    Petal.Length Petal.Width  N
-## 1:        FALSE       FALSE 56
-## 2:         TRUE        TRUE 83
-## 3:        FALSE        TRUE 10
-## 4:         TRUE       FALSE  1
 ```
 
 ---
@@ -766,13 +695,6 @@ Taking the mean of all columns (except the grouping column, Species) using lappl
 dt_iris[, lapply(.SD, mean), by = Species]
 ```
 
-```
-##       Species Sepal.Length Sepal.Width Petal.Length Petal.Width
-## 1:     setosa        5.006       3.428        1.462       0.246
-## 2: versicolor        5.936       2.770        4.260       1.326
-## 3:  virginica        6.588       2.974        5.552       2.026
-```
-
 ---
 
 ## Subsetting for each group
@@ -784,16 +706,6 @@ Getting the first two rows for all columns, for each Species:
 dt_iris[, head(.SD, 2), by = Species]
 ```
 
-```
-##       Species Sepal.Length Sepal.Width Petal.Length Petal.Width
-## 1:     setosa          5.1         3.5          1.4         0.2
-## 2:     setosa          4.9         3.0          1.4         0.2
-## 3: versicolor          7.0         3.2          4.7         1.4
-## 4: versicolor          6.4         3.2          4.5         1.5
-## 5:  virginica          6.3         3.3          6.0         2.5
-## 6:  virginica          5.8         2.7          5.1         1.9
-```
-
 ---
 
 class: inverse, center, middle
@@ -801,8 +713,8 @@ class: inverse, center, middle
 # Exercises
 
 ---
-
-1. Tidy the data below:
+# Exercises
+1 - Tidy the data below:
 
 
 ```r
@@ -813,7 +725,9 @@ data &lt;- tibble(
 )
 ```
 
-2. Join the dataset flights to the dataset airlines. What should the key(s) be? What do the different types of joins look like?
+---
+# Exercises
+2 - Join the dataset flights to the dataset airlines. What should the key(s) be? What do the different types of joins look like?
 
 
 ```r
@@ -822,9 +736,15 @@ data("flights")
 data("airlines")
 ```
 
-3. Using flights and data.table, group based on cases that have dep_delay &lt; 0 and those that have arr_delay &gt; 0 and count the number in each group. How many groups/rows are there? How many in each group?
+---
+# Exercises
+3 - Using flights and data.table, group based on cases that have dep_delay &lt; 0 and those that have arr_delay &gt; 0 and count the number in each group. How many groups/rows are there? How many in each group?
 
+---
 
+class: inverse, center, middle
+
+# Any questions?
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

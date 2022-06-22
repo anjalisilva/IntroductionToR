@@ -79,12 +79,10 @@ Email: tia.harrison@mail.utoronto.ca
 
 
 ---
-
+# Take a look
 ```{r, echo=F}
 ads_data <- haven::read_sav("ads_raw.sav")
 ```
-
-# Take a look
 
 ```{r}
 glimpse(ads_data)
@@ -121,6 +119,7 @@ select(ads_data, RecordedDate)
 ```
 
 ---
+# Selecting
 
 We can also remove columns
 
@@ -142,6 +141,7 @@ filter(ads_data, Duration__in_seconds_ < 100)
 But what if we want to perform multiple operations in one go? 
 
 ---
+# The pipe
 
 We can use the pipe `%>%`, which passes what we wrote on the previous line into the next function as the first argument:
 
@@ -153,6 +153,7 @@ ads_data %>%
 ```
 
 ---
+# The pipe
 
 ```{r, eval=FALSE}
 ads_data %>%
@@ -186,6 +187,7 @@ ads_data %>%
 ```
 
 ---
+# Mutating
 
 ```{r, eval=FALSE}
 ads_data %>%
@@ -230,6 +232,7 @@ ads_data %>%
 We have to tell the mean() function to disregard NAs by writing `na.rm = TRUE`
 
 ---
+# Using the pulled variable for descriptive statistics
 
 Mean
 
@@ -240,6 +243,8 @@ ads_data %>%
 ```
 
 ---
+# Using the pulled variable for descriptive statistics
+
 
 Range can be calculated using the `range()` function.
 
@@ -256,6 +261,9 @@ ads_data %>%
   pull(Duration__in_seconds_) %>%
   var(na.rm = TRUE)
 ```
+
+---
+# Using the pulled variable for descriptive statistics
 
 Standard Deviation can be calculated using the `sd()` function.
 
@@ -296,6 +304,7 @@ class: inverse, center, middle
 # Manipulation application: data cleaning
 
 ---
+# Data cleaning
 
 ```{r, include=F, echo=F, message=F, warning=F}
 ces_2019_raw <- read_csv("ces_2019_raw.csv")
@@ -397,6 +406,7 @@ ces_2019_raw %>%
 ```
 
 ---
+# Data cleaning
 
 The codebook says that a value of 1 corresponds to a birth year of 1920, value of 2 to a birth year of 1921, and so on. We can create a new variable that reads more intuitively.
 
@@ -406,6 +416,7 @@ CES_data <- ces_2019_raw %>%
 ```
 
 ---
+# Data cleaning
 
 ```{r warning=FALSE, message=FALSE, fig.height=5, fig.width=11}
 CES_data %>%
@@ -428,6 +439,8 @@ CES_data <- CES_data %>%
 
 ---
 
+# Add a variable for age
+
 ```{r warning=FALSE, message=FALSE, fig.height=5, fig.width=11}
 CES_data %>%
   ggplot(aes(x = age)) +
@@ -446,6 +459,8 @@ CES_data %>%
 
 ---
 
+# Recoding the gender variable
+
 ```{r}
 CES_data <- CES_data %>%
   mutate(cps19_gender_fix = factor(cps19_gender)) %>%
@@ -456,6 +471,7 @@ CES_data <- CES_data %>%
 ```
 
 ---
+# Recoding the gender variable
 
 ```{r warning=FALSE, message=FALSE, fig.height=5, fig.width=11}
 CES_data %>%
@@ -475,6 +491,7 @@ CES_data %>%
 ```
 
 ---
+# Fixing household counts
 
 ```{r}
 CES_data <- CES_data %>%
@@ -499,6 +516,7 @@ CES_data %>%
 ```
 
 ---
+# Fixing income
 
 ```{r}
 CES_data <- CES_data %>%
@@ -518,6 +536,7 @@ class: inverse, center, middle
 # Manipulation application: Summarising data
 
 ---
+# Summarising data
 
 ```{r, include=F, echo=F, message=F, warning=F}
 ces_2019_raw <- read_csv("ces_2019_raw.csv")
@@ -618,6 +637,7 @@ CES_data %>%
 ```
 
 ---
+# Summarising data
 
 We don't need to be dealing with all the columns. We can specifically select the ones we want using `select()`:
 
@@ -632,13 +652,13 @@ CES_data %>%
 ```
 
 ---
-
+# Summarising data
 Now that our data looks like what we would like it to, we can start creating a summary table. Since we have the income for each participant, we can look at median incomes. We also want to know how many participants are in each category.
 
 First, we can group the data by provincial political self-ID. To do this, we use `group_by()` to group the data and `summarise()` to produce values for each group we have created. We will start with calculating the `median()` for the incomes. We can add multiple arguments to the `summarise()` argument. `n()` adds a count for each group.
 
 ---
-
+# Summarising data
 ```{r}
 CES_data %>%
   filter(cps19_province == "Ontario") %>%
@@ -652,7 +672,7 @@ CES_data %>%
 ```
 
 ---
-
+# Grouping
 In our table, the satisfaction ratings are ordered alphabetically. We would like them to be ordered logically. We can do this by ordering the factor variable.
 
 ```{r, eval=F}
@@ -672,6 +692,7 @@ CES_data %>%
 ```
 
 ---
+# Grouping
 
 ```{r, echo=F}
 CES_data %>%
@@ -690,7 +711,7 @@ CES_data %>%
 ```
 
 ---
-
+# Grouping
 And combine this with our table from before:
 
 ```{r}
@@ -712,7 +733,7 @@ CES_data %>%
 ```
 
 ---
-
+# Grouping
 What happens if we group by political identification instead?
 
 ```{r}
@@ -728,7 +749,7 @@ CES_data %>%
 ```
 
 ---
-
+# Grouping
 We could order the parties in a way that makes more sense:
 
 ```{r, eval=F}
@@ -752,6 +773,7 @@ CES_data %>%
 ```
 
 ---
+# Grouping
 
 ```{r, echo=F}
 CES_data %>%
@@ -774,7 +796,7 @@ CES_data %>%
 ```
 
 ---
-
+# Grouping
 Or we could sort by median income. We can do that using `arrange()`:
 
 ```{r}
@@ -791,7 +813,7 @@ CES_data %>%
 ```
 
 ---
-
+# Grouping
 `group_by()` can also have multiple arguments, so we can group by `cps19_prov_gov_sat` and `cps19_prov_id` at the same time:
 
 ```{r}
@@ -820,7 +842,7 @@ CES_data %>%
 ```
 
 ---
-
+# Grouping
 This table is less easy to read, though. `spread()` can make a table that is wide rather than long. We specify the `key`, the variable that will become our column names, and the `value`, which will become the values in those columns:
 
 ```{r, eval=F}
@@ -852,7 +874,7 @@ CES_data %>%
 
 
 ---
-
+# Grouping
 ```{r, echo=F}
 CES_data %>%
   filter(cps19_province == "Ontario") %>%
@@ -888,6 +910,7 @@ class: inverse, center, middle
 # Exercises
 
 ---
+# Exercises
 
 1. Filter the rows in the CES_data dataset where the survey-taker is between 30 and 50 (cps19_age).
 2. Filter the rows in the CES_data dataset where the survey-taker answered the cps19_votechoice question (i.e. the cps19_votechoice variable is not NA).
@@ -895,18 +918,21 @@ class: inverse, center, middle
 4. Select all variables except cps19_province from the CES_data dataset.
 
 ---
+# Exercises
 
 1. Create a variable in the dataset CES_data that states if a person consumes news content or not (i.e. cps19_news_cons is equal to "0 minutes" or it is not).
 2. Modify the variable cps19_income_number in the dataset CES_data so that it is measured in thousands (i.e. divide the income number by 1000).
 
 ---
+# Exercises
 
 1. Use the CES_data dataset. Group by cps19_votechoice. Find both the median and mean rating of Trudeau (cps19_lead_rating_23):
 2. Use the CES_data dataset. Group by cps19_imm and cps19_spend_educ. Find the count for each group.
 
 ---
+# Exercises
 
-1. Fix this error:
+* 1 - Fix this error:
 
 ```{r, eval=F}
 CES_data %>%
@@ -914,14 +940,16 @@ CES_data %>%
   group_by(cps19_gender)
 ```
 
-2. Fix this error:
+* 2 - Fix this error:
 
 ```{r, eval=F}
 CES_data %>%
   filter(cps19_vote_choice == "Green Party")
 ```
+---
+# Exercises
 
-3. Fix this error:
+* 3 - Fix this error:
 
 ```{r, eval=F}
 CES_data %>%
@@ -931,7 +959,7 @@ CES_data %>%
                                                 "Don't know/ Prefer not to answer"))
 ```
 
-4. Fix this error:
+* 4 - Fix this error:
 
 ```{r, eval=F}
 CES_data %>%

@@ -1,6 +1,9 @@
 ---
 title: "Module 3: R"
 subtitle: "Visualization"
+author:
+- "Instructor: Anjali Silva, PhD"
+- "TA: Tia Harrison, MSc"
 institute: "Data Sciences Institute, University of Toronto"
 date: "`r Sys.Date()`"
 output:
@@ -40,6 +43,26 @@ library(haven)
 library(rgdal)
 ```
 
+# Course Documents
+* Visit: https://github.com/anjalisilva/IntroductionToR 
+
+* All course material will be available via IntroductionToR GitHub repository (https://github.com/anjalisilva/IntroductionToR). Folder structure is as follows:
+   * Lessons - All files: This folder contains all files.
+   * **Lessons - Data only**: This folder contains data only.
+   * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
+   * **Lessons - PDF only**: This folder contains slide PDFs only.
+   * README - README file
+   * .gitignore - Files to ignore specified by instructor
+
+## Course Contacts
+* Instructor: Anjali Silva
+  Email: a.silva@utoronto.ca (Must use the subject line DSI-IntroR.   E.g., DSI-IntroR: Inquiry about Lecture I.)
+
+* TA: Tia Harrison
+Email: tia.harrison@mail.utoronto.ca
+
+---
+
 # Overview
 
 - ggplot
@@ -55,9 +78,10 @@ class: inverse, center, middle
 # ggplot 
 
 ---
-
+# ggplot
 ggplot2 is a package that allows us to make graphics in R. It’s loaded with the tidyverse.
 
+---
 # Initializing a plot
 
 the `ggplot()` function initializes the plot. In the arguments, you will identify the base of your plot. This includes:
@@ -594,7 +618,7 @@ facet_grid(facets = "variables that you want to facet by")
 
 
 ---
-
+# Facets
 ```{r warning=FALSE, message=FALSE, fig.height=5, fig.width=11}
 CES_data %>%
   ggplot(aes(x = cps19_age)) +
@@ -616,7 +640,7 @@ theme_minimal()
 ```
 
 ---
-
+# Themes
 ```{r warning=FALSE, message=FALSE, fig.height=5, fig.width=11}
 CES_data %>%
   ggplot(aes(x = cps19_age)) +
@@ -626,7 +650,7 @@ CES_data %>%
 ```
 
 ---
-
+# Themes
 ```{r warning=FALSE, message=FALSE, fig.height=5, fig.width=11}
 CES_data %>%
   ggplot(aes(x = cps19_age)) +
@@ -648,7 +672,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -656,7 +680,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 You may want to use more short forms in the responses to make the graph more readable. To manipulate the axis labels, we use the `scale_x_discrete` function and specify what labels we want:
 
 ```{r, eval=F}
@@ -675,7 +699,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -692,7 +716,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 We can also reorder bars from in a way that makes more sense. To do this, we take the variable and make it into a factor. Factors have a specific order, given in the `levels` argument:
 
 ```{r, eval=F}
@@ -718,7 +742,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -742,7 +766,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 What if we want to compare the voting intentions between genders? We can use the `fill` argument in the `aes()` function to do that:
 
 ```{r, eval=F}
@@ -769,7 +793,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -794,7 +818,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 If we don't want the bars to be stacked, we need to change the `position` argument in the `geom_bar()` function:
 
 ```{r, eval=F}
@@ -822,7 +846,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -848,7 +872,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 We can change the widths of the bars as well:
 
 ```{r, eval=F}
@@ -877,7 +901,7 @@ CES_data %>%
 ```
 
 ---
-
+# Bar graphs
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -904,7 +928,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 We can make a histogram representing the response to the question: "How do you feel about the federal political parties below? Set the slider to a number from 0 to 100, where 0 means you really dislike the party and 100 means you really like the party." and the Conservative Party, named `cps19_party_rating_24`.
 
 ```{r, eval=F}
@@ -914,7 +938,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -922,7 +946,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 The histogram splits the range of values for Conservative Party rating into 30 bins automatically, but what if we want a different number of bins? We can change the `bins` argument in the `geom_histogram()` function:
 
 ```{r, eval=F}
@@ -933,7 +957,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -942,7 +966,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 If we want to look at distributions of a variable in different groups, we can use something called faceting. To show what the Conservative Party ratings look like across different views on education spending, we can add the `facet_wrap` function:
 
 ```{r, eval=F}
@@ -954,7 +978,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -964,7 +988,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 We can use the `nrow` arguments to say how many rows we want the facets to form:
 
 ```{r, eval=F}
@@ -977,7 +1001,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -988,7 +1012,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 The order of the facets could be better. We use the same `factor` and `levels` method as before:
 
 ```{r, eval=F}
@@ -1005,7 +1029,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -1020,7 +1044,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 For any graph, we probably want better labels than the variable names. We add the `labels()` function to specific labels for the x-axis, the y-axis, and the title:
 
 ```{r, eval=F}
@@ -1040,7 +1064,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -1058,7 +1082,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 We can widen the graph by editing the code chunk, specifying `fig.height` and `fig.width`:
 
 ```{r, fig.height = 5, fig.width = 10, eval=F}
@@ -1078,7 +1102,7 @@ CES_data %>%
 ```
 
 ---
-
+# Histograms
 ```{r, fig.height = 5, fig.width = 10, echo=F}
 CES_data %>%
   ggplot() +
@@ -1096,7 +1120,7 @@ CES_data %>%
 ```
 
 ---
-
+# Scatterplots
 We can make a scatterplot representing the relationship between the ages of the survey-takers and the time they spent on the survey, named `cps19_age` and `cps19_Q_TotalDuration`, using `geom_point()`:
 
 ```{r, eval=F}
@@ -1107,7 +1131,7 @@ CES_data %>%
 ```
 
 ---
-
+# Scatterplots
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -1116,7 +1140,7 @@ CES_data %>%
 ```
 
 ---
-
+# Scatterplots
 There are some very large values for time spent on survey that makes it hard to see the rest. We can look at only the values in between 0 seconds and 3600 seconds, or 1 hour. Those that took longer are considered to be 'inattentive'.
 
 One way to do this is to set limits on the axis using `scale_y_continuous()`:
@@ -1130,7 +1154,7 @@ CES_data %>%
 ```
 
 ---
-
+# Scatterplots
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -1140,7 +1164,7 @@ CES_data %>%
 ```
 
 ---
-
+# Scatterplots
 Many points sitting exactly on top of each other, like what's happening with age, makes it hard to read the graph. If we add the arguement `position = "jitter"` to the `geom_point()` function, ggplot will slightly separate points that are in exactly the same spot:
 
 ```{r, eval=F}
@@ -1153,7 +1177,7 @@ CES_data %>%
 ```
 
 ---
-
+# Scatterplots
 Many points sitting exactly on top of each other, like what's happening with age, makes it hard to read the graph. If we add the arguement `position = "jitter"` to the `geom_point()` function, ggplot will slightly separate points that are in exactly the same spot:
 
 ```{r, echo=F}
@@ -1166,7 +1190,7 @@ CES_data %>%
 ```
 
 ---
-
+# Scatterplots
 Now it's just formed a cloud. To get separation, we can decrease the size of the individual points with the `size` argument in `geom_point()`:
 
 ```{r, eval=F}
@@ -1180,7 +1204,7 @@ CES_data %>%
 ```
 
 ---
-
+# Scatterplots
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -1192,7 +1216,7 @@ CES_data %>%
 ```
 
 ---
-
+# Scatterplots
 Again, we can add labels:
 
 ```{r, eval=F}
@@ -1209,7 +1233,7 @@ CES_data %>%
 ```
 
 ---
-
+# Scatterplots
 ```{r, echo=F}
 CES_data %>%
   ggplot() +
@@ -1230,7 +1254,7 @@ class: inverse, center, middle
 # Exercises
 
 ---
-
+# Exercises
 Take your:
 
 1. barplots,
@@ -1238,4 +1262,10 @@ Take your:
 3. scatterplot from before 
 
 and customize them. Try to add each different customization to at least one plot.
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
 
