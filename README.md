@@ -26,15 +26,15 @@ This course is designed for students who have a degree in something other than C
 # Logistical Information
 
 ## Course Contacts
--   Instructor for this course is [**Anjali Silva**](https://anjalisilva.github.io/) (she/her).
+-   Instructor for this course is [**Anjali Silva**](https://anjalisilva.github.io/), PhD (she/her).
 For emails to the instructor, use a.silva@utoronto.ca. Must use the subject line DSI-IntroR. E.g., DSI-IntroR: Inquiry about Lecture I.
 
--   Teaching Assistant for this is **Tia Harrison** (she/her). 
+-   Teaching Assistant for this is **Tia Harrison**, MSc, PhD Candidate (she/her). 
 For emails to the teaching assistant, use tia.harrison@mail.utoronto.ca.
 
 ## Delivery Instructions
 The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Students must have internet connection and a computer with a microphone and required sofware implemented in order to participate. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. Keeping your video on is optional, however, if you choose to leave it on, be mindful of what your peers can see. Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. Folder structure is as follows:
-   * Lessons - All files: This folder contains all files.
+   * Lessons - All files*: These folders contain all files.
    * **Lessons - Data only**: This folder contains data only.
    * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
    * **Lessons - PDF only**: This folder contains slide PDFs only.
@@ -46,15 +46,16 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
 * Learners must have R (http://www.r-project.org/)
 * Learners must have RStudio (http://www.rstudio.com/)
 * Screen space can be a limitation during online learning since you'll want to see the instructor's screen and have your RStudio open so that you can type along. If you have access to a second monitor or a larger tablet to attend the course while keeping your laptop screen available for coding - this would be great! If not - don't worry, we'll manage!
-* Key texts
+* Key texts: General reference
+    *  Alexander (eds), 2021, *DoSS Toolkit*, https://rohanalexander.github.io/doss_toolkit_book/  
+    *  Wickham and Grolemund, 2017, *R for Data Science*, O'Reilly. https://r4ds.had.co.nz/ 
+* Key texts: For specific topics
     * Alexander, 2022, *Telling Stories with Data*, CRC Press. https://www.tellingstorieswithdata.com/ 
-    * Alexander (eds), 2021, *DoSS Toolkit*, https://rohanalexander.github.io/doss_toolkit_book/. 
-    * de Graaf, 2019, *Managing Your Data Science Projects: Learn Salesmanship, Presentation, and Maintenance of Completed Models*, Apress.
-    * Healy, 2018, *Data Visualization*: A Practical Introduction, Princeton University Press
+    * de Graaf, 2019. *Managing Your Data Science Projects: Learn Salesmanship, Presentation, and Maintenance of Completed Models*, Apress.
+    * Healy, 2018. *Data Visualization*: A Practical Introduction, Princeton University Press
     * Timbers et al., 2021. *Data Science: A First Introduction*. https://ubc-dsci.github.io/introduction-to-datascience/ 
-    * Wickham and Grolemund, 2017, *R for Data Science*, O'Reilly. https://r4ds.had.co.nz/ 
-    * Wickham, 2021, *Mastering Shiny*, O'Reilly. https://mastering-shiny.org/ 
-    * Wiley, Matt, Wiley, Joshua F., 2020, *Advanced R 4 Data Programming and the Cloud*
+    * Wickham, 2021. *Mastering Shiny*, O'Reilly. https://mastering-shiny.org/ 
+    * Wiley, Matt, Wiley, Joshua F., 2020. *Advanced R 4 Data Programming and the Cloud*
     * *Using PostgreSQL, AWS, and Shiny*, Apress.
 
 ## Tentative Schedule
@@ -76,13 +77,13 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
 # Course Policies
 
 ## Course Expectations
-The course will include mainly live-coding classes. Students are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. If you have a question, you may type it to chat as well.
+-   The course will include mainly live-coding classes. Students are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. If you have a question, you may type it to chat as well.
 
 ## Accessibility
-Students with diverse learning styles and needs are welcome in this course. In particular, if you have a disability/health consideration that may require accommodations, please feel free to approach me and/or Accessibility Services at 416-978 8060; studentlife.utoronto.ca/as.
+-   Students with diverse learning styles and needs are welcome in this course. In particular, if you have a disability/health consideration that may require accommodations, please feel free to approach me and/or Accessibility Services at 416-978 8060; studentlife.utoronto.ca/as.
 
 ## Mental Health and Well-being 
-There are many helpful resources available through Student Life (http://studentlife.utoronto.ca). An important part of the education is learning how and when to ask for help. Take the time to inform yourself of available resources.
+-   There are many helpful resources available through Student Life (http://studentlife.utoronto.ca). An important part of the education is learning how and when to ask for help. Take the time to inform yourself of available resources.
 
 # Acknowledgements
 -   Slides covered in the lectures were originally developed by Amy Farrow under the supervision of Rohan Alexander, University of Toronto. 
