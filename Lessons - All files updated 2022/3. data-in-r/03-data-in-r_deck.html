@@ -3,7 +3,9 @@
   <head>
     <title>Module 3: R</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2022-06-20" />
+    <meta name="author" content="Instructor: Anjali Silva, PhD" />
+    <meta name="author" content="TA: Tia Harrison, MSc" />
+    <meta name="date" content="2022-06-22" />
     <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
     <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
@@ -20,11 +22,17 @@ class: center, middle, inverse, title-slide
 .subtitle[
 ## Data in R
 ]
+.author[
+### Instructor: Anjali Silva, PhD
+]
+.author[
+### TA: Tia Harrison, MSc
+]
 .institute[
 ### Data Sciences Institute, University of Toronto
 ]
 .date[
-### 2022-06-20
+### 2022-06-22
 ]
 
 ---
@@ -33,6 +41,25 @@ class: center, middle, inverse, title-slide
 
 
 
+# Course Documents
+* Visit: https://github.com/anjalisilva/IntroductionToR 
+
+* All course material will be available via IntroductionToR GitHub repository (https://github.com/anjalisilva/IntroductionToR). Folder structure is as follows:
+   * Lessons - All files: This folder contains all files.
+   * **Lessons - Data only**: This folder contains data only.
+   * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
+   * **Lessons - PDF only**: This folder contains slide PDFs only.
+   * README - README file
+   * .gitignore - Files to ignore specified by instructor
+
+## Course Contacts
+* Instructor: Anjali Silva
+  Email: a.silva@utoronto.ca (Must use the subject line DSI-IntroR.   E.g., DSI-IntroR: Inquiry about Lecture I.)
+
+* TA: Tia Harrison
+Email: tia.harrison@mail.utoronto.ca
+
+---
 
 # Overview
 
@@ -64,6 +91,7 @@ class: inverse, center, middle
 You likely will only need to know the first four.
 
 ---
+# Atomic types in R
 
 
 ```r
@@ -490,8 +518,8 @@ It will also warn you if the recycled vector isn't a complete multiple of the sm
 ```
 
 ```
-## Warning in 1:5 + 1:13: longer object length is not a multiple of shorter object
-## length
+## Warning in 1:5 + 1:13: longer object length is not a multiple of
+## shorter object length
 ```
 
 ```
@@ -864,6 +892,7 @@ str_length("This is a string")
 ```
 
 ---
+# Strings
 
 Combine
 
@@ -888,6 +917,7 @@ str_sub("This is a string", 7, 12)
 ```
 
 ---
+# Strings
 
 Change capitalization
 
@@ -927,8 +957,8 @@ mystring &lt;- c("apple", "banana", "clementime", "dragonfruit")
 str_view(mystring, "an")
 ```
 
-<div id="htmlwidget-852ae93d7edc272a1e19" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-852ae93d7edc272a1e19">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ea4fd845533ca0486ee1" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ea4fd845533ca0486ee1">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -941,8 +971,8 @@ A period matches any character.
 str_view(mystring, ".a.")
 ```
 
-<div id="htmlwidget-b328dd25eee23d20d0d7" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b328dd25eee23d20d0d7">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>d<span class='match'>rag<\/span>onfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1912eb4928a0d94371f3" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1912eb4928a0d94371f3">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>d<span class='match'>rag<\/span>onfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 If you want to actually match a period, you need to use a double backslash. "\." is an escape character for the period, and "\\." an additional escape symbol for the "\"
 
@@ -969,8 +999,8 @@ And if you want to actually match a backslash, you need to use a quadruple backs
 str_view(mystring, "^a")
 ```
 
-<div id="htmlwidget-1d985e158fe6b6e04139" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1d985e158fe6b6e04139">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-eac648b363ff1def5097" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-eac648b363ff1def5097">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 $ matches to the end of a string
 
@@ -979,8 +1009,8 @@ $ matches to the end of a string
 str_view(mystring, "a$")
 ```
 
-<div id="htmlwidget-8d0891886d9c93d5b1bf" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8d0891886d9c93d5b1bf">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0f71a769db7624f5cc83" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0f71a769db7624f5cc83">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1006,22 +1036,22 @@ mystring &lt;- "abcccdeee"
 str_view(mystring, "cc?")
 ```
 
-<div id="htmlwidget-5d9dcc6487accb6d5843" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5d9dcc6487accb6d5843">{"x":{"html":"<ul>\n  <li>ab<span class='match'>cc<\/span>cdeee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1d58a222de360f61c58f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1d58a222de360f61c58f">{"x":{"html":"<ul>\n  <li>ab<span class='match'>cc<\/span>cdeee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ```r
 str_view(mystring, "cc+")
 ```
 
-<div id="htmlwidget-529949d8d9eb355d7b28" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-529949d8d9eb355d7b28">{"x":{"html":"<ul>\n  <li>ab<span class='match'>ccc<\/span>deee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-96dac2abf248b424e879" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-96dac2abf248b424e879">{"x":{"html":"<ul>\n  <li>ab<span class='match'>ccc<\/span>deee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ```r
 str_view(mystring, "c[de]+")
 ```
 
-<div id="htmlwidget-b0be0ec5b54466397f6d" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b0be0ec5b54466397f6d">{"x":{"html":"<ul>\n  <li>abcc<span class='match'>cdeee<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-87633e44f575be491ccc" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-87633e44f575be491ccc">{"x":{"html":"<ul>\n  <li>abcc<span class='match'>cdeee<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 --- 
 
@@ -1044,8 +1074,8 @@ mystring &lt;- c("abab", "cdcd", "efgh")
 str_view(mystring, "(..)\\1", match = T)
 ```
 
-<div id="htmlwidget-f32b948dc2cb2fe94d0d" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f32b948dc2cb2fe94d0d">{"x":{"html":"<ul>\n  <li><span class='match'>abab<\/span><\/li>\n  <li><span class='match'>cdcd<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-740f45aee2ed0afab50c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-740f45aee2ed0afab50c">{"x":{"html":"<ul>\n  <li><span class='match'>abab<\/span><\/li>\n  <li><span class='match'>cdcd<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1102,6 +1132,7 @@ months
 ```
 
 ---
+# Factors
 
 With a factor,  you can restrict the number of possible values and order those values.
 
@@ -1154,7 +1185,7 @@ today()
 ```
 
 ```
-## [1] "2022-06-20"
+## [1] "2022-06-22"
 ```
 
 ---
@@ -1178,7 +1209,7 @@ now()
 ```
 
 ```
-## [1] "2022-06-20 22:29:44 EDT"
+## [1] "2022-06-22 12:56:41 EDT"
 ```
 
 ---
@@ -1241,7 +1272,7 @@ today()
 ```
 
 ```
-## [1] "2022-06-20"
+## [1] "2022-06-22"
 ```
 
 ```r
@@ -1249,7 +1280,7 @@ as_datetime(today())
 ```
 
 ```
-## [1] "2022-06-20 UTC"
+## [1] "2022-06-22 UTC"
 ```
 
 ```r
@@ -1257,7 +1288,7 @@ now()
 ```
 
 ```
-## [1] "2022-06-20 22:29:44 EDT"
+## [1] "2022-06-22 12:56:41 EDT"
 ```
 
 ```r
@@ -1265,7 +1296,7 @@ as_date(now())
 ```
 
 ```
-## [1] "2022-06-20"
+## [1] "2022-06-22"
 ```
 
 ---
@@ -1352,7 +1383,7 @@ today() - ymd(20000101)
 ```
 
 ```
-## Time difference of 8206 days
+## Time difference of 8208 days
 ```
 
 ```r
@@ -1360,7 +1391,7 @@ as.duration(today() - ymd(20000101))
 ```
 
 ```
-## [1] "708998400s (~22.47 years)"
+## [1] "709171200s (~22.47 years)"
 ```
 
 
@@ -1426,7 +1457,7 @@ today() + years(1)
 ```
 
 ```
-## [1] "2023-06-20"
+## [1] "2023-06-22"
 ```
 
 ```r
@@ -1434,7 +1465,7 @@ today() + months(1)
 ```
 
 ```
-## [1] "2022-07-20"
+## [1] "2022-07-22"
 ```
 
 ```r
@@ -1442,7 +1473,7 @@ today() + days(1)
 ```
 
 ```
-## [1] "2022-06-21"
+## [1] "2022-06-23"
 ```
 
 ```r
@@ -1450,7 +1481,7 @@ today() + hours(1)
 ```
 
 ```
-## [1] "2022-06-20 01:00:00 UTC"
+## [1] "2022-06-22 01:00:00 UTC"
 ```
 
 ```r
@@ -1458,7 +1489,7 @@ today() + minutes(1)
 ```
 
 ```
-## [1] "2022-06-20 00:01:00 UTC"
+## [1] "2022-06-22 00:01:00 UTC"
 ```
 
 ```r
@@ -1466,7 +1497,7 @@ today() + seconds(1)
 ```
 
 ```
-## [1] "2022-06-20 00:00:01 UTC"
+## [1] "2022-06-22 00:00:01 UTC"
 ```
 
 ---
@@ -1557,6 +1588,8 @@ class: inverse, center, middle
 
 ---
 
+# Exercises
+
 1.  Make a tibble where the vectors do not have equal length. What happens?
 2. In the following tibble, extract variable:
 
@@ -1575,6 +1608,12 @@ mytibble &lt;- tibble(
 8. Match words that only contain consonants with regex.
 9. What does ^.*$ match?
 10. What happens if you parse a string with invalid dates?
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
 
 
     </textarea>

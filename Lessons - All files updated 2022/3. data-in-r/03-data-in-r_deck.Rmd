@@ -1,6 +1,9 @@
 ---
 title: "Module 3: R"
 subtitle: "Data in R"
+author:
+- "Instructor: Anjali Silva, PhD"
+- "TA: Tia Harrison, MSc"
 institute: "Data Sciences Institute, University of Toronto"
 date: "`r Sys.Date()`"
 output:
@@ -38,6 +41,25 @@ library(janitor)
 library(kableExtra)
 library(rgdal)
 ```
+# Course Documents
+* Visit: https://github.com/anjalisilva/IntroductionToR 
+
+* All course material will be available via IntroductionToR GitHub repository (https://github.com/anjalisilva/IntroductionToR). Folder structure is as follows:
+   * Lessons - All files: This folder contains all files.
+   * **Lessons - Data only**: This folder contains data only.
+   * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
+   * **Lessons - PDF only**: This folder contains slide PDFs only.
+   * README - README file
+   * .gitignore - Files to ignore specified by instructor
+
+## Course Contacts
+* Instructor: Anjali Silva
+  Email: a.silva@utoronto.ca (Must use the subject line DSI-IntroR.   E.g., DSI-IntroR: Inquiry about Lecture I.)
+
+* TA: Tia Harrison
+Email: tia.harrison@mail.utoronto.ca
+
+---
 
 # Overview
 
@@ -69,6 +91,7 @@ class: inverse, center, middle
 You likely will only need to know the first four.
 
 ---
+# Atomic types in R
 
 ```{r}
 typeof("welcome")
@@ -418,6 +441,7 @@ str_length("This is a string")
 ```
 
 ---
+# Strings
 
 Combine
 
@@ -432,6 +456,7 @@ str_sub("This is a string", 7, 12)
 ```
 
 ---
+# Strings
 
 Change capitalization
 
@@ -564,6 +589,7 @@ months
 ```
 
 ---
+# Factors
 
 With a factor,  you can restrict the number of possible values and order those values.
 
@@ -747,6 +773,8 @@ class: inverse, center, middle
 
 ---
 
+# Exercises
+
 1.  Make a tibble where the vectors do not have equal length. What happens?
 2. In the following tibble, extract variable:
 
@@ -764,5 +792,11 @@ mytibble <- tibble(
 8. Match words that only contain consonants with regex.
 9. What does ^.*$ match?
 10. What happens if you parse a string with invalid dates?
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
 
 

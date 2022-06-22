@@ -1,6 +1,9 @@
 ---
 title: "Module 3: R"
 subtitle: "Hello, World"
+author:
+- "Instructor: Anjali Silva, PhD"
+- "TA: Tia Harrison, MSc"
 institute: "Data Sciences Institute, University of Toronto"
 date: "`r Sys.Date()`"
 output:
@@ -38,6 +41,26 @@ library(janitor)
 library(kableExtra)
 library(rgdal)
 ```
+
+# Course Documents
+* Visit: https://github.com/anjalisilva/IntroductionToR 
+
+* All course material will be available via IntroductionToR GitHub repository (https://github.com/anjalisilva/IntroductionToR). Folder structure is as follows:
+   * Lessons - All files: This folder contains all files.
+   * **Lessons - Data only**: This folder contains data only.
+   * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
+   * **Lessons - PDF only**: This folder contains slide PDFs only.
+   * README - README file
+   * .gitignore - Files to ignore specified by instructor
+
+## Course Contacts
+* Instructor: Anjali Silva
+  Email: a.silva@utoronto.ca (Must use the subject line DSI-IntroR.   E.g., DSI-IntroR: Inquiry about Lecture I.)
+
+* TA: Tia Harrison
+Email: tia.harrison@mail.utoronto.ca
+
+---
 
 # Overview
 
@@ -145,12 +168,82 @@ knitr::include_graphics("RStudio - Files, Plots, Packages, Help, Viewer.png")
 ```
 
 ---
+# Interacting with R
+
+* Console:
+    * Type commands directly into the console and press ‘Enter’ to execute.
+    
+* Script:
+    * Put cursor at the end of the line to execute OR highlight the section.
+    * Press ‘Ctrl’ + ‘Enter’ on Windows, Mac OR ‘Cmd’ + ‘Return’ on Mac.
+    
+* Clear console with ‘Ctrl’ + ‘L’.
+
+* If R is still waiting for you to enter more text, the console will show a + prompt.
+
+---
+
+# R Project
+
+* Good to keep data, analyses, and text in a single folder. 
+
+* RStudio interface for this is Projects.
+    * File → New project; choose New directory → New project
+
+* Enter a name for this new folder (“directory”) and choose a convenient location for it. This will be your working directory.
+    * On Desktop, save as ‘DSI IntroR’
+
+* Click on ‘Create’ project.
+
+* Create a new file where we will type our scripts.
+    * Go to File → New File → R script. Click the save icon on your toolbar and save your script as “script.R”.
+
+---
 
 class: inverse, center, middle
 
 # R basics
 
 ---
+
+## Location
+
+* Current location:
+```{r eval=FALSE}
+getwd() # current location of the file, if saved
+``` 
+
+* Set working directory: By typing the path
+```{r eval=FALSE}
+setwd("/Users/<Name>/Desktop")
+``` 
+
+* Or (recommended method):
+    * Session → Set Working Directory → Choose Directory...
+
+---
+## R Coding Style
+
+* Limit yourself to 80 characters per line.
+
+* Use comments. Don’t describe what the code does, but explain why you wrote it that way.
+
+* Use only ← for assignment, not =.
+
+* Never reassign reserved words.
+
+* You may read more:
+    * https://google.github.io/styleguide/Rguide.html
+    * http://steipe.biochemistry.utoronto.ca/abc/index.php/ RPR-Coding_style
+
+---
+## R Features
+* In R, the indexing begins from 1.
+
+* R is case sensitive (“X” is not the same as “x”).
+
+* R uses dynamic variable typing, so variables can be used over and over again.
+
 
 ## Mathematical operators
 
@@ -159,6 +252,7 @@ For now we will work in the console.
 To run code, hit enter.
 
 If it runs successfully, you will see a `>` on the line with the cursor.
+
 If it instead shows a `+`, the command was incomplete. You can finish the command and hit enter, or hit ESCAPE to start again.
 
 ```{r}
@@ -201,12 +295,35 @@ seq(1, 14)
 ```
 
 ---
+## R Help
 
-## Installing packages
+* Online documentation for functions and variables in R exists.
 
-R packages extend R's functionality.
-Some packages come pre-installed.
-Others you will have to install. You only have to install a package once.
+* Obtained by typing help(FunctionName) or ?FunctionName at the R prompt, where FunctionName is name of function.
+
+```{r eval=FALSE}
+help(sqrt)
+
+?sqrt
+``` 
+
+---
+
+## R Packages
+
+* Packages are collections of R functions, data, and compiled code.
+
+* Libraries are directories in R where the packages are stored.
+
+* Built-in functions are part of R standard or base packages and do not need to be downloaded.
+```{r, eval=FALSE}
+library(help = "base")
+library(help = "stats")
+```
+
+* Some functions are not built-in. To get these, need to download packages
+
+* R packages extend R's functionality.
 
 ```{r, eval=FALSE}
 install.packages("tidyverse")
@@ -366,3 +483,10 @@ class: inverse, center, middle
 4. Load the dataset "broccoli" by calling the function `data()`
 5. Print out the `broccoli` dataset in the R Markdown file.
 6. Knit the R Markdown file to PDF.
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
+

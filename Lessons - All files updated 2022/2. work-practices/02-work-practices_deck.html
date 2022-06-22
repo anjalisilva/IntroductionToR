@@ -3,7 +3,9 @@
   <head>
     <title>Module 3: R</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2022-06-20" />
+    <meta name="author" content="Instructor: Anjali Silva, PhD" />
+    <meta name="author" content="TA: Tia Harrison, MSc" />
+    <meta name="date" content="2022-06-22" />
     <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -17,11 +19,17 @@ class: center, middle, inverse, title-slide
 .subtitle[
 ## Work Practices
 ]
+.author[
+### Instructor: Anjali Silva, PhD
+]
+.author[
+### TA: Tia Harrison, MSc
+]
 .institute[
 ### Data Sciences Institute, University of Toronto
 ]
 .date[
-### 2022-06-20
+### 2022-06-22
 ]
 
 ---
@@ -30,6 +38,26 @@ class: center, middle, inverse, title-slide
 
 
 
+
+# Course Documents
+* Visit: https://github.com/anjalisilva/IntroductionToR 
+
+* All course material will be available via IntroductionToR GitHub repository (https://github.com/anjalisilva/IntroductionToR). Folder structure is as follows:
+   * Lessons - All files: This folder contains all files.
+   * **Lessons - Data only**: This folder contains data only.
+   * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
+   * **Lessons - PDF only**: This folder contains slide PDFs only.
+   * README - README file
+   * .gitignore - Files to ignore specified by instructor
+
+## Course Contacts
+* Instructor: Anjali Silva
+  Email: a.silva@utoronto.ca (Must use the subject line DSI-IntroR.   E.g., DSI-IntroR: Inquiry about Lecture I.)
+
+* TA: Tia Harrison
+Email: tia.harrison@mail.utoronto.ca
+
+---
 
 # Overview
 
@@ -184,6 +212,7 @@ You can select a subset of your real dataset and attach that with your reprex.
 - Save the dataset.
 
 ---
+## Data
 
 You can create your own toy dataset in your code so your helpers do not have to load anything.
 
@@ -217,6 +246,7 @@ The goal is for the code to be as stripped down as possible and still generate t
 Ideally, the code should be formatted for easier reading and include comments that outline what the different lines are intended to do.
 
 ---
+## Code
 
 ## The `reprex` package
 
@@ -236,6 +266,8 @@ class: inverse, center, middle
 # What if nothing works?
 
 ---
+
+# What if nothing works?
 
 If you cannot fix the error, you can instead get rid of the error by trying a different method.
 
@@ -273,10 +305,6 @@ Your working directory is the folder path you can name files from. It will show 
 
 ```r
 getwd()
-```
-
-```
-## [1] "/Volumes/GoogleDrive/My Drive/UTorontoTeaching/2022/DSI_27June2022/DSI_course__Intro_to_R_Pre-Class_Check-in/03-r/2. work-practices"
 ```
 
 
@@ -324,6 +352,7 @@ recorded_age &lt;- 5 # or add a comment to a line like this
 ```
 
 ---
+# Coding practices
 
 Name your variables well:
 
@@ -334,6 +363,7 @@ recorded_age &lt;- 5 # better
 ```
 
 ---
+# Coding practices
 
 Code for human readability
 
@@ -361,6 +391,13 @@ ads_data %&gt;%
 What debugging techniques do you think will be the most helpful?
 
 In your own work, what challenges do you anticipate in making processes reproducible? What about in the work of others? Brainstorm ways that these concerns could be addressed.
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
