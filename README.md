@@ -7,8 +7,8 @@ Welcome! The vast amount of data produced by evolving information technology req
 2. [Learning Outcomes](https://github.com/anjalisilva/IntroductionToR#learning-outcomes)
 3. [Course Contacts](https://github.com/anjalisilva/IntroductionToR#course-contacts)
 4. [Delivery Instructions](https://github.com/anjalisilva/IntroductionToR#delivery-instructions)
-5. [Required Materials](https://github.com/anjalisilva/IntroductionToR#required-materials)
-6. [Schedule](https://github.com/anjalisilva/IntroductionToR#schedule)
+5. [Materials](https://github.com/anjalisilva/IntroductionToR#materials)
+6. [Tentative Schedule](https://github.com/anjalisilva/IntroductionToR#tentative-schedule)
 7. [Course Policies](https://github.com/anjalisilva/IntroductionToR#course-policies)
 
 # Course Overview
