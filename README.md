@@ -14,7 +14,7 @@ Welcome! The vast amount of data produced by evolving information technology req
 # Course Overview
 
 ## Description
-This course is designed for students who have a degree in something other than Computer Science/Statistics who are looking to enhance their data science skills for their career. The first part of this course teaches R with a focus on manipulating and visualizing data. Students will get set up with a functional RStudio workflow, use different file types, transform data tables, import and manipulate data, use functions and loops, create data visualizations, make a Shiny app, and learn how to solve problems with their programming. Both base R and tidyverse methods are taught. To work reproducibly, students will create R Projects. 
+This course is designed for learners who have a degree in something other than Computer Science/Statistics who are looking to enhance their data science skills for their career. The first part of this course teaches R with a focus on manipulating and visualizing data. Learners will get set up with a functional RStudio workflow, use different file types, transform data tables, import and manipulate data, use functions and loops, create data visualizations, make a Shiny app, and learn how to solve problems with their programming. Both base R and tidyverse methods are taught. To work reproducibly, learners will create R Projects. 
 
 ## Learning Outcomes
 1.	Setting up and using R and RStudio.
@@ -33,7 +33,7 @@ For emails to the instructor, use a.silva@utoronto.ca. Must use the subject line
 For emails to the teaching assistant, use tia.harrison@mail.utoronto.ca.
 
 ## Delivery Instructions
-The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Students must have internet connection and a computer with a microphone and required sofware implemented in order to participate. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. Keeping your video on is optional, however, if you choose to leave it on, be mindful of what your peers can see. Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. Folder structure is as follows:
+The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Learners must have internet connection and a computer with a microphone and required sofware implemented in order to participate. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. Keeping your video on is optional, however, if you choose to leave it on, be mindful of what your peers can see. Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. Folder structure is as follows:
    * Lessons - All files*: These folders contain all files.
    * **Lessons - Data only**: This folder contains data only.
    * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
@@ -77,10 +77,10 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
 # Course Policies
 
 ## Course Expectations
--   The course will include mainly live-coding classes. Students are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. You may type your questions to chat as well.
+-   The course will include mainly live-coding classes. Learners are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. You may type your questions to chat as well.
 
 ## Accessibility
--   Students with diverse learning styles and needs are welcome in this course. In particular, if you have a disability/health consideration that may require accommodations, please feel free to approach me and/or Accessibility Services at 416-978 8060; studentlife.utoronto.ca/as.
+-   Learners with diverse learning styles and needs are welcome in this course. In particular, if you have a disability/health consideration that may require accommodations, please feel free to approach me and/or Accessibility Services at 416-978 8060; studentlife.utoronto.ca/as.
 
 ## Mental Health and Well-being 
 -   There are many helpful resources available through Student Life (http://studentlife.utoronto.ca). An important part of the education is learning how and when to ask for help. Take the time to inform yourself of available resources.
