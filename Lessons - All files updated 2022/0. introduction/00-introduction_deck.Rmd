@@ -44,31 +44,31 @@ library(rgdal)
 
 # Welcome!
 
-Instructor: Anjali Silva, PhD
+* Instructor: **Anjali Silva**, PhD
 
-Researcher and Lecturer, Department of Cell & Systems Biology, U of T
+* Researcher and Lecturer, Department of Cell & Systems Biology, U of T
 
-Data Analyst, University of Toronto Libraries 
+* Data Analyst, University of Toronto Libraries 
 
-Pronouns: she/her
+* Pronouns: she/her
 
-Name Phonetic: Un-j-li Sil-va
+* Name Phonetic: Un-j-li Sil-va
 
-Email: a.silva@utoronto.ca (Must use the subject line DSI-IntroR. E.g., DSI-IntroR: Inquiry about Lecture I.)
+* Email: a.silva@utoronto.ca (Must use the subject line DSI-IntroR. E.g., DSI-IntroR: Inquiry about Lecture I.)
 
 ---
 
 # Welcome!
 
-Teaching Assistant: Tia Harrison, MSc; PhD Candidate
+* Teaching Assistant: **Tia Harrison**, MSc; PhD Candidate
 
-Department of Ecology and Evolutionary Biology
+* Department of Ecology and Evolutionary Biology
 
-Pronouns: she/her
+* Pronouns: she/her
 
-Name Phonetic: 
+* Name Phonetic: 
 
-Email: tia.harrison@mail.utoronto.ca
+* Email: tia.harrison@mail.utoronto.ca
 
 ---
 
@@ -210,6 +210,12 @@ knitr::include_graphics("ScreenSplit.png")
 
 # Acknowledgements
 -   Slides covered in the lectures were originally developed by Amy Farrow under the supervision of Rohan Alexander, University of Toronto. Slides have been modified by Anjali Silva for 2022. 
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
 
 ---
 

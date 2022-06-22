@@ -244,7 +244,7 @@ setwd("/Users/<Name>/Desktop")
 
 * R uses dynamic variable typing, so variables can be used over and over again.
 
-
+---
 ## Mathematical operators
 
 For now we will work in the console.
@@ -322,6 +322,13 @@ library(help = "stats")
 ```
 
 * Some functions are not built-in. To get these, need to download packages
+
+* R packages extend R's functionality.
+
+
+---
+
+## R Packages
 
 * R packages extend R's functionality.
 
