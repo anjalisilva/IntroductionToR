@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Module 3: R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Instructor: Anjali Silva, PhD" />
+    <meta name="author" content="TA: Tia Harrison, MSc" />
+    <meta name="date" content="2022-07-02" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Module 3: R
+]
+.subtitle[
+## Manipulation
+]
+.author[
+### Instructor: Anjali Silva, PhD
+]
+.author[
+### TA: Tia Harrison, MSc
+]
+.institute[
+### Data Sciences Institute, University of Toronto
+]
+.date[
+### 2 July 2022
+]
+
+---
+
+
+
+
+
+
+# Course Documents
+* Visit: https://github.com/anjalisilva/IntroductionToR 
+
+* All course material will be available via IntroductionToR GitHub repository (https://github.com/anjalisilva/IntroductionToR). Folder structure is as follows:
+   * Lessons - All files*: These folders contain all files.
+   * **Lessons - Data only**: This folder contains data only.
+   * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
+   * **Lessons - PDF only**: This folder contains slide PDFs only.
+   * README - README file
+   * .gitignore - Files to ignore specified by instructor
+
+## Course Contacts
+* Instructor: Anjali Silva
+  Email: a.silva@utoronto.ca (Must use the subject line DSI-IntroR.   E.g., DSI-IntroR: Inquiry about Lecture I.)
+
+* TA: Tia Harrison
+Email: tia.harrison@mail.utoronto.ca
+
+---
+
+# Overview
+
+- Filtering (Wickham and Grolemund, 2017 Chapter 5, Timbers et al. 2021, Chapter 3.6) 
+- Arranging (Wickham and Grolemund, 2017 Chapter 5)
+- Selecting (Wickham and Grolemund, 2017 Chapter 5, Timbers et al. 2021, Chapter 3.5)
+- The pipe (Wickham and Grolemund, 2017 Chapter 5 &amp; 18; Timbers et al. 2021, Chapter 3.8)
+- Mutating (Wickham and Grolemund, 2017 Chapter 5, Timbers et al. 2021, Chapter 3.7, 3.10)
+- Summarising (Wickham and Grolemund, 2017 Chapter 5, Timbers et al. 2021, Chapter 3.9)
+- Grouping (Wickham and Grolemund, 2017 Chapter 5)
+- Cleaning (Alexander, 2022, Chapter 11)
+
+
+---
+# Take a look
+
+
+
+```r
+glimpse(ads_data)
+```
+
+```
+## Rows: 1,460
+## Columns: 52
+## $ StartDate             &lt;dttm&gt; 2019-06-14 09:43:20, 2019-06-14 09:43:11, 2019-…
+## $ EndDate               &lt;dttm&gt; 2019-06-14 09:44:30, 2019-06-14 09:44:57, 2019-…
+## $ Status                &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ Progress              &lt;dbl&gt; 100, 100, 100, 100, 100, 100, 100, 100, 100, 100…
+## $ Duration__in_seconds_ &lt;dbl&gt; 70, 105, 88, 109, 109, 70, 99, 105, 124, 100, 96…
+## $ Finished              &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ RecordedDate          &lt;dttm&gt; 2019-06-14 09:44:31, 2019-06-14 09:44:58, 2019-…
+## $ ResponseId            &lt;chr&gt; "R_11dq3s9btLX57LD", "R_DRWZdBOugPUKqGt", "R_3QD…
+## $ DistributionChannel   &lt;chr&gt; "anonymous", "anonymous", "anonymous", "anonymou…
+## $ UserLanguage          &lt;chr&gt; "EN", "EN", "EN", "EN", "EN", "EN", "EN", "EN", …
+## $ Consent               &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ Pol_7                 &lt;dbl+lbl&gt; 5, 3, 1, 2, 6, 4, 6, 4, 2, 5, 4, 1, 5, 2, 2,…
+## $ W2_Knowledge          &lt;dbl+lbl&gt; 2, 2, 4, 1, 3, 2, 3, 3, 3, 3, 3, 1, 3, 3, 3,…
+## $ Gender                &lt;dbl+lbl&gt; 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 2,…
+## $ Race                  &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 3, 2, 1, 1, 1, 1, 2, 1, 1, 2,…
+## $ W1_Feeling_1          &lt;dbl&gt; 2, 1, 4, 3, 3, 3, 6, -6, 4, 1, 3, -1, 3, 5, 6, 0…
+## $ W1_Actions_1_1        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ W1_Actions_1_2        &lt;dbl+lbl&gt;  1, NA, NA,  1, NA, NA, NA, NA,  1, NA,  1, …
+## $ W1_Actions_1_3        &lt;dbl+lbl&gt; NA, NA,  1, NA, NA,  1,  1, NA, NA, NA, NA, …
+## $ W1_Actions_1_4        &lt;dbl+lbl&gt;  1,  1, NA,  1, NA, NA,  1, NA, NA,  1, NA, …
+## $ W1_Actions_1_5        &lt;dbl+lbl&gt; NA, NA, NA, NA,  1, NA, NA, NA, NA, NA, NA, …
+## $ W1_Actions_1_6        &lt;dbl+lbl&gt; NA, NA, NA,  1, NA, NA,  1, NA, NA, NA, NA, …
+## $ W1_Actions_1_7        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA,  1, NA, NA,  1, NA, …
+## $ W1_Actions_1_8        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA,  1, NA, NA, NA, …
+## $ W1_Actions_2_1        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ W1_Actions_2_2        &lt;dbl+lbl&gt;  1,  1, NA, NA, NA, NA, NA, NA, NA, NA,  1, …
+## $ W1_Actions_2_3        &lt;dbl+lbl&gt; NA, NA, NA,  1,  1,  1, NA, NA, NA,  1, NA, …
+## $ W1_Actions_2_4        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ W1_Actions_2_5        &lt;dbl+lbl&gt; NA, NA,  1,  1, NA, NA,  1, NA,  1, NA, NA, …
+## $ W1_Actions_2_6        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA,  1, NA,  1, NA, NA, …
+## $ W1_Actions_2_7        &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA,  1, NA, NA, NA, …
+## $ W2_Feeling_1          &lt;dbl&gt; 5, 5, -2, -2, 3, 3, 0, 4, -6, 2, 4, -10, 3, 4, 7…
+## $ W2_Trust_1            &lt;dbl&gt; 3, 1, 4, 2, 3, -5, 5, 0, -6, -3, -2, -10, 6, 6, …
+## $ W2_Quality_1          &lt;dbl&gt; -2, 4, 5, 3, 6, 2, -2, 8, 2, 3, 2, -10, 1, 3, 4,…
+## $ W2_Impact             &lt;dbl+lbl&gt; 4, 3, 6, 5, 6, 6, 3, 5, 3, 5, 6, 1, 3, 5, 6,…
+## $ W2_Petition           &lt;dbl+lbl&gt; 4, 5, 3, 5, 3, 3, 4, 2, 2, 2, 2, 7, 3, 2, 1,…
+## $ W2_Meeting            &lt;dbl+lbl&gt;  4,  5,  5,  3,  1,  3,  5,  4,  2,  5,  2, …
+## $ Educ                  &lt;dbl+lbl&gt; 4, 5, 5, 5, 5, 3, 4, 3, 3, 3, 5, 6, 4, 3, 3,…
+## $ Birthyear             &lt;dbl&gt; 1993, 1978, 1993, 1983, 1990, 1980, 1996, 1986, …
+## $ Home_Region           &lt;dbl+lbl&gt; 2, 3, 2, 2, 1, 2, 3, 2, 1, 2, 1, 2, 2, 2, 2,…
+## $ Marital_Status        &lt;dbl+lbl&gt; 5, 5, 1, 5, 1, 4, 5, 1, 5, 1, 1, 5, 5, 1, 1,…
+## $ Income                &lt;dbl+lbl&gt;  5,  5,  9,  2,  4,  4,  9,  3,  8,  7,  8, …
+## $ Employment_Status     &lt;dbl+lbl&gt; 1, 1, 1, 1, 3, 4, 1, 1, 2, 3, 3, 2, 1, 1, 1,…
+## $ Q96                   &lt;dbl+lbl&gt; 3, 1, 1, 1, 2, 3, 1, 1, 1, 2, 1, 1, 1, 1, 1,…
+## $ Industry              &lt;dbl+lbl&gt;  5,  5, 13, 14,  3, NA, 14, 15, 18, 11,  4, …
+## $ Work_Region           &lt;dbl+lbl&gt;  2,  3,  2,  2,  1, NA,  3,  2,  1,  2,  1, …
+## $ Attention_Sincere     &lt;dbl+lbl&gt; 1, 1, 4, 1, 2, 3, 1, 1, 1, 3, 2, 1, 1, 1, 1,…
+## $ Attention_Honest      &lt;dbl+lbl&gt; 5, 5, 4, 5, 4, 2, 5, 5, 5, 5, 3, 5, 5, 5, 5,…
+## $ mTurk                 &lt;chr&gt; "5964572", "1281132", "8401932", "6494130", "542…
+## $ Block_ID              &lt;chr&gt; "W Con Female", "W Lib Male", "W Lib Female", "W…
+## $ Wing_Order            &lt;chr&gt; "W1", "W1", "W2", "W2", "W1", "W2", "W1", "W2", …
+## $ Vignette              &lt;chr&gt; "W2_Courts_Control", "W2_Courts_Bias", "W2_Court…
+```
+
+---
+
+# Filtering
+
+Filtering allows us to select rows based on specific traits
+
+
+```r
+filter(ads_data, Duration__in_seconds_ &lt; 100)
+```
+
+```
+## # A tibble: 41 × 52
+##    StartDate           EndDate                  Status Progress Duration__in_se…
+##    &lt;dttm&gt;              &lt;dttm&gt;                &lt;dbl+lbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Addr…      100               70
+##  2 2019-06-14 09:43:29 2019-06-14 09:44:58 0 [IP Addr…      100               88
+##  3 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Addr…      100               70
+##  4 2019-06-14 09:43:32 2019-06-14 09:45:12 0 [IP Addr…      100               99
+##  5 2019-06-14 09:43:48 2019-06-14 09:45:25 0 [IP Addr…      100               96
+##  6 2019-06-14 09:44:24 2019-06-14 09:45:26 0 [IP Addr…      100               61
+##  7 2019-06-14 09:43:50 2019-06-14 09:45:29 0 [IP Addr…      100               98
+##  8 2019-06-14 09:44:15 2019-06-14 09:45:42 0 [IP Addr…      100               86
+##  9 2019-06-14 09:44:30 2019-06-14 09:45:58 0 [IP Addr…      100               88
+## 10 2019-06-14 09:44:36 2019-06-14 09:46:05 0 [IP Addr…      100               88
+## # … with 31 more rows, and 47 more variables: Finished &lt;dbl+lbl&gt;,
+## #   RecordedDate &lt;dttm&gt;, ResponseId &lt;chr&gt;, DistributionChannel &lt;chr&gt;,
+## #   UserLanguage &lt;chr&gt;, Consent &lt;dbl+lbl&gt;, Pol_7 &lt;dbl+lbl&gt;,
+## #   W2_Knowledge &lt;dbl+lbl&gt;, Gender &lt;dbl+lbl&gt;, Race &lt;dbl+lbl&gt;,
+## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;, W1_Actions_1_2 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_3 &lt;dbl+lbl&gt;, W1_Actions_1_4 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_5 &lt;dbl+lbl&gt;, W1_Actions_1_6 &lt;dbl+lbl&gt;, …
+```
+
+---
+
+# Arranging
+
+Arranging allows us to sort the order of the table by a certain column
+
+
+```r
+arrange(ads_data, Duration__in_seconds_)
+```
+
+```
+## # A tibble: 1,460 × 52
+##    StartDate           EndDate                  Status Progress Duration__in_se…
+##    &lt;dttm&gt;              &lt;dttm&gt;                &lt;dbl+lbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2019-06-14 09:58:11 2019-06-14 09:59:01 0 [IP Addr…      100               50
+##  2 2019-06-14 09:44:24 2019-06-14 09:45:26 0 [IP Addr…      100               61
+##  3 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Addr…      100               70
+##  4 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Addr…      100               70
+##  5 2019-06-14 09:52:10 2019-06-14 09:53:26 0 [IP Addr…      100               75
+##  6 2019-06-14 09:45:57 2019-06-14 09:47:13 0 [IP Addr…      100               76
+##  7 2019-06-14 09:50:37 2019-06-14 09:51:53 0 [IP Addr…      100               76
+##  8 2019-06-14 09:45:49 2019-06-14 09:47:08 0 [IP Addr…      100               78
+##  9 2019-06-14 10:10:25 2019-06-14 10:11:45 0 [IP Addr…      100               79
+## 10 2019-06-14 09:53:33 2019-06-14 09:54:54 0 [IP Addr…      100               80
+## # … with 1,450 more rows, and 47 more variables: Finished &lt;dbl+lbl&gt;,
+## #   RecordedDate &lt;dttm&gt;, ResponseId &lt;chr&gt;, DistributionChannel &lt;chr&gt;,
+## #   UserLanguage &lt;chr&gt;, Consent &lt;dbl+lbl&gt;, Pol_7 &lt;dbl+lbl&gt;,
+## #   W2_Knowledge &lt;dbl+lbl&gt;, Gender &lt;dbl+lbl&gt;, Race &lt;dbl+lbl&gt;,
+## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;, W1_Actions_1_2 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_3 &lt;dbl+lbl&gt;, W1_Actions_1_4 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_5 &lt;dbl+lbl&gt;, W1_Actions_1_6 &lt;dbl+lbl&gt;, …
+```
+
+---
+
+# Selecting
+
+Selecting allows us to pick certain columns
+
+
+```r
+select(ads_data, RecordedDate)
+```
+
+```
+## # A tibble: 1,460 × 1
+##    RecordedDate       
+##    &lt;dttm&gt;             
+##  1 2019-06-14 09:44:31
+##  2 2019-06-14 09:44:58
+##  3 2019-06-14 09:44:59
+##  4 2019-06-14 09:45:00
+##  5 2019-06-14 09:45:01
+##  6 2019-06-14 09:45:12
+##  7 2019-06-14 09:45:12
+##  8 2019-06-14 09:45:13
+##  9 2019-06-14 09:45:13
+## 10 2019-06-14 09:45:16
+## # … with 1,450 more rows
+```
+
+---
+# Selecting
+
+We can also remove columns
+
+
+```r
+select(ads_data, -Consent, -DistributionChannel)
+```
+
+```
+## # A tibble: 1,460 × 50
+##    StartDate           EndDate                  Status Progress Duration__in_se…
+##    &lt;dttm&gt;              &lt;dttm&gt;                &lt;dbl+lbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Addr…      100               70
+##  2 2019-06-14 09:43:11 2019-06-14 09:44:57 0 [IP Addr…      100              105
+##  3 2019-06-14 09:43:29 2019-06-14 09:44:58 0 [IP Addr…      100               88
+##  4 2019-06-14 09:43:10 2019-06-14 09:45:00 0 [IP Addr…      100              109
+##  5 2019-06-14 09:43:11 2019-06-14 09:45:00 0 [IP Addr…      100              109
+##  6 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Addr…      100               70
+##  7 2019-06-14 09:43:32 2019-06-14 09:45:12 0 [IP Addr…      100               99
+##  8 2019-06-14 09:43:27 2019-06-14 09:45:12 0 [IP Addr…      100              105
+##  9 2019-06-14 09:43:08 2019-06-14 09:45:13 0 [IP Addr…      100              124
+## 10 2019-06-14 09:43:36 2019-06-14 09:45:16 0 [IP Addr…      100              100
+## # … with 1,450 more rows, and 45 more variables: Finished &lt;dbl+lbl&gt;,
+## #   RecordedDate &lt;dttm&gt;, ResponseId &lt;chr&gt;, UserLanguage &lt;chr&gt;, Pol_7 &lt;dbl+lbl&gt;,
+## #   W2_Knowledge &lt;dbl+lbl&gt;, Gender &lt;dbl+lbl&gt;, Race &lt;dbl+lbl&gt;,
+## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;, W1_Actions_1_2 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_3 &lt;dbl+lbl&gt;, W1_Actions_1_4 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_5 &lt;dbl+lbl&gt;, W1_Actions_1_6 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_7 &lt;dbl+lbl&gt;, W1_Actions_1_8 &lt;dbl+lbl&gt;, …
+```
+
+
+---
+
+# The pipe
+
+So far, we have written our code like this:
+
+
+```r
+filter(ads_data, Duration__in_seconds_ &lt; 100)
+```
+
+```
+## # A tibble: 41 × 52
+##    StartDate           EndDate                  Status Progress Duration__in_se…
+##    &lt;dttm&gt;              &lt;dttm&gt;                &lt;dbl+lbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2019-06-14 09:43:20 2019-06-14 09:44:30 0 [IP Addr…      100               70
+##  2 2019-06-14 09:43:29 2019-06-14 09:44:58 0 [IP Addr…      100               88
+##  3 2019-06-14 09:44:00 2019-06-14 09:45:11 0 [IP Addr…      100               70
+##  4 2019-06-14 09:43:32 2019-06-14 09:45:12 0 [IP Addr…      100               99
+##  5 2019-06-14 09:43:48 2019-06-14 09:45:25 0 [IP Addr…      100               96
+##  6 2019-06-14 09:44:24 2019-06-14 09:45:26 0 [IP Addr…      100               61
+##  7 2019-06-14 09:43:50 2019-06-14 09:45:29 0 [IP Addr…      100               98
+##  8 2019-06-14 09:44:15 2019-06-14 09:45:42 0 [IP Addr…      100               86
+##  9 2019-06-14 09:44:30 2019-06-14 09:45:58 0 [IP Addr…      100               88
+## 10 2019-06-14 09:44:36 2019-06-14 09:46:05 0 [IP Addr…      100               88
+## # … with 31 more rows, and 47 more variables: Finished &lt;dbl+lbl&gt;,
+## #   RecordedDate &lt;dttm&gt;, ResponseId &lt;chr&gt;, DistributionChannel &lt;chr&gt;,
+## #   UserLanguage &lt;chr&gt;, Consent &lt;dbl+lbl&gt;, Pol_7 &lt;dbl+lbl&gt;,
+## #   W2_Knowledge &lt;dbl+lbl&gt;, Gender &lt;dbl+lbl&gt;, Race &lt;dbl+lbl&gt;,
+## #   W1_Feeling_1 &lt;dbl&gt;, W1_Actions_1_1 &lt;dbl+lbl&gt;, W1_Actions_1_2 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_3 &lt;dbl+lbl&gt;, W1_Actions_1_4 &lt;dbl+lbl&gt;,
+## #   W1_Actions_1_5 &lt;dbl+lbl&gt;, W1_Actions_1_6 &lt;dbl+lbl&gt;, …
+```
+
+But what if we want to perform multiple operations in one go? 
+
+---
+# The pipe
+
+We can use the pipe `%&gt;%`, which passes what we wrote on the previous line into the next function as the first argument:
+
+
+```r
+ads_data %&gt;%
+  filter(Duration__in_seconds_ &lt; 100) %&gt;%
+  arrange(Duration__in_seconds_) %&gt;%
+  select(RecordedDate, Duration__in_seconds_)
+```
+
+```
+## # A tibble: 41 × 2
+##    RecordedDate        Duration__in_seconds_
+##    &lt;dttm&gt;                              &lt;dbl&gt;
+##  1 2019-06-14 09:59:02                    50
+##  2 2019-06-14 09:45:26                    61
+##  3 2019-06-14 09:44:31                    70
+##  4 2019-06-14 09:45:12                    70
+##  5 2019-06-14 09:53:26                    75
+##  6 2019-06-14 09:47:13                    76
+##  7 2019-06-14 09:51:54                    76
+##  8 2019-06-14 09:47:08                    78
+##  9 2019-06-14 10:11:46                    79
+## 10 2019-06-14 09:54:54                    80
+## # … with 31 more rows
+```
+
+---
+# The pipe
+
+
+```r
+ads_data %&gt;%
+  filter(Duration__in_seconds_ &lt; 100) %&gt;%
+  arrange(Duration__in_seconds_) %&gt;%
+  select(RecordedDate, Duration__in_seconds_)
+```
+
+You can think of this like:
+
+- Take the ADS data
+- Filter so we only have the rows where the survey duration is less than 100 seconds
+- Arrange so we go from lowest duration to highest
+- Select only the date recorded and the duration
+
+---
+
+# Mutating
+
+Mutating can be used to create new columns or change existing columns.
+
+
+```r
+ads_data &lt;- ads_data %&gt;%
+  mutate(Birthyear_add_day = str_c(Birthyear, "07-01")) %&gt;%
+  mutate(Birthyear_add_day = as_datetime(Birthyear_add_day))
+```
+
+
+```
+## # A tibble: 1,460 × 3
+##    EndDate             Birthyear Birthyear_add_day  
+##    &lt;dttm&gt;                  &lt;dbl&gt; &lt;dttm&gt;             
+##  1 2019-06-14 09:44:30      1993 1993-07-01 00:00:00
+##  2 2019-06-14 09:44:57      1978 1978-07-01 00:00:00
+##  3 2019-06-14 09:44:58      1993 1993-07-01 00:00:00
+##  4 2019-06-14 09:45:00      1983 1983-07-01 00:00:00
+##  5 2019-06-14 09:45:00      1990 1990-07-01 00:00:00
+##  6 2019-06-14 09:45:11      1980 1980-07-01 00:00:00
+##  7 2019-06-14 09:45:12      1996 1996-07-01 00:00:00
+##  8 2019-06-14 09:45:12      1986 1986-07-01 00:00:00
+##  9 2019-06-14 09:45:13      2000 2000-07-01 00:00:00
+## 10 2019-06-14 09:45:16      1988 1988-07-01 00:00:00
+## # … with 1,450 more rows
+```
+
+---
+# Mutating
+
+
+```r
+ads_data %&gt;%
+  mutate(age = EndDate - Birthyear_add_day) 
+```
+
+
+```
+## # A tibble: 1,460 × 4
+##    EndDate             Birthyear Birthyear_add_day   age           
+##    &lt;dttm&gt;                  &lt;dbl&gt; &lt;dttm&gt;              &lt;drtn&gt;        
+##  1 2019-06-14 09:44:30      1993 1993-07-01 00:00:00  9479.406 days
+##  2 2019-06-14 09:44:57      1978 1978-07-01 00:00:00 14958.406 days
+##  3 2019-06-14 09:44:58      1993 1993-07-01 00:00:00  9479.406 days
+##  4 2019-06-14 09:45:00      1983 1983-07-01 00:00:00 13132.406 days
+##  5 2019-06-14 09:45:00      1990 1990-07-01 00:00:00 10575.406 days
+##  6 2019-06-14 09:45:11      1980 1980-07-01 00:00:00 14227.406 days
+##  7 2019-06-14 09:45:12      1996 1996-07-01 00:00:00  8383.406 days
+##  8 2019-06-14 09:45:12      1986 1986-07-01 00:00:00 12036.406 days
+##  9 2019-06-14 09:45:13      2000 2000-07-01 00:00:00  6922.406 days
+## 10 2019-06-14 09:45:16      1988 1988-07-01 00:00:00 11305.406 days
+## # … with 1,450 more rows
+```
+
+---
+
+# Summary
+
+
+```r
+summary(ads_data)
+```
+
+```
+##    StartDate                         EndDate                           Status 
+##  Min.   :2019-06-14 09:43:03.00   Min.   :2019-06-14 09:44:30.00   Min.   :0  
+##  1st Qu.:2019-06-14 09:46:47.50   1st Qu.:2019-06-14 09:51:29.00   1st Qu.:0  
+##  Median :2019-06-14 09:52:50.00   Median :2019-06-14 09:57:57.00   Median :0  
+##  Mean   :2019-06-14 09:57:40.11   Mean   :2019-06-14 10:02:23.89   Mean   :0  
+##  3rd Qu.:2019-06-14 10:06:28.25   3rd Qu.:2019-06-14 10:11:19.50   3rd Qu.:0  
+##  Max.   :2019-06-14 11:19:45.00   Max.   :2019-06-14 11:27:10.00   Max.   :0  
+##                                                                               
+##     Progress   Duration__in_seconds_    Finished
+##  Min.   :100   Min.   :  50.0        Min.   :1  
+##  1st Qu.:100   1st Qu.: 178.0        1st Qu.:1  
+##  Median :100   Median : 237.0        Median :1  
+##  Mean   :100   Mean   : 283.3        Mean   :1  
+##  3rd Qu.:100   3rd Qu.: 324.2        3rd Qu.:1  
+##  Max.   :100   Max.   :1575.0        Max.   :1  
+##                                                 
+##   RecordedDate                     ResponseId        DistributionChannel
+##  Min.   :2019-06-14 09:44:31.00   Length:1460        Length:1460        
+##  1st Qu.:2019-06-14 09:51:29.00   Class :character   Class :character   
+##  Median :2019-06-14 09:57:58.00   Mode  :character   Mode  :character   
+##  Mean   :2019-06-14 10:02:24.49                                         
+##  3rd Qu.:2019-06-14 10:11:20.50                                         
+##  Max.   :2019-06-14 11:27:11.00                                         
+##                                                                         
+##  UserLanguage          Consent      Pol_7        W2_Knowledge       Gender     
+##  Length:1460        Min.   :1   Min.   :1.000   Min.   :1.000   Min.   :1.000  
+##  Class :character   1st Qu.:1   1st Qu.:2.000   1st Qu.:2.000   1st Qu.:1.000  
+##  Mode  :character   Median :1   Median :3.000   Median :3.000   Median :1.000  
+##                     Mean   :1   Mean   :3.549   Mean   :2.638   Mean   :1.484  
+##                     3rd Qu.:1   3rd Qu.:5.000   3rd Qu.:3.000   3rd Qu.:2.000  
+##                     Max.   :1   Max.   :7.000   Max.   :4.000   Max.   :3.000  
+##                                                                                
+##       Race       W1_Feeling_1     W1_Actions_1_1 W1_Actions_1_2 W1_Actions_1_3
+##  Min.   :1.00   Min.   :-10.000   Min.   :1      Min.   :1      Min.   :1     
+##  1st Qu.:1.00   1st Qu.:-10.000   1st Qu.:1      1st Qu.:1      1st Qu.:1     
+##  Median :1.00   Median : -7.000   Median :1      Median :1      Median :1     
+##  Mean   :1.52   Mean   : -5.303   Mean   :1      Mean   :1      Mean   :1     
+##  3rd Qu.:2.00   3rd Qu.: -3.000   3rd Qu.:1      3rd Qu.:1      3rd Qu.:1     
+##  Max.   :6.00   Max.   : 10.000   Max.   :1      Max.   :1      Max.   :1     
+##                                   NA's   :711    NA's   :1282   NA's   :839   
+##  W1_Actions_1_4 W1_Actions_1_5 W1_Actions_1_6 W1_Actions_1_7 W1_Actions_1_8
+##  Min.   :1      Min.   :1      Min.   :1      Min.   :1      Min.   :1     
+##  1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1     
+##  Median :1      Median :1      Median :1      Median :1      Median :1     
+##  Mean   :1      Mean   :1      Mean   :1      Mean   :1      Mean   :1     
+##  3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1     
+##  Max.   :1      Max.   :1      Max.   :1      Max.   :1      Max.   :1     
+##  NA's   :1206   NA's   :770    NA's   :1241   NA's   :1246   NA's   :1254  
+##  W1_Actions_2_1 W1_Actions_2_2 W1_Actions_2_3 W1_Actions_2_4 W1_Actions_2_5
+##  Min.   :1      Min.   :1      Min.   :1      Min.   :1      Min.   :1     
+##  1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1      1st Qu.:1     
+##  Median :1      Median :1      Median :1      Median :1      Median :1     
+##  Mean   :1      Mean   :1      Mean   :1      Mean   :1      Mean   :1     
+##  3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1      3rd Qu.:1     
+##  Max.   :1      Max.   :1      Max.   :1      Max.   :1      Max.   :1     
+##  NA's   :873    NA's   :1256   NA's   :1291   NA's   :1382   NA's   :1140  
+##  W1_Actions_2_6 W1_Actions_2_7  W2_Feeling_1       W2_Trust_1     
+##  Min.   :1      Min.   :1      Min.   :-10.000   Min.   :-10.000  
+##  1st Qu.:1      1st Qu.:1      1st Qu.: -5.000   1st Qu.: -6.000  
+##  Median :1      Median :1      Median : -1.000   Median : -2.000  
+##  Mean   :1      Mean   :1      Mean   : -1.123   Mean   : -1.434  
+##  3rd Qu.:1      3rd Qu.:1      3rd Qu.:  3.000   3rd Qu.:  3.000  
+##  Max.   :1      Max.   :1      Max.   : 10.000   Max.   : 10.000  
+##  NA's   :1280   NA's   :897                                       
+##   W2_Quality_1        W2_Impact      W2_Petition      W2_Meeting   
+##  Min.   :-10.0000   Min.   :1.000   Min.   :1.000   Min.   :1.000  
+##  1st Qu.: -4.2500   1st Qu.:3.000   1st Qu.:3.000   1st Qu.:3.000  
+##  Median :  0.0000   Median :4.000   Median :4.000   Median :4.000  
+##  Mean   : -0.6719   Mean   :4.047   Mean   :3.869   Mean   :4.208  
+##  3rd Qu.:  3.0000   3rd Qu.:5.000   3rd Qu.:5.000   3rd Qu.:6.000  
+##  Max.   : 10.0000   Max.   :7.000   Max.   :7.000   Max.   :7.000  
+##                                     NA's   :4       NA's   :3      
+##       Educ         Birthyear     Home_Region    Marital_Status      Income     
+##  Min.   :1.000   Min.   :1941   Min.   :1.000   Min.   :1.000   Min.   : 1.00  
+##  1st Qu.:3.000   1st Qu.:1974   1st Qu.:2.000   1st Qu.:1.000   1st Qu.: 4.00  
+##  Median :5.000   Median :1984   Median :2.000   Median :3.000   Median : 6.00  
+##  Mean   :4.293   Mean   :1981   Mean   :2.271   Mean   :2.949   Mean   : 6.19  
+##  3rd Qu.:5.000   3rd Qu.:1990   3rd Qu.:3.000   3rd Qu.:5.000   3rd Qu.: 8.00  
+##  Max.   :8.000   Max.   :2001   Max.   :3.000   Max.   :5.000   Max.   :12.00  
+##                                                                                
+##  Employment_Status      Q96           Industry      Work_Region  
+##  Min.   : 1.000    Min.   :1.000   Min.   : 1.00   Min.   :1.00  
+##  1st Qu.: 1.000    1st Qu.:1.000   1st Qu.: 7.00   1st Qu.:2.00  
+##  Median : 1.000    Median :2.000   Median :11.00   Median :2.00  
+##  Mean   : 2.324    Mean   :1.836   Mean   :10.78   Mean   :2.21  
+##  3rd Qu.: 3.000    3rd Qu.:3.000   3rd Qu.:14.00   3rd Qu.:3.00  
+##  Max.   :10.000    Max.   :3.000   Max.   :18.00   Max.   :3.00  
+##                                    NA's   :227     NA's   :227   
+##  Attention_Sincere Attention_Honest    mTurk             Block_ID        
+##  Min.   :1.000     Min.   :1.000    Length:1460        Length:1460       
+##  1st Qu.:1.000     1st Qu.:5.000    Class :character   Class :character  
+##  Median :1.000     Median :5.000    Mode  :character   Mode  :character  
+##  Mean   :1.464     Mean   :4.869                                         
+##  3rd Qu.:1.000     3rd Qu.:5.000                                         
+##  Max.   :5.000     Max.   :5.000                                         
+##                                                                          
+##   Wing_Order          Vignette         Birthyear_add_day                
+##  Length:1460        Length:1460        Min.   :1941-07-01 00:00:00.000  
+##  Class :character   Class :character   1st Qu.:1974-07-01 00:00:00.000  
+##  Mode  :character   Mode  :character   Median :1984-07-01 00:00:00.000  
+##                                        Mean   :1981-04-21 14:04:16.438  
+##                                        3rd Qu.:1990-07-01 00:00:00.000  
+##                                        Max.   :2001-07-01 00:00:00.000  
+## 
+```
+
+---
+
+# Pulling a variable for calculations
+
+
+```r
+ads_data %&gt;%
+  pull(Duration__in_seconds_)
+```
+
+```
+##    [1]   70  105   88  109  109   70   99  105  124  100   96  102   61   98
+##   [15]  120   86  119  120  143  115  131  164  140  126   88  127  146   88
+##   [29]  134  163  111  164  123  176  102  119  187  179  140  144  183  139
+##   [43]  123  162  152  184  160  181  163  168  101  190  178  144  194  123
+##   [57]  133  135  185  121  163  192  210  167  139  204  117  170  170  199
+##   [71]   95  126  208  178  207  146  118  170  110  172  226   78  160  185
+##   [85]  186  222  212  185  168  213   76  213  165  173  218  207  214  203
+##   [99]  206  213  228  186  240  248  208  176  217  142  190  215  247  163
+##  [113]  239  251  185  176  217  193  171  159  239  252  178  168  101  213
+##  [127]  227  122  217  225  239  182  178  165  248  190  272  222  101  173
+##  [141]  270  121  191  275  210  227  283  188  194  275  236  169  151  295
+##  [155]  262  257  234  119  287  276  264  286  193  245  196  289  148  295
+##  [169]  208  285  209  318  210  113  193  262  322  168  298  278  216  228
+##  [183]  252  185  343  121  319  281  239  115  321  303  304  300  267  190
+##  [197]  228  194  271  187  283  232  164  241  213  288  188  323  237  265
+##  [211]  245  174  361  172  276  195  357  226  188  223  234  291  197  283
+##  [225]  339  100  319  216  224  169  182  257  227  347  284  278  330  237
+##  [239]  261  104  216  181  233  195  265  348  193  181  189  246  309  348
+##  [253]  192  251  161  366  216  198  133  214  377  174  166  210  158  269
+##  [267]   95  289  317  195  125  404  230  176  189  417  281  137  126  321
+##  [281]  148  178  298  409  381  168  164  333  119  286  393  146  217  250
+##  [295]  205  330  308  396  298  328  223  273  339  284  289  197  360  129
+##  [309]  318  270  335  272  424  286  171  429  174  237  323  397  165  194
+##  [323]  310  472  211  207  188  371  248  284  195  308  322  137  461  452
+##  [337]  260  247  198  292  338  184  262  198  330  189  226  197  212  231
+##  [351]  292  205  257  199  333  106  195  360  166  460  306   93  298  427
+##  [365]  306  107  390  219  299  260  223  295  491  306  237  138  258  363
+##  [379]  228  210  288  230  141  317  276  376  358  202  198  216  113  225
+##  [393]   76  168  236  323  160  169  217  176  227  183  167  391  225  191
+##  [407]  207  166  223  392  261  361  233  288  252  280  407  152  553  365
+##  [421]  263  246  369  122  124  179  177  226  491  465  148  215  461  143
+##  [435]  195  165  263  273  263  225  309  122   98  315  478  350  252  519
+##  [449]  163  125  146  265  244  360  546  297  122  177  187  226  186  487
+##  [463]  303  283  201  212  162  234  603  202  319  412  124  130  158  254
+##  [477]  293  160  240  305  210  265  241  493  169  193  287  114   75  190
+##  [491]  231  431  411  603  343  522  275  277  462  469  149  155  247  230
+##  [505]  326  360  159  184  246  227  409  383  210  394  170  218  143  325
+##  [519]  244  200  434  181  226  178  237  226  142  232  106  392  256  101
+##  [533]  174  107  215  373  331  177  461  256  202   99   91  490  247  233
+##  [547]  433  668  385  253  146  178  268  200  258  356  299  243  161  131
+##  [561]  287  340  424  273  272  325  273  238  220  522  459  468  166  157
+##  [575]  246   80  193  167  367  193  501  139  290  374  547  294  108  221
+##  [589]  273  112  430  633  270  208  485  198  346  224  212  165  233  155
+##  [603]  259  245  296  157  266  125  281  249  379  177  193  164  312  165
+##  [617]  243  202  298  166  232  234  205  231  583  238  237  207  146  217
+##  [631]  678  147  259  653  233  504  142  284  763  216  228  188  289  121
+##  [645]  128  241  266  171  273  315  188  215  193  323  225  255  346  207
+##  [659]  297  214  216  198  199  342  101  349   81  720  140  132  412  410
+##  [673]  219  250  174  395  513  534  260  291  122  298  151  244  250  319
+##  [687]  172  430  782  470  286  325  202  633  268  215  609  241  218  318
+##  [701]  219  130  252  232  211  248  139  262  277  300  240  282  250  485
+##  [715]  256  724  304  261  212  220  431  227  278  207  218  270  176  473
+##  [729]  320  379  479  115  224  210  417  197  453  139  738  299  182  152
+##  [743]  410  141  384  139  905  332  544  406  316  217  203  164  153  304
+##  [757]  243  349  724  233  374  515  442  332  212  589  272  526  337  169
+##  [771]  113  522  134  582  316  256  402  384  207   50  138  224  289  401
+##  [785]  187  431  316  408  617  137  509  673  169  275  462  286  632  224
+##  [799]  181  217  361  409  431  190  699  169  158  685  246  163  135  486
+##  [813]  162  400  557  229  162  124  172  281  463  273  194  533  967  222
+##  [827]  179   83  287  179  262  233  180  166  683  218  180  132  236  200
+##  [841]  308  224  184  177  138  264  252  409  314  199  190  171  177  241
+##  [855]  630  264  270  585  234  141  895  438  194  238  732  362  192  109
+##  [869]  161  884  231  264  398  567  130  235  604  132  245  170  468  399
+##  [883]  119  866  323 1075  223  181   93  422  149  101  307  512  315  343
+##  [897]  124  367  317  314  232  505  312  227   91  299  302  468  423  402
+##  [911]  868  474  163   96  921  199  245  307  403  432  212 1032  299  592
+##  [925]  307   95  188  155   97  197  502  161  413  248  168  125  223  205
+##  [939]  198  453  311  209  149  186  239  574  781  667  179  244  391  422
+##  [953]  135  293  115  423  992  209  228  158  157  139  322  439  379  328
+##  [967] 1090  198  157  203  110  338  155  199  234  214  725  299  325  277
+##  [981]  305  243  160  523  311 1200  218  270  154  359  259  256  227  193
+##  [995]  346  694  291  122  406  723  140  921  141  222  424  219  305  214
+## [1009]  249  369  465  150  233  168  305  191  348  115  240  150  251  372
+## [1023]  176  120  173  197  112  167  293  298  520  330  258  215  573  421
+## [1037]  153  243  179  885  301  255  271  362  148  205  304  249  813  335
+## [1051]  416   88  139  264 1204  282  304  237  610  318  227  316  142  231
+## [1065]  174   90  446   88  322  363  121  498  274  205  361  244  358  390
+## [1079]  193  319  175  147  315  248  155  198  197  183  103  239  208  228
+## [1093]  442  625   92  182  324  242  438  146  851  155  113  206  548  141
+## [1107]  198   79  145  214  233  186  152   83  232  218  537  219  142  318
+## [1121]  303  309  129  224  103  278  409  347  128  188  372  315  295  619
+## [1135]  282  214  180  200  230  366  728  196  581   93  442  159  168  185
+## [1149]  293  429  107  253  241  232  268  150  365  124  603  226  219  157
+## [1163]  308  163  246  256  427  394  314  157  241  170  534   93  286  508
+## [1177]  172  295  395  222  251  322  209  468  568  384  173  385  331  320
+## [1191]  165  124  241  270  529  342  145  454  240  135  180  197  490  223
+## [1205]  307  294  190  255  188  515  462  223  582  631  210  183   97 1065
+## [1219]  194  952  211  254  303  162  173  344  257  234  132  227  127  206
+## [1233]  686  762  301  165  512  158  321  640  541  395  214  269  145  204
+## [1247]  332  267  507  222  273  321  369  292  626  213  343 1486  336  265
+## [1261]  442  245  217  258  183  164  236  167  204  262  283  448  471  138
+## [1275]  141  184  814  309  212  683  470  506  142  962  186  247  492  177
+## [1289]  373  235  213  296  291 1009  262  420  208  237  240  134  263  426
+## [1303]   87  184  333  195  263  242 1575  390  236  211  226  144  169  319
+## [1317]  366  179  225  322  153  247  543  408  259   83  279  370  299  577
+## [1331]  786  388  244  143  773  230  249  163  274  165  311  332  260  249
+## [1345]  182  143  177  270  367  175  345  208  102  221  391  226  619  127
+## [1359]  413  184  426  171  407  750 1258  304  367  328  433  292  300  229
+## [1373]  197  236  216  116  533  279  491  253  227  240  845  266  254  299
+## [1387]  419  204  330  370  316  168  189  669  136  312  535  349  588  600
+## [1401]  260  484  222  401  640  160  160  405  173  250  587  853  201  873
+## [1415]  528  341  199  938  458  275  435  277  157 1346  239  845  238  462
+## [1429]  257  250  202  168  191  124  171  419   87  383 1007  209  319  449
+## [1443]  619  176  215  363  995  300  210  305  320  143  275  336  121  150
+## [1457]  124  285  211  445
+## attr(,"label")
+## [1] "Duration (in seconds)"
+## attr(,"format.spss")
+## [1] "F40.2"
+## attr(,"display_width")
+## [1] 5
+```
+
+---
+
+# Using the pulled variable for descriptive statistics
+
+Median
+
+
+```r
+ads_data %&gt;%
+  pull(Duration__in_seconds_) %&gt;%
+  median(na.rm = TRUE)
+```
+
+```
+## [1] 237
+```
+
+We have to tell the mean() function to disregard NAs by writing `na.rm = TRUE`
+
+---
+# Using the pulled variable for descriptive statistics
+
+Mean
+
+
+```r
+ads_data %&gt;%
+  pull(Duration__in_seconds_) %&gt;%
+  mean(na.rm = TRUE)
+```
+
+```
+## [1] 283.261
+```
+
+---
+# Using the pulled variable for descriptive statistics
+
+
+Range can be calculated using the `range()` function.
+
+
+```r
+ads_data %&gt;%
+  pull(Duration__in_seconds_) %&gt;%
+  range(na.rm = TRUE)
+```
+
+```
+## [1]   50 1575
+```
+
+Variance can be calculated using the `var()` function.
+
+
+```r
+ads_data %&gt;%
+  pull(Duration__in_seconds_) %&gt;%
+  var(na.rm = TRUE)
+```
+
+```
+## [1] 29487.81
+```
+
+---
+# Using the pulled variable for descriptive statistics
+
+Standard Deviation can be calculated using the `sd()` function.
+
+
+```r
+ads_data %&gt;%
+  pull(Duration__in_seconds_) %&gt;%
+  sd(na.rm = TRUE)
+```
+
+```
+## [1] 171.7202
+```
+
+---
+
+# Summarise
+
+
+```r
+ads_data %&gt;%
+  summarise(mean_time = mean(Duration__in_seconds_, na.rm = TRUE),
+            sd_time = sd(Duration__in_seconds_, na.rm = TRUE))
+```
+
+```
+## # A tibble: 1 × 2
+##   mean_time sd_time
+##       &lt;dbl&gt;   &lt;dbl&gt;
+## 1      283.    172.
+```
+
+---
+
+# Grouping
+
+Before summarising, we can group by a categorical variable
+
+
+```r
+ads_data %&gt;%
+  group_by(Gender) %&gt;%
+  summarise(count = n(),
+            mean_time = mean(Duration__in_seconds_, na.rm = TRUE),
+            sd_time = sd(Duration__in_seconds_, na.rm = TRUE))
+```
+
+```
+## # A tibble: 3 × 4
+##                            Gender count mean_time sd_time
+##                         &lt;dbl+lbl&gt; &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 1 [Male]                          758      269.   162. 
+## 2 2 [Female]                        698      299.   181. 
+## 3 3 [Prefer a third option/Other]     4      229     37.7
+```
+
+---
+
+class: inverse, center, middle
+
+# Manipulation application: data cleaning
+
+---
+# Data cleaning
+
+
+
+Graphing year of birth shows that it goes from 1 to about 80.
+
+
+```r
+ces_2019_raw %&gt;%
+  ggplot(aes(x = cps19_yob)) +
+  geom_histogram()
+```
+
+![](04-manipulation_deck_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+
+---
+# Data cleaning
+
+The codebook says that a value of 1 corresponds to a birth year of 1920, value of 2 to a birth year of 1921, and so on. We can create a new variable that reads more intuitively.
+
+
+```r
+CES_data &lt;- ces_2019_raw %&gt;%
+  mutate(cps19_yob_fix = cps19_yob + 1919)
+```
+
+---
+# Data cleaning
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_yob_fix)) +
+  geom_histogram()
+```
+
+![](04-manipulation_deck_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
+
+Better!
+
+---
+
+# Add a variable for age
+
+Now that we have an accurate birth year, maybe we would like to have the age of the individual as well.
+
+
+```r
+CES_data &lt;- CES_data %&gt;%
+  mutate(age = 2019 - cps19_yob_fix)
+```
+
+---
+
+# Add a variable for age
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = age)) +
+  geom_histogram()
+```
+
+![](04-manipulation_deck_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
+
+---
+
+# Recoding the gender variable
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_gender)) + 
+  geom_bar()
+```
+
+![](04-manipulation_deck_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
+
+---
+
+# Recoding the gender variable
+
+
+```r
+CES_data &lt;- CES_data %&gt;%
+  mutate(cps19_gender_fix = factor(cps19_gender)) %&gt;%
+  mutate(cps19_gender_fix = fct_recode(cps19_gender_fix,
+                                       "M" = "1",
+                                       "F" = "2", 
+                                       "NB" = "3"))
+```
+
+---
+# Recoding the gender variable
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_gender_fix)) + 
+  geom_bar()
+```
+
+![](04-manipulation_deck_files/figure-html/unnamed-chunk-32-1.png)&lt;!-- --&gt;
+
+---
+
+# Fixing household counts
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_household &gt; 10) %&gt;%
+  arrange(-cps19_household) %&gt;%
+  pull(cps19_household)
+```
+
+```
+##  [1] 7766666   72000   50000   20000   10000    5667    2000     501     321
+## [10]      99      89      87      69      54      54      50      44      40
+## [19]      34      33      29      27      23      22      22      20      20
+## [28]      20      15      15      13      13      12      12      12      11
+## [37]      11      11      11      11      11      11      11
+```
+
+---
+# Fixing household counts
+
+
+```r
+CES_data &lt;- CES_data %&gt;%
+  mutate(cps19_household = ifelse(cps19_household &gt; 15, 
+                                  NA, 
+                                  cps19_household))
+
+CES_data %&gt;%
+  filter(cps19_household &gt; 10) %&gt;%
+  pull(cps19_household)
+```
+
+```
+##  [1] 12 11 15 12 11 13 11 11 11 15 13 12 11 11 11
+```
+
+---
+
+# Fixing income
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_income_number &gt; 1000000) %&gt;%
+  arrange(-cps19_income_number) %&gt;%
+  pull(cps19_income_number)
+```
+
+```
+##  [1] 6.747658e+60 1.000000e+21 1.000000e+15 8.769655e+10 8.889899e+09
+##  [6] 3.062936e+09 1.000000e+09 1.000000e+09 6.788765e+08 3.000000e+08
+## [11] 7.245600e+07 3.454534e+07 3.000000e+07 1.000000e+07 9.999999e+06
+## [16] 8.900000e+06 7.696588e+06 7.440000e+06 6.848382e+06 6.787145e+06
+## [21] 6.782800e+06 6.500100e+06 4.500000e+06 3.000000e+06 2.332100e+06
+## [26] 2.000000e+06 2.000000e+06 1.872717e+06 1.800000e+06 1.650000e+06
+## [31] 1.500000e+06 1.500000e+06 1.450000e+06 1.300000e+06 1.290000e+06
+## [36] 1.250000e+06 1.250000e+06 1.250000e+06 1.150000e+06
+```
+
+---
+# Fixing income
+
+
+```r
+CES_data &lt;- CES_data %&gt;%
+  mutate(cps19_income_number = ifelse(cps19_income_number &gt;= 1000000000, 
+                                  NA, 
+                                  cps19_income_number))
+
+CES_data %&gt;%
+  filter(cps19_income_number &gt; 1000000) %&gt;%
+  pull(cps19_income_number)
+```
+
+```
+##  [1]   2000000   1500000   4500000   3000000   6848382   7696588   6787145
+##  [8]   1250000   1650000   1872717 678876545   1300000   1150000   1250000
+## [15]   9999999   1450000   1500000   6500100  30000000   8900000 300000000
+## [22]   7440000   6782800   2332100   1800000   2000000  10000000   1290000
+## [29]  72456000  34545345   1250000
+```
+
+---
+
+class: inverse, center, middle
+
+# Manipulation application: Summarising data
+
+---
+# Summarising data
+
+
+
+First we can select only data for Ontario using `filter()`:
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_province == "Ontario")
+```
+
+```
+## # A tibble: 14,160 × 620
+##    cps19_StartDate     cps19_EndDate       cps19_ResponseId  cps19_consent
+##    &lt;dttm&gt;              &lt;dttm&gt;              &lt;chr&gt;                     &lt;dbl&gt;
+##  1 2019-09-13 10:01:19 2019-09-13 10:27:29 R_USWDAPcQEQiMmNb             1
+##  2 2019-09-13 10:05:37 2019-09-13 10:50:53 R_3IQaeDXy0tBzEry             1
+##  3 2019-09-13 10:05:52 2019-09-13 10:32:53 R_27WeMQ1asip2cMD             1
+##  4 2019-09-13 10:10:20 2019-09-13 10:29:45 R_3LiGZcCWJEcWV4P             1
+##  5 2019-09-13 10:14:47 2019-09-13 10:32:32 R_1Iu8R1UlYzVMycz             1
+##  6 2019-09-13 10:15:39 2019-09-13 10:30:59 R_2EcS26hqrcVYlab             1
+##  7 2019-09-13 10:15:48 2019-09-13 10:37:45 R_3yrt44wqQ1d4VRn             1
+##  8 2019-09-13 10:16:08 2019-09-13 10:40:14 R_10OBmXJyvn8feYQ             1
+##  9 2019-09-13 10:16:24 2019-09-13 10:41:24 R_2e5nvu0UchQctgq             1
+## 10 2019-09-13 10:17:06 2019-09-13 10:35:47 R_2OJdv16hkRGnjOn             1
+## # … with 14,150 more rows, and 616 more variables: cps19_citizenship &lt;dbl&gt;,
+## #   cps19_yob &lt;dbl&gt;, cps19_yob_2001_age &lt;dbl&gt;, cps19_gender &lt;fct&gt;,
+## #   cps19_province &lt;fct&gt;, cps19_education &lt;dbl&gt;, cps19_demsat &lt;dbl&gt;,
+## #   cps19_imp_iss &lt;chr&gt;, cps19_imp_iss_party &lt;dbl&gt;,
+## #   cps19_imp_iss_party_7_TEXT &lt;chr&gt;, cps19_imp_loc_iss &lt;chr&gt;,
+## #   cps19_imp_loc_iss_p &lt;dbl&gt;, cps19_imp_loc_iss_p_7_TEXT &lt;chr&gt;,
+## #   cps19_interest_gen_1 &lt;dbl&gt;, cps19_interest_elxn_1 &lt;dbl&gt;, …
+```
+
+---
+# Summarising data
+
+We don't need to be dealing with all the columns. We can specifically select the ones we want using `select()`:
+
+"How satisfied are you with the performance of your provincial government under ${e://Field/premier}?", "In provincial politics, do you usually think of yourself as a:", and income.
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_province == "Ontario") %&gt;%
+  select(cps19_prov_gov_sat,
+         cps19_prov_id,
+         cps19_income_number)
+```
+
+```
+## # A tibble: 14,160 × 3
+##    cps19_prov_gov_sat   cps19_prov_id            cps19_income_number
+##    &lt;fct&gt;                &lt;fct&gt;                                  &lt;dbl&gt;
+##  1 Not very satisfied   Liberal                                   NA
+##  2 Fairly satisfied     Progressive Conservative                  NA
+##  3 Fairly satisfied     Liberal                                56000
+##  4 Not at all satisfied NDP                                       NA
+##  5 Not at all satisfied NDP                                        0
+##  6 Not at all satisfied None                                      NA
+##  7 Not at all satisfied NDP                                       NA
+##  8 Not very satisfied   Liberal                                   NA
+##  9 Not very satisfied   NDP                                       NA
+## 10 Not at all satisfied Liberal                                   NA
+## # … with 14,150 more rows
+```
+
+---
+# Summarising data
+Now that our data looks like what we would like it to, we can start creating a summary table. Since we have the income for each participant, we can look at median incomes. We also want to know how many participants are in each category.
+
+First, we can group the data by provincial political self-ID. To do this, we use `group_by()` to group the data and `summarise()` to produce values for each group we have created. We will start with calculating the `median()` for the incomes. We can add multiple arguments to the `summarise()` argument. `n()` adds a count for each group.
+
+---
+# Summarising data
+
+```r
+CES_data %&gt;%
+  filter(cps19_province == "Ontario") %&gt;%
+  select(cps19_prov_gov_sat,
+         cps19_prov_id,
+         cps19_income_number) %&gt;%
+  group_by(cps19_prov_gov_sat) %&gt;%
+  summarise(median_income = median(cps19_income_number,
+                                   na.rm = TRUE),
+            count = n())
+```
+
+```
+## # A tibble: 5 × 3
+##   cps19_prov_gov_sat              median_income count
+##   &lt;fct&gt;                                   &lt;dbl&gt; &lt;int&gt;
+## 1 Very satisfied                          80000   872
+## 2 Fairly satisfied                        80000  2738
+## 3 Not very satisfied                      75000  3212
+## 4 Not at all satisfied                    72000  6853
+## 5 Don't know/prefer not to answer         50000   485
+```
+
+---
+# Grouping
+In our table, the satisfaction ratings are ordered alphabetically. We would like them to be ordered logically. We can do this by ordering the factor variable.
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_province == "Ontario") %&gt;%
+  select(cps19_prov_gov_sat,
+         cps19_prov_id,
+         cps19_income_number) %&gt;%
+  mutate(cps19_prov_id = factor(cps19_prov_id,
+                                     levels = c("Liberal",
+                                                "Progressive Conservative",
+                                                "NDP",
+                                                "Green",
+                                                "Another party",
+                                                "None",
+                                                "Don't know/prefer not to answer")))
+```
+
+---
+# Grouping
+
+
+```
+## # A tibble: 14,160 × 3
+##    cps19_prov_gov_sat   cps19_prov_id            cps19_income_number
+##    &lt;fct&gt;                &lt;fct&gt;                                  &lt;dbl&gt;
+##  1 Not very satisfied   Liberal                                   NA
+##  2 Fairly satisfied     Progressive Conservative                  NA
+##  3 Fairly satisfied     Liberal                                56000
+##  4 Not at all satisfied NDP                                       NA
+##  5 Not at all satisfied NDP                                        0
+##  6 Not at all satisfied None                                      NA
+##  7 Not at all satisfied NDP                                       NA
+##  8 Not very satisfied   Liberal                                   NA
+##  9 Not very satisfied   NDP                                       NA
+## 10 Not at all satisfied Liberal                                   NA
+## # … with 14,150 more rows
+```
+
+---
+# Grouping
+And combine this with our table from before:
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_province == "Ontario") %&gt;%
+  select(cps19_prov_gov_sat,
+         cps19_prov_id,
+         cps19_income_number) %&gt;%
+  mutate(cps19_prov_gov_sat = factor(cps19_prov_gov_sat,
+                                     levels = c("Not at all satisfied",
+                                                "Not very satisfied",
+                                                "Fairly satisfied",
+                                                "Very satisfied",
+                                                "Don't know/prefer not to answer"))) %&gt;%
+  group_by(cps19_prov_gov_sat) %&gt;%
+  summarise(median_income = median(cps19_income_number,
+                                   na.rm = TRUE),
+            count = n())
+```
+
+```
+## # A tibble: 5 × 3
+##   cps19_prov_gov_sat              median_income count
+##   &lt;fct&gt;                                   &lt;dbl&gt; &lt;int&gt;
+## 1 Not at all satisfied                    72000  6853
+## 2 Not very satisfied                      75000  3212
+## 3 Fairly satisfied                        80000  2738
+## 4 Very satisfied                          80000   872
+## 5 Don't know/prefer not to answer         50000   485
+```
+
+---
+# Grouping
+What happens if we group by political identification instead?
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_province == "Ontario") %&gt;%
+  select(cps19_prov_gov_sat,
+         cps19_prov_id,
+         cps19_income_number) %&gt;%
+  group_by(cps19_prov_id) %&gt;%
+  summarise(median_income = median(cps19_income_number,
+                                   na.rm = TRUE),
+            count = n())
+```
+
+```
+## # A tibble: 7 × 3
+##   cps19_prov_id                   median_income count
+##   &lt;fct&gt;                                   &lt;dbl&gt; &lt;int&gt;
+## 1 Liberal                                 80000  4607
+## 2 NDP                                     65000  2413
+## 3 Green                                   60000   812
+## 4 Progressive Conservative                80000  3629
+## 5 Another party                           50000    90
+## 6 None                                    68000  1367
+## 7 Don't know/prefer not to answer         60000  1242
+```
+
+---
+# Grouping
+We could order the parties in a way that makes more sense:
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_province == "Ontario") %&gt;%
+  select(cps19_prov_gov_sat,
+         cps19_prov_id,
+         cps19_income_number) %&gt;%
+  mutate(cps19_prov_id = factor(cps19_prov_id,
+                                     levels = c("Liberal",
+                                                "Progressive Conservative",
+                                                "NDP",
+                                                "Green",
+                                                "Another party",
+                                                "None",
+                                                "Don't know/prefer not to answer"))) %&gt;%
+  group_by(cps19_prov_id) %&gt;%
+  summarise(median_income = median(cps19_income_number,
+                                   na.rm = TRUE),
+            count = n())
+```
+
+---
+# Grouping
+
+
+```
+## # A tibble: 7 × 3
+##   cps19_prov_id                   median_income count
+##   &lt;fct&gt;                                   &lt;dbl&gt; &lt;int&gt;
+## 1 Liberal                                 80000  4607
+## 2 Progressive Conservative                80000  3629
+## 3 NDP                                     65000  2413
+## 4 Green                                   60000   812
+## 5 Another party                           50000    90
+## 6 None                                    68000  1367
+## 7 Don't know/prefer not to answer         60000  1242
+```
+
+---
+# Grouping
+Or we could sort by median income. We can do that using `arrange()`:
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_province == "Ontario") %&gt;%
+  select(cps19_prov_gov_sat,
+         cps19_prov_id,
+         cps19_income_number) %&gt;%
+  group_by(cps19_prov_id) %&gt;%
+  summarise(median_income = median(cps19_income_number,
+                                   na.rm = TRUE),
+            count = n()) %&gt;%
+  arrange(-median_income)
+```
+
+```
+## # A tibble: 7 × 3
+##   cps19_prov_id                   median_income count
+##   &lt;fct&gt;                                   &lt;dbl&gt; &lt;int&gt;
+## 1 Liberal                                 80000  4607
+## 2 Progressive Conservative                80000  3629
+## 3 None                                    68000  1367
+## 4 NDP                                     65000  2413
+## 5 Green                                   60000   812
+## 6 Don't know/prefer not to answer         60000  1242
+## 7 Another party                           50000    90
+```
+
+---
+# Grouping
+`group_by()` can also have multiple arguments, so we can group by `cps19_prov_gov_sat` and `cps19_prov_id` at the same time:
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_province == "Ontario") %&gt;%
+  select(cps19_prov_gov_sat,
+         cps19_prov_id,
+         cps19_income_number) %&gt;%
+  mutate(cps19_prov_id = factor(cps19_prov_id,
+                                     levels = c("Liberal",
+                                                "Progressive Conservative",
+                                                "NDP",
+                                                "Green",
+                                                "Another party",
+                                                "None",
+                                                "Don't know/prefer not to answer"))) %&gt;%
+  mutate(cps19_prov_gov_sat = factor(cps19_prov_gov_sat,
+                                     levels = c("Not at all satisfied",
+                                                "Not very satisfied",
+                                                "Fairly satisfied",
+                                                "Very satisfied",
+                                                "Don't know/prefer not to answer"))) %&gt;%
+  group_by(cps19_prov_gov_sat, cps19_prov_id) %&gt;%
+  summarise(median_income = median(cps19_income_number,
+                                   na.rm = TRUE))
+```
+
+```
+## # A tibble: 35 × 3
+## # Groups:   cps19_prov_gov_sat [5]
+##    cps19_prov_gov_sat   cps19_prov_id                   median_income
+##    &lt;fct&gt;                &lt;fct&gt;                                   &lt;dbl&gt;
+##  1 Not at all satisfied Liberal                                 80000
+##  2 Not at all satisfied Progressive Conservative                85000
+##  3 Not at all satisfied NDP                                     65000
+##  4 Not at all satisfied Green                                   60000
+##  5 Not at all satisfied Another party                           40000
+##  6 Not at all satisfied None                                    62000
+##  7 Not at all satisfied Don't know/prefer not to answer         68500
+##  8 Not very satisfied   Liberal                                 80000
+##  9 Not very satisfied   Progressive Conservative                78000
+## 10 Not very satisfied   NDP                                     65000
+## # … with 25 more rows
+```
+
+---
+# Grouping
+This table is less easy to read, though. `spread()` can make a table that is wide rather than long. We specify the `key`, the variable that will become our column names, and the `value`, which will become the values in those columns:
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_province == "Ontario") %&gt;%
+  select(cps19_prov_gov_sat,
+         cps19_prov_id,
+         cps19_income_number) %&gt;%
+  mutate(cps19_prov_id = factor(cps19_prov_id,
+                                     levels = c("Liberal",
+                                                "Progressive Conservative",
+                                                "NDP",
+                                                "Green",
+                                                "Another party",
+                                                "None",
+                                                "Don't know/prefer not to answer"))) %&gt;%
+  mutate(cps19_prov_gov_sat = factor(cps19_prov_gov_sat,
+                                     levels = c("Not at all satisfied",
+                                                "Not very satisfied",
+                                                "Fairly satisfied",
+                                                "Very satisfied",
+                                                "Don't know/prefer not to answer"))) %&gt;%
+  group_by(cps19_prov_gov_sat, cps19_prov_id) %&gt;%
+  summarise(median_income = median(cps19_income_number,
+                                   na.rm = TRUE)) %&gt;%
+  spread(key = cps19_prov_gov_sat,
+         value = median_income)
+```
+
+
+---
+# Grouping
+
+```
+## # A tibble: 7 × 6
+##   cps19_prov_id               `Not at all sa…` `Not very sati…` `Fairly satisf…`
+##   &lt;fct&gt;                                  &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1 Liberal                                80000            80000            79999
+## 2 Progressive Conservative               85000            78000            82000
+## 3 NDP                                    65000            65000            76888
+## 4 Green                                  60000            60000            72750
+## 5 Another party                          40000            48500            73500
+## 6 None                                   62000            74000            69000
+## 7 Don't know/prefer not to a…            68500            59500            70000
+## # … with 2 more variables: `Very satisfied` &lt;dbl&gt;,
+## #   `Don't know/prefer not to answer` &lt;dbl&gt;
+```
+
+
+---
+
+class: inverse, center, middle
+
+# Exercises
+
+---
+# Exercises
+
+1. Filter the rows in the CES_data dataset where the survey-taker is between 30 and 50 (cps19_age).
+2. Filter the rows in the CES_data dataset where the survey-taker answered the cps19_votechoice question (i.e. the cps19_votechoice variable is not NA).
+3. Select the variables cps19_age and cps19_province from the CES_data dataset.
+4. Select all variables except cps19_province from the CES_data dataset.
+
+---
+# Exercises
+
+1. Create a variable in the dataset CES_data that states if a person consumes news content or not (i.e. cps19_news_cons is equal to "0 minutes" or it is not).
+2. Modify the variable cps19_income_number in the dataset CES_data so that it is measured in thousands (i.e. divide the income number by 1000).
+
+---
+# Exercises
+
+1. Use the CES_data dataset. Group by cps19_votechoice. Find both the median and mean rating of Trudeau (cps19_lead_rating_23):
+2. Use the CES_data dataset. Group by cps19_imm and cps19_spend_educ. Find the count for each group.
+
+---
+# Exercises
+
+* 1 - Fix this error:
+
+
+```r
+CES_data %&gt;%
+  summarise(mean = mean(cps19_age)) %&gt;%
+  group_by(cps19_gender)
+```
+
+* 2 - Fix this error:
+
+
+```r
+CES_data %&gt;%
+  filter(cps19_vote_choice == "Green Party")
+```
+---
+# Exercises
+
+* 3 - Fix this error:
+
+
+```r
+CES_data %&gt;%
+  mutate(cps19_fed_donate = factor(cps19_fed_donate,
+                                     levels = c("Yes",
+                                                "No",
+                                                "Don't know/ Prefer not to answer"))
+```
+
+* 4 - Fix this error:
+
+
+```r
+CES_data %&gt;%
+  select(cps19_province
+         cps19_age
+         cps19_gender)
+```
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

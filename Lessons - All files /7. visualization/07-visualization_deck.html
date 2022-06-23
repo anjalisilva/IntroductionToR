@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Module 3: R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Instructor: Anjali Silva, PhD" />
+    <meta name="author" content="TA: Tia Harrison, MSc" />
+    <meta name="date" content="2022-07-09" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Module 3: R
+]
+.subtitle[
+## Visualization
+]
+.author[
+### Instructor: Anjali Silva, PhD
+]
+.author[
+### TA: Tia Harrison, MSc
+]
+.institute[
+### Data Sciences Institute, University of Toronto
+]
+.date[
+### 9 July 2022
+]
+
+---
+
+
+
+
+
+
+# Course Documents
+* Visit: https://github.com/anjalisilva/IntroductionToR 
+
+* All course material will be available via IntroductionToR GitHub repository (https://github.com/anjalisilva/IntroductionToR). Folder structure is as follows:
+   * Lessons - All files*: These folders contain all files.
+   * **Lessons - Data only**: This folder contains data only.
+   * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
+   * **Lessons - PDF only**: This folder contains slide PDFs only.
+   * README - README file
+   * .gitignore - Files to ignore specified by instructor
+
+## Course Contacts
+* Instructor: Anjali Silva
+  Email: a.silva@utoronto.ca (Must use the subject line DSI-IntroR.   E.g., DSI-IntroR: Inquiry about Lecture I.)
+
+* TA: Tia Harrison
+Email: tia.harrison@mail.utoronto.ca
+
+---
+
+# Overview
+
+- ggplot
+- Initializing plots, specifying variables, and choosing chart types
+- Customizing plots with labels, axes, color, size, multiple graph types, multiple plots, and overall look
+
+(Wickham and Grolemund, 2017, Chapter 3; Healy, 2018, Chapter 3; Alexander, 2022, Chapter 6)
+
+---
+
+class: inverse, center, middle
+
+# ggplot 
+
+---
+# ggplot
+ggplot2 is a package that allows us to make graphics in R. It’s loaded with the tidyverse.
+
+---
+# Initializing a plot
+
+the `ggplot()` function initializes the plot. In the arguments, you will identify the base of your plot. This includes:
+
+- the data we want to graph from
+- the aesthetics we will use
+
+What doesn't go in the `ggplot()` function:
+
+- the type of graph we want
+- the way we want the axes to look
+- the labels we want
+
+
+```r
+ggplot(data = my_data, mapping = aes())
+```
+
+---
+
+# Aesthetic
+
+In the `mapping` argument, we specific our aesthetic using `aes()`
+
+This is where we indicate what variable we want for the x axis, the y axis, the color, or any other feature that the plot in question might have.
+
+
+```r
+aes(x = variable1,
+    y = variable2,
+    shape = variable3,
+    color = variable4,
+    size = variable5,
+    fill = variable6)
+```
+
+---
+
+# In combination
+
+This takes `data` and passes it to ggplot, which initializes a plot using that data and specifies that variable1 will be represented on the x axis and variable2 on the y axis.
+
+
+```r
+data %&gt;%
+  ggplot(aes(x = variable1, y = variable2))
+```
+
+---
+
+# Adding layers
+
+After initializing, you still won't have a plot. You have to add layers -- which includes the type of plot you want, as well as tweaks and formatting specifics.
+
+When we add layers to a ggplot object, we use the `+` between lines:
+
+
+```r
+data %&gt;%
+  ggplot(aes(x = variable1, y = variable2)) +
+  # a layer +
+  # another layer
+```
+
+---
+
+# Geoms
+
+Geom layers add types of plot. There are more than 40 geoms! Some common ones:
+
+Bar plots
+
+
+```r
+geom_bar()
+```
+
+Histograms
+
+
+```r
+geom_histogram()
+```
+
+Scatterplots
+
+
+```r
+geom_point()
+```
+
+---
+
+# Examples
+
+
+
+---
+
+# Bar plot
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_votechoice, )) +
+  geom_bar()
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+---
+
+# Options for barplots
+
+These are the defaults in a geom_bar:
+
+
+```r
+geom_bar(
+  stat = "count", # can change to "prop" for proportion
+  position = "stack", # can change to "dodge" or "fill"
+  width = NULL, # can put a bar width here
+  na.rm = FALSE, # can remove NAs
+  orientation = NA,  # can specify "x" or "y"
+  show.legend = NA # can add or remove a legend
+)
+```
+
+
+---
+
+# Histogram
+
+
+```r
+CES_data %&gt;%
+  mutate(age = 90 - cps19_yob) %&gt;%
+  ggplot(aes(x = cps19_age)) +
+  geom_histogram()
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+
+---
+
+# Options for histograms
+
+
+```r
+geom_histogram(
+  stat = "bin", # can change to "count"
+  position = "stack", # can change to "identity", "dodge", or "fill"
+  binwidth = NULL, # can specify the range of each bin
+  bins = NULL, # can specify the number of bins
+  na.rm = FALSE, # can tell it to ignore NAs
+  orientation = NA, # can specify "x" or "y"
+  show.legend = NA # can add or remove a legend
+)
+```
+
+---
+
+# Scatter plot
+
+
+```r
+CES_data %&gt;%
+  mutate(age = 90 - cps19_yob) %&gt;%
+  ggplot(aes(x = cps19_age, y = cps19_household)) +
+  geom_point()
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+
+---
+
+# Options for scatterplots
+
+
+```r
+geom_point(
+  position = "identity", # can change to "jitter"
+  na.rm = FALSE, # can ignore NAs
+  show.legend = NA # can add or remove a legend
+)
+```
+
+---
+
+# Exercises
+
+Using different variables:
+
+1. Make a barplot
+2. Make a histogram
+3. Make a scatterplot 
+
+---
+
+class: inverse, center, middle
+
+# Customizing plots
+
+---
+
+# Labels
+
+We can change the way that labels appear to improve the look and readability.
+
+
+```r
+labs(x = "X name",
+     y = NULL,
+     title = "Title")
+```
+
+---
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_gender)) + 
+  geom_bar() +
+  labs(x = "Self-identified gender",
+       y = "Count",
+       title = "Gender frequencies in CES data")
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+
+---
+
+# Axes
+
+How we change the axes depends on what types of variables we have.
+
+The layers take the form: `scale_&lt;which axis&gt;_&lt;what type of axis&gt;()`. There are VERY many `scale_` options.
+
+Similar layers can be added for x and y axes, as well as other graph features like color and size.
+
+---
+
+# Manipulate a continuous x axis
+
+
+```r
+scale_x_continuous(breaks = , # use a vector to specify locations
+                   minor_breaks = , # also can be a vector
+                   n.breaks = , # can specify the number of breaks
+                   labels = , # change the labels on the breaks
+                   limits = , # set the upper and lower limits
+                   position = # "left", "right", "top", "bottom")
+```
+
+---
+
+# Manipulate a discrete x axis 
+
+
+```r
+scale_x_discrete(breaks = , # character vector of breaks
+                  limits = , # set possible values for scale
+                  drop = , # TRUE or FALSE to drop unused factor levels
+                  labels = , # change the labels on the breaks
+                  psiition = # "left", "right", "top", "bottom")
+```
+
+---
+
+# Fill
+
+We can change the fill to represent a variable:
+
+
+```r
+data %&gt;%
+  ggplot(aes(x = variable1,
+             fill = variable2)) +
+  geom_()
+```
+
+or to be a color of choice:
+
+
+```r
+data %&gt;%
+  ggplot(aes(x = variable1)) +
+  geom_(fill = "my_color")
+```
+
+The difference is where the `fill =` is located. If it is in the aes(), then it will represent a variable. If it is not in the aes(), it will just change the look of the graph.
+
+---
+
+# Fill to represent a variable
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_age,
+             fill = cps19_gender)) +
+  geom_histogram()
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+
+---
+
+# Changing fill to a specific color
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_age)) +
+  geom_histogram(fill = "#6DAEDB")
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+
+---
+
+# Color
+
+For some geoms, you will need to change color rather than fill.
+
+We can change the color to represent a variable:
+
+
+```r
+data %&gt;%
+  ggplot(aes(x = variable1,
+             color = variable2)) +
+  geom_()
+```
+
+or to be a color of choice:
+
+
+```r
+data %&gt;%
+  ggplot(aes(x = variable1)) +
+  geom_(color = "my_color")
+```
+
+The difference is where the `color =` is located. If it is in the aes(), then it will represent a variable. If it is not in the aes(), it will just change the look of the graph.
+
+---
+
+# Color to represent a variable
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_age,
+             y = cps19_household,
+             color = cps19_gender)) +
+  geom_smooth()
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
+
+---
+
+# Color for visual effect
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_age,
+             y = cps19_household)) +
+  geom_smooth(color = "#6DAEDB")
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
+
+---
+
+# Size
+
+We can change the size to represent a variable:
+
+
+```r
+data %&gt;%
+  ggplot(aes(x = variable1,
+             y = variable2,
+             size = variable3)) +
+  geom_()
+```
+
+or to be a color of choice:
+
+
+```r
+data %&gt;%
+  ggplot(aes(x = variable1,
+             y = variable2)) +
+  geom_(size = "my_size")
+```
+
+The difference is where the `fill =` is located. If it is in the aes(), then it will represent a variable. If it is not in the aes(), it will just change the look of the graph.
+
+---
+
+# Size to represent a variable
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_age,
+             y = cps19_income_number,
+             size = cps19_household)) +
+  geom_point()
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
+
+---
+
+# Size for visual effect
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_age,
+             y = cps19_income_number)) +
+  geom_point(size = 15)
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
+
+---
+
+# Using multiple geoms
+
+We can layer geoms on top of one another.
+
+Geoms can either share their aes():
+
+
+```r
+data %&gt;%
+  ggplot(aes(x = variable1,
+             y = variable2)) +
+  geom_() +
+  geom_()
+```
+
+or they can have their own:
+
+
+```r
+data %&gt;%
+  ggplot() +
+  geom_(aes(x = variable1,
+             y = variable2)) +
+  geom_(aes(x = variable1,
+             y = variable3))
+```
+
+---
+
+# Geoms that share aesthetics
+
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_age,
+             y = cps19_income_number)) +
+  geom_point() +
+  geom_smooth()
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+
+---
+
+# Separate geom aesthetics
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_point(aes(x = cps19_age,
+                 y = cps19_income_number)) +
+  geom_line(aes(x = cps19_age,
+                y = mean(cps19_income_number, na.rm = TRUE)))
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+
+---
+
+# Facets
+
+Facets give you side-by-side graphs for different categories.
+
+
+```r
+facet_wrap(facets = "variables you want to facet by") 
+facet_grid(facets = "variables that you want to facet by")
+```
+
+
+---
+# Facets
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_age)) +
+  geom_histogram() +
+  facet_wrap(facets = "cps19_gender")
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
+
+---
+
+# Themes
+
+Themes are added at the end. They control the overall look.
+
+
+```r
+theme_bw()
+theme_classic()
+theme_light()
+theme_minimal()
+```
+
+---
+# Themes
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_age)) +
+  geom_histogram() +
+  facet_wrap(facets = "cps19_gender") +
+  theme_minimal()
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+
+---
+# Themes
+
+```r
+CES_data %&gt;%
+  ggplot(aes(x = cps19_age)) +
+  geom_histogram() +
+  facet_wrap(facets = "cps19_gender") +
+  theme_light()
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
+
+---
+
+# Example: Graphing CES data
+
+We can make a bar graph representing the response to the question: "Which party do you think you will vote for?", named `cps19_votechoice`.
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_bar(aes(x = cps19_votechoice))
+```
+
+---
+# Bar graphs
+![](07-visualization_deck_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
+
+---
+# Bar graphs
+You may want to use more short forms in the responses to make the graph more readable. To manipulate the axis labels, we use the `scale_x_discrete` function and specify what labels we want:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_bar(aes(x = cps19_votechoice)) +
+  scale_x_discrete(labels = c(
+    "Liberal Party" = "Liberal",
+    "Conservative Party" = "Conservative",
+    "Bloc Québécois" = "Bloc",
+    "Green Party" = "Green",
+    "People's Party" = "PPC",
+    "Another party" = "Other",
+    "Don't know/ Prefer not to answer" = "DK/PNTA")
+  )
+```
+
+---
+# Bar graphs
+![](07-visualization_deck_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
+
+---
+# Bar graphs
+We can also reorder bars from in a way that makes more sense. To do this, we take the variable and make it into a factor. Factors have a specific order, given in the `levels` argument:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_bar(aes(x = factor(cps19_votechoice,
+                          levels = c("Liberal Party",
+                                     "Conservative Party",
+                                     "Bloc Québécois",
+                                     "Green Party",
+                                     "People's Party",
+                                     "Another party",
+                                     "Don't know/ Prefer not to answer")))) +
+  scale_x_discrete(labels = c(
+    "Liberal Party" = "Liberal",
+    "Conservative Party" = "Conservative",
+    "Bloc Québécois" = "Bloc",
+    "Green Party" = "Green",
+    "People's Party" = "PPC",
+    "Another party" = "Other",
+    "Don't know/ Prefer not to answer" = "DK/PNTA")
+  )
+```
+
+---
+# Bar graphs
+![](07-visualization_deck_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
+
+---
+# Bar graphs
+What if we want to compare the voting intentions between genders? We can use the `fill` argument in the `aes()` function to do that:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_bar(aes(x = factor(cps19_votechoice,
+                          levels = c("Liberal Party",
+                                     "Conservative Party",
+                                     "Bloc Québécois",
+                                     "Green Party",
+                                     "People's Party",
+                                     "Another party",
+                                     "Don't know/ Prefer not to answer")),
+               fill = cps19_gender)) +
+  scale_x_discrete(labels = c(
+    "Liberal Party" = "Liberal",
+    "Conservative Party" = "Conservative",
+    "Bloc Québécois" = "Bloc",
+    "Green Party" = "Green",
+    "People's Party" = "PPC",
+    "Another party" = "Other",
+    "Don't know/ Prefer not to answer" = "DK/PNTA"
+  ))
+```
+
+---
+# Bar graphs
+![](07-visualization_deck_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+
+---
+# Bar graphs
+If we don't want the bars to be stacked, we need to change the `position` argument in the `geom_bar()` function:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_bar(aes(x = factor(cps19_votechoice,
+                          levels = c("Liberal Party",
+                                     "Conservative Party",
+                                     "Bloc Québécois",
+                                     "Green Party",
+                                     "People's Party",
+                                     "Another party",
+                                     "Don't know/ Prefer not to answer")),
+               fill = cps19_gender),
+           position = "dodge") +
+  scale_x_discrete(labels = c(
+    "Liberal Party" = "Liberal",
+    "Conservative Party" = "Conservative",
+    "Bloc Québécois" = "Bloc",
+    "Green Party" = "Green",
+    "People's Party" = "PPC",
+    "Another party" = "Other",
+    "Don't know/ Prefer not to answer" = "DK/PNTA"
+  ))
+```
+
+---
+# Bar graphs
+![](07-visualization_deck_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
+
+---
+# Bar graphs
+We can change the widths of the bars as well:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_bar(aes(x = factor(cps19_votechoice,
+                          levels = c("Liberal Party",
+                                     "Conservative Party",
+                                     "Bloc Québécois",
+                                     "Green Party",
+                                     "People's Party",
+                                     "Another party",
+                                     "Don't know/ Prefer not to answer")),
+               fill = cps19_gender),
+           position = "dodge",
+           width = 0.5) +
+  scale_x_discrete(labels = c(
+    "Liberal Party" = "Liberal",
+    "Conservative Party" = "Conservative",
+    "Bloc Québécois" = "Bloc",
+    "Green Party" = "Green",
+    "People's Party" = "PPC",
+    "Another party" = "Other",
+    "Don't know/ Prefer not to answer" = "DK/PNTA"
+  ))
+```
+
+---
+# Bar graphs
+![](07-visualization_deck_files/figure-html/unnamed-chunk-52-1.png)&lt;!-- --&gt;
+
+---
+# Histograms
+We can make a histogram representing the response to the question: "How do you feel about the federal political parties below? Set the slider to a number from 0 to 100, where 0 means you really dislike the party and 100 means you really like the party." and the Conservative Party, named `cps19_party_rating_24`.
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = cps19_party_rating_24))
+```
+
+---
+# Histograms
+
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+```
+## Warning: Removed 2659 rows containing non-finite values (stat_bin).
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
+
+---
+# Histograms
+The histogram splits the range of values for Conservative Party rating into 30 bins automatically, but what if we want a different number of bins? We can change the `bins` argument in the `geom_histogram()` function:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = cps19_party_rating_24),
+                 bins = 10)
+```
+
+---
+# Histograms
+
+```
+## Warning: Removed 2659 rows containing non-finite values (stat_bin).
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
+
+---
+# Histograms
+If we want to look at distributions of a variable in different groups, we can use something called faceting. To show what the Conservative Party ratings look like across different views on education spending, we can add the `facet_wrap` function:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = cps19_party_rating_24),
+                 bins = 10) +
+  facet_wrap(facets = "cps19_spend_educ")
+```
+
+---
+# Histograms
+
+```
+## Warning: Removed 2659 rows containing non-finite values (stat_bin).
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
+
+---
+# Histograms
+We can use the `nrow` arguments to say how many rows we want the facets to form:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = cps19_party_rating_24),
+                 bins = 10) +
+  facet_wrap(facets = "cps19_spend_educ",
+             nrow = 1)
+```
+
+---
+# Histograms
+
+```
+## Warning: Removed 2659 rows containing non-finite values (stat_bin).
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-60-1.png)&lt;!-- --&gt;
+
+---
+# Histograms
+The order of the facets could be better. We use the same `factor` and `levels` method as before:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = cps19_party_rating_24),
+                 bins = 10) +
+  facet_wrap(~factor(cps19_spend_educ,
+                     levels = c("Spend less",
+                                "Spend about the same as now",
+                                "Spend more",
+                                "Don't know/ Prefer not to answer")),
+             nrow = 1)
+```
+
+---
+# Histograms
+
+```
+## Warning: Removed 2659 rows containing non-finite values (stat_bin).
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-62-1.png)&lt;!-- --&gt;
+
+---
+# Histograms
+For any graph, we probably want better labels than the variable names. We add the `labels()` function to specific labels for the x-axis, the y-axis, and the title:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = cps19_party_rating_24),
+                 bins = 10) +
+  facet_wrap(~factor(cps19_spend_educ,
+                     levels = c("Spend less",
+                                "Spend about the same as now",
+                                "Spend more",
+                                "Don't know/ Prefer not to answer")),
+             nrow = 1) +
+  labs(x = "Conservative Party rating",
+       y = "Count",
+       title = "Views on education spending and the Conservative Party")
+```
+
+---
+# Histograms
+
+```
+## Warning: Removed 2659 rows containing non-finite values (stat_bin).
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-64-1.png)&lt;!-- --&gt;
+
+---
+# Histograms
+We can widen the graph by editing the code chunk, specifying `fig.height` and `fig.width`:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = cps19_party_rating_24),
+                 bins = 10) +
+  facet_wrap(~factor(cps19_spend_educ,
+                     levels = c("Spend less",
+                                "Spend about the same as now",
+                                "Spend more",
+                                "Don't know/ Prefer not to answer")),
+             nrow = 1) +
+  labs(x = "Conservative Party rating",
+       y = "Count",
+       title = "Views on education spending and the Conservative Party")
+```
+
+---
+# Histograms
+
+```
+## Warning: Removed 2659 rows containing non-finite values (stat_bin).
+```
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-66-1.png)&lt;!-- --&gt;
+
+---
+# Scatterplots
+We can make a scatterplot representing the relationship between the ages of the survey-takers and the time they spent on the survey, named `cps19_age` and `cps19_Q_TotalDuration`, using `geom_point()`:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_point(aes(x = cps19_age,
+             y = cps19_Q_TotalDuration))
+```
+
+---
+# Scatterplots
+![](07-visualization_deck_files/figure-html/unnamed-chunk-68-1.png)&lt;!-- --&gt;
+
+---
+# Scatterplots
+There are some very large values for time spent on survey that makes it hard to see the rest. We can look at only the values in between 0 seconds and 3600 seconds, or 1 hour. Those that took longer are considered to be 'inattentive'.
+
+One way to do this is to set limits on the axis using `scale_y_continuous()`:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_point(aes(x = cps19_age,
+             y = cps19_Q_TotalDuration)) +
+  scale_y_continuous(limits = c(0,3600))
+```
+
+---
+# Scatterplots
+![](07-visualization_deck_files/figure-html/unnamed-chunk-70-1.png)&lt;!-- --&gt;
+
+---
+# Scatterplots
+Many points sitting exactly on top of each other, like what's happening with age, makes it hard to read the graph. If we add the arguement `position = "jitter"` to the `geom_point()` function, ggplot will slightly separate points that are in exactly the same spot:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_point(aes(x = cps19_age,
+             y = cps19_Q_TotalDuration),
+         position = "jitter") +
+  scale_y_continuous(limits = c(0,3600))
+```
+
+---
+# Scatterplots
+Many points sitting exactly on top of each other, like what's happening with age, makes it hard to read the graph. If we add the arguement `position = "jitter"` to the `geom_point()` function, ggplot will slightly separate points that are in exactly the same spot:
+
+![](07-visualization_deck_files/figure-html/unnamed-chunk-72-1.png)&lt;!-- --&gt;
+
+---
+# Scatterplots
+Now it's just formed a cloud. To get separation, we can decrease the size of the individual points with the `size` argument in `geom_point()`:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_point(aes(x = cps19_age,
+             y = cps19_Q_TotalDuration),
+         position = "jitter",
+         size = 0.1) +
+  scale_y_continuous(limits = c(0,3600))
+```
+
+---
+# Scatterplots
+![](07-visualization_deck_files/figure-html/unnamed-chunk-74-1.png)&lt;!-- --&gt;
+
+---
+# Scatterplots
+Again, we can add labels:
+
+
+```r
+CES_data %&gt;%
+  ggplot() +
+  geom_point(aes(x = cps19_age,
+             y = cps19_Q_TotalDuration),
+         position = "jitter",
+         size = 0.1) +
+  scale_y_continuous(limits = c(0,3600)) +
+  labs(x = "Age",
+       y = "Seconds spent on survey",
+       title = "Age and time to complete survey amoung attentive survey-takers")
+```
+
+---
+# Scatterplots
+![](07-visualization_deck_files/figure-html/unnamed-chunk-76-1.png)&lt;!-- --&gt;
+
+---
+
+class: inverse, center, middle
+
+# Exercises
+
+---
+# Exercises
+Take your:
+
+1. barplots,
+2. histograms, and
+3. scatterplot from before 
+
+and customize them. Try to add each different customization to at least one plot.
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
