@@ -66,7 +66,7 @@ library(rgdal)
 
 * Pronouns: she/her
 
-* Name Phonetic: 
+* Name Phonetic: T-ee-ah
 
 * Email: tia.harrison@mail.utoronto.ca
 
@@ -199,14 +199,9 @@ knitr::include_graphics("ScreenSplit.png")
 ## Course Expectations
 -   The course will include mainly live-coding classes. Students are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. If you have a question, you may type it to chat as well.
 
-## Accessibility
--   Students with diverse learning styles and needs are welcome in this course. In particular, if you have a disability/health consideration that may require accommodations, please feel free to approach me and/or Accessibility Services at 416-978 8060; studentlife.utoronto.ca/as.
+-   Students with diverse learning styles and needs are welcome in this course. We are dedicated to providing an accessible learning environment for all. Please notify in advance of the course start date if you require any accommodations or if there is anything we can do to make this workshop more accessible to you. 
 
 ---
-# Course Policies
-
-## Mental Health and Well-being 
--   There are many helpful resources available through Student Life (http://studentlife.utoronto.ca). An important part of the education is learning how and when to ask for help. Take the time to inform yourself of available resources.
 
 # Acknowledgements
 -   Slides covered in the lectures were originally developed by Amy Farrow under the supervision of Rohan Alexander, University of Toronto. Slides have been modified by Anjali Silva for 2022. 
@@ -917,4 +912,94 @@ Visit: https://shiny.rstudio.com/gallery/
 class: inverse, center, middle
 
 # Any questions?
+
+---
+
+# Ethics (not covered)
+
+Why does consent matter in data-based studies?
+
+## Goal:
+
+- Understand the necessity and complexity of consent for data-based studies
+
+---
+
+# Ethics (not covered)
+
+James H. Ware, 1989, ‘Investigating Therapies of Potentially Great Benefit: ECMO’, Statistical Science.
+
+Donald A. Berry, 1989, ‘Comment: Ethics and ECMO’, Statistical Science.
+
+---
+
+# Inequity (not covered)
+
+How can we undertake is Equity, Diversity, and Inclusion training?
+
+## Goal: 
+
+- Understand Equity, Diversity, and Inclusion (EDI) training
+
+---
+
+# Professional skills (not covered)
+
+## Goals:
+
+- Presenting data analysis results
+- Managing data projects
+- Data security
+
+---
+
+# Industry case study (not covered)
+
+---
+
+class: inverse, center, middle
+
+# Delivery
+
+---
+
+### For technical sections: (not covered)
+
+- Short lectures
+- Examples
+
+### For non-technical sections:
+
+- Readings
+- Discussions
+
+---
+
+class: inverse, center, middle
+
+# Assessment (not covered)
+
+---
+
+### Formative (not covered)
+
+#### For technical sections:
+
+- In-class independent exercises & solution discussion
+- Problem solving exercises (individual solution and small group discussion)
+
+#### For non-technical sections:
+
+- Group activities
+
+### Summative
+
+#### For technical sections:
+
+- Multi-stage project using data sets chosen from a provided selection
+
+#### For non-technical sections:
+
+- Written reflections
+
 
