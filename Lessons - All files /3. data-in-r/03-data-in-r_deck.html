@@ -45,7 +45,7 @@ class: center, middle, inverse, title-slide
 * Visit: https://github.com/anjalisilva/IntroductionToR 
 
 * All course material will be available via IntroductionToR GitHub repository (https://github.com/anjalisilva/IntroductionToR). Folder structure is as follows:
-   * Lessons - All files*: These folders contain all files.
+   * Lessons - All files: This folder contains all files.
    * **Lessons - Data only**: This folder contains data only.
    * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
    * **Lessons - PDF only**: This folder contains slide PDFs only.
@@ -957,8 +957,8 @@ mystring &lt;- c("apple", "banana", "clementime", "dragonfruit")
 str_view(mystring, "an")
 ```
 
-<div id="htmlwidget-696e8d46db1ecce3a5c3" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-696e8d46db1ecce3a5c3">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a499db19f64a50357a26" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a499db19f64a50357a26">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -971,8 +971,8 @@ A period matches any character.
 str_view(mystring, ".a.")
 ```
 
-<div id="htmlwidget-739301c9bd71bb8f9ebc" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-739301c9bd71bb8f9ebc">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>d<span class='match'>rag<\/span>onfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-50e3ca98fa22cc012221" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-50e3ca98fa22cc012221">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>d<span class='match'>rag<\/span>onfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 If you want to actually match a period, you need to use a double backslash. "\." is an escape character for the period, and "\\." an additional escape symbol for the "\"
 
@@ -999,8 +999,8 @@ And if you want to actually match a backslash, you need to use a quadruple backs
 str_view(mystring, "^a")
 ```
 
-<div id="htmlwidget-6f48d86525601caa917c" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6f48d86525601caa917c">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-74693c4f8d46eb12a379" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-74693c4f8d46eb12a379">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 $ matches to the end of a string
 
@@ -1009,8 +1009,8 @@ $ matches to the end of a string
 str_view(mystring, "a$")
 ```
 
-<div id="htmlwidget-bffbc447da18d48205f3" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bffbc447da18d48205f3">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-787f80bd98d90d3aff81" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-787f80bd98d90d3aff81">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1036,22 +1036,22 @@ mystring &lt;- "abcccdeee"
 str_view(mystring, "cc?")
 ```
 
-<div id="htmlwidget-ac2866e7b50f74112cd1" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ac2866e7b50f74112cd1">{"x":{"html":"<ul>\n  <li>ab<span class='match'>cc<\/span>cdeee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0c6be2d0c2d9bd23f6bd" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0c6be2d0c2d9bd23f6bd">{"x":{"html":"<ul>\n  <li>ab<span class='match'>cc<\/span>cdeee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ```r
 str_view(mystring, "cc+")
 ```
 
-<div id="htmlwidget-bbf5a874c5e903e871b9" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bbf5a874c5e903e871b9">{"x":{"html":"<ul>\n  <li>ab<span class='match'>ccc<\/span>deee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e662db7a4f1e29a924ee" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e662db7a4f1e29a924ee">{"x":{"html":"<ul>\n  <li>ab<span class='match'>ccc<\/span>deee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ```r
 str_view(mystring, "c[de]+")
 ```
 
-<div id="htmlwidget-d2ba98ac441e04414bac" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d2ba98ac441e04414bac">{"x":{"html":"<ul>\n  <li>abcc<span class='match'>cdeee<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-37d97569f2edb6701cdd" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-37d97569f2edb6701cdd">{"x":{"html":"<ul>\n  <li>abcc<span class='match'>cdeee<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 --- 
 
@@ -1074,8 +1074,8 @@ mystring &lt;- c("abab", "cdcd", "efgh")
 str_view(mystring, "(..)\\1", match = T)
 ```
 
-<div id="htmlwidget-4286e4d6b6a4b9953548" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4286e4d6b6a4b9953548">{"x":{"html":"<ul>\n  <li><span class='match'>abab<\/span><\/li>\n  <li><span class='match'>cdcd<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e421f56b2490b3d556c4" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e421f56b2490b3d556c4">{"x":{"html":"<ul>\n  <li><span class='match'>abab<\/span><\/li>\n  <li><span class='match'>cdcd<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1185,7 +1185,7 @@ today()
 ```
 
 ```
-## [1] "2022-06-22"
+## [1] "2022-06-23"
 ```
 
 ---
@@ -1209,7 +1209,7 @@ now()
 ```
 
 ```
-## [1] "2022-06-22 17:12:59 EDT"
+## [1] "2022-06-23 17:23:01 EDT"
 ```
 
 ---
@@ -1272,7 +1272,7 @@ today()
 ```
 
 ```
-## [1] "2022-06-22"
+## [1] "2022-06-23"
 ```
 
 ```r
@@ -1280,7 +1280,7 @@ as_datetime(today())
 ```
 
 ```
-## [1] "2022-06-22 UTC"
+## [1] "2022-06-23 UTC"
 ```
 
 ```r
@@ -1288,7 +1288,7 @@ now()
 ```
 
 ```
-## [1] "2022-06-22 17:12:59 EDT"
+## [1] "2022-06-23 17:23:01 EDT"
 ```
 
 ```r
@@ -1296,7 +1296,7 @@ as_date(now())
 ```
 
 ```
-## [1] "2022-06-22"
+## [1] "2022-06-23"
 ```
 
 ---
@@ -1383,7 +1383,7 @@ today() - ymd(20000101)
 ```
 
 ```
-## Time difference of 8208 days
+## Time difference of 8209 days
 ```
 
 ```r
@@ -1391,7 +1391,7 @@ as.duration(today() - ymd(20000101))
 ```
 
 ```
-## [1] "709171200s (~22.47 years)"
+## [1] "709257600s (~22.48 years)"
 ```
 
 
@@ -1457,7 +1457,7 @@ today() + years(1)
 ```
 
 ```
-## [1] "2023-06-22"
+## [1] "2023-06-23"
 ```
 
 ```r
@@ -1465,7 +1465,7 @@ today() + months(1)
 ```
 
 ```
-## [1] "2022-07-22"
+## [1] "2022-07-23"
 ```
 
 ```r
@@ -1473,7 +1473,7 @@ today() + days(1)
 ```
 
 ```
-## [1] "2022-06-23"
+## [1] "2022-06-24"
 ```
 
 ```r
@@ -1481,7 +1481,7 @@ today() + hours(1)
 ```
 
 ```
-## [1] "2022-06-22 01:00:00 UTC"
+## [1] "2022-06-23 01:00:00 UTC"
 ```
 
 ```r
@@ -1489,7 +1489,7 @@ today() + minutes(1)
 ```
 
 ```
-## [1] "2022-06-22 00:01:00 UTC"
+## [1] "2022-06-23 00:01:00 UTC"
 ```
 
 ```r
@@ -1497,7 +1497,7 @@ today() + seconds(1)
 ```
 
 ```
-## [1] "2022-06-22 00:00:01 UTC"
+## [1] "2022-06-23 00:00:01 UTC"
 ```
 
 ---
