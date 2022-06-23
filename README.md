@@ -34,7 +34,7 @@ For emails to the teaching assistant, use tia.harrison@mail.utoronto.ca.
 
 ## Delivery Instructions
 The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Learners must have internet connection and a computer with a microphone and required sofware implemented in order to participate. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. Keeping your video on is optional, however, if you choose to leave it on, be mindful of what your peers can see. Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. Folder structure is as follows:
-   * Lessons - All files*: These folders contain all files.
+   * Lessons - All files: This folder contains all files.
    * **Lessons - Data only**: This folder contains data only.
    * **Lessons - Lesson Plans only**: This folder contains lesson plans only.
    * **Lessons - PDF only**: This folder contains slide PDFs only.
@@ -77,13 +77,7 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
 # Course Policies
 
 ## Course Expectations
--   The course will include mainly live-coding classes. Learners are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. You may type your questions to chat as well.
-
-## Accessibility
--   Learners with diverse learning styles and needs are welcome in this course. In particular, if you have a disability/health consideration that may require accommodations, please feel free to approach me and/or Accessibility Services at 416-978 8060; studentlife.utoronto.ca/as.
-
-## Mental Health and Well-being 
--   There are many helpful resources available through Student Life (http://studentlife.utoronto.ca). An important part of the education is learning how and when to ask for help. Take the time to inform yourself of available resources.
+-   The course will include mainly live-coding classes. Learners are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. You may type your questions to chat as well. Learners with diverse learning styles and needs are welcome in this course. 
 
 # Acknowledgements
 -   Slides covered in the lectures were originally developed by Amy Farrow under the supervision of Rohan Alexander, University of Toronto. Slides have been modified by Anjali Silva for 2022.
