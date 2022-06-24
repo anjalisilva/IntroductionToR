@@ -89,4 +89,4 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
 ## Contributions
 
 -   `IntroductionToR` welcomes issues, enhancement requests, and other contributions. To submit an issue, use the [GitHub
-issues](https://github.com/anjalisilva/IntroductionToR).
+issues](https://github.com/anjalisilva/IntroductionToR/issues).
