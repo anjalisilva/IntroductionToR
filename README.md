@@ -35,10 +35,10 @@ For emails to the teaching assistant, use tia.harrison@mail.utoronto.ca.
 ## Delivery Instructions
 The course will be held over a period of 2 weeks, with classes taking place 3 days a week. Format will be online - synchronous via Zoom. Learners must have internet connection and a computer with a microphone and required sofware implemented in order to participate. Keep microphones muted, unless you need to speak. Please indicate your name before speaking. Keeping your video on is optional, however, if you choose to leave it on, be mindful of what your peers can see. Course communications will take place via email. All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. Folder structure is as follows:
    * Assessments: This folder contains assessment related files.
-   * Lessons-AllFiles: This folder contains all files (rmarkdown, slide-PDFs, images, data, etc.) .
-   * **Lessons-Data**: This folder contains data only. Copy this into Rproject.
-   * **Lessons-PDF**: This folder contains slide-PDFs only.
-   * Teaching-Notes: This folder contains lesson plans only.
+   * Lessons-AllFiles: This folder contains all files (Rmarkdown, slide-html, slide-PDFs, images, data, etc.) and is designed for the instructor. 
+   * **Lessons-Data**: This folder contains data only and is designed for the learners. Learners should download and copy this folder as 'data' folder within R Project.
+   * **Lessons-PDF**: This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding.
+   * Teaching-Notes: This folder contains lesson plans only and is designed to guide the instructor.
    * README: README file
    * .gitignore: Files to ignore specified by instructor
 
