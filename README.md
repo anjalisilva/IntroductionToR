@@ -39,8 +39,8 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
    * **Lessons-Data**: This folder contains data only. Copy this into Rproject.
    * **Lessons-PDF**: This folder contains slide-PDFs only.
    * Teaching-Notes: This folder contains lesson plans only.
-   * README - README file
-   * .gitignore - Files to ignore specified by instructor
+   * README: README file
+   * .gitignore: Files to ignore specified by instructor
 
 ## Materials
 * **Learners must have internet connection and a computer with a microphone in order to participate in online activities.** 
