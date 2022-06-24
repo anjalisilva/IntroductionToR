@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Module 3: R</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2022-06-20" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Module 3: R
+]
+.subtitle[
+## Ethics
+]
+.institute[
+### Data Sciences Institute, University of Toronto
+]
+.date[
+### 2022-06-20
+]
+
+---
+
+
+
+
+
+
+# Overview
+
+Consent in research design
+
+Case Study: ECMO and randomized trials
+- James H. Ware, 1989, ‘Investigating Therapies of Potentially Great Benefit: ECMO’, Statistical Science.
+- Donald A. Berry, 1989, ‘Comment: Ethics and ECMO’, Statistical Science.
+
+---
+
+class: inverse, center, middle
+
+# Consent in research design
+
+---
+
+## Voluntary consent
+
+*The __voluntary consent__ of the human subject is absolutely essential. This means that the person involved should have __legal capacity__ to give consent; should be so situated as to be able to exercise __free power of choice__, without the intervention of any element of force, fraud, deceit, duress, overreaching, or other ulterior form of constraint or coercion; and should have sufficient __knowledge and comprehension__ of the elements of the subject matter involved as to enable him to make an understanding and enlightened decision. This latter element requires that before the acceptance of an affirmative decision by the experimental subject there should be made known to him the nature, duration, and purpose of the experiment; the method and means by which it is to be conducted; all inconveniences and hazards reasonably to be expected; and the effects upon his health or person which may possibly come from his participation in the experiment.*
+
+The Nuremberg Code (1947)
+
+---
+
+class: inverse, center, middle
+
+# Case Study: ECMO and randomized trials
+
+---
+
+## Randomized consent
+
+- Proposed by Zelen (1979)
+- Only patients assigned to the non-standard treatment are approached for consent
+- Avoids asking people in stressful situations to consent to a treatment that they don't end up receiving
+
+---
+
+## Adaptive randomization
+
+- Based on randomized urn designs (Wei and Durham, 1978)
+- Bartlett et al. (1985) assigned treatments sequentially, with the outcome of each treatment affecting the probabilities of the next selection. If a subject was assigned treatment A and survived, the probability of selecting treatment A for the next subject was increased; if the subject died, the probability of selecting treatment B was increased. The study ended at a set number of participants.
+
+---
+
+## Equipoise
+
+- Uncertainty about which of two treatment is superior (Freedman, 1987)
+- If evidence is accumulating for the superiority of one treatment, further randomization of treatment becomes ethically concerning
+
+---
+
+## Ware's study design
+
+- Patients are initially assigned randomly to two treatments. When a set number of deaths occur in treatment group A, all subsequent patients are assigned to the treatment B until the set number of deaths occurs in treatment group B, or until the number of survivors establishes the superiority of treatment B.
+- Infants were assigned by randomized permuted blocks designs to the established treatment (CMT) and the newer treatment (ECMO). Randomization ceased when four patients died in one treatment arm.
+
+---
+
+## Study outcomes
+
+&lt;img src="ware_results.png" width="2000" /&gt;
+
+---
+
+## Berry's critique
+
+### Consent and informedness
+
+**Ware strived "To balance ethical and scientific concerns...." There should be no compromise here: Ethical concerns win.**
+
+---
+
+## Berry's critique
+
+### Equipoise
+
+**In my view, the Ware study should not have been conducted. Randomizing patients to conventional therapy in the face of substantial evidence concerning the superiority of ECMO seems unethical.**
+
+---
+
+## Discussion questions
+
+What ethical issues do you see with randomized consent?
+
+At what point do we consider equipoise to be void?
+
+Should randomization have continued throughout the study rather than ceasing at a certain point?
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
