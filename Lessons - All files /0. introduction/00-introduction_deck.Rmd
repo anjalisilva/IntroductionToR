@@ -492,7 +492,20 @@ knitr::include_graphics("sample_app.png")
 
 ---
 
-# Hello World!
+
+class: inverse, center, middle
+
+# Any questions?
+
+---
+
+class: inverse, center, middle
+
+# Next: 01-hello-world_deck
+
+---
+
+# Hello World! (not covered)
 
 **.purple[(Beginner)]**
 
@@ -922,15 +935,9 @@ shinyApp(ui, server)
 Visit: https://shiny.rstudio.com/gallery/
 
 
----
+----
 
-class: inverse, center, middle
-
-# Any questions?
-
----
-
-# Ethics (not covered)
+# Ethics  
 
 Why does consent matter in data-based studies?
 
@@ -940,7 +947,7 @@ Why does consent matter in data-based studies?
 
 ---
 
-# Ethics (not covered)
+# Ethics  
 
 James H. Ware, 1989, ‘Investigating Therapies of Potentially Great Benefit: ECMO’, Statistical Science.
 
@@ -948,7 +955,7 @@ Donald A. Berry, 1989, ‘Comment: Ethics and ECMO’, Statistical Science.
 
 ---
 
-# Inequity (not covered)
+# Inequity  
 
 How can we undertake is Equity, Diversity, and Inclusion training?
 
@@ -958,7 +965,7 @@ How can we undertake is Equity, Diversity, and Inclusion training?
 
 ---
 
-# Professional skills (not covered)
+# Professional skills  
 
 ## Goals:
 
@@ -968,17 +975,17 @@ How can we undertake is Equity, Diversity, and Inclusion training?
 
 ---
 
-# Industry case study (not covered)
+# Industry case study  
 
 ---
 
 class: inverse, center, middle
 
-# Delivery (not covered)
+# Delivery  
 
 ---
 
-### For technical sections: (not covered)
+### For technical sections:  
 
 - Short lectures
 - Examples
@@ -992,11 +999,11 @@ class: inverse, center, middle
 
 class: inverse, center, middle
 
-# Assessment (not covered)
+# Assessment  
 
 ---
 
-### Formative (not covered)
+### Formative  
 
 #### For technical sections:
 
