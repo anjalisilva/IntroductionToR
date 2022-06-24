@@ -39,8 +39,8 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
    * **Lessons-Data**: This folder contains data only and is designed for the learners. Learners should download and copy this folder as 'data' folder within R Project.
    * **Lessons-PDF**: This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding.
    * Teaching-Notes: This folder contains lesson plans only and is designed to guide the instructor.
-   * README: README file
-   * .gitignore: Files to ignore specified by instructor
+   * README: README file.
+   * .gitignore: Files to ignore specified by instructor.
 
 ## Materials
 * **Learners must have internet connection and a computer with a microphone in order to participate in online activities.** 
