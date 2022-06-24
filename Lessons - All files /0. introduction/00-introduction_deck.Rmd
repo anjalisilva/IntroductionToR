@@ -153,15 +153,15 @@ DoSS Toolkit (2021) https://rohanalexander.github.io/doss_toolkit_book/.
 
 ### For specific topics:
 
- * Alexander, 2022, *Telling Stories with Data*, CRC Press. https://www.tellingstorieswithdata.com/ 
-    * Alexander (eds), 2021, *DoSS Toolkit*, https://rohanalexander.github.io/doss_toolkit_book/. 
-    * de Graaf, 2019, *Managing Your Data Science Projects: Learn Salesmanship, Presentation, and Maintenance of Completed Models*, Apress.
-    * Healy, 2018, *Data Visualization*: A Practical Introduction, Princeton University Press
-    * Timbers et al., 2021. *Data Science: A First Introduction*. https://ubc-dsci.github.io/introduction-to-datascience/ 
-    * Wickham and Grolemund, 2017, *R for Data Science*, O'Reilly. https://r4ds.had.co.nz/ 
-    * Wickham, 2021, *Mastering Shiny*, O'Reilly. https://mastering-shiny.org/ 
-    * Wiley, Matt, Wiley, Joshua F., 2020, *Advanced R 4 Data Programming and the Cloud*
-    * *Using PostgreSQL, AWS, and Shiny*, Apress.
+  * Alexander, 2022, *Telling Stories with Data*, CRC Press. https://www.tellingstorieswithdata.com/ 
+  * Alexander (eds), 2021, *DoSS Toolkit*, https://rohanalexander.github.io/doss_toolkit_book/. 
+  * de Graaf, 2019, *Managing Your Data Science Projects: Learn Salesmanship, Presentation, and Maintenance of Completed Models*, Apress.
+  * Healy, 2018, *Data Visualization*: A Practical Introduction, Princeton University Press
+  * Timbers et al., 2021. *Data Science: A First Introduction*. https://ubc-dsci.github.io/introduction-to-datascience/ 
+  * Wickham and Grolemund, 2017, *R for Data Science*, O'Reilly. https://r4ds.had.co.nz/ 
+  * Wickham, 2021, *Mastering Shiny*, O'Reilly. https://mastering-shiny.org/ 
+  * Wiley, Matt, Wiley, Joshua F., 2020, *Advanced R 4 Data Programming and the Cloud*
+  * *Using PostgreSQL, AWS, and Shiny*, Apress.
 ---
 
 # Materials

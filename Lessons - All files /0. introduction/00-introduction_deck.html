@@ -150,15 +150,15 @@ DoSS Toolkit (2021) https://rohanalexander.github.io/doss_toolkit_book/.
 
 ### For specific topics:
 
- * Alexander, 2022, *Telling Stories with Data*, CRC Press. https://www.tellingstorieswithdata.com/ 
-    * Alexander (eds), 2021, *DoSS Toolkit*, https://rohanalexander.github.io/doss_toolkit_book/. 
-    * de Graaf, 2019, *Managing Your Data Science Projects: Learn Salesmanship, Presentation, and Maintenance of Completed Models*, Apress.
-    * Healy, 2018, *Data Visualization*: A Practical Introduction, Princeton University Press
-    * Timbers et al., 2021. *Data Science: A First Introduction*. https://ubc-dsci.github.io/introduction-to-datascience/ 
-    * Wickham and Grolemund, 2017, *R for Data Science*, O'Reilly. https://r4ds.had.co.nz/ 
-    * Wickham, 2021, *Mastering Shiny*, O'Reilly. https://mastering-shiny.org/ 
-    * Wiley, Matt, Wiley, Joshua F., 2020, *Advanced R 4 Data Programming and the Cloud*
-    * *Using PostgreSQL, AWS, and Shiny*, Apress.
+  * Alexander, 2022, *Telling Stories with Data*, CRC Press. https://www.tellingstorieswithdata.com/ 
+  * Alexander (eds), 2021, *DoSS Toolkit*, https://rohanalexander.github.io/doss_toolkit_book/. 
+  * de Graaf, 2019, *Managing Your Data Science Projects: Learn Salesmanship, Presentation, and Maintenance of Completed Models*, Apress.
+  * Healy, 2018, *Data Visualization*: A Practical Introduction, Princeton University Press
+  * Timbers et al., 2021. *Data Science: A First Introduction*. https://ubc-dsci.github.io/introduction-to-datascience/ 
+  * Wickham and Grolemund, 2017, *R for Data Science*, O'Reilly. https://r4ds.had.co.nz/ 
+  * Wickham, 2021, *Mastering Shiny*, O'Reilly. https://mastering-shiny.org/ 
+  * Wiley, Matt, Wiley, Joshua F., 2020, *Advanced R 4 Data Programming and the Cloud*
+  * *Using PostgreSQL, AWS, and Shiny*, Apress.
 ---
 
 # Materials
@@ -389,20 +389,19 @@ class: inverse, center, middle
 
 ```
 ## # A tibble: 8,291 × 6
-##    year_built property_type confirmed_units score  year
-##         &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1       1960 PRIVATE                    12    73  2020
-##  2       1960 PRIVATE                    12    81  2020
-##  3       1962 PRIVATE                    10    73  2020
-##  4       1968 PRIVATE                   174    81  2020
-##  5       1965 PRIVATE                    27    73  2020
-##  6       1950 PRIVATE                    10    77  2020
-##  7       1974 TCHC                      350    82  2020
-##  8       1928 PRIVATE                    15    73  2020
-##  9       1938 PRIVATE                    32    74  2020
-## 10       1958 PRIVATE                    55    72  2020
-## # … with 8,281 more rows, and 1 more variable:
-## #   count &lt;int&gt;
+##    year_built property_type confirmed_units score  year count
+##         &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+##  1       1960 PRIVATE                    12    73  2020     3
+##  2       1960 PRIVATE                    12    81  2020     3
+##  3       1962 PRIVATE                    10    73  2020     9
+##  4       1968 PRIVATE                   174    81  2020    48
+##  5       1965 PRIVATE                    27    73  2020     9
+##  6       1950 PRIVATE                    10    77  2020     9
+##  7       1974 TCHC                      350    82  2020    36
+##  8       1928 PRIVATE                    15    73  2020    19
+##  9       1938 PRIVATE                    32    74  2020    16
+## 10       1958 PRIVATE                    55    72  2020    36
+## # … with 8,281 more rows
 ```
 
 
