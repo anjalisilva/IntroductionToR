@@ -79,24 +79,27 @@ The course will be held over a period of 2 weeks, with classes taking place 3 da
 
 ## Course Expectations
 -   The course will include mainly live-coding classes. Learners are expected to follow along with the coding. Be mindful of online fatigue. Be respectful and only one speaker at a time. Keep yourself on mute, unless you need to speak or ask a question. If you have a question, use raise hand feature. First say your name, then ask the question. You may type your questions to chat as well. Learners with diverse learning styles and needs are welcome in this course. 
+
+## Downloading Files
 -   All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. As per prerequisites outlined for the course, it will be assumed that learners are familiar with GitHub. If you are unsure how to download files from GitHub, you may visit the repository [link](https://github.com/anjalisilva/IntroductionToR) and click 'Code' and then 'Download zip' to download all files, as shown below (see red arrows 1 and 2):
+<div style="text-align:center">
+
+<img src="Teaching-Notes/README-images/GitHubDownload1.png" alt="MixtureGaussian" width="550" height="350"/>
+
+<div style="text-align:center">
 <div style="text-align:left">
+<br/><br/>
+  
+-   Alternatively, to download individual files, e.g., 03-Data-in-R PDF slides only, visit the slide [link](https://github.com/anjalisilva/IntroductionToR/blob/main/Lessons-PDF/03-data-in-r_deck.pdf) and click the 'Download' button on top right side of page as shown below (see red arrow):
+<div style="text-align:center">
 
-<img src="Teaching-Notes/README-images/GitHubDownload1.png" alt="MixtureGaussian" width="750" height="550"/>
+<img src="Teaching-Notes/README-images/GitHubDownload2.png" alt="GitHubDownload" width="700" height="300"/>
 
-<div style="text-align:left">
-<div style="text-align:left">
-
-    Alternatively, to download individual files, e.g., 03-Data-in-R PDF slides only, visit the slide [link](https://github.com/anjalisilva/IntroductionToR/blob/main/Lessons-PDF/03-data-in-r_deck.pdf) and click the 'Download' button on top right side of page as shown below (see red arrow):
-
-<div style="text-align:left">
-
-<img src="Teaching-Notes/README-images/GitHubDownload2.png" alt="GitHubDownload" width="750" height="550"/>
-
-<div style="text-align:left">
+<div style="text-align:center">
 <div style="text-align:left">  
-
-    You may also read about [cloning a GitHub repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository), if you are interested in more details. 
+<br/><br/>
+  
+-   You may also read about [cloning a GitHub repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 
 
