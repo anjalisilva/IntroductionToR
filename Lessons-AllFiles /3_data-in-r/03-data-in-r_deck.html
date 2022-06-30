@@ -518,8 +518,8 @@ It will also warn you if the recycled vector isn't a complete multiple of the sm
 ```
 
 ```
-## Warning in 1:5 + 1:13: longer object length is not a multiple of shorter object
-## length
+## Warning in 1:5 + 1:13: longer object length is not a multiple of shorter
+## object length
 ```
 
 ```
@@ -957,8 +957,8 @@ mystring &lt;- c("apple", "banana", "clementime", "dragonfruit")
 str_view(mystring, "an")
 ```
 
-<div id="htmlwidget-cbb822f987f81077f330" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cbb822f987f81077f330">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e028c4fbf3af0a2e03b1" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e028c4fbf3af0a2e03b1">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -971,8 +971,8 @@ A period matches any character.
 str_view(mystring, ".a.")
 ```
 
-<div id="htmlwidget-5bfd2a7531bc59d4e068" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5bfd2a7531bc59d4e068">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>d<span class='match'>rag<\/span>onfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cb209d017b9f913e77e1" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cb209d017b9f913e77e1">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>d<span class='match'>rag<\/span>onfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 If you want to actually match a period, you need to use a double backslash. "\." is an escape character for the period, and "\\." an additional escape symbol for the "\"
 
@@ -999,8 +999,8 @@ And if you want to actually match a backslash, you need to use a quadruple backs
 str_view(mystring, "^a")
 ```
 
-<div id="htmlwidget-91dd9881f745422332d8" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-91dd9881f745422332d8">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3c2639ea8bbd8ef68f1c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3c2639ea8bbd8ef68f1c">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 $ matches to the end of a string
 
@@ -1009,8 +1009,8 @@ $ matches to the end of a string
 str_view(mystring, "a$")
 ```
 
-<div id="htmlwidget-55cccafa16c582c43507" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-55cccafa16c582c43507">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e9f22a0039c94a29aae8" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e9f22a0039c94a29aae8">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1036,22 +1036,22 @@ mystring &lt;- "abcccdeee"
 str_view(mystring, "cc?")
 ```
 
-<div id="htmlwidget-21e051f2b22bfece5831" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-21e051f2b22bfece5831">{"x":{"html":"<ul>\n  <li>ab<span class='match'>cc<\/span>cdeee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e34017c13b950d93694f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e34017c13b950d93694f">{"x":{"html":"<ul>\n  <li>ab<span class='match'>cc<\/span>cdeee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ```r
 str_view(mystring, "cc+")
 ```
 
-<div id="htmlwidget-e7f35eabd0c81397ffe7" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e7f35eabd0c81397ffe7">{"x":{"html":"<ul>\n  <li>ab<span class='match'>ccc<\/span>deee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6aeb49b6adec694692cb" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6aeb49b6adec694692cb">{"x":{"html":"<ul>\n  <li>ab<span class='match'>ccc<\/span>deee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ```r
 str_view(mystring, "c[de]+")
 ```
 
-<div id="htmlwidget-90feed5fcdc3ea6feff3" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-90feed5fcdc3ea6feff3">{"x":{"html":"<ul>\n  <li>abcc<span class='match'>cdeee<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-782c7119b6f9d4ca7197" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-782c7119b6f9d4ca7197">{"x":{"html":"<ul>\n  <li>abcc<span class='match'>cdeee<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 --- 
 
@@ -1074,8 +1074,8 @@ mystring &lt;- c("abab", "cdcd", "efgh")
 str_view(mystring, "(..)\\1", match = T)
 ```
 
-<div id="htmlwidget-963a121b7c96b5dd5937" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-963a121b7c96b5dd5937">{"x":{"html":"<ul>\n  <li><span class='match'>abab<\/span><\/li>\n  <li><span class='match'>cdcd<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-05c4e89c6a997b81d991" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-05c4e89c6a997b81d991">{"x":{"html":"<ul>\n  <li><span class='match'>abab<\/span><\/li>\n  <li><span class='match'>cdcd<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1185,7 +1185,7 @@ today()
 ```
 
 ```
-## [1] "2022-06-25"
+## [1] "2022-06-29"
 ```
 
 ---
@@ -1209,7 +1209,7 @@ now()
 ```
 
 ```
-## [1] "2022-06-25 17:05:51 EDT"
+## [1] "2022-06-29 20:26:58 EDT"
 ```
 
 ---
@@ -1272,7 +1272,7 @@ today()
 ```
 
 ```
-## [1] "2022-06-25"
+## [1] "2022-06-29"
 ```
 
 ```r
@@ -1280,7 +1280,7 @@ as_datetime(today())
 ```
 
 ```
-## [1] "2022-06-25 UTC"
+## [1] "2022-06-29 UTC"
 ```
 
 ```r
@@ -1288,7 +1288,7 @@ now()
 ```
 
 ```
-## [1] "2022-06-25 17:05:51 EDT"
+## [1] "2022-06-29 20:26:58 EDT"
 ```
 
 ```r
@@ -1296,7 +1296,7 @@ as_date(now())
 ```
 
 ```
-## [1] "2022-06-25"
+## [1] "2022-06-29"
 ```
 
 ---
@@ -1383,7 +1383,7 @@ today() - ymd(20000101)
 ```
 
 ```
-## Time difference of 8211 days
+## Time difference of 8215 days
 ```
 
 ```r
@@ -1391,7 +1391,7 @@ as.duration(today() - ymd(20000101))
 ```
 
 ```
-## [1] "709430400s (~22.48 years)"
+## [1] "709776000s (~22.49 years)"
 ```
 
 
@@ -1457,7 +1457,7 @@ today() + years(1)
 ```
 
 ```
-## [1] "2023-06-25"
+## [1] "2023-06-29"
 ```
 
 ```r
@@ -1465,7 +1465,7 @@ today() + months(1)
 ```
 
 ```
-## [1] "2022-07-25"
+## [1] "2022-07-29"
 ```
 
 ```r
@@ -1473,7 +1473,7 @@ today() + days(1)
 ```
 
 ```
-## [1] "2022-06-26"
+## [1] "2022-06-30"
 ```
 
 ```r
@@ -1481,7 +1481,7 @@ today() + hours(1)
 ```
 
 ```
-## [1] "2022-06-25 01:00:00 UTC"
+## [1] "2022-06-29 01:00:00 UTC"
 ```
 
 ```r
@@ -1489,7 +1489,7 @@ today() + minutes(1)
 ```
 
 ```
-## [1] "2022-06-25 00:01:00 UTC"
+## [1] "2022-06-29 00:01:00 UTC"
 ```
 
 ```r
@@ -1497,7 +1497,7 @@ today() + seconds(1)
 ```
 
 ```
-## [1] "2022-06-25 00:00:01 UTC"
+## [1] "2022-06-29 00:00:01 UTC"
 ```
 
 ---
