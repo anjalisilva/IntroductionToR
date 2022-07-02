@@ -1,6 +1,7 @@
 #### Class 01 ####
 # Author: Anjali Silva
 # Date: 27 June 2022
+# Lessons: 00-Intro; 01-Hello world; 02-Work Practices
 
 # location
 getwd() # get working directory
@@ -106,7 +107,7 @@ data(package = "datasets")
 #### Class 02 ####
 # Author: Anjali Silva
 # Date: 27 June 2022
-# Lesson: 03 Data in R
+# Lesson: 03-Data in R
 
 # Vector - 1D data structures that can hold multiple values
 # 1. Atomic - homogeneous
@@ -406,6 +407,7 @@ Inf # infiniti
 #### Class 03 ####
 # Author: Anjali Silva
 # Date: 2 July 2022
+# Lesson: 04-Data manipulation
 
 #.csv - comma separated values
 # .sav - file from SPSS
