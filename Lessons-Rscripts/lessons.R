@@ -675,5 +675,215 @@ table(CES_data$cps19_province)
 # Take up exercises from lesson 01 (slides 43-44), 
 # 02 (slide 30), and 03 (slide 55)
 
+#### Class 04 ####
+# Author: Anjali Silva
+# Date: 4 July 2022
+# Lesson: 05-Data wrangling
+
+
+library(tidyverse) # attach package tidyverse
+library(readr)
+ls("package:readr") # to see all functions in readr
+?read_csv
+# called providing an inline csv file - enter data yourself
+
+read_csv("a, b, c
+         1, 2, 3
+         4, 5, 6") # creates A tibble: 2 × 3
+
+# option to skip lines
+
+read_csv("First line is meta data
+         second line is meta data
+         a, b, c
+         1, 2, 3
+         4, 5, 6") # creates A tibble: 4 × 1
+
+read_csv("First line is meta data
+         second line is meta data
+         a, b, c
+         1, 2, 3
+         4, 5, 6", skip = 2) # creates A tibble: 2 × 3
+
+# comments can be ignored
+read_csv("# First line is meta data
+         # second line is meta data
+         # a, b, c
+         1, 2, 3
+         4, 5, 6", comment = "#", col_names = FALSE)
+# A tibble: 2 × 3 results
+
+# writing data
+write_csv()
+
+# read an example dataset
+challengeData <- read_csv(readr_example("challenge.csv"))
+challengeData
+glimpse(challengeData)
+
+write_csv(x = challengeData, file = "data/challengeData.csv")
+
+# R's binary format is called RDS
+write_rds(x = challengeData, file = "data/challengeData.rds")
+readRDSChallenge <- read_rds("data/challengeData.rds")
+readRDSChallenge 
+
+
+# pivot - tidying data 
+# 3 rules - slide 11
+# 1. each variable must have its own column
+# 2. Each observation must have its own row
+# 3. Each value must have its own cell
+
+# pivot_longer() and pivot_wider()
+wideData <- tibble(
+  year = c(2017, 2018, 2019, 2020, 2021, 2022),
+  milo = c(4, 6.3, 8, 7.9, 8.1, 8.1),
+  kitty = c(15.6, 15.9, 14, 12.2, 10.9, 9.9))
+wideData
+
+# pivot_longer()
+?pivot_longer
+longData <- wideData %>%
+                pivot_longer(cols = c("milo", "kitty"),
+                             names_to = "cat",
+                             values_to = "weight")
+longData # A tibble: 12 × 3
+
+# pivot_wider()
+library(tidyr)
+?table2
+table2
+
+table2 %>%
+  pivot_wider(names_from = "type", # will work with or without quotes
+              values_from = "count")
+# A tibble: 6 × 4
+
+# joining 
+# mutiple tables are called relational data
+
+# 2 types of joins
+# 1. mutating joins
+#   join tables based on a shared key or variable, to 
+#   bring together data or variables
+#   4 kinds: inner, outer: left, right and full
+#   done using dplyr package 
+#   slide 16
+
+# let's take 5 minute break until 7.08pm
+# visit line 758
+
+# 2 toy datasets
+employment <- tibble(year = c(1990, 1991, 1992, 1994),
+                     rate = c(0.05, 0.02, 0.04, 0.02))
+employment # A tibble: 4 × 2
+
+housing <- tibble(date = c(1991, 1992, 1993, 1994, 1995),
+                  rate = c(0.89, 0.6, 0.75, 0.88, 0.9))
+housing # A tibble: 5 × 2
+
+# key will be year or date
+
+# inner join
+employment %>%
+  inner_join(housing, by = c("year" = "date"))
+# A tibble: 3 × 3
+
+# outer: left
+employment %>%
+  left_join(housing, by = c("year" = "date"))
+#  A tibble: 4 × 3
+
+# outer: right
+employment %>%
+  right_join(housing, by = c("year" = "date"))
+# A tibble: 5 × 3
+
+# outer: full
+employment %>%
+  full_join(housing, by = c("year" = "date"))
+# A tibble: 6 × 3
+
+
+# 2. filtering joins
+# i. semi joins = keep all observations in x that match y
+# treat x = employment and y = housing
+employment %>%
+  semi_join(housing, by = c("year" = "date"))
+# A tibble: 3 × 2
+
+# ii. anti join = drops all observations in x that match y
+employment %>%
+  anti_join(housing, by = c("year" = "date"))
+# A tibble: 1 × 2
+
+
+# data.table 
+# A CRAN package 
+# link: https://cran.r-project.org/web/packages/data.table/index.html
+install.packages("data.table") # download package
+library("data.table") # attach
+
+data(package="datasets") # to access built-in datasets in R
+library(help="datasets")
+?iris
+dim(iris) # 150   5
+head(iris)
+glimpse(iris)
+
+dtIris <- as.data.table(iris)
+dtIris
+tables()
+
+# Aside
+install.packages("pryr")
+library(pryr)
+pryr::mem_used() # to determine the memory usage of current R session
+# 169 MB
+
+ls() # list all objects of current R session
+
+pryr::object_size(dtIris) # show object size; 7.51 kB
+# --
+
+sapply(dtIris, typeof) # take a look at data
+sapply(dtIris, class) 
+?sapply
+?typeof
+glimpse(dtIris)
+
+# datatable[i, j, k]
+# i = selected/filtered/subset or reorder rows
+# j = calculations/ for selecting columns
+# k = grouping by 
+
+# start with i - subesetting rows
+dtIris[Petal.Width > 0.5]
+
+# look at j
+dtIris[, Species] # select this column; return a vector
+class(dtIris[, Species]) # returned as vector of factors
+dtIris[, list(Species)] # select column and return as a data table
+class(dtIris[, list(Species)]) # now returned as a data table
+
+dtIris[, .(Petal.Length, Species)] # returns a data table
+dtIris[, c(Petal.Length, Species)] # returns a vector
+
+dtIris[, Petal.Length > 2] # returns a logical vector 
+dtIris[, sum(Petal.Length > 2)] # 100; 100 cases with petal length > 2
+dtIris[, sum((Petal.Length + Petal.Width) > 2)] # 105
+
+# .N ; holds the number of observations
+dtIris[Species == "setosa", .N] # 50 
+
+# look at k
+# counting number in each Species group
+dtIris[,, ] # the entire data table
+dtIris[, .N, ] # the number of rows 150
+dtIris[, .(.N), ] # the number of rows 150 in data.table format
+dtIris[, , by = Species] # Warning
+dtIris[, .(.N), by = Species] # count after grouping by species 
+dtIris[, .(.N), by = .(Species)]
 
 
