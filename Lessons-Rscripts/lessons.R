@@ -691,7 +691,7 @@ CES_data %>% select(cps19_province)
 # Modified on 7 July 2022
 # Code taken from link:
 # https://github.com/anjalisilva/IntroductionToR/blob/main/Lessons-Rscripts/slide36_Lesson04-Manipulation.R
-CES_data <- ces_2019_raw %>%
+CES_data <- CES_data %>%
   filter(cps19_Q_TotalDuration < 60 * 60) %>%
   mutate(cps19_province = fct_recode(factor(cps19_province),
                                      "Alberta" = "14",
