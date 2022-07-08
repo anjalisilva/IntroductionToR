@@ -675,6 +675,112 @@ table(CES_data$cps19_province)
 # Take up exercises from lesson 01 (slides 43-44), 
 # 02 (slide 30), and 03 (slide 55)
 
+# slide 36
+library(readr)
+ces_2019_raw <- readr::read_csv("data/ces_2019_raw.csv")
+
+# data cleaning
+CES_data <- ces_2019_raw %>%
+  mutate(cps19_yob_fix = cps19_yob + 1919)
+
+CES_data %>%
+  filter(cps19_province == "Ontario") 
+
+CES_data %>% select(cps19_province)
+
+# Modified on 7 July 2022
+# Code taken from link:
+# https://github.com/anjalisilva/IntroductionToR/blob/main/Lessons-Rscripts/slide36_Lesson04-Manipulation.R
+CES_data <- ces_2019_raw %>%
+  filter(cps19_Q_TotalDuration < 60 * 60) %>%
+  mutate(cps19_province = fct_recode(factor(cps19_province),
+                                     "Alberta" = "14",
+                                     "British Columbia" = "15", 
+                                     "Manitoba" = "16",
+                                     "New Brunswick" = "17",
+                                     "Newfoundland and Labrador" = "18",
+                                     "Nova Scotia" = "20",
+                                     "Nunavut" = "21",
+                                     "Ontario" = "22",
+                                     "Northwest Territories" = "19",
+                                     "Prince Edward Island" = "23",
+                                     "Quebec" = "24",
+                                     "Saskatchewan" = "25",
+                                     "Yukon" = "26"),
+         cps19_votechoice = fct_recode(factor(cps19_votechoice),
+                                       "Liberal Party" = "1",
+                                       "Conservative Party" = "2", 
+                                       "NDP" = "3",
+                                       "Bloc Québécois" = "4",
+                                       "Green Party" = "5",
+                                       "People's Party" = "6",
+                                       "Another party" = "7",
+                                       "Don't know/ Prefer not to answer" = "9"),
+         cps19_fed_donate = fct_recode(factor(cps19_fed_donate),
+                                       "Yes" = "1",
+                                       "No" = "2", 
+                                       "Don't know/ Prefer not to answer" = "3"),
+         cps19_vote_2015 = fct_recode(factor(cps19_vote_2015),
+                                      "Liberal Party" = "1",
+                                      "Conservative Party" = "2", 
+                                      "NDP" = "3",
+                                      "Bloc Québécois" = "4",
+                                      "Green Party" = "5",
+                                      "Another party" = "6",
+                                      "Don't know/ Prefer not to answer" = "7"),
+         cps19_news_cons = fct_recode(factor(cps19_news_cons),
+                                      "0 minutes" = "1",
+                                      "1-10 minutes" = "2", 
+                                      "11-30 minutes" = "3",
+                                      "31-60 minutes" = "4",
+                                      "Between 1 and 2 hours" = "5",
+                                      "More than 2 hours" = "6",
+                                      "Don't know/ Prefer not to answer" = "7"),
+         cps19_gender = fct_recode(factor(cps19_gender),
+                                   "M" = "1",
+                                   "F" = "2", 
+                                   "NB" = "3"),
+         cps19_spend_educ = fct_recode(factor(cps19_spend_educ),
+                                       "Spend less" = "1",
+                                       "Spend about the same as now" = "2", 
+                                       "Spend more" = "3",
+                                       "Don't know/ Prefer not to answer" = "4"),
+         cps19_prov_gov_sat = fct_recode(factor(cps19_prov_gov_sat),
+                                         "Very satisfied" = "1",
+                                         "Fairly satisfied" = "2",
+                                         "Not very satisfied" = "3",
+                                         "Not at all satisfied" = "4",
+                                         "Don't know/prefer not to answer" = "5"),
+         cps19_prov_id = fct_recode(factor(cps19_prov_id),
+                                    "Liberal" = "281",
+                                    "NDP" = "282",
+                                    "Green" = "283",
+                                    "Progressive Conservative" = "292",
+                                    "Another party" = "295",
+                                    "None" = "296",
+                                    "Don't know/prefer not to answer" = "297"),
+         cps19_union = fct_recode(factor(cps19_union),
+                                  "Yes" = "1",
+                                  "No" = "2", 
+                                  "Don't know/ Prefer not to answer" = "3"),
+         cps19_bornin_canada = fct_recode(factor(cps19_bornin_canada),
+                                          "Yes" = "1",
+                                          "No" = "2", 
+                                          "Don't know/ Prefer not to answer" = "3"),
+         cps19_income_number = ifelse(cps19_income_number > 1000000,
+                                      NA,
+                                      cps19_income_number),
+         cps19_turnout_2015 = fct_recode(factor(cps19_turnout_2015),
+                                         "Yes" = "1",
+                                         "No" = "2",
+                                         "Not eligible to vote in last election" = "3",
+                                         "Don't know/ Prefer not to answer" = "4"),
+         cps19_household = ifelse(cps19_household < 100, cps19_household, NA)
+  )
+
+CES_data %>%
+  filter(cps19_province == "Ontario")  # this will now work
+
 #### Class 04 ####
 # Author: Anjali Silva
 # Date: 4 July 2022
@@ -885,5 +991,250 @@ dtIris[, .(.N), ] # the number of rows 150 in data.table format
 dtIris[, , by = Species] # Warning
 dtIris[, .(.N), by = Species] # count after grouping by species 
 dtIris[, .(.N), by = .(Species)]
+
+
+
+#### Class 05 ####
+# Author: Anjali Silva
+# Date: 7 July 2022
+# Lesson: 06-Programming
+
+# writing own functions
+
+# write a simple function that takes three numeric
+# values and return their sum
+sum() # built-in function should be used when possible
+
+sumThreeNumbers <- function(valueOne = 0, valueTwo = 0, valueThree = 0) {
+  # statements
+  valueSum <- sum(valueOne, valueTwo, valueThree, na.rm = TRUE)
+  return(valueSum)
+}
+sumThreeNumbers # calling the function or invoking it
+sumThreeNumbers(valueOne = 1, valueTwo = 2, valueThree = 3)
+sumThreeNumbers(1, 2, 3) # 6
+sumThreeNumbers(4, 5, 6) # 15
+
+sumThreeNumbers(1, NA, 0) # NA
+sumThreeNumbers(1, NA, 0) # 1
+
+sumThreeNumbers(1) #  Error
+sumThreeNumbers(1, 2) # Error
+
+sumThreeNumbers(1) # 1
+sumThreeNumbers(1, 2) # 3
+
+# Loops
+# 1. for loops
+# 2. while loops
+
+# for loops
+print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+
+for (i in 1:100) {
+  print(i)
+}
+
+data(package = "datasets") # to access datasets in r
+?iris
+dim(iris)
+# obtain petal to sepal ratio using length for all observations
+iris$Petal.Length[1]/iris$Sepal.Length[1]
+iris$Petal.Length[2]/iris$Sepal.Length[2]
+
+irisModify <- iris # to modify the dataset
+dim(irisModify) # 150 5
+library(tidyverse)
+glimpse(irisModify)
+nrow(irisModify) # 150
+for (i in 1:nrow(irisModify)) {
+  cat("\n i =", i) # print value of i
+  irisModify$petalToSepalRatio[i] <- 
+    irisModify$Petal.Length[i]/irisModify$Sepal.Length[i] # calculate ratio
+}
+glimpse(irisModify)
+dim(irisModify) # 150   6
+head(irisModify)
+
+# while loop
+i = 1
+while(i <= 10) { # this is the condition
+  # print(i * 5) 
+  cat("\n Value of i is", i, "and calculation output", i * 5)
+  i <- i + 1 # need to update i each time 
+}
+
+
+# If/else logic 
+# check for conditions 
+if(condition) {
+  # statement 
+}
+
+xValue <- 5
+xValue <- -1
+if(xValue > 0) { # condition 
+  cat("\n A positive number")
+}
+
+# if else
+if(condition) {
+  # statement 
+} else {
+  # statement 
+}
+
+xValue <- -3
+if(xValue > 0) {
+  cat("\n A positive number")
+} else {
+  cat("\n Not a positive number")
+}
+
+# if, else if, else
+if(condition) {
+  # statement 
+} elif(condition2) { 
+  # statement 
+} else {
+  # statement 
+}
+
+xValue <- -3
+xValue <- 0
+if(xValue > 0) {
+  cat("\n A positive number")
+} else if(xValue < 0) {
+  cat("\n Negative number")
+} else {
+  cat("\n It is zero")
+}
+
+# Take 5 minute break, be back by 7.09pm
+sumThreeNumbers <- function(valueOne = 0, valueTwo = 0, valueThree = 0) {
+  # statements
+  if(typeof(valueOne) == "character") {
+    stop("\n valueOne argument should not be character, but a numeric value")
+  }
+  valueSum <- sum(valueOne, valueTwo, valueThree, na.rm = TRUE)
+  return(valueSum)
+}
+sumThreeNumbers # 
+sumThreeNumbers("a", 1, 2)
+
+
+# conditions
+# conditions OR or AND
+library(tidyverse)
+xValues <- 1:5L # an atomic vector
+xValues <- list(1:5L) # list 
+if(is_vector(xValues) == TRUE && is_atomic(xValues) == TRUE) { # this is condition &&
+  cat("\n An atomic vector")
+}
+
+if(is_vector(xValues) == TRUE || is_atomic(xValues) == TRUE) { # this is condition &&
+  cat("\n A vector") 
+}
+
+# R pipe is %>%
+# keyboard pipe is |
+
+# case when
+?case_when
+
+library(dplyr)
+grades <- tibble(grade = c(94, 87, 73, 60, 50))
+
+grades %>% 
+  mutate(letter = case_when(grade >= 80 ~ "A", # output if condition is true
+                            grade >= 70 ~ "B", # output if condition is true
+                            TRUE ~ "F")) # output if condition is false
+# order of statements matter 
+grades %>% 
+  mutate(letter = case_when(grade >= 70 ~ "B", # output if condition is true
+                            grade >= 80 ~ "A", # output if condition is true
+                            TRUE ~ "F")) # output if condition is false
+
+# purrr - CRAN package for functional programming 
+library(purrr)
+?map
+
+mtcars
+?mtcars
+glimpse(mtcars)
+# I want to calculate mean of each column, we can do this using 
+# a loop
+for (i in 1:ncol(mtcars)) {
+  outputValue <- round(mean(mtcars[, i]), 2)
+  cat("\n mean of column i=", i, "is ", outputValue)
+}
+
+mtcars %>% map_dbl(mean) %>% round(2) # return a vector of doubles
+mtcars %>% map(mean) # retuns a list
+
+?iris
+iris # do try out for iris dataset, calculations via map function
+
+# Simulation 
+# Uniform distribution
+# Normal distribution
+# Poisson distribution
+
+?runif
+runif(5)
+plot(runif(5))
+
+set.seed(seed = 1234)
+plot(runif(5))
+
+runif(5, min = 10, max = 20)
+
+
+?rnorm
+rnorm(10, 5, 1)
+
+set.seed(seed = 1234)
+plot(rnorm(10, 5, 1))
+
+
+?rpois
+rpois(10, lambda = 5)
+
+?sample
+sampleLetters1 <- sample(x = letters)
+set.seed(1818)
+# letters will be repeated
+sample(x = c("a", "b", "c"),
+       size = 10,
+       replace = TRUE)
+
+# no letter will be repeated
+sample(x = letters,
+       size = 10,
+       replace = FALSE) # no replacing
+
+# simulate a dataset
+set.seed(1234)
+simulatedData <- tibble(X = runif(10, 0, 20),
+                        Y = 3 * X + rnorm(10, 0, 1))
+
+simulatedData
+dim(simulatedData) # 10 2 
+
+plot(simulatedData)
+
+# using ggplot2 package that comes with tidyverse
+simulatedData %>%
+  ggplot(aes(x = X, y = Y)) +
+  geom_point()
+
+# Try the exercise from slide 34
+# Revisit code from lesson 04 (Class 3), CES_data
+# Modified script lines 694 to 780 by modifying CES_data
+
 
 
