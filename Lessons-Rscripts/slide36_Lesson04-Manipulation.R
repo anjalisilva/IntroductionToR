@@ -4,7 +4,9 @@
 # Purpose: Use this for analyzing ces_2019_raw.csv file
 # on slide 36 and onwards of 04-manipulation_deck.PDF
 
-ces_2019_raw <- read_csv("ces_2019_raw.csv")
+# This is assuming your working directory is 
+# set to DSI-IntroR, as shown in class
+ces_2019_raw <- read_csv("data/ces_2019_raw.csv")
 
 # data cleaning
 CES_data <- ces_2019_raw %>%
