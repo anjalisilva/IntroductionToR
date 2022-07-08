@@ -6,7 +6,12 @@
 
 ces_2019_raw <- read_csv("ces_2019_raw.csv")
 
+# data cleaning
 CES_data <- ces_2019_raw %>%
+  mutate(cps19_yob_fix = cps19_yob + 1919)
+
+# 7 July 2022
+CES_data <- CES_data %>%
   filter(cps19_Q_TotalDuration < 60 * 60) %>%
   mutate(cps19_province = fct_recode(factor(cps19_province),
                                      "Alberta" = "14",
