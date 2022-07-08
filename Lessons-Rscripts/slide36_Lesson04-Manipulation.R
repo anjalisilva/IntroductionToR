@@ -97,5 +97,6 @@ CES_data <- CES_data %>%
                                          "No" = "2",
                                          "Not eligible to vote in last election" = "3",
                                          "Don't know/ Prefer not to answer" = "4"),
-         cps19_household = ifelse(cps19_household < 100, cps19_household, NA)
-  )
+         cps19_household = ifelse(cps19_household < 100, cps19_household, NA))
+
+# [END]
