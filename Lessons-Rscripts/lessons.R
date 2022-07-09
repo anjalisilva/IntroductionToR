@@ -1238,3 +1238,308 @@ simulatedData %>%
 
 
 
+
+#### Class 06 ####
+# Author: Anjali Silva
+# Date: 9 July 2022
+# Lesson: 07-Visualization
+
+library(tidyverse)
+library(readr)
+
+# https://github.com/anjalisilva/IntroductionToR/blob/main/Lessons-Rscripts/slide36_Lesson04-Manipulation.R
+ces_2019_raw <- read_csv("data/ces_2019_raw.csv")
+
+# data cleaning
+CES_data <- ces_2019_raw %>%
+  mutate(cps19_yob_fix = cps19_yob + 1919)
+
+# 7 July 2022
+CES_data <- CES_data %>%
+  filter(cps19_Q_TotalDuration < 60 * 60) %>%
+  mutate(cps19_province = fct_recode(factor(cps19_province),
+                                     "Alberta" = "14",
+                                     "British Columbia" = "15", 
+                                     "Manitoba" = "16",
+                                     "New Brunswick" = "17",
+                                     "Newfoundland and Labrador" = "18",
+                                     "Nova Scotia" = "20",
+                                     "Nunavut" = "21",
+                                     "Ontario" = "22",
+                                     "Northwest Territories" = "19",
+                                     "Prince Edward Island" = "23",
+                                     "Quebec" = "24",
+                                     "Saskatchewan" = "25",
+                                     "Yukon" = "26"),
+         cps19_votechoice = fct_recode(factor(cps19_votechoice),
+                                       "Liberal Party" = "1",
+                                       "Conservative Party" = "2", 
+                                       "NDP" = "3",
+                                       "Bloc Québécois" = "4",
+                                       "Green Party" = "5",
+                                       "People's Party" = "6",
+                                       "Another party" = "7",
+                                       "Don't know/ Prefer not to answer" = "9"),
+         cps19_fed_donate = fct_recode(factor(cps19_fed_donate),
+                                       "Yes" = "1",
+                                       "No" = "2", 
+                                       "Don't know/ Prefer not to answer" = "3"),
+         cps19_vote_2015 = fct_recode(factor(cps19_vote_2015),
+                                      "Liberal Party" = "1",
+                                      "Conservative Party" = "2", 
+                                      "NDP" = "3",
+                                      "Bloc Québécois" = "4",
+                                      "Green Party" = "5",
+                                      "Another party" = "6",
+                                      "Don't know/ Prefer not to answer" = "7"),
+         cps19_news_cons = fct_recode(factor(cps19_news_cons),
+                                      "0 minutes" = "1",
+                                      "1-10 minutes" = "2", 
+                                      "11-30 minutes" = "3",
+                                      "31-60 minutes" = "4",
+                                      "Between 1 and 2 hours" = "5",
+                                      "More than 2 hours" = "6",
+                                      "Don't know/ Prefer not to answer" = "7"),
+         cps19_gender = fct_recode(factor(cps19_gender),
+                                   "M" = "1",
+                                   "F" = "2", 
+                                   "NB" = "3"),
+         cps19_spend_educ = fct_recode(factor(cps19_spend_educ),
+                                       "Spend less" = "1",
+                                       "Spend about the same as now" = "2", 
+                                       "Spend more" = "3",
+                                       "Don't know/ Prefer not to answer" = "4"),
+         cps19_prov_gov_sat = fct_recode(factor(cps19_prov_gov_sat),
+                                         "Very satisfied" = "1",
+                                         "Fairly satisfied" = "2",
+                                         "Not very satisfied" = "3",
+                                         "Not at all satisfied" = "4",
+                                         "Don't know/prefer not to answer" = "5"),
+         cps19_prov_id = fct_recode(factor(cps19_prov_id),
+                                    "Liberal" = "281",
+                                    "NDP" = "282",
+                                    "Green" = "283",
+                                    "Progressive Conservative" = "292",
+                                    "Another party" = "295",
+                                    "None" = "296",
+                                    "Don't know/prefer not to answer" = "297"),
+         cps19_union = fct_recode(factor(cps19_union),
+                                  "Yes" = "1",
+                                  "No" = "2", 
+                                  "Don't know/ Prefer not to answer" = "3"),
+         cps19_bornin_canada = fct_recode(factor(cps19_bornin_canada),
+                                          "Yes" = "1",
+                                          "No" = "2", 
+                                          "Don't know/ Prefer not to answer" = "3"),
+         cps19_income_number = ifelse(cps19_income_number > 1000000,
+                                      NA,
+                                      cps19_income_number),
+         cps19_turnout_2015 = fct_recode(factor(cps19_turnout_2015),
+                                         "Yes" = "1",
+                                         "No" = "2",
+                                         "Not eligible to vote in last election" = "3",
+                                         "Don't know/ Prefer not to answer" = "4"),
+         cps19_household = ifelse(cps19_household < 100, cps19_household, NA))
+
+glimpse(CES_data)
+dim(CES_data) # 36033   621
+# let's plot choices for voting vs counts
+CES_data %>%
+  ggplot(aes(x = cps19_votechoice)) # +
+  # layer 1 + (e.g., geom layer)
+  # layer 2 +
+  # layer 3
+
+CES_data %>% select(cps19_votechoice) # categories
+
+CES_data %>%
+  ggplot(aes(x = cps19_votechoice)) + # initialized plot
+  geom_bar() # added layer
+
+# customize aes
+CES_data %>%
+  ggplot(aes(x = cps19_votechoice, 
+             color = cps19_votechoice,
+             fill = cps19_votechoice)) + # initialized plot
+  geom_bar() # added layer
+
+# fix x axis labels
+CES_data %>%
+  ggplot(aes(x = cps19_votechoice, 
+             color = cps19_votechoice,
+             fill = cps19_votechoice)) + # initialized plot
+  geom_bar() + # added layer 
+  scale_x_discrete(guide = guide_axis(angle = 45))
+# change the labels to vertical
+
+# scatter plots
+iris
+dim(iris) # 150   5
+?iris
+glimpse(iris)
+
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length,
+             fill = Species,
+             color = Species)) +
+  geom_point()
+
+# add shape, size
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length,
+             fill = Species,
+             color = Species,
+             shape = Species,
+             size = Species)) +
+  geom_point()
+
+
+# specify own colors
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length,
+             fill = Species,
+             color = Species,
+             shape = Species)) +
+  geom_point(color = "red") # alter color
+
+
+# defining colors for points
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length,
+             fill = Species,
+             color = Species,
+             shape = Species)) +
+  geom_point() +
+  scale_color_manual(values = c("#fc8d59", "#ffffbf", "#91bfdb"))
+
+# for boxplots, barplots or violin plots, use
+# scale_fill_manual
+
+# If too many points are on top of each other, use
+# position = jitter to separate points in the exact same location
+
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length,
+             fill = Species,
+             color = Species,
+             shape = Species)) +
+  geom_point(position = "jitter") +
+  scale_color_manual(values = c("#fc8d59", "#ffffbf", "#91bfdb"))
+
+# adding labels
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length,
+             fill = Species,
+             color = Species,
+             shape = Species)) +
+  geom_point(position = "jitter") +
+  scale_color_manual(values = c("#fc8d59", "#ffffbf", "#91bfdb")) +
+  labs(x = "Petal width (cm)",
+       y = "Petal length (cm)",
+       title = "Length vs width of petal from Anderson's Iris data")
+
+# customize the axes
+?scale_x_continuous
+?scale_x_discrete
+
+iris %>% select(Petal.Width) %>% range() # 0.1 2.5
+
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length,
+             fill = Species,
+             color = Species,
+             shape = Species)) +
+  geom_point(position = "jitter") +
+  scale_color_manual(values = c("#fc8d59", "#ffffbf", "#91bfdb")) +
+  labs(x = "Petal width (cm)",
+       y = "Petal length (cm)",
+       title = "Length vs width of petal from Anderson's Iris data") +
+  scale_x_continuous(breaks = seq(0, 3, by = 0.3))
+
+# break, be back by 10.06 am
+
+# using multiple geoms
+# some geoms can be combined, e.g., to show trend, mean, etc
+
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length)) +
+  geom_point() +
+  geom_smooth() # share aes
+           
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length)) +
+  geom_point() +
+  geom_line() # share aes
+
+iris %>%
+  ggplot() +
+  geom_point(aes(x = Petal.Width,
+                 y = Petal.Length)) +
+  geom_line(aes(x = Petal.Width,
+                y = Petal.Length)) # don't share aes
+
+iris %>%
+  ggplot() +
+  geom_point(aes(x = Petal.Width,
+                 y = Petal.Length)) +
+  geom_line(aes(x = Petal.Width,
+                y = mean(Petal.Length))) # don't share aes
+
+
+# facets 
+# facets give you side by side graphs fo different categories
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length,
+             col = Species)) +
+  geom_point() +
+  facet_wrap(facets = "Species") # add facet
+
+
+# themes
+# added at the end and they control overall look
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length,
+             col = Species)) +
+  geom_point() +
+  facet_wrap(facets = "Species") + # add facet
+  theme_bw() # theme bw; ?theme_bw
+
+iris %>%
+  ggplot(aes(x = Petal.Width,
+             y = Petal.Length,
+             col = Species)) +
+  geom_point() +
+  facet_wrap(facets = "Species") + # add facet
+  theme_classic() # try different themes ?theme_classic
+
+
+# Lesson: 08-Shiny
+install.packages("shiny") # download package
+library("shiny") # attach package to current session
+
+# Example of shiny (an aside)
+# shinyMethyl - Bioconductor 
+install.packages("BiocManager")
+BiocManager::install("shinyMethyl")
+library("shinyMethyl") # attach
+ls("package:shinyMethyl")
+BiocManager::install("minfiData")
+library("minfiData")
+summarized.data <- shinySummarize(RGsetEx) # RGsetEx comes from minfiData
+runShinyMethyl(summarized.data)
+
+# look at app.R in shiny subdirectory
+
+# [END]
+
