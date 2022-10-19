@@ -7,9 +7,11 @@ Welcome! The vast amount of data produced by evolving information technology req
 2. [Learning Outcomes](https://github.com/anjalisilva/IntroductionToR#learning-outcomes)
 3. [Course Contacts](https://github.com/anjalisilva/IntroductionToR#course-contacts)
 4. [Delivery Instructions](https://github.com/anjalisilva/IntroductionToR#delivery-instructions)
-5. [Materials](https://github.com/anjalisilva/IntroductionToR#materials)
-6. [Schedule](https://github.com/anjalisilva/IntroductionToR#tentative-schedule)
-7. [Course Policies](https://github.com/anjalisilva/IntroductionToR#course-policies)
+5. [Course Notes](https://github.com/anjalisilva/IntroductionToR#course-notes)
+6. [Materials](https://github.com/anjalisilva/IntroductionToR#materials)
+7. [Schedule](https://github.com/anjalisilva/IntroductionToR#tentative-schedule)
+8. [Marking Scheme](https://github.com/anjalisilva/IntroductionToR#marking-scheme)
+9. [Course Policies](https://github.com/anjalisilva/IntroductionToR#course-policies)
 
 # Course Overview
 
@@ -80,7 +82,7 @@ Folder structure is as follows:
 | Thursday 24 November <br>6pm-8pm 	| Professional skills: Industry case study – speaker TBA 	|
 | Saturday 26 November <br>9am-noon 	| R: Review and Practice 	|
 
--  Tutorial (TA to host):
+-  Tutorial Dates (TA to host):
     -  Monday 7 November, 5pm-6pm (set-up; prep session)
     -  Thursday 10 November, 5pm-6pm
     -  Saturday 12 November, 8:30am-9am & noon-12:30pm
