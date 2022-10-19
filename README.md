@@ -66,9 +66,9 @@ Folder structure is as follows:
     * *Using PostgreSQL, AWS, and Shiny*, Apress.
 
 ## Schedule*
--   *Calendar may be modified as needed, and learners will be informed. Course will be taught using R version 4.2.0 and RStudio Desktop version 2022.02.2.
+-   *Schedule may be modified as needed, and learners will be informed. Course will be taught using R version 4.2.0 and RStudio Desktop version 2022.02.2.
 
-| Date 	| Topics 	|
+| Class Date 	| Topics 	|
 |---	|---	|
 | Monday 7 November<br>6pm-8pm 	| Hello World! And Work practices (R basics; file types; errors) 	|
 | Thursday 10 November <br>6pm-8pm 	| Data in R (Key data types: tibbles, strings, factors, times, missing values) 	|
@@ -91,6 +91,15 @@ Folder structure is as follows:
     -  Thursday 24 November, 5pm-6pm
     -  Saturday 26 November, 8:30am-9am & noon-12:30pm
 
+# Marking Scheme
+
+| Item                                           | Weight | Purpose                                                                                                                                                                                                                                                                             | Deadline                       |
+|------------------------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+| 00 Pre-course Assignment: R/RStudio setup      | 0%     | Proper setup of R and RStudio, prior to class with the TA. Attendance is optional, but  highly recommended to ensure you have proper  setup of R and/or RStudio.                                                                                                                    | 7 Nov  2022                    |
+| 01 Class  attendance                           | 10%    | Encourage active participation of all  attendees in class activities and discussions.  Class attendance is mandatory. If you are  unable to attend class, it is your responsibility  to make-up the work that was covered. Tutorial attendance is optional, but highly recommended. | Ongoing; 7 Nov to 26 Nov, 2022 |
+| 02 Assessment 1 Problem set                    | 20%    | TBD                                                                                                                                                                                                                                                                                 | 02 Date                        |
+| 03 Assessment 2 Coding style & reproducibility | 25%    | Good coding practices are extremely important,  but can be a volatile topic. One of the goals of setting a coding style is that it makes the code easy to read.                                                                                                                     | 03 Date                        |
+| 04 Assessment 3                                | 45%    | TBD                                                                                                                                                                                                                                                                                 | 04 Date                        |
 
 # Course Policies
 
