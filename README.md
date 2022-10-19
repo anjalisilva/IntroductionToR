@@ -77,7 +77,7 @@ Folder structure is as follows:
 | Saturday 12 November <br>9am-noon 	| Manipulation I (Filtering; arranging; selecting; mutating) 	|
 | Monday 14 November <br>6pm-8pm 	| Manipulation II (The pipe; grouping; summarizing) 	|
 | Thursday 17 November <br>6pm-8pm 	| Wrangling I (Importing data; database in R; cleaning) 	|
-| Saturday 19 November <br>9am-noon 	| Wrangling II (Pivot; joining data; <br>data.table) 	|
+| Saturday 19 November <br>9am-noon 	| Wrangling II (Pivot; joining data; data.table) 	|
 | Monday 21 November <br>6pm-8pm 	| Programming (custom functions); visualization; shiny; ethics; inequity 	|
 | Thursday 24 November <br>6pm-8pm 	| Professional skills: Industry case study – speaker TBA 	|
 | Saturday 26 November <br>9am-noon 	| R: Review and Practice 	|
