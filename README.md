@@ -70,17 +70,17 @@ Folder structure is as follows:
 ## Schedule*
 -   *Schedule may be modified as needed, and learners will be informed. Course will be taught using R version 4.2.0 and RStudio Desktop version 2022.02.2.
 
-| Class Date 	| Topics 	|
+| Date 	| Topics and Learning Goals 	|
 |---	|---	|
-| Monday 7 November<br>6pm-8pm 	| Hello World! And Work practices (R basics; file types; errors) 	|
-| Thursday 10 November <br>6pm-8pm 	| Data in R (Key data types: tibbles, strings, factors, times, missing values) 	|
-| Saturday 12 November <br>9am-noon 	| Manipulation I (Filtering; arranging; selecting; mutating) 	|
-| Monday 14 November <br>6pm-8pm 	| Manipulation II (The pipe; grouping; summarizing) 	|
-| Thursday 17 November <br>6pm-8pm 	| Wrangling I (Importing data; database in R; cleaning) 	|
-| Saturday 19 November <br>9am-noon 	| Wrangling II (Pivot; joining data; data.table) 	|
-| Monday 21 November <br>6pm-8pm 	| Programming (custom functions); visualization; shiny; ethics; inequity 	|
-| Thursday 24 November <br>6pm-8pm 	| Professional skills: Industry case study – speaker TBA 	|
-| Saturday 26 November <br>9am-noon 	| R: Review and Practice 	|
+| Monday <br>7 November<br>6pm-8pm 	| Hello world and work practices <br><br>- Intro to R and applications in data sciences.<br>- Downloading R, RStudio, its anatomy and navigating RStudio environment.<br>- Layout best R coding practices. <br>- Understand importance of reproducibility and identify components of a reprex.<br>- Identify R syntax, how to get help, use of built-in functions.<br>- Learn how to install R packages (CRAN, Bioconductor, GitHub).<br>- Identify different file types and diagnosing of errors. 	|
+| Thursday <br>10 November <br>6pm-8pm 	| Data in R (tibbles, strings, factors, times, missing values)<br><br>- Understand differences in data types + structures.<br>- Become aware of data subsetting techniques. <br>- Be able to distinguish between explicit and implicit coercion. <br>- Learn how to detect and work with missing values.  	|
+| Saturday <br>12 November <br>9am-noon 	| Manipulation (filtering; arranging; selecting; mutating, pipe; grouping; summarize)<br><br>- Understand tidyverse package and applications.<br>- Be able to upload datasets by recognizing file extensions.<br>- Become familiar with data manipulation techniques.<br>- Apply manipulation techniques for data cleaning and summarization.  	|
+| Monday <br>14 November <br>6pm-8pm 	| Wrangling (importing data; pivot, joining data; data.table)<br><br>- Recognize functions for importing different file types.<br>- Be aware of tidy data rules and limitations. <br>- Be able to generate toy datasets + utilize datasets from R packages.<br>- Perform different joins and distinguish between mutating/filtering joins.<br>- Understand garbage collection system in R. <br>- Be able to determine the memory usage of R sessions.<br>- Identify memory efficient methods of working with large datasets. 	|
+| Thursday <br>17 November <br>6pm-8pm 	| Programming (custom functions, loops, if/else logic, purr, simulations)<br><br>- Identify components and requirements of writing functions.<br>- Understand function structure: arguments, return values and default values.<br>- Become familiar with different types of loops.<br>- Check for conditions using if/else statements. <br>- Identify use of functional programming tools for iterations.<br>- Learn to simulate data, and perform sampling. 	|
+| Saturday <br>19 November <br>9am-noon 	| Visualization (initialization, choosing chart types, ggplot, customizing) <br><br>- Learn to initialize a plot, add aesthetics and layers.<br>- Identify how to customize plots with title, labels, axis, theme, size and fills. <br>- Become familiar with colour choices and inclusion of legends. <br>- Become familiar with different visual effects and impact on story telling.  	|
+| Monday <br>21 November <br>6pm-8pm 	| Shiny Applications; Ethics and inequity<br><br>- Learn how to use and make simple interactive web applications from R.<br>- Learn how to use prebuilt output widgets for displaying plots and tables.<br>- Understand ethical considerations data science work<br>- Recognize EDI practices and their importance in data sciences. 	|
+| Thursday <br>24 November <br>6pm-8pm 	| Professional skills: Industry case study – speaker TBA 	|
+| Saturday <br>26 November <br>9am-noon 	| R: Review and Practice 	|
 
 -  Tutorial Dates (TA to host):
     -  Monday 7 November, 5pm-6pm (set-up; prep session)
