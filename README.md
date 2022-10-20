@@ -19,11 +19,27 @@ Welcome! The vast amount of data produced by evolving information technology req
 The first part of this course teaches R with a focus on manipulating and visualizing data. Learners will get set up with a functional RStudio workflow, use different file types, transform data tables, import and manipulate data, use functions and loops, create data visualizations, make a Shiny app, and learn how to solve problems with their programming. Both base R and tidyverse methods are taught. To work reproducibly, learners will create R Projects. The second part of the course will cover the ethics of consent, Equity, Diversity & Inclusion (EDI) training, and professional skills including presentation, project management, and data security. Finally, the course will conclude with an industry case study. This course is designed for learners who have a degree in something other than Computer Science/Statistics who are looking to enhance their data science skills for their career.  
 
 ## Learning Outcomes
+Learners will know how to:
+  1. Comfortably access R and navigate RStudio to write scripts using basic commands, variables, pipes, filters and loops. This will be assessed in Assignment 1.
+  2. How to use version control to preserve personal work, access and edit pervious code versions, collaborate with others, and find and debug errors. This will be assessed in Assignment 2.
+  3. Self-problem solve by identifying issues, researching, or properly formulating questions using components of reproducibility. This will be assessed in both Assignment 1 and Assignment 2.
+  4. Situate all work within wider discussions of ethics and inequity. Students will actively scrutinize who is and isn't in our datasets and develop knowledge of past abuses of power to better engage their work with ethical considerations. This will be assessed in Assignment 2.
+
+
+
 1.	Setting up and using R and RStudio.
 2.	Manipulating and visualizing data.
 3.	Fixing errors.
 4.	Understanding consent in data-based studies.
 5.	Making presentations and managing projects.
+
+Understand data structures and data types.
+Import data into R and manipulate data frames.
+Transform ‘messy’ datasets into ‘tidy’ datasets.
+Make exploratory plots as well as publication-quality graphics.
+Use string searching and manipulation to clean data.
+Perform basic statistical tests and run a regression model.
+Use flow control and build branching code.
 
 # Logistical Information
 
@@ -78,8 +94,8 @@ Folder structure is as follows:
 | Monday <br>14 November <br>6pm-8pm    	| Wrangling (importing data; pivot, joining data; data.table)<br><br>- Recognize functions for importing different file types.<br>- Be aware of tidy data rules and limitations. <br>- Be able to generate toy datasets + utilize datasets from R packages.<br>- Perform different joins and distinguish between mutating/filtering joins.<br>- Understand garbage collection system in R. <br>- Be able to determine the memory usage of R sessions.<br>- Identify memory efficient methods of working with large datasets.        	|
 | Thursday <br>17 November <br>6pm-8pm  	| Programming (custom functions, loops, if/else logic, purr, simulations)<br><br>- Identify components and requirements of writing functions.<br>- Understand function structure: arguments, return values and default values.<br>- Learn flow control: for/while loops and conditional statements. <br>- Identify use of functional programming tools for iterations.<br>- Learn to simulate data, randomization and sampling.                                                                                                           	|
 | Saturday <br>19 November <br>9am-noon 	| Visualization (initialization, choosing chart types, ggplot, customizing) <br><br>- Become familiar with grammar of graphics<br>- Learn to initialize a plot, add aesthetics and layers.<br>- Identify how to customize plots with title, labels, axis, theme, size and fills. <br>- Be able to work with colour choices and use of legends. <br>- Become familiar with different visual effects and impact on story telling.                                                                                                     	|
-| Monday <br>21 November <br>6pm-8pm    	| Shiny Applications; Ethics and inequity<br><br>- Learn how to use and make simple interactive web applications from R.<br>- Learn how to use prebuilt output widgets for displaying plots and tables.<br>- Understand ethical considerations in data science work<br>- Recognize EDI practices and their importance in data sciences.                                                                                                                                                                                             	|
-| Thursday <br>24 November <br>6pm-8pm  	| Professional skills: Industry case study – speaker TBA                                                                                                                                                                                                                                                                                                                                                                                                                                                                            	|
+| Monday <br>21 November <br>6pm-8pm    	| Shiny applications; Ethics, inequity and professional skills<br><br>- Learn how to use and make simple interactive web applications from R.<br>- Learn how to use prebuilt output widgets for displaying plots and tables.<br>- Understand ethical considerations in data science work<br>- Recognize EDI practices and their importance in data sciences.<br>- Identify professional skills including presentation, project management, and data security.                                                                       	|
+| Thursday <br>24 November <br>6pm-8pm  	| Industry case study – speaker TBA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 	|
 | Saturday <br>26 November <br>9am-noon 	| R: Review and Practice                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            	|
 
 -  Tutorial Dates (TA to host):
