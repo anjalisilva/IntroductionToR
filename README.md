@@ -68,7 +68,7 @@ Folder structure is as follows:
     * *Using PostgreSQL, AWS, and Shiny*, Apress.
 
 ## Schedule*
--   *Schedule may be modified as needed, and learners will be informed. Course will be taught using R version 4.2.0 and RStudio Desktop version 2022.02.2.
+*Schedule may be modified as needed, and learners will be informed. Course will be taught using R version 4.2.0 and RStudio Desktop version 2022.02.2.
 
 | Date 	| Topics and Learning Goals 	|
 |---	|---	|
