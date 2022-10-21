@@ -23,7 +23,7 @@ Learners will know how to:
   1. Comfortably access R, identify options for working with R, layout the purpose of using RStudio and R Projects, understand best R coding practices, and recognize where R stands among other data science tools. Further, learners will be able to navigate RStudio to write scripts, use different R data types and structures, use built-in R commands and accessing external functions via downloading R packages. This will be assessed in Assessment 1.
   2. Describe and define features of a dataset by applying manipulation and wrangling techniques. Learners will be able to access built-in R datasets and import external datasets into R to identify and describe data structures, apply manipulation techniques to reshape the datasets, detect missing values, clean data, summarize data, export data and report findings. This will be assessed in Assessment 2.
   3. Explain the strengths and limitations R workflows and analyses using concepts of reproducibility, bias, diversity, inclusion, ethical considerations, equity concepts, data security and best coding practices. This will be assessed in Assessment 3.
-  4. Analyze and build a strategy for designing functions that can perform simple analyses and exploratory plots as appropriate for data type and story to be told. 
+  4. Build a strategy for exploring data by designing functions that can take data as input, perform simple analyses, and generating exploratory plots as appropriate for data type and story to be told. This will be assessed in Assessment 3.
 
 
 # Logistical Information
@@ -49,7 +49,7 @@ Folder structure is as follows:
      * **Lessons-Data**: <br>
      This folder contains data only and is designed for the learners. Learners should download and copy this folder as 'data' folder within their R Project.
      * **Lessons-PDF**: <br>
-     This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding. The end of each slide deck will contain homework for that particular lesson. It is highly recommend that learners should attempt these and attend TA sessions to seek help. 
+     This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding. The end of each slide deck will contain homework for that particular lesson. It is highly recommend that learners attempt these and attend TA sessions to seek help. 
      * Teaching-Notes: <br>
      This folder contains lesson plans only and is designed to guide the instructor.
      * README: README file.
