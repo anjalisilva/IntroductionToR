@@ -42,11 +42,16 @@ For emails to the TA, use tia.harrison@mail.utoronto.ca.
 -   All course material will be available via [IntroductionToR](https://github.com/anjalisilva/IntroductionToR) GitHub repository. 
 Folder structure is as follows:
 
-     * **Assessments**: **This folder contains assessment files for learners.**
-     * Lessons-AllFiles: This folder contains all files (Rmarkdown, slide-html, slide-PDFs, images, data, etc.) and is designed for the instructor. 
-     * **Lessons-Data**: **This folder contains data only and is designed for the learners. Learners should download and copy this folder as 'data' folder within their R Project.**
-     * **Lessons-PDF**: **This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding. The end of each slide deck will contain homework for that particular lesson. It is highly recommend that learners should attempt these and attend TA sessions to seek help.** 
-     * Teaching-Notes: This folder contains lesson plans only and is designed to guide the instructor.
+     * **Assessments**: <br>
+     This folder contains assessment files for learners.
+     * Lessons-AllFiles: <br>
+     This folder contains all files (Rmarkdown, slide-html, slide-PDFs, images, data, etc.) and is designed for the instructor. 
+     * **Lessons-Data**: <br>
+     This folder contains data only and is designed for the learners. Learners should download and copy this folder as 'data' folder within their R Project.
+     * **Lessons-PDF**: <br>
+     This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding. The end of each slide deck will contain homework for that particular lesson. It is highly recommend that learners should attempt these and attend TA sessions to seek help. 
+     * Teaching-Notes: <br>
+     This folder contains lesson plans only and is designed to guide the instructor.
      * README: README file.
      * .gitignore: List of files to ignore specified by instructor.
      
