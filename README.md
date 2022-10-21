@@ -74,7 +74,7 @@ Folder structure is as follows:
     * *Using PostgreSQL, AWS, and Shiny*, Apress.
 
 ## Schedule*
-*Schedule may be modified as needed, and learners will be informed. Course will be taught using R version 4.2.0 and RStudio Desktop version 2022.02.2. All times in Eastern Standard Time (EST). 
+*Schedule may be modified as needed, and learners will be informed. Course will be taught using R version 4.2.0 and RStudio Desktop version 2022.02.2. All times in Eastern Standard Time (EST). Tutorials will be lead by the TA. 
 
 | Date                                  	| Topics, Learning Goals, and Course Slides                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        	|
 |---------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -87,17 +87,6 @@ Folder structure is as follows:
 | Monday <br>21 November <br><br> Tutorial <br> 5pm-6pm <br><br> Class <br> 6pm-8pm    	| **Shiny applications; Ethics, inequity and professional skills**<br><br>- Learn how to use and make simple interactive web applications from R.<br>- Learn how to use prebuilt output widgets for displaying plots and tables.<br>- Understand ethical considerations in data science work. <br>- Recognize EDI practices and their importance in data sciences.<br>- Identify professional skills including presentation, project management, and data security. <br><br>- 08-shiny_deck.pdf <br>- 09-ethics_deck.pdf <br>- 10-inequity_deck.pdf <br>- 11-professional-skills_deck.pdf                                                                                               	|
 | Thursday <br>24 November <br><br> Tutorial <br> 5pm-6pm <br><br> Class <br> 6pm-8pm  	| **Industry case study**<br><br>- speaker TBA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 	|
 | Saturday <br>26 November <br><br> Tutorial <br> 8:30am-9am <br> noon-12:30pm <br><br> Class <br> 9am-noon 	| **R: Review and Practice**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            	|
-
--  Tutorial Dates (TA to host):
-    -  Monday 7 November, 5pm-6pm (set-up; prep session)
-    -  Thursday 10 November, 5pm-6pm
-    -  Saturday 12 November, 8:30am-9am & noon-12:30pm
-    -  Monday 14 November, 5pm-6pm
-    -  Thursday 17 November, 5pm-6pm
-    -  Saturday 19 November, 8:30am-9am & noon-12:30pm
-    -  Monday 21 November, 5pm-6pm
-    -  Thursday 24 November, 5pm-6pm
-    -  Saturday 26 November, 8:30am-9am & noon-12:30pm
 
 # Marking Scheme
 
