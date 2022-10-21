@@ -51,7 +51,7 @@ Folder structure is as follows:
      * **Lessons-PDF**: <br>
      This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding. The end of each slide deck will contain homework for that particular lesson. It is highly recommend that learners attempt these and attend TA sessions to seek help.
      * Lessons-Rscripts: <br>
-     This folder contains R scripts used by the instructor. It will be udpated after each class and learners may download it. 
+     This folder contains R scripts used by the instructor. It will be udpated after each class and learners may download it for reference. 
      * Teaching-Notes: <br>
      This folder contains lesson plans only and is designed to guide the instructor.
      * README: README file.
@@ -95,7 +95,7 @@ Folder structure is as follows:
 | Item 	| Weight 	| Purpose 	| Deadline 	|
 |---	|---	|---	|---	|
 | 00 Pre-course<br>Assignment:<br>R/RStudio setup 	| 0% 	| Proper setup of R and RStudio, prior to class<br>with the TA. Attendance is optional, but <br>highly recommended to ensure you have proper <br>setup of R and/or RStudio.   	| 7 November <br>2022 	|
-| 01 Class <br>attendance 	| 10% 	| Encourage active participation of all <br>attendees in class activities and discussions. <br>Class attendance is mandatory. If you are <br>unable to attend class, it is your responsibility <br>to make-up the work that was covered. Tutorial<br>attendance is optional, but highly recommended. 	| Ongoing;<br>7 November to<br>26 November,<br>2022 	|
+| 01 Class <br>attendance 	| 10% 	| Encourage active participation of all <br>attendees in class activities and discussions. <br>Class attendance is mandatory. Ensure you join Zoom using the name provided in course as TA will be marking your attendance. If you are <br>unable to attend class, it is your responsibility <br>to make-up the work that was covered. Tutorial<br>attendance is optional, but highly recommended. 	| Ongoing;<br>7 November to<br>26 November,<br>2022 	|
 | 02 Assessment 1<br>Problem set 	| 20% 	| TBD 	| 02 Date 	|
 | 03 Assessment 2<br>Coding style &<br>reproducibility 	| 25% 	| Good coding practices are extremely important, <br>but can be a volatile topic. One of the goals<br>of setting a coding style is that it makes the<br>code easy to read.  	| 03 Date 	|
 | 04 Assessment 3 	| 45% 	| TBD 	| 04 Date 	|
