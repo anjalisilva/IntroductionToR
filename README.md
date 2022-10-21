@@ -44,8 +44,9 @@ Folder structure is as follows:
 
      * **Assessments**: This folder contains assessment files.
      * Lessons-AllFiles: This folder contains all files (Rmarkdown, slide-html, slide-PDFs, images, data, etc.) and is designed for the instructor. 
+     * Lessons-AllFiles: This folder contains all files (Rmarkdown, slide-html, slide-PDFs, images, data, etc.) and is designed for the instructor. 
      * **Lessons-Data**: This folder contains data only and is designed for the learners. Learners should download and copy this folder as 'data' folder within their R Project.
-     * **Lessons-PDF**: This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding.
+     * **Lessons-PDF**: This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding. End of slides will contain homework for that particular lesson. The TA will take these up during TA session. 
      * Teaching-Notes: This folder contains lesson plans only and is designed to guide the instructor.
      * README: README file.
      * .gitignore: List of files to ignore specified by instructor.
