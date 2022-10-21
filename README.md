@@ -95,7 +95,7 @@ Folder structure is as follows:
 | Item 	| Weight 	| Purpose 	| Deadline 	|
 |---	|---	|---	|---	|
 | 00 Pre-course<br>Assignment:<br>R/RStudio setup 	| 0% 	| Proper setup of R and RStudio, prior to class<br>with the TA. Attendance is optional, but <br>highly recommended to ensure you have proper <br>setup of R and/or RStudio.   	| 7 November <br>2022 	|
-| 01 Class <br>attendance 	| 10% 	| Encourage active participation of all <br>attendees in class activities and discussions. <br>Class attendance is mandatory. Ensure you join Zoom <br> using the name provided in course as TA will be <br> marking your attendance. If you are unable to attend class, it is your responsibility <br>to make-up the work that was covered. Tutorial<br>attendance is optional, but highly recommended. 	| Ongoing;<br>7 November to<br>26 November,<br>2022 	|
+| 01 Class <br>attendance 	| 10% 	| Encourage active participation of all <br>attendees in class activities and discussions. <br>Class attendance is mandatory. Ensure you join Zoom <br> using the name provided in course as TA will be <br> marking your attendance. If you are unable to attend <br> class, it is your responsibility <br>to make-up the work that was covered. Tutorial<br>attendance is optional, but highly recommended. 	| Ongoing;<br>7 November to<br>26 November,<br>2022 	|
 | 02 Assessment 1<br>Problem set 	| 20% 	| TBD 	| 02 Date 	|
 | 03 Assessment 2<br>Coding style &<br>reproducibility 	| 25% 	| Good coding practices are extremely important, <br>but can be a volatile topic. One of the goals<br>of setting a coding style is that it makes the<br>code easy to read.  	| 03 Date 	|
 | 04 Assessment 3 	| 45% 	| TBD 	| 04 Date 	|
