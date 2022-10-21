@@ -49,7 +49,9 @@ Folder structure is as follows:
      * **Lessons-Data**: <br>
      This folder contains data only and is designed for the learners. Learners should download and copy this folder as 'data' folder within their R Project.
      * **Lessons-PDF**: <br>
-     This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding. The end of each slide deck will contain homework for that particular lesson. It is highly recommend that learners attempt these and attend TA sessions to seek help. 
+     This folder contains slide-PDFs only and is designed for the learners. Learners should download the slides. Slides should be referenced before class to prepare or after class to review. During class, there will be mostly live-coding. The end of each slide deck will contain homework for that particular lesson. It is highly recommend that learners attempt these and attend TA sessions to seek help.
+     * Lessons-Rscripts: <br>
+     This folder contains R scripts used by the instructor. It will be udpated after each class and learners may download it. 
      * Teaching-Notes: <br>
      This folder contains lesson plans only and is designed to guide the instructor.
      * README: README file.
