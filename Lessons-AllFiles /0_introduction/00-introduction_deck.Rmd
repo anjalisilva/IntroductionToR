@@ -3,9 +3,8 @@ title: "Module 3: R"
 subtitle: "Introduction"
 author:
 - "Instructor: Anjali Silva, PhD"
-- "TA: Tia Harrison, MSc"
 institute: "Data Sciences Institute, University of Toronto"
-date: "27 June 2022"
+date: "2022"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css

@@ -4,12 +4,11 @@
     <title>Module 3: R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Instructor: Anjali Silva, PhD" />
-    <meta name="author" content="TA: Tia Harrison, MSc" />
-    <meta name="date" content="2022-06-30" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <meta name="date" content="2022-01-01" />
+    <script src="libs/header-attrs-2.16/header-attrs.js"></script>
     <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
     <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-    <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+    <script src="libs/str_view-binding-1.4.1/str_view.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -25,14 +24,11 @@ class: center, middle, inverse, title-slide
 .author[
 ### Instructor: Anjali Silva, PhD
 ]
-.author[
-### TA: Tia Harrison, MSc
-]
 .institute[
 ### Data Sciences Institute, University of Toronto
 ]
 .date[
-### 30 June 2022
+### 2022
 ]
 
 ---
@@ -518,8 +514,8 @@ It will also warn you if the recycled vector isn't a complete multiple of the sm
 ```
 
 ```
-## Warning in 1:5 + 1:13: longer object length is not a multiple of shorter
-## object length
+## Warning in 1:5 + 1:13: longer object length is not a multiple of
+## shorter object length
 ```
 
 ```
@@ -791,31 +787,36 @@ iris[["Species"]]
 ```
 
 ```
-##   [1] setosa     setosa     setosa     setosa     setosa     setosa    
-##   [7] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [13] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [19] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [25] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [31] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [37] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [43] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [49] setosa     setosa     versicolor versicolor versicolor versicolor
-##  [55] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [61] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [67] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [73] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [79] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [85] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [91] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [97] versicolor versicolor versicolor versicolor virginica  virginica 
-## [103] virginica  virginica  virginica  virginica  virginica  virginica 
-## [109] virginica  virginica  virginica  virginica  virginica  virginica 
-## [115] virginica  virginica  virginica  virginica  virginica  virginica 
-## [121] virginica  virginica  virginica  virginica  virginica  virginica 
-## [127] virginica  virginica  virginica  virginica  virginica  virginica 
-## [133] virginica  virginica  virginica  virginica  virginica  virginica 
-## [139] virginica  virginica  virginica  virginica  virginica  virginica 
-## [145] virginica  virginica  virginica  virginica  virginica  virginica 
+##   [1] setosa     setosa     setosa     setosa     setosa    
+##   [6] setosa     setosa     setosa     setosa     setosa    
+##  [11] setosa     setosa     setosa     setosa     setosa    
+##  [16] setosa     setosa     setosa     setosa     setosa    
+##  [21] setosa     setosa     setosa     setosa     setosa    
+##  [26] setosa     setosa     setosa     setosa     setosa    
+##  [31] setosa     setosa     setosa     setosa     setosa    
+##  [36] setosa     setosa     setosa     setosa     setosa    
+##  [41] setosa     setosa     setosa     setosa     setosa    
+##  [46] setosa     setosa     setosa     setosa     setosa    
+##  [51] versicolor versicolor versicolor versicolor versicolor
+##  [56] versicolor versicolor versicolor versicolor versicolor
+##  [61] versicolor versicolor versicolor versicolor versicolor
+##  [66] versicolor versicolor versicolor versicolor versicolor
+##  [71] versicolor versicolor versicolor versicolor versicolor
+##  [76] versicolor versicolor versicolor versicolor versicolor
+##  [81] versicolor versicolor versicolor versicolor versicolor
+##  [86] versicolor versicolor versicolor versicolor versicolor
+##  [91] versicolor versicolor versicolor versicolor versicolor
+##  [96] versicolor versicolor versicolor versicolor versicolor
+## [101] virginica  virginica  virginica  virginica  virginica 
+## [106] virginica  virginica  virginica  virginica  virginica 
+## [111] virginica  virginica  virginica  virginica  virginica 
+## [116] virginica  virginica  virginica  virginica  virginica 
+## [121] virginica  virginica  virginica  virginica  virginica 
+## [126] virginica  virginica  virginica  virginica  virginica 
+## [131] virginica  virginica  virginica  virginica  virginica 
+## [136] virginica  virginica  virginica  virginica  virginica 
+## [141] virginica  virginica  virginica  virginica  virginica 
+## [146] virginica  virginica  virginica  virginica  virginica 
 ## Levels: setosa versicolor virginica
 ```
 
@@ -834,31 +835,36 @@ iris %&gt;%
 ```
 
 ```
-##   [1] setosa     setosa     setosa     setosa     setosa     setosa    
-##   [7] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [13] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [19] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [25] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [31] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [37] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [43] setosa     setosa     setosa     setosa     setosa     setosa    
-##  [49] setosa     setosa     versicolor versicolor versicolor versicolor
-##  [55] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [61] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [67] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [73] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [79] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [85] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [91] versicolor versicolor versicolor versicolor versicolor versicolor
-##  [97] versicolor versicolor versicolor versicolor virginica  virginica 
-## [103] virginica  virginica  virginica  virginica  virginica  virginica 
-## [109] virginica  virginica  virginica  virginica  virginica  virginica 
-## [115] virginica  virginica  virginica  virginica  virginica  virginica 
-## [121] virginica  virginica  virginica  virginica  virginica  virginica 
-## [127] virginica  virginica  virginica  virginica  virginica  virginica 
-## [133] virginica  virginica  virginica  virginica  virginica  virginica 
-## [139] virginica  virginica  virginica  virginica  virginica  virginica 
-## [145] virginica  virginica  virginica  virginica  virginica  virginica 
+##   [1] setosa     setosa     setosa     setosa     setosa    
+##   [6] setosa     setosa     setosa     setosa     setosa    
+##  [11] setosa     setosa     setosa     setosa     setosa    
+##  [16] setosa     setosa     setosa     setosa     setosa    
+##  [21] setosa     setosa     setosa     setosa     setosa    
+##  [26] setosa     setosa     setosa     setosa     setosa    
+##  [31] setosa     setosa     setosa     setosa     setosa    
+##  [36] setosa     setosa     setosa     setosa     setosa    
+##  [41] setosa     setosa     setosa     setosa     setosa    
+##  [46] setosa     setosa     setosa     setosa     setosa    
+##  [51] versicolor versicolor versicolor versicolor versicolor
+##  [56] versicolor versicolor versicolor versicolor versicolor
+##  [61] versicolor versicolor versicolor versicolor versicolor
+##  [66] versicolor versicolor versicolor versicolor versicolor
+##  [71] versicolor versicolor versicolor versicolor versicolor
+##  [76] versicolor versicolor versicolor versicolor versicolor
+##  [81] versicolor versicolor versicolor versicolor versicolor
+##  [86] versicolor versicolor versicolor versicolor versicolor
+##  [91] versicolor versicolor versicolor versicolor versicolor
+##  [96] versicolor versicolor versicolor versicolor versicolor
+## [101] virginica  virginica  virginica  virginica  virginica 
+## [106] virginica  virginica  virginica  virginica  virginica 
+## [111] virginica  virginica  virginica  virginica  virginica 
+## [116] virginica  virginica  virginica  virginica  virginica 
+## [121] virginica  virginica  virginica  virginica  virginica 
+## [126] virginica  virginica  virginica  virginica  virginica 
+## [131] virginica  virginica  virginica  virginica  virginica 
+## [136] virginica  virginica  virginica  virginica  virginica 
+## [141] virginica  virginica  virginica  virginica  virginica 
+## [146] virginica  virginica  virginica  virginica  virginica 
 ## Levels: setosa versicolor virginica
 ```
 
@@ -957,8 +963,8 @@ mystring &lt;- c("apple", "banana", "clementime", "dragonfruit")
 str_view(mystring, "an")
 ```
 
-<div id="htmlwidget-e028c4fbf3af0a2e03b1" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e028c4fbf3af0a2e03b1">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b1ac070f46ecddd7a6ea" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b1ac070f46ecddd7a6ea">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -971,8 +977,8 @@ A period matches any character.
 str_view(mystring, ".a.")
 ```
 
-<div id="htmlwidget-cb209d017b9f913e77e1" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cb209d017b9f913e77e1">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>d<span class='match'>rag<\/span>onfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ed160c477149be91c4e4" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ed160c477149be91c4e4">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>clementime<\/li>\n  <li>d<span class='match'>rag<\/span>onfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 If you want to actually match a period, you need to use a double backslash. "\." is an escape character for the period, and "\\." an additional escape symbol for the "\"
 
@@ -999,8 +1005,8 @@ And if you want to actually match a backslash, you need to use a quadruple backs
 str_view(mystring, "^a")
 ```
 
-<div id="htmlwidget-3c2639ea8bbd8ef68f1c" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3c2639ea8bbd8ef68f1c">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-32228510c0adccebebc2" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-32228510c0adccebebc2">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 $ matches to the end of a string
 
@@ -1009,8 +1015,8 @@ $ matches to the end of a string
 str_view(mystring, "a$")
 ```
 
-<div id="htmlwidget-e9f22a0039c94a29aae8" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e9f22a0039c94a29aae8">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ca68f54e0a0761a57190" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ca68f54e0a0761a57190">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>clementime<\/li>\n  <li>dragonfruit<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1036,22 +1042,22 @@ mystring &lt;- "abcccdeee"
 str_view(mystring, "cc?")
 ```
 
-<div id="htmlwidget-e34017c13b950d93694f" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e34017c13b950d93694f">{"x":{"html":"<ul>\n  <li>ab<span class='match'>cc<\/span>cdeee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-56c26d6da328ffae555b" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-56c26d6da328ffae555b">{"x":{"html":"<ul>\n  <li>ab<span class='match'>cc<\/span>cdeee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ```r
 str_view(mystring, "cc+")
 ```
 
-<div id="htmlwidget-6aeb49b6adec694692cb" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6aeb49b6adec694692cb">{"x":{"html":"<ul>\n  <li>ab<span class='match'>ccc<\/span>deee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-861f9f357c2bc2ec6020" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-861f9f357c2bc2ec6020">{"x":{"html":"<ul>\n  <li>ab<span class='match'>ccc<\/span>deee<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ```r
 str_view(mystring, "c[de]+")
 ```
 
-<div id="htmlwidget-782c7119b6f9d4ca7197" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-782c7119b6f9d4ca7197">{"x":{"html":"<ul>\n  <li>abcc<span class='match'>cdeee<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-359d1fef1667284674b1" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-359d1fef1667284674b1">{"x":{"html":"<ul>\n  <li>abcc<span class='match'>cdeee<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 --- 
 
@@ -1074,8 +1080,8 @@ mystring &lt;- c("abab", "cdcd", "efgh")
 str_view(mystring, "(..)\\1", match = T)
 ```
 
-<div id="htmlwidget-05c4e89c6a997b81d991" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-05c4e89c6a997b81d991">{"x":{"html":"<ul>\n  <li><span class='match'>abab<\/span><\/li>\n  <li><span class='match'>cdcd<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5376e904e587e3060d6d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5376e904e587e3060d6d">{"x":{"html":"<ul>\n  <li><span class='match'>abab<\/span><\/li>\n  <li><span class='match'>cdcd<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1169,7 +1175,7 @@ fct_recode(month_fix, "December" = "Dec")
 
 ```
 ## [1] December Apr      Jan      Mar     
-## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov December
+## 12 Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct ... December
 ```
 
 ---
@@ -1185,7 +1191,7 @@ today()
 ```
 
 ```
-## [1] "2022-06-29"
+## [1] "2022-10-31"
 ```
 
 ---
@@ -1209,7 +1215,7 @@ now()
 ```
 
 ```
-## [1] "2022-06-29 20:26:58 EDT"
+## [1] "2022-10-31 17:00:24 EDT"
 ```
 
 ---
@@ -1272,7 +1278,7 @@ today()
 ```
 
 ```
-## [1] "2022-06-29"
+## [1] "2022-10-31"
 ```
 
 ```r
@@ -1280,7 +1286,7 @@ as_datetime(today())
 ```
 
 ```
-## [1] "2022-06-29 UTC"
+## [1] "2022-10-31 UTC"
 ```
 
 ```r
@@ -1288,7 +1294,7 @@ now()
 ```
 
 ```
-## [1] "2022-06-29 20:26:58 EDT"
+## [1] "2022-10-31 17:00:24 EDT"
 ```
 
 ```r
@@ -1296,7 +1302,7 @@ as_date(now())
 ```
 
 ```
-## [1] "2022-06-29"
+## [1] "2022-10-31"
 ```
 
 ---
@@ -1383,7 +1389,7 @@ today() - ymd(20000101)
 ```
 
 ```
-## Time difference of 8215 days
+## Time difference of 8339 days
 ```
 
 ```r
@@ -1391,7 +1397,7 @@ as.duration(today() - ymd(20000101))
 ```
 
 ```
-## [1] "709776000s (~22.49 years)"
+## [1] "720489600s (~22.83 years)"
 ```
 
 
@@ -1457,7 +1463,7 @@ today() + years(1)
 ```
 
 ```
-## [1] "2023-06-29"
+## [1] "2023-10-31"
 ```
 
 ```r
@@ -1465,7 +1471,7 @@ today() + months(1)
 ```
 
 ```
-## [1] "2022-07-29"
+## [1] NA
 ```
 
 ```r
@@ -1473,7 +1479,7 @@ today() + days(1)
 ```
 
 ```
-## [1] "2022-06-30"
+## [1] "2022-11-01"
 ```
 
 ```r
@@ -1481,7 +1487,7 @@ today() + hours(1)
 ```
 
 ```
-## [1] "2022-06-29 01:00:00 UTC"
+## [1] "2022-10-31 01:00:00 UTC"
 ```
 
 ```r
@@ -1489,7 +1495,7 @@ today() + minutes(1)
 ```
 
 ```
-## [1] "2022-06-29 00:01:00 UTC"
+## [1] "2022-10-31 00:01:00 UTC"
 ```
 
 ```r
@@ -1497,7 +1503,7 @@ today() + seconds(1)
 ```
 
 ```
-## [1] "2022-06-29 00:00:01 UTC"
+## [1] "2022-10-31 00:00:01 UTC"
 ```
 
 ---
