@@ -74,15 +74,8 @@ library(rgdal)
 
 # Welcome!
 
-* Teaching Assistant: **Tia Harrison**, MSc; PhD Candidate
-
-* Department of Ecology and Evolutionary Biology
-
-* Pronouns: she/her
-
-* Name Phonetic: T-ee-ah
-
-* Email: tia.harrison@mail.utoronto.ca
+* Teaching Assistant
+* Email: see GitHub
 
 ---
 
