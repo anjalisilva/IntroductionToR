@@ -59,7 +59,7 @@ Folder structure is as follows:
 ## Materials
 * **Learners must have internet connection, and a computer with administrative privileges, a microphone, and all required software installed in order to participate in online activities.** 
 * **Learners must have R (http://www.r-project.org/). We will help with downloading.**
-* **Learners must have RStudio (http://www.rstudio.com/). We will help with downloading.**
+* **Learners must have RStudio (Previously: http://www.rstudio.com/; now: https://posit.co/download/rstudio-desktop/). We will help with downloading.**
 * **GitHub account (https://github.com/).**
 * Screen space can be a limitation during online learning since you'll want to see the instructor's screen and have your RStudio open so that you can type along. If you have access to a second monitor or a larger tablet to attend the course while keeping your laptop screen available for coding - this would be great! If not - don't worry, we'll manage!
 * Key texts: General reference
