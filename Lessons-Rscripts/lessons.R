@@ -528,11 +528,15 @@ library(haven)
 ?haven
 ls("package:haven") # list all function
 
-# dataset we'll look at
+# Dataset we'll look at:
 # Replication Data for: Assessing Public Value Failure in
 # Government Adoption of Artificial Intelligence
-# https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LIGARA
+# Data URL: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LIGARA
 
+# Paper: Assessing public value failure in government
+#        adoption of artificial intelligence
+# Paper PDF shared via chat
+# Paper URL: https://onlinelibrary.wiley.com/doi/10.1111/padm.12742
 
 getwd() # /Users/as/Desktop/DSI-IntroR
 # produce error
