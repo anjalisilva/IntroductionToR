@@ -622,4 +622,195 @@ questionOnChat # 1,460 × 2
 pillar::glimpse(questionOnChat)
 # End of 12 Nov 2022
 
+
+# Class 04 ####
+# Author: Anjali Silva
+# Date: 14 Nov 2022
+# Lessons: 04, 05 
+
+getwd()
+# install.packages("tidyverse")
+library("tidyverse")
+library("haven")
+
+# read in data
+adsData <- haven::read_sav(file = "data/ads_raw.sav")
+adsData
+pillar::glimpse(adsData)
+
+# pipe operator
+# %>%
+?`%>%`
+filteredData <- dplyr::filter(adsData,
+                              Duration__in_seconds_ < 100)
+filteredData # 41 × 52
+
+filteredDataPipe <- adsData %>%
+                    dplyr::filter(Duration__in_seconds_ < 100)
+filteredDataPipe # 41 × 52
+
+adsData %>%
+  dplyr::filter(Duration__in_seconds_ < 100) %>% # filtering
+  dplyr::arrange(Duration__in_seconds_) %>% # arrange ascending
+  dplyr::select(Duration__in_seconds_, Gender) # select column
+# 41 × 1
+# pipe help with readability and reduce amount of code
+
+# mutating
+adsData$Birthyear
+
+library(lubridate)
+?mutate
+adsData2 <- adsData %>%
+  dplyr::mutate(BirthyearAddDay = stringr::str_c(Birthyear, "07-01")) %>%
+  dplyr::mutate(BirthyearAddDay =
+                  lubridate::as_datetime(BirthyearAddDay)) %>%
+  dplyr::select(EndDate, Birthyear, BirthyearAddDay)
+adsData2 # 1460 x 3
+
+# new column age
+adsData2 <- adsData2 %>%
+  dplyr::mutate(age = EndDate - BirthyearAddDay)
+dim(adsData2) #  1460    4
+# * Will visit next lecture, think about how to convert age in
+#   days to age in years.
+#   Note age is drtn: difftime
+#   URL: tibble data types:
+#   https://tibble.tidyverse.org/articles/types.html
+
+#   Suggestion in class from Raymond
+adsData2 %>%
+  dplyr::mutate(age = EndDate - BirthyearAddDay) %>%
+  dplyr::mutate(ageYears = age / 365)
+adsData4$ageYears
+adsData4$age
+
+#   Another possibility
+adsData2 %>%
+  dplyr::mutate(age = EndDate - BirthyearAddDay) %>%
+  dplyr::pull(age) %>%
+  lubridate::time_length(unit = "year")
+# Another way to write it
+head(lubridate::time_length(adsData2$age, unit = "year"))
+
+
+# Question on chat, do you need EndDate and Birthyear 
+# to be same type - yes since dttm data
+adsData3 <- adsData2 %>%
+  dplyr::mutate(age = EndDate - Birthyear)
+dim(adsData2) #  1460    4
+
+# Pulling
+# pull one column/variable from dataset
+adsData %>%
+  dplyr::pull(Duration__in_seconds_)
+
+adsData$Duration__in_seconds_
+
+adsData[ , 5]
+
+adsData %>%
+  dplyr::pull(Duration__in_seconds_) %>%
+#  mean(na.rm = TRUE) # 283.261
+#  median(na.rm = TRUE) # 237
+#  range(na.rm = TRUE) # 50 1575
+   var(na.rm = TRUE) # 29487.81
+
+# summary
+summary(adsData)
+
+# summarize
+# permit to do calculations
+adsData %>%
+  dplyr::summarise(
+    mean_time = mean(Duration__in_seconds_, na.rm = TRUE),
+    sd_time = sd(Duration__in_seconds_, na.rm = TRUE))
+
+# grouping 
+pillar::glimpse(adsData)
+adsData$Gender
+adsData %>% dplyr::group_by(Gender) # 1,460 × 52
+
+?n # function from dplyr; gives the current group size.
+adsData %>%
+  dplyr::group_by(Gender) %>% # group first
+  dplyr::summarise(count = dplyr::n(), # number of entries, then calculations
+                   mean_time = mean(Duration__in_seconds_, na.rm = TRUE),
+                   sd_time = sd(Duration__in_seconds_, na.rm = TRUE))
+
+# --- --- --- ---
+
+#  ces_2019_raw.csv; .csv = comma separated values
+
+library("readr")
+ls("package:readr") # list 
+?read_csv
+?readr
+ces2019Raw <- readr::read_csv("data/ces_2019_raw.csv")
+ces2019Raw
+pillar::glimpse(ces2019Raw)
+
+ces2019Raw %>% dplyr::pull(cps19_yob)
+ces2019Raw %>% dplyr::pull(cps19_yob) %>% range(na.rm = TRUE)
+# 1 82
+# value of 1 = 1920
+# value of 2 = 1921 ...
+
+?ggplot2 # part of tidyverse
+
+?hist # in base R
+hist(ces2019Raw$cps19_yob)
+
+
+ls("package:ggplot2")
+ces2019Raw %>%
+  ggplot2::ggplot(aes(x = cps19_yob)) +
+  ggplot2::geom_histogram(bins = 50)
+  
+# data cleaning
+CESdata <- ces2019Raw %>%
+  dplyr::mutate(cps19_yob_fix = cps19_yob + 1919)
+CESdata
+CESdata$cps19_yob_fix %>% range() # 1920 2001
+
+# improved x-axis
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_yob_fix)) +
+  ggplot2::geom_histogram(bins = 50)
+
+CESdata <- CESdata %>%
+  dplyr::mutate(age = 2019 - cps19_yob_fix)
+CESdata
+dim(CESdata) # 37822   622
+CESdata$age %>% range()
+
+
+CESdata %>%
+  ggplot2::ggplot(aes(x = age)) +
+  ggplot2::geom_histogram(bins = 50)
+
+# recode the gender variable
+table(CESdata$cps19_gender)
+# 1 = male, 2 = female, 3 = other
+
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_gender)) +
+  ggplot2::geom_bar() # bar plot
+
+# recode
+factor(CESdata$cps19_gender)
+CESdata <- CESdata %>%
+  dplyr::mutate(cps19_gender_fix = factor(cps19_gender)) %>%
+  dplyr::mutate(cps19_gender_fix = forcats::fct_recode(cps19_gender_fix,
+                                              "M" = "1",
+                                              "F" = "2",
+                                              "NB" = "3"))
+CESdata$cps19_gender_fix
+# End of 14 Nov 2022
+
+# Class 05 ####
+# Author: Anjali Silva
+# Date: 17 Nov 2022
+# Lessons: Case Study
+
 # [End of File]
