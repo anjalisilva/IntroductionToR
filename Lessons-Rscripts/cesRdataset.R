@@ -1,5 +1,13 @@
 # cesR dataset recoding
 
+# Read in data
+ces2019Raw <- readr::read_csv("data/ces_2019_raw.csv")
+
+# Data cleaning begins
+CESdata <- ces2019Raw %>%
+  dplyr::mutate(cps19_yob_fix = cps19_yob + 1919)
+
+# Further cleaning
 CESdata <- CESdata %>%
   dplyr::mutate(cps19_province = 
                   fct_recode(factor(cps19_province),
