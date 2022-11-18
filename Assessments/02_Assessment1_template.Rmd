@@ -73,7 +73,7 @@ missingValueVector
 9. [2 marks] How would you identify which positions contain missing values in 'missingValueVector'? Provide all your code. (Hint: There could be multiple ways to perform this. One method is to use \texttt{which()} and \texttt{is.NA()} functions and make use of logical values).
 \vspace{18pt}
 
-10. [2 marks] Can you mix positive and negative integers simultaneously when subsetting a vector? Yes or No?$\text{\underline{  ANSWER  }}$ Justify your answer by showing one example. Provide your code for the example.
+10. [2 marks] Can you mix positive and negative integers simultaneously when subsetting a vector? Yes or No?$\text{\underline{  ANSWER  }}$ Justify your answer by showing one example. You may show this using 'missingValueVector'. Provide your code for the example.
 \vspace{18pt}
 
 11. [2 marks] R comes with its own datasets, which you can access using command \texttt{data()} on the console. This will open up a new tab showing all the datasets. Pick a dataset of interest to you. Take a look at the dataset, its help documentation, and ensure it has tabular structure. How would you convert this dataset to a tibble? Provide your code.
