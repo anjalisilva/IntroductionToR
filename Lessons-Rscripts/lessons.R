@@ -808,9 +808,33 @@ CESdata <- CESdata %>%
 CESdata$cps19_gender_fix
 # End of 14 Nov 2022
 
+# Case Study ####
+# Date: 17 Nov 2022
+
+# Topic: Social Determinants of Health Associated
+# with Patient Portal Use in Pediatric Diabetes: 
+# A case study
+# By: Dr. Nicholas Mitsakakis
+# Paper: Social Determinants of Health Associated With
+# Patient Portal Use in Pediatric Diabetes
+# URL: https://pubmed.ncbi.nlm.nih.gov/35864034/
+# Slides: see GitHub
+
+
 # Class 05 ####
 # Author: Anjali Silva
-# Date: 17 Nov 2022
-# Lessons: Case Study
+# Date: 19 Nov 2022
+# Lessons: 05 
+
+# Question last class: How to convert age 
+# in days to age in years?
+# Instructor script line 675 for answer
+
+library("tidyverse")
+library("readr")
+# reread data
+getwd()
+ces2019Raw <- readr::read_csv("data/ces_2019_raw.csv")
+
 
 # [End of File]
