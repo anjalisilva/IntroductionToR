@@ -830,11 +830,333 @@ CESdata$cps19_gender_fix
 # in days to age in years?
 # Instructor script line 675 for answer
 
+# Data importing
 library("tidyverse")
-library("readr")
-# reread data
-getwd()
-ces2019Raw <- readr::read_csv("data/ces_2019_raw.csv")
+?readr::read_csv
+?readxl::read_excel
 
+# Pay attention to arguments and default values
+readr::read_csv(file = "fileName.csv", skip = 2)
+readr::read_csv(file = "fileName.csv", comment = "#")
+readr::read_csv(file = "fileName.csv",  col_names = FALSE)
+readr::read_csv(file = "fileName.csv", n_max = 1200)
+
+# Writting 
+?readr::write_csv()
+# Sample data from package
+challengeData <- readr::read_csv(
+  readr::readr_example("challenge.csv"))
+challengeData
+pillar::glimpse(challengeData) 
+
+readr::write_csv(x = challengeData, 
+                 file = "data/challengeData.csv")
+
+challengeDataAgain <- readr::read_csv(
+  file = "data/challengeData.csv")
+
+# R's binary format, also called RDS
+# Rds is used to save a single R object.
+readr::write_rds(x = challengeData, 
+                 file = "data/challengeData.rds")
+readRDSChallenge <- readr::read_rds("data/challengeData.rds")
+readRDSChallenge 
+
+# --- 
+# 3 rules of tidy data
+# 1. each variable must have its own column
+# 2. Each observation must have its own row
+# 3. Each value must have its own cell
+
+# Tidyverse's tidy data package is called tidyr.
+library(tidyr)
+?tidyr
+# create toy dataset
+# weights of two pet cats
+wideData <- tibble::tibble(
+  year = c(2017, 2018, 2019, 2020, 2021, 2022),
+  milo = c(4, 6.3, 8, 7.9, 8.1, 8.1),
+  kitty = c(15.6, 15.9, 14, 12.2, 10.9, 9.9))
+wideData
+dim(wideData) # 6 x 3
+
+?tidyr::pivot_longer
+longData <- wideData %>%
+  tidyr::pivot_longer(cols = c("milo", "kitty"),
+                      names_to = "cat",
+                      values_to = "weight")
+longData # A tibble: 12 × 3 (before 6 x 3)
+
+
+?tidyr::pivot_wider()
+
+library(tidyr)
+?tidyr::table2 # a dataset that comes with tidyr
+pillar::glimpse(table2) 
+tidyr::table2 # show the dataset.
+
+tidyr::table2 %>%
+  tidyr::pivot_wider(names_from = "type",
+                     values_from = "count")
+# A tibble: 6 × 4
+
+# It is also important to keep in mind that
+# not all data can be made tidy. 
+
+# --- 
+
+# Joins
+# 2 types of joins: mutating joins and filtering joins
+
+# Mutating joins
+# There are 4 kinds: 
+# Inner join and 3 outer joins: left, right and full join
+
+# 2 toy datasets
+employment <- tibble::tibble(year = c(1990, 1991, 1992, 1994),
+                             rate = c(0.05, 0.02, 0.04, 0.02))
+employment # A tibble: 4 × 2
+
+housing <- tibble::tibble(date = c(1991, 1992, 1993, 1994, 1995),
+                          rate = c(0.89, 0.6, 0.75, 0.88, 0.9))
+housing # A tibble: 5 × 2
+
+# inner join
+employment %>%
+  dplyr::inner_join(housing, by = c("year" = "date"))
+# A tibble: 3 × 3
+
+# Employment 1990, 1991, 1992,       1994
+# Housing          1991, 1992, 1993, 1994, 1995
+
+# we can also try the other way around - error
+housing %>%
+  dplyr::inner_join(employment, by = c("year" = "date"))
+
+# issue fix 
+housing %>%
+  dplyr::inner_join(employment, by = c("date" = "year"))
+
+# --- 
+# outer: left
+employment %>%
+  dplyr::left_join(housing, by = c("year" = "date"))
+#  A tibble: 4 × 3
+
+# Employment 1990, 1991, 1992,       1994
+# Housing          1991, 1992, 1993, 1994, 1995
+
+
+# --- 
+# outer: right
+employment %>%
+  dplyr::right_join(housing, by = c("year" = "date"))
+# A tibble: 5 × 3
+
+# Employment 1990, 1991, 1992,       1994
+# Housing          1991, 1992, 1993, 1994, 1995
+
+
+# --- 
+# outer: full
+employment %>%
+  dplyr::full_join(housing, by = c("year" = "date"))
+# A tibble: 6 × 3
+
+# --- --- ---
+# filtering joins
+# 1. Semi join - keep all observations in x that match with y
+# 2. Anti join - drops all observations in x that match with y
+
+# treat x = employment and y = housing
+employment %>%
+  dplyr::semi_join(housing, by = c("year" = "date"))
+# A tibble: 3 × 2
+
+employment %>%
+  dplyr::anti_join(housing, by = c("year" = "date"))
+# A tibble: 1 × 2
+
+# ---
+# data.table 
+# A CRAN package 
+# link: https://cran.r-project.org/web/packages/data.table/index.html
+install.packages("data.table") # download package
+library("data.table") # attach
+
+data()
+?iris
+class(iris) # data.frame
+
+dtIris <- data.table::as.data.table(iris)
+class(dtIris)
+dtIris 
+
+data.table::tables()
+
+# --- Aside
+
+# Memory
+install.packages("pryr")
+library("pryr") # attach
+install.packages("lobstr")
+library("lobstr")
+
+# to determine the memory usage of current R session
+pryr::mem_used()  # 169 MB (megabytes)
+ls() # list all objects of current R session
+pryr::object_size(dtIris) # show object size; 7.51 kB
+testObject <- 1000L
+pryr::object_size(testObject) # 56 B
+# To remove any objects from the workspace:
+rm(testObject)
+
+# garbage collection system 
+?gc # for garbage collection
+?gcinfo # to print when garbage collection happen
+# >gcinfo(TRUE)
+
+# --
+# datatable[i, j, k]
+# i = selected/filtered/subset or reorder rows
+# j = calculations/ for selecting columns
+# k = grouping by 
+
+# start with i - subesetting rows
+dtIris[Petal.Width > 0.5, , ] # filtering
+dtIris[order(Petal.Width), , ] # ordering row; ascending
+dtIris[order(-Petal.Width), , ] # ordering row; descending
+
+# look at j - calculations/ for selecting columns
+dtIris[, Species, ] # select this column; return a vector
+
+# look at j - calculations/ for selecting columns
+# Cases with petal length > 2
+dtIris[, Petal.Length > 2, ] # logical vector
+# How many cases with petal length > 2
+dtIris[, sum(Petal.Length > 2), ] # 100; 
+# 100 cases with petal length > 2
+
+# How many cases with petal length + petal. width > 2
+dtIris[, sum((Petal.Length + Petal.Width) > 2), ] # 105 cases
+
+#  How many setosas with petal length + petal. width > 2
+dtIris[Species == "setosa", sum((Petal.Length + Petal.Width) > 2), ] # 5 cases
+
+# .N ; holds the number of observations
+dtIris[Species == "setosa", , ] # get the table back filtered
+dtIris[Species == "setosa", .N, ] # 50 cases
+
+
+# look at k - grouping by 
+dtIris[, , by = Species] # Warning bcz j is not supplied
+dtIris[, .N, by = Species] # count after grouping by species 
+
+
+# ---
+# Programming 
+# R is a functional programming language. 
+# R system includes some support for object-oriented programming
+
+# Functions 
+
+functionName <- function() { # arguments; 
+  # curly brackets: start of body
+  # body of function
+  return(NULL)               # return statement
+}                            # end of body
+
+
+# Let's write a simple function that takes three numeric
+# values, add first two and divide sum by the third
+sum() # built-in functions
+
+numberCalculation <- function(valueOne, 
+                              valueTwo, 
+                              valueThree) { 
+  # statements, calculations
+  valueSum <- sum(valueOne, valueTwo, na.rm = TRUE)
+  valueFinal <-  valueSum / valueThree
+  return(valueFinal)
+}
+
+# Test function 
+numberCalculation(valueOne = 1, valueTwo = 2, valueThree = 3) # 1
+numberCalculation(1, 2, 3) # 1
+numberCalculation(4, 5, 6) # 1.5
+
+numberCalculation(1, NA, 1) # 1
+
+numberCalculation(2) # rror 
+
+# Default values added
+numberCalculation <- function(valueOne = 0, 
+                              valueTwo = 0, 
+                              valueThree = 1) { # start body
+  # statements, calculations
+  valueSum <- sum(valueOne, valueTwo, na.rm = TRUE)
+  valueFinal <-  valueSum / valueThree
+  return(valueFinal)
+}
+
+numberCalculation(2) #  # no error
+
+# --- --- ---
+# Functions are one tool for reducing duplication. 
+# Another tool for reducing duplication is loops 
+
+# Loops
+# 1. for loops
+# 2. while loops
+
+# for loops
+print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+
+for (i in 1:5) {
+  print(i)
+}
+
+?iris # let's access iris
+# obtain petal to sepal ratio using length for all observations
+for (i in 1:nrow(iris)) {
+  # print value of i
+  cat("\n For observation =", i, ", ratio =", 
+      iris$Petal.Length[i]/iris$Sepal.Length[i])
+}
+
+# ---
+
+# * Question end of class about Assessment 2
+?tidyr::table2
+tidyr::table2
+# Using tidyverse functions and other base R
+# functions as necessary, write a custom function 
+# to perform the following. The custom function
+# you are to write should be called countryFilter. 
+# The countryFilter function needs to have two arguments
+# called dataset and countryChoice. Within the function body,
+# use dplyr::filter to filter the user provided dataset 
+# for the species that the user would specify in argument 
+# irisSpecies. Return the resulting output to user within
+# the function. Provide all your code for full marks.
+
+library(tidyverse)
+countryFilter <- function(dataset,
+                          countryChoice) {
+  output <- dataset %>%
+    dplyr::filter(country == countryChoice) 
+    return(output)
+}
+
+# Test function
+countryFilter(dataset = tidyr::table2,
+              countryChoice = "Afghanistan")
+
+countryFilter(dataset = tidyr::table2,
+              countryChoice = "Canada") 
 
 # [End of File]
