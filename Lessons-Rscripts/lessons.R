@@ -1350,7 +1350,7 @@ sample(x = letters,
        size = 10, 
        replace = TRUE)
 
-# Visualiztion
+# Visualization
 
 # UToronto Map and Data Library Data Visualization Guide
 # https://mdl.library.utoronto.ca/dataviz/getting-started
@@ -1389,13 +1389,14 @@ CESdata %>%
   # layer 2 +
   # layer x
 
+# ggplot2 bar plot page
 # https://ggplot2.tidyverse.org/reference/geom_bar.html
 CESdata %>%
   ggplot2::ggplot(aes(x = cps19_votechoice)) +
   ggplot2::geom_bar() # first layer
 
-# Create plots subdirectory
-# Save plot
+# Create plots subdirectory in Rproject
+# Save plot in PNG format
 
 # fix labels + add title
 CESdata %>%
@@ -1409,7 +1410,6 @@ CESdata %>%
 
 
 # add color by default
-
 CESdata %>%
   ggplot2::ggplot(aes(x = cps19_votechoice,
                       color = cps19_votechoice)) +
@@ -1420,7 +1420,7 @@ CESdata %>%
     title = "Count vs Vote Choices from CES 2019") +
   ggplot2::scale_x_discrete(guide = guide_axis(angle = 45))
 
-# add fill
+# add fill by default
 CESdata %>%
   ggplot2::ggplot(aes(x = cps19_votechoice,
                       color = cps19_votechoice,
