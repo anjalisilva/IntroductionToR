@@ -1159,4 +1159,303 @@ countryFilter(dataset = tidyr::table2,
 countryFilter(dataset = tidyr::table2,
               countryChoice = "Canada") 
 
+
+# Class 06 ####
+# Author: Anjali Silva
+# Date: 21 Nov 2022
+# Lessons: 06, 07
+
+getwd()
+
+# * Question end of last class about Assessment 2
+# Thank you for bringing that to my attention. 
+library(tidyverse)
+library(tidyr)
+?tidyr::table2
+tidyr::table2
+
+# Question: Using tidyverse functions and other base R
+# functions as necessary, write a custom function 
+# to perform the following. The custom function
+# you are to write should be called countryFilter. 
+# The countryFilter function needs to have two arguments
+# called dataset and countryChoice. Within the function body,
+# use dplyr::filter to filter the user provided dataset 
+# for the country that the user would specify in argument 
+# countryChoice. Return the resulting output to user within
+# the function. Provide all your code for full marks.
+
+countryFilter <- function(dataset, countryChoice) {
+  output <- dataset %>%
+    dplyr::filter(country == countryChoice)
+  return(output)
+}
+
+countryFilter 
+
+# Test function
+countryFilter(dataset = tidyr::table2, 
+              countryChoice = "Afghanistan")
+
+countryFilter(dataset = tidyr::table2, 
+              countryChoice = "Canada")
+
+
+# * Take up student question 2 - options for
+# appending data; 
+# I will assume combining by row, given columns are same
+# Covered in class how to join columns
+?rbind
+# bind data frames
+combinedIris <- rbind(iris, iris)
+dim(combinedIris) # 300 x  5
+
+# bind tibbles
+combinedIrisTibble <- 
+  rbind(tibble::as_tibble(iris), 
+        tibble::as_tibble(iris))
+dim(combinedIrisTibble) # 300 x  5
+
+?dplyr::bind_rows
+combinedIrisTibble2 <- 
+  dplyr::bind_rows(
+    tibble::as_tibble(iris), 
+    tibble::as_tibble(iris))
+dim(combinedIrisTibble2) # 300 x  5
+
+# Loops
+# While loops
+i <- 1
+while(i <= 10) { # this is the condition
+  cat("\n Value of i is", i, " and calculation output =", i * 5)
+  i <- i + 1 # need to update i each time
+}
+
+# if/else logic - check for conditions
+
+# if statement
+if(condition) {
+  # statement
+}
+
+xValue <- -5
+if(xValue > 0) {
+  cat("\n A positive number")
+}
+
+# ---
+# if else
+if(condition) {
+  # statement
+} else {
+  # statement
+}
+
+xValue <- -5
+xValue <- 3
+if(xValue > 0) {
+  cat("\n A positive number")
+} else {
+  cat("\n Not a positive number")
+}
+
+# ---
+# if, else if (elif), else
+
+xValue <- -6
+xValue <- 0
+if(xValue > 0) {
+  cat("\n A positive number")
+} else if (xValue < 0) {
+  cat("\n Not a positive number")
+} else {
+  cat("\n It is zero")
+}
+
+countryFilter <- function(dataset, countryChoice) {
+  if(typeof(countryChoice) != "character") {
+    stop("\n countryChoice argument should be a character")
+  }
+  output <- dataset %>%
+    dplyr::filter(country == countryChoice)
+  return(output)
+}
+countryFilter
+
+countryFilter(dataset = tidyr::table2,
+              countryChoice = "Afghanistan")
+countryFilter(dataset = tidyr::table2,
+              countryChoice = 1)
+
+# ---
+# Conditions OR (||) or AND (&&)
+xValues <- 1:5L
+xValues <- list(1:5L)
+xValues
+typeof(xValues)
+if(rlang::is_vector(xValues) == TRUE && 
+   rlang::is_atomic(xValues) == TRUE) {
+  cat("\n An atomic vector")
+}
+
+xValues <- list(1:5L)
+xValues
+xValues <- 1:5L
+if(rlang::is_vector(xValues) == TRUE || 
+   rlang::is_atomic(xValues) == TRUE) {
+  cat("\n A vector")
+}
+
+# ---
+# Simulation
+# Uniform distribution
+# Normal distribution
+
+?runif # Uniform distribution
+runif(n = 5)
+runif(n = 5, min = 1, max = 10)
+plot(runif(n = 5))
+
+# set a seed to make results consistent
+set.seed(seed = 1234)
+# runif(n = 5)
+plot(runif(n = 5))
+
+runif(n = 5) # should generate a different value
+
+set.seed(seed = 1234) # to go back to previous value
+runif(n = 5) 
+
+# Normal distribution
+?rnorm
+rnorm(10, 5, 1)
+plot(rnorm(10, 5, 1))
+
+# simulate a dataset
+set.seed(1234)
+simulatedData <- tibble::tibble(
+  X = runif(10, 0, 20),
+  Y = 3 * X + rnorm(10, 0, 1))
+
+simulatedData
+
+# --- 
+# Sampling
+?sample
+letters # built-in R for alphabet letters
+
+sampleLetters <- sample(x = letters, size = 3)
+
+sample(x = letters, 
+       size = 10, 
+       replace = TRUE)
+
+# Visualiztion
+
+# UToronto Map and Data Library Data Visualization Guide
+# https://mdl.library.utoronto.ca/dataviz/getting-started
+
+# From Data to Viz
+# https://www.data-to-viz.com/index.html
+
+library(tidyverse)
+library(ggplot2)
+
+ggplot2::ggplot(data = , mapping = aes()) # initializes plot
+?ggplot2::aes
+# then add the layers
+
+# access cleaned CES data
+# Code: https://github.com/anjalisilva/IntroductionToR/blob/main/Lessons-Rscripts/cesRdataset.R
+# Name of dataset: ces_2019_cleaned.csv
+
+CESdata <- readr::read_csv(
+  file = "data/ces_2019_cleaned.csv")
+
+pillar::glimpse(CESdata)
+# Rows: 37,822
+# Columns: 621
+
+# Let's plot choices for voting vs counts
+# categories
+CESdata %>%
+  dplyr::select(cps19_votechoice) %>%
+  unique() # 9 categories
+
+# initiate
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice)) # +
+  # layer 1 +
+  # layer 2 +
+  # layer x
+
+# https://ggplot2.tidyverse.org/reference/geom_bar.html
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice)) +
+  ggplot2::geom_bar() # first layer
+
+# Create plots subdirectory
+# Save plot
+
+# fix labels + add title
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice)) +
+  ggplot2::geom_bar() + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45))
+
+
+# add color by default
+
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice,
+                      color = cps19_votechoice)) +
+  ggplot2::geom_bar() + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45))
+
+# add fill
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice,
+                      color = cps19_votechoice,
+                      fill = cps19_votechoice)) +
+  ggplot2::geom_bar() + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45))
+
+# manually change fill
+# Colorbrewer: https://colorbrewer2.org/#type=qualitative&scheme=Paired&n=12
+
+# Color blind stimulator:
+# www.color-blindness.com/coblis- color- blindness- simulator/
+
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice,
+                      fill = cps19_votechoice)) +
+  ggplot2::geom_bar() + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45)) +
+  ggplot2::scale_fill_manual(values = c("#a6cee3",
+     "#1f78b4", "#b2df8a", "#33a02c", 
+     "#fb9a99", "#e31a1c", "#fdbf6f", 
+     "#ff7f00", "#cab2d6"))
+
+
+# Class 07 ####
+# Author: Anjali Silva
+# Date: 24 Nov 2022
+# Lessons: 07, 08
+
 # [End of File]
