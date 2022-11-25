@@ -1458,4 +1458,281 @@ CESdata %>%
 # Date: 24 Nov 2022
 # Lessons: 07, 08
 
+getwd()
+
+# access cleaned CES data
+# Code: https://github.com/anjalisilva/IntroductionToR/blob/main/Lessons-Rscripts/cesRdataset.R
+# Name of dataset: ces_2019_cleaned.csv
+library(tidyverse)
+CESdata <- readr::read_csv(
+  file = "data/ces_2019_cleaned.csv")
+
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice,
+                      fill = cps19_votechoice)) +
+  ggplot2::geom_bar() + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45)) +
+  ggplot2::scale_fill_manual(values = c("#a6cee3",
+                                        "#1f78b4", "#b2df8a", "#33a02c", 
+                                        "#fb9a99", "#e31a1c", "#fdbf6f", 
+                                        "#ff7f00", "#cab2d6"))
+
+# adding facets
+# Not helpful
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice,
+                      fill = cps19_votechoice)) +
+  ggplot2::geom_bar() + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45)) +
+  ggplot2::scale_fill_manual(values = c("#a6cee3",
+                                        "#1f78b4", "#b2df8a", "#33a02c", 
+                                        "#fb9a99", "#e31a1c", "#fdbf6f", 
+                                        "#ff7f00", "#cab2d6")) +
+  ggplot2::facet_wrap(facets = "cps19_votechoice") # add facet
+
+
+# let's explore CESdata$cps19_gender
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice,
+                      fill = cps19_votechoice)) +
+  ggplot2::geom_bar() + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45)) +
+  ggplot2::scale_fill_manual(values = c("#a6cee3",
+                                        "#1f78b4", "#b2df8a", "#33a02c", 
+                                        "#fb9a99", "#e31a1c", "#fdbf6f", 
+                                        "#ff7f00", "#cab2d6")) +
+  ggplot2::facet_wrap(facets = "cps19_gender") # add facet
+
+# NB category is very low
+CESdata %>%
+  dplyr::filter(cps19_gender != "NB") %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice,
+                      fill = cps19_votechoice)) +
+  ggplot2::geom_bar() + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45)) +
+  ggplot2::scale_fill_manual(values = c("#a6cee3",
+                                        "#1f78b4", "#b2df8a", "#33a02c", 
+                                        "#fb9a99", "#e31a1c", "#fdbf6f", 
+                                        "#ff7f00", "#cab2d6")) +
+  ggplot2::facet_wrap(facets = "cps19_gender") # add facet
+
+# see facet by cps19_bornin_canada
+# fix legend title
+CESdata %>%
+  ggplot2::ggplot(aes(x = cps19_votechoice,
+                      fill = cps19_votechoice)) +
+  ggplot2::geom_bar() + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019",
+    fill = "Vote choices") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45)) +
+  ggplot2::scale_fill_manual(values = c("#a6cee3",
+                                        "#1f78b4", "#b2df8a", "#33a02c", 
+                                        "#fb9a99", "#e31a1c", "#fdbf6f", 
+                                        "#ff7f00", "#cab2d6")) +
+  ggplot2::facet_wrap(facets = "cps19_bornin_canada") # add facet
+
+
+# themes
+# should be added at the very end
+?ggplot2::theme_bw
+CESdata %>%
+ggplot2::ggplot(aes(x = cps19_votechoice,
+                    fill = cps19_votechoice)) +
+  ggplot2::geom_bar() + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019",
+    fill = "Vote choices") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45)) +
+  ggplot2::scale_fill_manual(values = c("#a6cee3",
+                                        "#1f78b4", "#b2df8a", "#33a02c", 
+                                        "#fb9a99", "#e31a1c", "#fdbf6f", 
+                                        "#ff7f00", "#cab2d6")) +
+  ggplot2::facet_wrap(facets = "cps19_bornin_canada") + # add facet
+  ggplot2::theme_bw()
+
+
+# changing order of bars
+CESdata %>%
+  dplyr::pull(cps19_votechoice) %>% 
+  factor() %>% unique()
+
+# let's create a new column called
+# reOrderVotechoice with the order we like
+
+# Question on chat: how to add "Born in Canada"
+# or "Not born in Canada" insted of "Yes" or "No"
+CESdata %>%
+  dplyr::filter(cps19_bornin_canada != 
+                  "Don't know/ Prefer not to answer") %>%
+  dplyr::mutate(reOrderVotechoice = 
+        factor(cps19_votechoice,
+               level = c("Liberal Party",
+                         "Conservative Party",
+                         "NDP",
+                         "Bloc Québécois",
+                         "People's Party",
+                         "Green Party",
+                         "Another party",
+                         "<NA>"))) %>%
+  dplyr::mutate(cps19_bornin_canada_fix = forcats::fct_recode(cps19_bornin_canada,
+                                                       "Born in Canada" = "Yes",
+                                                       "Not born in Canada" = "No")) %>%
+  ggplot2::ggplot() + # initializing
+  ggplot2::geom_bar(aes(x = reOrderVotechoice,
+                        fill = reOrderVotechoice)) + # first layer
+  ggplot2::labs(
+    x = "Vote choices",
+    y = "Count",
+    title = "Count vs Vote Choices from CES 2019",
+    fill = "Vote choices") +
+  ggplot2::scale_x_discrete(guide = guide_axis(angle = 45)) +
+  ggplot2::scale_fill_manual(values = c("#a6cee3",
+                                        "#1f78b4", "#b2df8a", "#33a02c", 
+                                        "#fb9a99", "#e31a1c", "#fdbf6f", 
+                                        "#ff7f00", "#cab2d6")) +
+  ggplot2::facet_wrap(facets = "cps19_bornin_canada_fix") + # add facet
+  ggplot2::theme_bw()
+
+
+# ---
+iris
+
+iris %>%
+  ggplot2::ggplot(aes(x = Petal.Width,
+                      y = Petal.Length,
+                      fill = Species,
+                      color = Species,
+                      shape = Species)) + 
+  ggplot2::geom_point() +
+  ggplot2::geom_jitter(position = position_jitter(0.1)) + 
+  ggplot2::labs(
+    x = "Petal Width (cm)",
+    y = "Petal Length (cm)",
+    title = "Petal Width vs Petal Length") +
+  ggplot2::scale_color_manual(
+    values = c("#1f78b4", "#b2df8a", "#fb9a99")) +
+  ggplot2::scale_x_continuous(breaks = seq(0, 3, by = 0.2)) + 
+  ggplot2::theme_bw()
+  
+# types of plots
+ggplot2::geom_histogram()
+ggplot2::geom_violin()
+ggplot2::geom_boxplot()
+ggplot2::geom_density()
+ggplot2::geom_dotplot()
+
+# Break till 7.15 pm
+
+# --- --- --- --- --- ---
+# Shiny
+
+# shiny web
+# https://shiny.rstudio.com
+
+# Shiny apps have 2 components
+# 1. user interface (UI)
+# See UI Inputs/outputs
+# https://shiny.rstudio.com/reference/shiny/1.0.5/
+
+# 2. server instructions
+
+# Example
+# https://shiny.rstudio.com/gallery/kmeans-example.html
+
+# download Shiny
+install.packages("shiny")
+library("shiny")
+
+
+# --- Copy the code
+
+# k-means only works with numerical variables,
+# so don't give the user the option to select
+# a categorical variable
+vars <- setdiff(names(iris), "Species")
+
+ui <-
+pageWithSidebar(
+  headerPanel('Iris k-means clustering'),
+  sidebarPanel(
+    selectInput(inputId = 'xcol', label = 'X Variable', choices = vars),
+    selectInput('ycol', 'Y Variable', vars, selected = vars[[2]]),
+    numericInput('clusters', 'Cluster count', 3, min = 1, max = 9)
+  ),
+  mainPanel(
+    plotOutput('plot1')
+  )
+)
+
+server <- 
+function(input, output, session) {
+  
+  # Combine the selected variables into a new data frame
+  selectedData <- reactive({
+    iris[, c(input$xcol, input$ycol)]
+  })
+  
+  clusters <- reactive({
+    kmeans(selectedData(), input$clusters)
+  })
+  
+  output$plot1 <- renderPlot({
+    palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+              "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
+    
+    par(mar = c(5.1, 4.1, 0, 1))
+    plot(selectedData(),
+         col = clusters()$cluster,
+         pch = 20, cex = 3)
+    points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+  })
+  
+}
+ui
+server
+# run shiny app
+shiny::shinyApp(ui = ui, server = server)
+
+# --- Explore Shiny apps from others
+# 3 main repositories for R packages
+# CRAN, Bioconductor, GitHub
+
+# Bioconductor: shiny app R package
+# shinyMethyl 
+# Link: # https://bioconductor.org/packages/release/bioc/html/shinyMethyl.html
+
+# install.packages() is for CRAN
+install.packages("BiocManager") # CRAN
+BiocManager::install("shinyMethyl") # shinyMethyl is in Bioconductor
+library("shinyMethyl") # attach 
+ls("package:shinyMethyl") # runShinyMethyl is the shiny app
+BiocManager::install("minfiData") # only for data
+library("minfiData")
+# RGsetEx come from minfiData
+summarizedData <- shinyMethyl::shinySummarize(RGsetEx)
+shinyMethyl::runShinyMethyl(summarizedData)
+
+
+
 # [End of File]
