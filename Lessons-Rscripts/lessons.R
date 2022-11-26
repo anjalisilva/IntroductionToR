@@ -1724,6 +1724,7 @@ shiny::shinyApp(ui = ui, server = server)
 
 # install.packages() is for CRAN
 install.packages("BiocManager") # CRAN
+library("BiocManager") # CRAN
 BiocManager::install("shinyMethyl") # shinyMethyl is in Bioconductor
 library("shinyMethyl") # attach 
 ls("package:shinyMethyl") # runShinyMethyl is the shiny app
@@ -1734,5 +1735,149 @@ summarizedData <- shinyMethyl::shinySummarize(RGsetEx)
 shinyMethyl::runShinyMethyl(summarizedData)
 
 
+# Class 08 ####
+# Author: Anjali Silva
+# Date: 24 Nov 2022
+# Lessons: 08, 09, 10, 11
+
+getwd()
+# 3 repos: CRAN, Bioconductor, GitHub
+
+
+# How would you download 'genegilter' package from
+# Bioconductor?
+# URL: https://www.bioconductor.org/packages/release/bioc/html/genefilter.html
+install.packages("BiocManager") # CRAN
+library("BiocManager")
+BiocManager::install("genefilter")
+library(genefilter)
+
+
+
+# Shiny Gallery
+# https://shiny.rstudio.com/gallery/
+
+
+# --- --- --- Shiny via GitHub
+# MPLNClust: https://github.com/anjalisilva/MPLNClust
+library(shiny)
+
+install.packages("devtools") # CRAN
+library("devtools")
+# <userName>/<packageName>
+devtools::install_github("anjalisilva/MPLNClust", build_vignettes = TRUE, force = TRUE)
+library("MPLNClust")
+ls("package:MPLNClust")
+# To run the Shiny app:
+MPLNClust::runMPLNClust()
+
+
+
+
+# --- --- --- Exit Survey
+# Be sure to do the exit survey and provide your feedback. 
+# https://forms.office.com/r/uV9sGtP23p
+
+
+
+# --- --- --- Ethics
+
+# --- --- --- Informed Consent
+# IRB = institutional review boards
+# AB testing
+
+
+# Article: Experimental evidence of massive-scale emotional
+# contagion through social networks
+# https://www.pnas.org/doi/10.1073/pnas.1320040111
+
+# --- --- --- Data Ownership
+# Digital preservation policy
+# URL: https://onesearch.library.utoronto.ca/sites/default/files/utl_digital_preservation_policy_final.pdf
+
+# --- --- --- Privacy
+# URL: http://www.bigdatadialog.com/privacy/passwords-privacy-and-protection-can-apple-meet-fbis-demand-without-creating-a-backdoor
+
+# --- --- --- Anonimity  
+
+# --- --- --- Data Validity
+
+# - URL: https://orwh.od.nih.gov/sex-gender/nih-policy-sex-biological-variable 
+# - URL: CIHR has similar policies
+#   https://cihr-irsc.gc.ca/e/50833.html 
+# - NSERC also encourages inclusion of sex, if posisble.
+#   URL: https://www.nserc-crsng.gc.ca/NSERC-CRSNG/Policies-Politiques/EDI_guidance-Conseils_EDI_eng.asp
+# - SSHRC (Social Sciences and Humanities Research Council) guide: https://www.sshrc-crsh.gc.ca/funding-financement/apply-demande/guides/partnership_edi_guide-partenariats_guide_edi-eng.aspx
+
+
+# --- --- --- Algorithm Fairness
+# - URL: https://www.wsj.com/articles/SB10001424127887323777204578189391813881534
+# - URL: https://www.nytimes.com/2016/05/12/technology/facebooks-bias-is-built-in-and-bears-watching.html
+
+
+# Break until 11.00 am
+
+# --- --- --- Equity, Diversity and Inclusion (EDI)
+# Diversity
+# Inclusion
+# Equity
+# Stereotypes
+# Bias
+
+# What can we do to tackle unconsious bias?
+
+# Questions to ask?
+
+# Some useful guides: 
+# - NSERC guide: https://www.nserc-crsng.gc.ca/NSERC-CRSNG/Policies-Politiques/EDI_guidance-Conseils_EDI_eng.asp
+
+# - SSHRC (Social Sciences and Humanities Research Council) guide: https://www.sshrc-crsh.gc.ca/funding-financement/apply-demande/guides/partnership_edi_guide-partenariats_guide_edi-eng.aspx
+
+# - CIHR guide: https://cihr-irsc.gc.ca/e/52543.html
+
+# - Canadian Human Rights Act: 
+# https://laws-lois.justice.gc.ca/eng/acts/h-6/FullText.html
+
+# - The Ontario Human Rights Code:
+# https://www.ohrc.on.ca/en/ontario-human-rights-code
+
+# - Accessibility for Ontarians with Disabilities Act:
+# https://aoda.ca/free-online-training/
+
+
+# --- --- --- Professional Skills
+
+# Research Data Management
+# Tri council data management policy:
+# https://science.gc.ca/site/science/en/interagency-research-funding/policies-and-guidelines/research-data-management/tri-agency-research-data-management-policy
+
+# CHEO - Children's Hospital of Eastern Ontario 
+# Has their own data management policies
+# https://www.cheoresearch.ca/about-us/research-integrity/
+
+# University of Toronto's RDM guidelines
+# https://onesearch.library.utoronto.ca/researchdata
+
+# --- --- --- Extra
+
+# The R Journal: https://journal.r-project.org/
+
+# RStudio Education Series (free): https://education.rstudio.com/learn/
+
+# Bioconductor Workshops: https://www.bioconductor.org/help/events/
+
+# R User Groups https://jumpingrivers.github.io/meetingsR/
+
+# useR! 2022: https://user2022.r-project.org/
+
+# R-Ladies Toronto: https://www.meetup.com/rladies-toronto/
+
+# Inequity Speaker Series: https://datasciences.utoronto.ca/dsi-home/inequity-speaker-series
+
+# Toronto Data Workshop: https://rohanalexander.com/toronto_data_workshop.html
+
+# TorBug: https://torbug.org/schedule/
+
+# Data Sciences Speaker Series at U of T: https://canssiontario.utoronto.ca/events/dsssuoft/
 
 # [End of File]
