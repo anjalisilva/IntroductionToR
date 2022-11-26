@@ -1776,7 +1776,7 @@ MPLNClust::runMPLNClust()
 
 # --- --- --- Exit Survey
 # Be sure to do the exit survey and provide your feedback. 
-# https://forms.office.com/r/uV9sGtP23p
+# link shared on chat
 
 
 
